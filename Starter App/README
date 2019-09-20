@@ -1,0 +1,8 @@
+To run Chatter in XCode:
+ 1. Select the Iphone type on the top left (iPhone 7 is fine)
+ 2. (May need to download simulators separately to use them)
+ 3. Click play to build and run
+ 4. Simulator will boot iOS and load the app
+ 5. Click to interact or use Hardware menu for physical buttons
+ 6. Disable hardware -> Keyboard -> Connect Hardware Keyboard to display the on-screen keyboard
+ 7. Click stop button to close the app; Cmd+Q to close the simulator separately
