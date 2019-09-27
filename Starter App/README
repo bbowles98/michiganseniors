@@ -6,3 +6,7 @@ To run Chatter in XCode:
  5. Click to interact or use Hardware menu for physical buttons
  6. Disable hardware -> Keyboard -> Connect Hardware Keyboard to display the on-screen keyboard
  7. Click stop button to close the app; Cmd+Q to close the simulator separately
+
+ To run backend server:
+ 1. Log in to IP 159.65.251.176 with root access
+ 2. run service gunicorn restart
