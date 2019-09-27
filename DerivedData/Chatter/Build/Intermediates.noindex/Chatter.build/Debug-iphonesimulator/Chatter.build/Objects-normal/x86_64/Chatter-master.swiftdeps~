@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+options: "a9557ed6463e8d37f54a4aa0a284a3d1"
+build_time: [1569551220, 362545000]
+inputs:
+  "/Users/kevinlee/Desktop/eecs441/Chatter/Chatter/ViewController.swift": !private [1569551217, 617437441]
+  "/Users/kevinlee/Desktop/eecs441/Chatter/Chat.swift": [1569115866, 508306559]
+  "/Users/kevinlee/Desktop/eecs441/Chatter/Chatter/ChatTableCell.swift": [1569020428, 131485666]
+  "/Users/kevinlee/Desktop/eecs441/Chatter/Chatter/AppDelegate.swift": [1568991958, 985759038]
