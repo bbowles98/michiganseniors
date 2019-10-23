@@ -1,4 +1,4 @@
-val txBuilderNoNotary: TransactionBuilder = TransactionBuilder()
+val txBuilder: TransactionBuilder = TransactionBuilder()
 
 // add components to transaction builder using .withItems()
 txBuilder.withItems(
