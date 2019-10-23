@@ -6,3 +6,4 @@
 .bash_history
 *.pyc
 django_project/env/
+django_project/db.sqlite3
