@@ -1,1 +1,7 @@
 .DS_Store
+.bash_logout
+.bash_profile
+.profile
+.bashrc
+.bash_history
+*.pyc
