@@ -5,3 +5,4 @@
 .bashrc
 .bash_history
 *.pyc
+django_project/env/
