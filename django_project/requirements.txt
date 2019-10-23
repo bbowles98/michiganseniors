@@ -10,7 +10,6 @@ ipaddress==1.0.17
 keyring==10.6.0
 keyrings.alt==3.0
 netifaces==0.10.4
-psycopg2==2.7.4
 pycrypto==2.6.1
 pytz==2018.3
 pyxdg==0.25
