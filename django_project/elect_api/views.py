@@ -4,24 +4,19 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import JsonResponse
 
-from rest_framework.generics import UpdateAPIView
+from rest_framework.generics import RetrieveAPIView
 from django.db import connection
 from elect_api.serializers import ElectionSerializer
+from elect_api.models import Election
 # Create your views here.
 
-class SearchViewSet(UpdateAPIView):
+class SearchViewSet(RetrieveAPIView):
 
 	serializer_class = ElectionSerializer
 
-	def get_queryset(self):
-	# 	query = self.request.GET.get('search')
+	def get_object(self):
 		queryset = Election.objects.all()
-		print("HERE\n\n\n")
-		print(dir())
-	# 	elections = []
-	# 	for election in queryset :
-	# 		if query in election.name:
-	# 			elections.append(election)
+
 		return queryset
 
 def ViewResults(request):
@@ -37,6 +32,7 @@ def Vote(request):
 	return JsonResponse({'success': True})
 
 def CreateElection(request):
+
 
 	return JsonResponse({'election_id': 1, 'success': True})
 
