@@ -4,10 +4,10 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import JsonResponse
 
-from rest_framework import viewsets
+from rest_framework.generics import UpdateAPIView
 # Create your views here.
 
-class SearchViewSet(viewsets.ModelViewSet):
+class SearchViewSet(UpdateAPIView):
 
 	def get_queryset(self):
 	# 	query = self.request.GET.get('search')

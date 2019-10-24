@@ -19,7 +19,7 @@ from elect_api import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('search/', views.SearchViewSet),
+    url('search/', views.SearchViewSet.as_view()),
     url('register/', views.Register),
     url('vote/', views.Vote),
     url('results/', views.ViewResults),
