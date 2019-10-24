@@ -1,6 +1,8 @@
 asn1crypto==0.24.0
+cffi==1.13.1
 cryptography==2.1.4
-Django==1.11.11
+Django==1.11.23
+djangorestframework==3.9.4
 enum34==1.1.6
 gevent==1.2.2
 greenlet==0.4.12
@@ -10,6 +12,8 @@ ipaddress==1.0.17
 keyring==10.6.0
 keyrings.alt==3.0
 netifaces==0.10.4
+psycopg2==2.7.4
+pycparser==2.19
 pycrypto==2.6.1
 pytz==2018.3
 pyxdg==0.25

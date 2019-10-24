@@ -22,8 +22,8 @@ urlpatterns = [
     url('search/', views.SearchViewSet),
     url('register/', views.Register),
     url('vote/', views.Vote),
-    url('results/', views.ViewResults)
+    url('results/', views.ViewResults),
     url('election/', views.CreateElection),
     url('ballot/', views.CreateBallot),
-    url('live/', views.GoLive)
+    url('live/', views.GoLive),
 ]
