@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 from rest_framework.generics import RetrieveAPIView
+from rest_framework import filters
 from django.db import connection
 from elect_api.serializers import ElectionSerializer
 from elect_api.models import Election
@@ -12,11 +13,13 @@ from elect_api.models import Election
 
 class SearchViewSet(RetrieveAPIView):
 
+	search_fields = ['name']
+	filter_backends = (filters.SearchFilter,)
 	serializer_class = ElectionSerializer
+	queryset = Election.objects.all()
 
 	def get_object(self):
 		queryset = Election.objects.all()
-
 		return queryset
 
 def ViewResults(request):
