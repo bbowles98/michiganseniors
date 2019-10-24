@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from elect_api import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url('search/', views.SearchViewSet),
+    url('register/', views.Register),
+    url('vote/', views.Vote),
+    url('results/', views.ViewResults)
+    url('election/', views.CreateElection),
+    url('ballot/', views.CreateBallot),
+    url('live/', views.GoLive)
 ]
