@@ -17,6 +17,8 @@ Notes from Trevor about corda:
 	4. /build.gradle
 		modify the node network so that there's enough hosts so we can make quite a few elections + make a voter node
 		
+	5.Just needs API functionality so backend can request and then it works
+		
 		
 Relevant links: https://docs.corda.net/hello-world-running.html
 		https://docs.corda.net/tut-two-party-introduction.html
