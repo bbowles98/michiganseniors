@@ -8,8 +8,8 @@ Notes from Trevor about corda:
 	couldn't get it fully functional :( it's close though here's what you gotta do. 
 	1. Ignore all files in the corda folder other than those in dir "cordapp". You can delete all those loose files and "cordapp-template-kotlin" dir
 	2. Worry about 4 files: 
-		cordapp\contracts\src\main\kotlin\com\template\TemplateContract.kt
-		cordapp\contracts\src\main\kotlin\com\template\TemplateState.kt
+		cordapp\contracts\src\main\kotlin\com\template\contracts\TemplateContract.kt
+		cordapp\contracts\src\main\kotlin\com\template\states\TemplateState.kt
 		cordapp\workflows\src\main\kotlin\com\template\flows\Flows.kt
 		cordapp\build.gradle
 	3. /flows
