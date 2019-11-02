@@ -22,7 +22,7 @@ import random
 class SearchViewSet(RetrieveAPIView):
 
 	search_fields = ['name']
-	filter_backends = (filters.SearchFilter,)
+	# filter_backends = (filters.SearchFilter,)
 	serializer_class = ElectionSerializer
 	queryset = Election.objects.all()
 
@@ -77,6 +77,8 @@ def CreateElection(request):
 	if not new_election:
 		return JsonResponse({'success': False})
 
+	# Do we need to .save() the election to the database?
+
 	return JsonResponse({'election_id': new_election.pk, 'passcode': passcode, 'success': True})
 
 
@@ -113,6 +115,7 @@ def CreateBallot(request):
 			if not new_ballot_item_choice:
 				return JsonResponse({'success': False})
 
+	# Do we need to .save() the ballot and ballot choices to the database?
 
 	return JsonResponse({'success': True})
 
