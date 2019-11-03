@@ -19,9 +19,10 @@ from elect_api import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('search/', views.SearchViewSet.as_view()),
+    url('search/', views.SearchViewSet),
     url('register/', views.Register),
     url('vote/', views.Vote),
+    url('cast/', views.Cast),
     url('results/', views.ViewResults),
     url('election/', views.CreateElection),
     url('ballot/', views.CreateBallot),

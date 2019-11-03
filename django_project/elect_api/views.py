@@ -11,24 +11,28 @@ from rest_framework import filters
 from django.db import connection
 
 from django.contrib.auth.models import User
-from elect_api.serializers import ElectionSerializer
 from elect_api.models import Election, BallotItem, BallotItemChoice
 
 import random
 
 
-# Filter elections based on a search query
+# Returns all election data of elections that contain the search string, ignoring case
+@api_view(['GET'])
 @permission_classes((AllowAny, ))
-class SearchViewSet(RetrieveAPIView):
+def SearchViewSet(request):
 
-	search_fields = ['name']
-	filter_backends = (filters.SearchFilter,)
-	serializer_class = ElectionSerializer
-	queryset = Election.objects.all()
+	electionName = request.GET.get('name')
+	elections = Election.objects.filter(name__icontains=electionName)
+	response = []
+	for election in elections:
+		electionDict = {}
+		electionDict['name'] = election.name
+		electionDict['creator'] = election.creator.username
+		electionDict['passcode'] = election.passcode
+		electionDict['status'] = election.status
+		response.append(electionDict)
 
-	def get_object(self):
-		queryset = Election.objects.all()
-		return queryset
+	return JsonResponse({'election': response})
 
 
 # Get results for election based on an election id
@@ -50,9 +54,30 @@ def Register(request):
 # POST request for submitting a vote for an election
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
-def Vote(request):
+def Cast(request):
+
+	# Implement corda vote in blockchain
 
 	return JsonResponse({'success': True})
+
+
+# GET request for viewing the ballot of an election, work in progress
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def Vote(request):
+
+	code = request.GET.get('code')
+	try:
+		election = Election.objects.filter(passcode=code)[0]
+		if (election.status == False):
+			return JsonResponse({"status": "This election is not live yet"})
+
+		# return all ballots and ballot choices for this election
+
+
+	except:
+		return JsonResponse({"status": "This election does not exist"})
+
 
 
 # POST request for creating an election
@@ -89,7 +114,7 @@ def CreateBallot(request):
 	if not user:
 		return JsonResponse({'success': False})
 
-	election = Election.objects.get(pk=request.data['election_id'])
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
@@ -112,7 +137,6 @@ def CreateBallot(request):
 
 			if not new_ballot_item_choice:
 				return JsonResponse({'success': False})
-
 
 	return JsonResponse({'success': True})
 
