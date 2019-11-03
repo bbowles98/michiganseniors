@@ -11,24 +11,28 @@ from rest_framework import filters
 from django.db import connection
 
 from django.contrib.auth.models import User
-from elect_api.serializers import ElectionSerializer
 from elect_api.models import Election, BallotItem, BallotItemChoice
 
 import random
 
 
-# Filter elections based on a search query
+# Returns all election data of elections that contain the search string, ignoring case
+@api_view(['GET'])
 @permission_classes((AllowAny, ))
-class SearchViewSet(RetrieveAPIView):
+def SearchViewSet(request):
 
-	search_fields = ['name']
-	# filter_backends = (filters.SearchFilter,)
-	serializer_class = ElectionSerializer
-	queryset = Election.objects.all()
+	electionName = request.GET.get('name')
+	elections = Election.objects.filter(name__icontains=electionName)
+	response = []
+	for election in elections:
+		electionDict = {}
+		electionDict['name'] = election.name
+		electionDict['creator'] = election.creator.username
+		electionDict['passcode'] = election.passcode
+		electionDict['status'] = election.status
+		response.append(electionDict)
 
-	def get_object(self):
-		queryset = Election.objects.all()
-		return queryset
+	return JsonResponse({'election': response})
 
 
 # Get results for election based on an election id
