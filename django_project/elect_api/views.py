@@ -54,9 +54,30 @@ def Register(request):
 # POST request for submitting a vote for an election
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
-def Vote(request):
+def Cast(request):
+
+	# Implement corda vote in blockchain
 
 	return JsonResponse({'success': True})
+
+
+# GET request for viewing the ballot of an election, work in progress
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def Vote(request):
+
+	code = request.GET.get('code')
+	try:
+		election = Election.objects.filter(passcode=code)[0]
+		if (election.status == False):
+			return JsonResponse({"status": "This election is not live yet"})
+
+		# return all ballots and ballot choices for this election
+
+
+	except:
+		return JsonResponse({"status": "This election does not exist"})
+
 
 
 # POST request for creating an election
@@ -81,8 +102,6 @@ def CreateElection(request):
 	if not new_election:
 		return JsonResponse({'success': False})
 
-	# Do we need to .save() the election to the database?
-
 	return JsonResponse({'election_id': new_election.pk, 'passcode': passcode, 'success': True})
 
 
@@ -95,7 +114,7 @@ def CreateBallot(request):
 	if not user:
 		return JsonResponse({'success': False})
 
-	election = Election.objects.get(pk=request.data['election_id'])
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
@@ -118,8 +137,6 @@ def CreateBallot(request):
 
 			if not new_ballot_item_choice:
 				return JsonResponse({'success': False})
-
-	# Do we need to .save() the ballot and ballot choices to the database?
 
 	return JsonResponse({'success': True})
 
