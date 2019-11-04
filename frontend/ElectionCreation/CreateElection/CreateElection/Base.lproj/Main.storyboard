@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E7G-ph-PVK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Create Election-->
+        <scene sceneID="bcf-h6-Dm2">
+            <objects>
+                <viewController id="Dtm-WJ-qFO" customClass="CreateElectViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Za2-ZW-11N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up your election" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjF-iH-UuW">
+                                <rect key="frame" x="20" y="108" width="374" height="21"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFL-gA-543">
+                                <rect key="frame" x="20" y="244" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" restorationIdentifier="StartDate" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zVP-kH-JLj">
+                                <rect key="frame" x="20" y="275" width="374" height="216"/>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
+                                    <!--2018-09-01 10:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="GetStartDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="9oN-na-3wB"/>
+                                    <action selector="verifyDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="Mhn-by-13K"/>
+                                </connections>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" restorationIdentifier="endDate" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Afx-79-E4t">
+                                <rect key="frame" x="20" y="542" width="374" height="216"/>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
+                                    <!--2018-09-01 10:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="GetEndDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="k58-I7-F8J"/>
+                                </connections>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Election Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G1F-ht-S4l">
+                                <rect key="frame" x="80" y="139" width="254" height="34"/>
+                                <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectionName"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfW-zR-mEb">
+                                <rect key="frame" x="20" y="511" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="74V-0a-26M">
+                                <rect key="frame" x="80" y="193" width="254" height="32"/>
+                                <segments>
+                                    <segment title="PUBLIC"/>
+                                    <segment title="PRIVATE"/>
+                                </segments>
+                                <connections>
+                                    <action selector="isPublic:" destination="Dtm-WJ-qFO" eventType="valueChanged" id="8YX-fw-HAA"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zVP-kH-JLj" firstAttribute="top" secondItem="hFL-gA-543" secondAttribute="bottom" constant="10" id="0VD-0z-npm"/>
+                            <constraint firstItem="74V-0a-26M" firstAttribute="leading" secondItem="oTG-VH-zj4" secondAttribute="leading" constant="80" id="3h4-FT-As2"/>
+                            <constraint firstItem="zVP-kH-JLj" firstAttribute="leading" secondItem="oTG-VH-zj4" secondAttribute="leading" constant="20" id="4XG-42-n4Q"/>
+                            <constraint firstItem="74V-0a-26M" firstAttribute="top" secondItem="G1F-ht-S4l" secondAttribute="bottom" constant="20" id="4XG-iz-SCr"/>
+                            <constraint firstItem="oTG-VH-zj4" firstAttribute="trailing" secondItem="zVP-kH-JLj" secondAttribute="trailing" constant="20" id="A7w-3P-Ufy"/>
+                            <constraint firstItem="oTG-VH-zj4" firstAttribute="trailing" secondItem="hFL-gA-543" secondAttribute="trailing" constant="20" id="CcV-GQ-541"/>
+                            <constraint firstItem="oTG-VH-zj4" firstAttribute="trailing" secondItem="G1F-ht-S4l" secondAttribute="trailing" constant="80" id="E3K-TC-Vfg"/>
+                            <constraint firstItem="oTG-VH-zj4" firstAttribute="trailing" secondItem="kjF-iH-UuW" secondAttribute="trailing" constant="20" id="Erp-XU-0Mo"/>
+                            <constraint firstItem="hFL-gA-543" firstAttribute="top" secondItem="74V-0a-26M" secondAttribute="bottom" constant="20" id="FsJ-Bf-QIO"/>
+                            <constraint firstItem="sfW-zR-mEb" firstAttribute="leading" secondItem="oTG-VH-zj4" secondAttribute="leading" constant="20" id="IrC-Wd-qdh"/>
+                            <constraint firstItem="G1F-ht-S4l" firstAttribute="top" secondItem="kjF-iH-UuW" secondAttribute="bottom" constant="10" id="Ksn-nY-Jzs"/>
+                            <constraint firstItem="Afx-79-E4t" firstAttribute="leading" secondItem="oTG-VH-zj4" secondAttribute="leading" constant="20" id="Z8E-PJ-co6"/>
+                            <constraint firstItem="kjF-iH-UuW" firstAttribute="leading" secondItem="oTG-VH-zj4" secondAttribute="leading" constant="20" id="ZbB-hq-eC5"/>
+                            <constraint firstItem="hFL-gA-543" firstAttribute="leading" secondItem="oTG-VH-zj4" secondAttribute="leading" constant="20" id="aZR-TN-PhK"/>
+                            <constraint firstItem="oTG-VH-zj4" firstAttribute="trailing" secondItem="sfW-zR-mEb" secondAttribute="trailing" constant="20" id="cW0-KP-4y1"/>
+                            <constraint firstItem="kjF-iH-UuW" firstAttribute="top" secondItem="oTG-VH-zj4" secondAttribute="top" constant="20" id="fFK-L0-WbA"/>
+                            <constraint firstItem="oTG-VH-zj4" firstAttribute="trailing" secondItem="74V-0a-26M" secondAttribute="trailing" constant="80" id="feM-ie-Vv7"/>
+                            <constraint firstItem="G1F-ht-S4l" firstAttribute="leading" secondItem="oTG-VH-zj4" secondAttribute="leading" constant="80" id="ntJ-9p-xq8"/>
+                            <constraint firstItem="Afx-79-E4t" firstAttribute="top" secondItem="sfW-zR-mEb" secondAttribute="bottom" constant="10" id="qOi-O6-BKE"/>
+                            <constraint firstItem="sfW-zR-mEb" firstAttribute="top" secondItem="zVP-kH-JLj" secondAttribute="bottom" constant="20" id="qUR-9V-Bwa"/>
+                            <constraint firstItem="oTG-VH-zj4" firstAttribute="trailing" secondItem="Afx-79-E4t" secondAttribute="trailing" constant="20" id="xW5-G8-KxX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oTG-VH-zj4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Election" id="5g9-HN-jzy" userLabel="Create Election">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="2sF-ql-OaF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="VTx-cv-cqd">
+                            <connections>
+                                <action selector="createClicked:" destination="Dtm-WJ-qFO" id="USb-qp-rwE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ElectionName" destination="G1F-ht-S4l" id="7Gm-38-6k0"/>
+                        <outlet property="SelectedStart" destination="zVP-kH-JLj" id="jMF-br-SPy"/>
+                        <outlet property="selectedEnd" destination="Afx-79-E4t" id="MNl-gU-nA4"/>
+                        <outlet property="selectedStart" destination="zVP-kH-JLj" id="Nc1-P7-v44"/>
+                        <outlet property="viewSelector" destination="74V-0a-26M" id="7d5-Vu-lE2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faS-SH-GoQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2233" y="-1941"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="D7m-Eu-mti">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E7G-ph-PVK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bmg-De-K7x">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dtm-WJ-qFO" kind="relationship" relationship="rootViewController" id="71i-IC-api"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="55Y-S0-1S4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2975" y="-1941"/>
+        </scene>
+    </scenes>
+</document>
