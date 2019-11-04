@@ -72,8 +72,17 @@ def Vote(request):
 		if (election.status == False):
 			return JsonResponse({"status": "This election is not live yet"})
 
-		# return all ballots and ballot choices for this election
-
+		ballot_items = BallotItem.objects.filter(election=election)
+		response = []
+		for ballot_item in ballot_items:
+			ballot = {}
+			ballot_item_choices = BallotItemChoice.objects.filter(ballot_item=ballot_item)
+			choices = []
+			for ballot_item_choice in ballot_item_choices:
+				choices.append(ballot_item_choice.answer)
+			ballot[ballot_item.question] = choices
+			response.append(ballot)
+		return JsonResponse({"ballot": response})
 
 	except:
 		return JsonResponse({"status": "This election does not exist"})
@@ -150,7 +159,7 @@ def GoLive(request):
 	if not user:
 		return JsonResponse({'success': False})
 
-	election = Election.objects.get(pk=request.data['election_id'])
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
@@ -167,3 +176,25 @@ def GoLive(request):
 	election.save()
 
 	return JsonResponse({'success': True, 'live': False})
+
+
+# Returns all elections that a host has made
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def ViewElections(request):
+
+	user = User.objects.get(pk=request.user.pk)
+	if not user:
+		return JsonResponse({'success': False})
+
+	elections = Election.objects.filter(creator=user)
+	response = []
+	for election in elections:
+		electionDict = {}
+		electionDict['name'] = election.name
+		electionDict['creator'] = election.creator.username
+		electionDict['passcode'] = election.passcode
+		electionDict['status'] = election.status
+		response.append(electionDict)
+
+	return JsonResponse({'election': response})
