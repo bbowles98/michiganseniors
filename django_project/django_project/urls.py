@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 from elect_api import views
 
 urlpatterns = [
@@ -29,4 +30,6 @@ urlpatterns = [
     url('live/', views.GoLive),
     url('elections/', views.ViewElections),
     url('signup/', views.CreateAccount),
+    url('login/', obtain_jwt_token, name='login'),
+    url('login-refresh/', refresh_jwt_token, name='login-refresh'),
 ]
