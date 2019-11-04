@@ -1,5 +1,9 @@
-File Structure For eLect Skeletal: 
+Instructions to build and run:
 
+
+
+////////////////////////////////////////////////
+File Structure For eLect Skeletal: 
 michiganseniors
 |
 |--corda (under development)
@@ -16,6 +20,7 @@ michiganseniors
 |	searchForElections
 |	signIn
 /////////////////////////////////////////////////
+
 API Guide for elect
 
 The digital ocean server is located at 204.48.30.178.
