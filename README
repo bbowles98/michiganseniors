@@ -1,3 +1,21 @@
+File Structure For eLect Skeletal: 
+
+michiganseniors
+|
+|--corda (under development)
+|	cordap - all files required to run to our cordapp on backend server
+|
+|--django_project
+|	django_project- URL's, URL definitions
+|	elect_api- model definitions, api
+|
+|--frontend
+|	ElectionCreation/CreateElection
+|	eLectUI	
+|	searchAndBallot
+|	searchForElections
+|	signIn
+/////////////////////////////////////////////////
 API Guide for elect
 
 The digital ocean server is located at 204.48.30.178.
