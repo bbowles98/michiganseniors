@@ -1,28 +1,3 @@
-Instructions to run:
-	none
-	
-	
-	
-Notes from Trevor about corda:
-
-	couldn't get it fully functional :( it's close though here's what you gotta do. 
-	1. Ignore all files in the corda folder other than those in dir "cordapp". You can delete all those loose files and "cordapp-template-kotlin" dir
-	2. Worry about 4 files: 
-		cordapp\contracts\src\main\kotlin\com\template\contracts\TemplateContract.kt
-		cordapp\contracts\src\main\kotlin\com\template\states\TemplateState.kt
-		cordapp\workflows\src\main\kotlin\com\template\flows\Flows.kt
-		cordapp\build.gradle
-	3. /flows
-		figure out why Command+.owningKey aren't working. Once that works the node network can run
-	4. /build.gradle
-		modify the node network so that there's enough hosts so we can make quite a few elections + make a voter node
-		
-	5.Just needs API functionality so backend can request and then it works
-		
-		
-Relevant links: https://docs.corda.net/hello-world-running.html
-		https://docs.corda.net/tut-two-party-introduction.html
-
 API Guide for elect
 
 The digital ocean server is located at 204.48.30.178.
