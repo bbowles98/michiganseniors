@@ -15,6 +15,9 @@
 		656413E4236C969D0040D6E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656413E2236C969D0040D6E0 /* LaunchScreen.storyboard */; };
 		656413EF236C969D0040D6E0 /* eLectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656413EE236C969D0040D6E0 /* eLectUITests.swift */; };
 		656413FA236C969D0040D6E0 /* eLectUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656413F9236C969D0040D6E0 /* eLectUIUITests.swift */; };
+		E7E088BC236FBC8C001AEA3B /* election.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088BB236FBC8C001AEA3B /* election.swift */; };
+		E7E088BE236FBC9C001AEA3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E088BD236FBC9C001AEA3B /* Main.storyboard */; };
+		E7E088C0236FBCD1001AEA3B /* ballotCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088BF236FBCD1001AEA3B /* ballotCreateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		656413F5236C969D0040D6E0 /* eLectUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eLectUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		656413F9236C969D0040D6E0 /* eLectUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eLectUIUITests.swift; sourceTree = "<group>"; };
 		656413FB236C969D0040D6E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7E088BB236FBC8C001AEA3B /* election.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = election.swift; sourceTree = "<group>"; };
+		E7E088BD236FBC9C001AEA3B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../Create_Election/Main.storyboard; sourceTree = "<group>"; };
+		E7E088BF236FBCD1001AEA3B /* ballotCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ballotCreateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +108,10 @@
 				656413D7236C969B0040D6E0 /* AppDelegate.swift */,
 				656413D9236C969B0040D6E0 /* SceneDelegate.swift */,
 				656413DB236C969B0040D6E0 /* ContentView.swift */,
+				E7E088BB236FBC8C001AEA3B /* election.swift */,
+				E7E088BD236FBC9C001AEA3B /* Main.storyboard */,
 				656413DD236C969D0040D6E0 /* Assets.xcassets */,
+				E7E088BF236FBCD1001AEA3B /* ballotCreateViewController.swift */,
 				656413E2236C969D0040D6E0 /* LaunchScreen.storyboard */,
 				656413E5236C969D0040D6E0 /* Info.plist */,
 				656413DF236C969D0040D6E0 /* Preview Content */,
@@ -241,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				656413E4236C969D0040D6E0 /* LaunchScreen.storyboard in Resources */,
+				E7E088BE236FBC9C001AEA3B /* Main.storyboard in Resources */,
 				656413E1236C969D0040D6E0 /* Preview Assets.xcassets in Resources */,
 				656413DE236C969D0040D6E0 /* Assets.xcassets in Resources */,
 			);
@@ -267,6 +277,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E088BC236FBC8C001AEA3B /* election.swift in Sources */,
+				E7E088C0236FBCD1001AEA3B /* ballotCreateViewController.swift in Sources */,
 				656413D8236C969B0040D6E0 /* AppDelegate.swift in Sources */,
 				656413DA236C969B0040D6E0 /* SceneDelegate.swift in Sources */,
 				656413DC236C969B0040D6E0 /* ContentView.swift in Sources */,
