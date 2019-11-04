@@ -52,7 +52,7 @@ def ViewResults(request):
 			candidates_to_counts[vote.answer] = 0
 		candidates_to_counts[vote.answer] += 1
 	response = {}
-	for candidate, ans in candidates_to_counts.iteritems:
+	for candidate, ans in candidates_to_counts.iteritems():
 		response[candidate] = ans
 	return JsonResponse({'results': response})
 
