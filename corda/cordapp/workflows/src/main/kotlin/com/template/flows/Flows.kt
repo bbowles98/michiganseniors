@@ -28,16 +28,18 @@ class VoteFlow(val otherParty: Party,
     @Suspendable
     override fun call() {
         // We retrieve the notary identity from the network map.
+        // every time a state is consumed, its noted in the notary to take care of double voting
         val notary = serviceHub.networkMapCache.notaryIdentities[0]
 
         // We create the transaction components.
-        val outputState = VoteState(otherParty, issueVal, choiceVal)
-        val command = Command(VoteContract.Commands.Action(), ourIdentity.owningKey)
+        val outputState = VoteState(ourIdentity, otherParty, issueVal, choiceVal)
+        val command = VoteContract.Commands.Create()
+//        val command = Command(VoteContract.Commands.Action(), ourIdentity.owningKey)
 
         // We create a transaction builder and add the components.
         val txBuilder = TransactionBuilder(notary = notary)
                 .addOutputState(outputState, VoteContract.ID)
-                .addCommand(command)
+                .addCommand(command, ourIdentity.owningKey)
 
         // We sign the transaction.
         val signedTx = serviceHub.signInitialTransaction(txBuilder)

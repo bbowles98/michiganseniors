@@ -29,3 +29,8 @@ class RegisterLink(models.Model):
 
 	election = models.ForeignKey(Election, on_delete=models.CASCADE)
 	participant = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class VoteObject(models.Model):
+
+	election = models.ForeignKey(Election, on_delete=models.CASCADE)
+	answer = models.CharField(max_length=500, default="")

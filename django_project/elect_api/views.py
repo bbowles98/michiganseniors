@@ -12,7 +12,7 @@ from rest_framework import filters
 from django.db import connection
 
 from django.contrib.auth.models import User
-from elect_api.models import Election, BallotItem, BallotItemChoice
+from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject
 from elect_api.serializers import UserSerializer
 
 import random
@@ -44,7 +44,17 @@ def SearchViewSet(request):
 @permission_classes((IsAuthenticated, ))
 def ViewResults(request):
 
-	return JsonResponse({'results':[10, 9, 8]})
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	votes = VoteObject.objects.filter(election=election)
+	candidates_to_counts = {}
+	for vote in votes:
+		if vote.answer not in candidates_to_counts:
+			candidates_to_counts[vote.answer] = 0
+		candidates_to_counts[vote.answer] += 1
+	response = {}
+	for candidate, ans in candidates_to_counts.iteritems():
+		response[candidate] = ans
+	return JsonResponse({'results': response})
 
 
 # POST request for registering for an election
@@ -62,7 +72,16 @@ def Register(request):
 @permission_classes((IsAuthenticated, ))
 def Cast(request):
 
-	# Implement corda vote in blockchain
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	answer = request.data['candidate']
+
+	new_vote = VoteObject.objects.create(
+			election = election,
+			answer = answer
+		)
+
+	if not new_vote:
+		return JsonResponse({'success': False})
 
 	return JsonResponse({'success': True})
 
@@ -225,5 +244,15 @@ def CreateAccount(request):
 			return JsonResponse(serializer.data)
 
 	return JsonResponse(serializer.errors)
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated,))
+def DeleteElection(request):
+
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	election.delete()
+
+	return JsonResponse({"status": "deleted"})
 
 
