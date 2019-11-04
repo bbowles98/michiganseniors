@@ -27,4 +27,5 @@ urlpatterns = [
     url('election/', views.CreateElection),
     url('ballot/', views.CreateBallot),
     url('live/', views.GoLive),
+    url('elections/', views.ViewElections),
 ]

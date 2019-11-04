@@ -176,3 +176,25 @@ def GoLive(request):
 	election.save()
 
 	return JsonResponse({'success': True, 'live': False})
+
+
+# Returns all elections that a host has made
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def ViewElections(request):
+
+	user = User.objects.get(pk=request.user.pk)
+	if not user:
+		return JsonResponse({'success': False})
+
+	elections = Election.objects.filter(creator=user)
+	response = []
+	for election in elections:
+		electionDict = {}
+		electionDict['name'] = election.name
+		electionDict['creator'] = election.creator.username
+		electionDict['passcode'] = election.passcode
+		electionDict['status'] = election.status
+		response.append(electionDict)
+
+	return JsonResponse({'election': response})
