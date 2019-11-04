@@ -12,7 +12,7 @@ from rest_framework import filters
 from django.db import connection
 
 from django.contrib.auth.models import User
-from elect_api.models import Election, BallotItem, BallotItemChoice
+from elect_api.models import Election, BallotItem, BallotItemChoice, Vote
 from elect_api.serializers import UserSerializer
 
 import random
