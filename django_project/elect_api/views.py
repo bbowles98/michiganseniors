@@ -245,4 +245,14 @@ def CreateAccount(request):
 
 	return JsonResponse(serializer.errors)
 
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated,))
+def DeleteElection(request):
+
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	election.delete()
+
+	return JsonResponse({"status": "deleted"})
+
 
