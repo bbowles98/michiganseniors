@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.decorators import api_view, permission_classes
@@ -18,6 +19,7 @@ import random
 
 
 # Returns all election data of elections that contain the search string, ignoring case
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((AllowAny, ))
 def SearchViewSet(request):
@@ -37,6 +39,7 @@ def SearchViewSet(request):
 
 
 # Get results for election based on an election id
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def ViewResults(request):
@@ -45,6 +48,7 @@ def ViewResults(request):
 
 
 # POST request for registering for an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def Register(request):
@@ -53,6 +57,7 @@ def Register(request):
 
 
 # POST request for submitting a vote for an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def Cast(request):
@@ -63,6 +68,7 @@ def Cast(request):
 
 
 # GET request for viewing the ballot of an election, work in progress
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def Vote(request):
@@ -91,6 +97,7 @@ def Vote(request):
 
 
 # POST request for creating an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def CreateElection(request):
@@ -116,6 +123,7 @@ def CreateElection(request):
 
 
 # POST request for creating a ballot for a given election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def CreateBallot(request):
@@ -152,6 +160,7 @@ def CreateBallot(request):
 
 
 # POST request for changing the activity status of an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def GoLive(request):
@@ -180,6 +189,7 @@ def GoLive(request):
 
 
 # Returns all elections that a host has made
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def ViewElections(request):
@@ -200,6 +210,7 @@ def ViewElections(request):
 
 	return JsonResponse({'election': response})
 
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((AllowAny,))
 def CreateAccount(request):
