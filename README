@@ -52,3 +52,12 @@ To signup a new user:
 		"email": "<email>",
 		"password": "<password>"	
 	}	
+
+To cast vote:
+	Send a POST request to 204.48.30.178/cast/
+
+	Example Json
+	{
+		"election_id": "<election_id>",
+		"candidate": "<candidate>"
+	}
