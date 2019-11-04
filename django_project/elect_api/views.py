@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.decorators import api_view, permission_classes
@@ -12,11 +13,13 @@ from django.db import connection
 
 from django.contrib.auth.models import User
 from elect_api.models import Election, BallotItem, BallotItemChoice
+from elect_api.serializers import UserSerializer
 
 import random
 
 
 # Returns all election data of elections that contain the search string, ignoring case
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((AllowAny, ))
 def SearchViewSet(request):
@@ -36,6 +39,7 @@ def SearchViewSet(request):
 
 
 # Get results for election based on an election id
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def ViewResults(request):
@@ -44,6 +48,7 @@ def ViewResults(request):
 
 
 # POST request for registering for an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def Register(request):
@@ -52,6 +57,7 @@ def Register(request):
 
 
 # POST request for submitting a vote for an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def Cast(request):
@@ -62,6 +68,7 @@ def Cast(request):
 
 
 # GET request for viewing the ballot of an election, work in progress
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def Vote(request):
@@ -72,8 +79,17 @@ def Vote(request):
 		if (election.status == False):
 			return JsonResponse({"status": "This election is not live yet"})
 
-		# return all ballots and ballot choices for this election
-
+		ballot_items = BallotItem.objects.filter(election=election)
+		response = []
+		for ballot_item in ballot_items:
+			ballot = {}
+			ballot_item_choices = BallotItemChoice.objects.filter(ballot_item=ballot_item)
+			choices = []
+			for ballot_item_choice in ballot_item_choices:
+				choices.append(ballot_item_choice.answer)
+			ballot[ballot_item.question] = choices
+			response.append(ballot)
+		return JsonResponse({"ballot": response})
 
 	except:
 		return JsonResponse({"status": "This election does not exist"})
@@ -81,6 +97,7 @@ def Vote(request):
 
 
 # POST request for creating an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def CreateElection(request):
@@ -106,6 +123,7 @@ def CreateElection(request):
 
 
 # POST request for creating a ballot for a given election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def CreateBallot(request):
@@ -142,6 +160,7 @@ def CreateBallot(request):
 
 
 # POST request for changing the activity status of an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def GoLive(request):
@@ -150,7 +169,7 @@ def GoLive(request):
 	if not user:
 		return JsonResponse({'success': False})
 
-	election = Election.objects.get(pk=request.data['election_id'])
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
@@ -167,3 +186,44 @@ def GoLive(request):
 	election.save()
 
 	return JsonResponse({'success': True, 'live': False})
+
+
+# Returns all elections that a host has made
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def ViewElections(request):
+
+	user = User.objects.get(pk=request.user.pk)
+	if not user:
+		return JsonResponse({'success': False})
+
+	elections = Election.objects.filter(creator=user)
+	response = []
+	for election in elections:
+		electionDict = {}
+		electionDict['name'] = election.name
+		electionDict['creator'] = election.creator.username
+		electionDict['passcode'] = election.passcode
+		electionDict['status'] = election.status
+		response.append(electionDict)
+
+	return JsonResponse({'election': response})
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def CreateAccount(request):
+
+	if request.method != 'POST':
+		return JsonResponse({})
+
+	serializer = UserSerializer(data=request.data)
+	if serializer.is_valid():
+		user = serializer.save()
+		if user:
+			return JsonResponse(serializer.data)
+
+	return JsonResponse(serializer.errors)
+
+

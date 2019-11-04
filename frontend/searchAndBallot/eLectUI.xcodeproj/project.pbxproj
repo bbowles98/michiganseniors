@@ -7,72 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		656413D8236C969B0040D6E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656413D7236C969B0040D6E0 /* AppDelegate.swift */; };
-		656413DA236C969B0040D6E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656413D9236C969B0040D6E0 /* SceneDelegate.swift */; };
-		656413DC236C969B0040D6E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656413DB236C969B0040D6E0 /* ContentView.swift */; };
-		656413DE236C969D0040D6E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656413DD236C969D0040D6E0 /* Assets.xcassets */; };
-		656413E1236C969D0040D6E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656413E0236C969D0040D6E0 /* Preview Assets.xcassets */; };
-		656413E4236C969D0040D6E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656413E2236C969D0040D6E0 /* LaunchScreen.storyboard */; };
-		656413EF236C969D0040D6E0 /* eLectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656413EE236C969D0040D6E0 /* eLectUITests.swift */; };
-		656413FA236C969D0040D6E0 /* eLectUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656413F9236C969D0040D6E0 /* eLectUIUITests.swift */; };
-		E7E088BC236FBC8C001AEA3B /* election.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088BB236FBC8C001AEA3B /* election.swift */; };
-		E7E088BE236FBC9C001AEA3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7E088BD236FBC9C001AEA3B /* Main.storyboard */; };
-		E7E088C0236FBCD1001AEA3B /* ballotCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088BF236FBCD1001AEA3B /* ballotCreateViewController.swift */; };
+		650106AA236F739F008F9305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650106A9236F739F008F9305 /* AppDelegate.swift */; };
+		650106AC236F739F008F9305 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650106AB236F739F008F9305 /* SceneDelegate.swift */; };
+		650106AE236F739F008F9305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650106AD236F739F008F9305 /* ViewController.swift */; };
+		650106B1236F739F008F9305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650106AF236F739F008F9305 /* Main.storyboard */; };
+		650106B3236F73A0008F9305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650106B2236F73A0008F9305 /* Assets.xcassets */; };
+		650106B6236F73A0008F9305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650106B4236F73A0008F9305 /* LaunchScreen.storyboard */; };
+		650106C1236F73A0008F9305 /* eLectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650106C0236F73A0008F9305 /* eLectUITests.swift */; };
+		650106CC236F73A0008F9305 /* eLectUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650106CB236F73A0008F9305 /* eLectUIUITests.swift */; };
+		650106DA236F87FC008F9305 /* VotingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650106D9236F87FC008F9305 /* VotingOption.swift */; };
+		650106DE236F88FF008F9305 /* OptionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650106DD236F88FF008F9305 /* OptionTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		656413EB236C969D0040D6E0 /* PBXContainerItemProxy */ = {
+		650106BD236F73A0008F9305 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 656413CC236C969B0040D6E0 /* Project object */;
+			containerPortal = 6501069E236F739F008F9305 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 656413D3236C969B0040D6E0;
+			remoteGlobalIDString = 650106A5236F739F008F9305;
 			remoteInfo = eLectUI;
 		};
-		656413F6236C969D0040D6E0 /* PBXContainerItemProxy */ = {
+		650106C8236F73A0008F9305 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 656413CC236C969B0040D6E0 /* Project object */;
+			containerPortal = 6501069E236F739F008F9305 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 656413D3236C969B0040D6E0;
+			remoteGlobalIDString = 650106A5236F739F008F9305;
 			remoteInfo = eLectUI;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		656413D4236C969B0040D6E0 /* eLectUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eLectUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		656413D7236C969B0040D6E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		656413D9236C969B0040D6E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		656413DB236C969B0040D6E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		656413DD236C969D0040D6E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		656413E0236C969D0040D6E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		656413E3236C969D0040D6E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		656413E5236C969D0040D6E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		656413EA236C969D0040D6E0 /* eLectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eLectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		656413EE236C969D0040D6E0 /* eLectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eLectUITests.swift; sourceTree = "<group>"; };
-		656413F0236C969D0040D6E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		656413F5236C969D0040D6E0 /* eLectUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eLectUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		656413F9236C969D0040D6E0 /* eLectUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eLectUIUITests.swift; sourceTree = "<group>"; };
-		656413FB236C969D0040D6E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7E088BB236FBC8C001AEA3B /* election.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = election.swift; sourceTree = "<group>"; };
-		E7E088BD236FBC9C001AEA3B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../Create_Election/Main.storyboard; sourceTree = "<group>"; };
-		E7E088BF236FBCD1001AEA3B /* ballotCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ballotCreateViewController.swift; sourceTree = "<group>"; };
+		650106A6236F739F008F9305 /* eLectUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eLectUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		650106A9236F739F008F9305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		650106AB236F739F008F9305 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		650106AD236F739F008F9305 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		650106B0236F739F008F9305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		650106B2236F73A0008F9305 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		650106B5236F73A0008F9305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		650106B7236F73A0008F9305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650106BC236F73A0008F9305 /* eLectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eLectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		650106C0236F73A0008F9305 /* eLectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eLectUITests.swift; sourceTree = "<group>"; };
+		650106C2236F73A0008F9305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650106C7236F73A0008F9305 /* eLectUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eLectUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		650106CB236F73A0008F9305 /* eLectUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eLectUIUITests.swift; sourceTree = "<group>"; };
+		650106CD236F73A0008F9305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		650106D9236F87FC008F9305 /* VotingOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingOption.swift; sourceTree = "<group>"; };
+		650106DD236F88FF008F9305 /* OptionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		656413D1236C969B0040D6E0 /* Frameworks */ = {
+		650106A3236F739F008F9305 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		656413E7236C969D0040D6E0 /* Frameworks */ = {
+		650106B9236F73A0008F9305 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		656413F2236C969D0040D6E0 /* Frameworks */ = {
+		650106C4236F73A0008F9305 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -82,65 +80,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		656413CB236C969B0040D6E0 = {
+		6501069D236F739F008F9305 = {
 			isa = PBXGroup;
 			children = (
-				656413D6236C969B0040D6E0 /* eLectUI */,
-				656413ED236C969D0040D6E0 /* eLectUITests */,
-				656413F8236C969D0040D6E0 /* eLectUIUITests */,
-				656413D5236C969B0040D6E0 /* Products */,
+				650106A8236F739F008F9305 /* eLectUI */,
+				650106BF236F73A0008F9305 /* eLectUITests */,
+				650106CA236F73A0008F9305 /* eLectUIUITests */,
+				650106A7236F739F008F9305 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		656413D5236C969B0040D6E0 /* Products */ = {
+		650106A7236F739F008F9305 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				656413D4236C969B0040D6E0 /* eLectUI.app */,
-				656413EA236C969D0040D6E0 /* eLectUITests.xctest */,
-				656413F5236C969D0040D6E0 /* eLectUIUITests.xctest */,
+				650106A6236F739F008F9305 /* eLectUI.app */,
+				650106BC236F73A0008F9305 /* eLectUITests.xctest */,
+				650106C7236F73A0008F9305 /* eLectUIUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		656413D6236C969B0040D6E0 /* eLectUI */ = {
+		650106A8236F739F008F9305 /* eLectUI */ = {
 			isa = PBXGroup;
 			children = (
-				656413D7236C969B0040D6E0 /* AppDelegate.swift */,
-				656413D9236C969B0040D6E0 /* SceneDelegate.swift */,
-				656413DB236C969B0040D6E0 /* ContentView.swift */,
-				E7E088BB236FBC8C001AEA3B /* election.swift */,
-				E7E088BD236FBC9C001AEA3B /* Main.storyboard */,
-				656413DD236C969D0040D6E0 /* Assets.xcassets */,
-				E7E088BF236FBCD1001AEA3B /* ballotCreateViewController.swift */,
-				656413E2236C969D0040D6E0 /* LaunchScreen.storyboard */,
-				656413E5236C969D0040D6E0 /* Info.plist */,
-				656413DF236C969D0040D6E0 /* Preview Content */,
+				650106A9236F739F008F9305 /* AppDelegate.swift */,
+				650106AB236F739F008F9305 /* SceneDelegate.swift */,
+				650106AD236F739F008F9305 /* ViewController.swift */,
+				650106AF236F739F008F9305 /* Main.storyboard */,
+				650106B2236F73A0008F9305 /* Assets.xcassets */,
+				650106B4236F73A0008F9305 /* LaunchScreen.storyboard */,
+				650106B7236F73A0008F9305 /* Info.plist */,
+				650106D9236F87FC008F9305 /* VotingOption.swift */,
+				650106DD236F88FF008F9305 /* OptionTableCell.swift */,
 			);
 			path = eLectUI;
 			sourceTree = "<group>";
 		};
-		656413DF236C969D0040D6E0 /* Preview Content */ = {
+		650106BF236F73A0008F9305 /* eLectUITests */ = {
 			isa = PBXGroup;
 			children = (
-				656413E0236C969D0040D6E0 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		656413ED236C969D0040D6E0 /* eLectUITests */ = {
-			isa = PBXGroup;
-			children = (
-				656413EE236C969D0040D6E0 /* eLectUITests.swift */,
-				656413F0236C969D0040D6E0 /* Info.plist */,
+				650106C0236F73A0008F9305 /* eLectUITests.swift */,
+				650106C2236F73A0008F9305 /* Info.plist */,
 			);
 			path = eLectUITests;
 			sourceTree = "<group>";
 		};
-		656413F8236C969D0040D6E0 /* eLectUIUITests */ = {
+		650106CA236F73A0008F9305 /* eLectUIUITests */ = {
 			isa = PBXGroup;
 			children = (
-				656413F9236C969D0040D6E0 /* eLectUIUITests.swift */,
-				656413FB236C969D0040D6E0 /* Info.plist */,
+				650106CB236F73A0008F9305 /* eLectUIUITests.swift */,
+				650106CD236F73A0008F9305 /* Info.plist */,
 			);
 			path = eLectUIUITests;
 			sourceTree = "<group>";
@@ -148,13 +137,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		656413D3236C969B0040D6E0 /* eLectUI */ = {
+		650106A5236F739F008F9305 /* eLectUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 656413FE236C969D0040D6E0 /* Build configuration list for PBXNativeTarget "eLectUI" */;
+			buildConfigurationList = 650106D0236F73A0008F9305 /* Build configuration list for PBXNativeTarget "eLectUI" */;
 			buildPhases = (
-				656413D0236C969B0040D6E0 /* Sources */,
-				656413D1236C969B0040D6E0 /* Frameworks */,
-				656413D2236C969B0040D6E0 /* Resources */,
+				650106A2236F739F008F9305 /* Sources */,
+				650106A3236F739F008F9305 /* Frameworks */,
+				650106A4236F739F008F9305 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -162,69 +151,69 @@
 			);
 			name = eLectUI;
 			productName = eLectUI;
-			productReference = 656413D4236C969B0040D6E0 /* eLectUI.app */;
+			productReference = 650106A6236F739F008F9305 /* eLectUI.app */;
 			productType = "com.apple.product-type.application";
 		};
-		656413E9236C969D0040D6E0 /* eLectUITests */ = {
+		650106BB236F73A0008F9305 /* eLectUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65641401236C969D0040D6E0 /* Build configuration list for PBXNativeTarget "eLectUITests" */;
+			buildConfigurationList = 650106D3236F73A0008F9305 /* Build configuration list for PBXNativeTarget "eLectUITests" */;
 			buildPhases = (
-				656413E6236C969D0040D6E0 /* Sources */,
-				656413E7236C969D0040D6E0 /* Frameworks */,
-				656413E8236C969D0040D6E0 /* Resources */,
+				650106B8236F73A0008F9305 /* Sources */,
+				650106B9236F73A0008F9305 /* Frameworks */,
+				650106BA236F73A0008F9305 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				656413EC236C969D0040D6E0 /* PBXTargetDependency */,
+				650106BE236F73A0008F9305 /* PBXTargetDependency */,
 			);
 			name = eLectUITests;
 			productName = eLectUITests;
-			productReference = 656413EA236C969D0040D6E0 /* eLectUITests.xctest */;
+			productReference = 650106BC236F73A0008F9305 /* eLectUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		656413F4236C969D0040D6E0 /* eLectUIUITests */ = {
+		650106C6236F73A0008F9305 /* eLectUIUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65641404236C969D0040D6E0 /* Build configuration list for PBXNativeTarget "eLectUIUITests" */;
+			buildConfigurationList = 650106D6236F73A0008F9305 /* Build configuration list for PBXNativeTarget "eLectUIUITests" */;
 			buildPhases = (
-				656413F1236C969D0040D6E0 /* Sources */,
-				656413F2236C969D0040D6E0 /* Frameworks */,
-				656413F3236C969D0040D6E0 /* Resources */,
+				650106C3236F73A0008F9305 /* Sources */,
+				650106C4236F73A0008F9305 /* Frameworks */,
+				650106C5236F73A0008F9305 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				656413F7236C969D0040D6E0 /* PBXTargetDependency */,
+				650106C9236F73A0008F9305 /* PBXTargetDependency */,
 			);
 			name = eLectUIUITests;
 			productName = eLectUIUITests;
-			productReference = 656413F5236C969D0040D6E0 /* eLectUIUITests.xctest */;
+			productReference = 650106C7236F73A0008F9305 /* eLectUIUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		656413CC236C969B0040D6E0 /* Project object */ = {
+		6501069E236F739F008F9305 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Grace Economou";
 				TargetAttributes = {
-					656413D3236C969B0040D6E0 = {
+					650106A5236F739F008F9305 = {
 						CreatedOnToolsVersion = 11.1;
 					};
-					656413E9236C969D0040D6E0 = {
+					650106BB236F73A0008F9305 = {
 						CreatedOnToolsVersion = 11.1;
-						TestTargetID = 656413D3236C969B0040D6E0;
+						TestTargetID = 650106A5236F739F008F9305;
 					};
-					656413F4236C969D0040D6E0 = {
+					650106C6236F73A0008F9305 = {
 						CreatedOnToolsVersion = 11.1;
-						TestTargetID = 656413D3236C969B0040D6E0;
+						TestTargetID = 650106A5236F739F008F9305;
 					};
 				};
 			};
-			buildConfigurationList = 656413CF236C969B0040D6E0 /* Build configuration list for PBXProject "eLectUI" */;
+			buildConfigurationList = 650106A1236F739F008F9305 /* Build configuration list for PBXProject "eLectUI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -232,38 +221,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 656413CB236C969B0040D6E0;
-			productRefGroup = 656413D5236C969B0040D6E0 /* Products */;
+			mainGroup = 6501069D236F739F008F9305;
+			productRefGroup = 650106A7236F739F008F9305 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				656413D3236C969B0040D6E0 /* eLectUI */,
-				656413E9236C969D0040D6E0 /* eLectUITests */,
-				656413F4236C969D0040D6E0 /* eLectUIUITests */,
+				650106A5236F739F008F9305 /* eLectUI */,
+				650106BB236F73A0008F9305 /* eLectUITests */,
+				650106C6236F73A0008F9305 /* eLectUIUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		656413D2236C969B0040D6E0 /* Resources */ = {
+		650106A4236F739F008F9305 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656413E4236C969D0040D6E0 /* LaunchScreen.storyboard in Resources */,
-				E7E088BE236FBC9C001AEA3B /* Main.storyboard in Resources */,
-				656413E1236C969D0040D6E0 /* Preview Assets.xcassets in Resources */,
-				656413DE236C969D0040D6E0 /* Assets.xcassets in Resources */,
+				650106B6236F73A0008F9305 /* LaunchScreen.storyboard in Resources */,
+				650106B3236F73A0008F9305 /* Assets.xcassets in Resources */,
+				650106B1236F739F008F9305 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		656413E8236C969D0040D6E0 /* Resources */ = {
+		650106BA236F73A0008F9305 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		656413F3236C969D0040D6E0 /* Resources */ = {
+		650106C5236F73A0008F9305 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,54 +261,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		656413D0236C969B0040D6E0 /* Sources */ = {
+		650106A2236F739F008F9305 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E088BC236FBC8C001AEA3B /* election.swift in Sources */,
-				E7E088C0236FBCD1001AEA3B /* ballotCreateViewController.swift in Sources */,
-				656413D8236C969B0040D6E0 /* AppDelegate.swift in Sources */,
-				656413DA236C969B0040D6E0 /* SceneDelegate.swift in Sources */,
-				656413DC236C969B0040D6E0 /* ContentView.swift in Sources */,
+				650106AE236F739F008F9305 /* ViewController.swift in Sources */,
+				650106DE236F88FF008F9305 /* OptionTableCell.swift in Sources */,
+				650106DA236F87FC008F9305 /* VotingOption.swift in Sources */,
+				650106AA236F739F008F9305 /* AppDelegate.swift in Sources */,
+				650106AC236F739F008F9305 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		656413E6236C969D0040D6E0 /* Sources */ = {
+		650106B8236F73A0008F9305 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656413EF236C969D0040D6E0 /* eLectUITests.swift in Sources */,
+				650106C1236F73A0008F9305 /* eLectUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		656413F1236C969D0040D6E0 /* Sources */ = {
+		650106C3236F73A0008F9305 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656413FA236C969D0040D6E0 /* eLectUIUITests.swift in Sources */,
+				650106CC236F73A0008F9305 /* eLectUIUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		656413EC236C969D0040D6E0 /* PBXTargetDependency */ = {
+		650106BE236F73A0008F9305 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 656413D3236C969B0040D6E0 /* eLectUI */;
-			targetProxy = 656413EB236C969D0040D6E0 /* PBXContainerItemProxy */;
+			target = 650106A5236F739F008F9305 /* eLectUI */;
+			targetProxy = 650106BD236F73A0008F9305 /* PBXContainerItemProxy */;
 		};
-		656413F7236C969D0040D6E0 /* PBXTargetDependency */ = {
+		650106C9236F73A0008F9305 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 656413D3236C969B0040D6E0 /* eLectUI */;
-			targetProxy = 656413F6236C969D0040D6E0 /* PBXContainerItemProxy */;
+			target = 650106A5236F739F008F9305 /* eLectUI */;
+			targetProxy = 650106C8236F73A0008F9305 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		656413E2236C969D0040D6E0 /* LaunchScreen.storyboard */ = {
+		650106AF236F739F008F9305 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				656413E3236C969D0040D6E0 /* Base */,
+				650106B0236F739F008F9305 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		650106B4236F73A0008F9305 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				650106B5236F73A0008F9305 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -328,7 +324,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		656413FC236C969D0040D6E0 /* Debug */ = {
+		650106CE236F73A0008F9305 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -388,7 +384,7 @@
 			};
 			name = Debug;
 		};
-		656413FD236C969D0040D6E0 /* Release */ = {
+		650106CF236F73A0008F9305 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -442,14 +438,13 @@
 			};
 			name = Release;
 		};
-		656413FF236C969D0040D6E0 /* Debug */ = {
+		650106D1236F73A0008F9305 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"eLectUI/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = eLectUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,14 +456,13 @@
 			};
 			name = Debug;
 		};
-		65641400236C969D0040D6E0 /* Release */ = {
+		650106D2236F73A0008F9305 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"eLectUI/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = eLectUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,7 +474,7 @@
 			};
 			name = Release;
 		};
-		65641402236C969D0040D6E0 /* Debug */ = {
+		650106D4236F73A0008F9305 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -501,7 +495,7 @@
 			};
 			name = Debug;
 		};
-		65641403236C969D0040D6E0 /* Release */ = {
+		650106D5236F73A0008F9305 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -522,7 +516,7 @@
 			};
 			name = Release;
 		};
-		65641405236C969D0040D6E0 /* Debug */ = {
+		650106D7236F73A0008F9305 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -541,7 +535,7 @@
 			};
 			name = Debug;
 		};
-		65641406236C969D0040D6E0 /* Release */ = {
+		650106D8236F73A0008F9305 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -563,43 +557,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		656413CF236C969B0040D6E0 /* Build configuration list for PBXProject "eLectUI" */ = {
+		650106A1236F739F008F9305 /* Build configuration list for PBXProject "eLectUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				656413FC236C969D0040D6E0 /* Debug */,
-				656413FD236C969D0040D6E0 /* Release */,
+				650106CE236F73A0008F9305 /* Debug */,
+				650106CF236F73A0008F9305 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		656413FE236C969D0040D6E0 /* Build configuration list for PBXNativeTarget "eLectUI" */ = {
+		650106D0236F73A0008F9305 /* Build configuration list for PBXNativeTarget "eLectUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				656413FF236C969D0040D6E0 /* Debug */,
-				65641400236C969D0040D6E0 /* Release */,
+				650106D1236F73A0008F9305 /* Debug */,
+				650106D2236F73A0008F9305 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65641401236C969D0040D6E0 /* Build configuration list for PBXNativeTarget "eLectUITests" */ = {
+		650106D3236F73A0008F9305 /* Build configuration list for PBXNativeTarget "eLectUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65641402236C969D0040D6E0 /* Debug */,
-				65641403236C969D0040D6E0 /* Release */,
+				650106D4236F73A0008F9305 /* Debug */,
+				650106D5236F73A0008F9305 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65641404236C969D0040D6E0 /* Build configuration list for PBXNativeTarget "eLectUIUITests" */ = {
+		650106D6236F73A0008F9305 /* Build configuration list for PBXNativeTarget "eLectUIUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65641405236C969D0040D6E0 /* Debug */,
-				65641406236C969D0040D6E0 /* Release */,
+				650106D7236F73A0008F9305 /* Debug */,
+				650106D8236F73A0008F9305 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 656413CC236C969B0040D6E0 /* Project object */;
+	rootObject = 6501069E236F739F008F9305 /* Project object */;
 }

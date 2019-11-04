@@ -22,4 +22,58 @@ Notes from Trevor about corda:
 		
 Relevant links: https://docs.corda.net/hello-world-running.html
 		https://docs.corda.net/tut-two-party-introduction.html
-		
+
+API Guide for elect
+
+The digital ocean server is located at 204.48.30.178.
+
+To create an election:
+	Send a POST request to 204.48.30.178/election containing the name of the 	election
+
+	Example Json
+	{
+		"name": "The best election ever"
+	}
+
+To search for an election:
+	Send a GET request to 204.48.30.178/search?name=<search_string>
+	
+	search will return all elections that contain the search_string
+	
+To create a ballot for an election
+	Send a POST request to 204.48.30.178/ballot
+
+	Example Json
+	{
+		"election_id": “<election_passcode>“,
+		"ballot_items": [{"question": “<example question>”, "choices" :[“<answer1>“, “<answer2>“, “<answer3>”]}]
+	}
+
+To make an election live to allow voting:
+	Send a POST request to 204.48.30.178/live
+
+	Example Json
+	{
+		"election_id": “<election_id>“,
+		"active": "yes"
+	}
+
+To view elections that the logged in user owns:
+	Send a GET request to 204.48.30.178/elections
+
+	This will return the list of all elections that the user is hosting
+
+To get the voting page for an election:
+	Send a GET request to 204.48.30.178/vote?code=<election_passcode>
+
+	This will return the info for the ballot for the election, specified by election_passcode	
+
+To signup a new user:
+	Send a POST request to 204.48.30.178/signup
+
+	Example Json
+	{
+		"username": "<username>",
+		"email": "<email>",
+		"password": "<password>"	
+	}	
