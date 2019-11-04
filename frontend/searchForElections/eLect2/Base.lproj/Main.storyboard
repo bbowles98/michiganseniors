@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8mw-o2-aZ2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8mw-o2-aZ2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,11 +57,127 @@
                     <connections>
                         <outlet property="searchBar" destination="QLG-kB-LhE" id="Aj3-nL-IUa"/>
                         <outlet property="tblView" destination="cGA-pW-YUK" id="8Nw-U9-FVZ"/>
+                        <segue destination="wNw-ci-upF" kind="show" identifier="segue" id="gK0-3w-1K0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1te-wE-oeR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1842.0289855072465" y="811.60714285714278"/>
+        </scene>
+        <!--ViewBallot-->
+        <scene sceneID="nHP-95-okZ">
+            <objects>
+                <viewController storyboardIdentifier="VoteReady" title="ViewBallot" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wNw-ci-upF" customClass="VoteReadyController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lJp-3L-TQH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Election Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYY-pJ-YQe">
+                                <rect key="frame" x="100" y="108" width="214" height="20.5"/>
+                                <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7X-Nz-Ylb">
+                                <rect key="frame" x="20" y="148.5" width="83" height="21"/>
+                                <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFb-ZZ-QEg">
+                                <rect key="frame" x="308.5" y="148.5" width="85.5" height="20.5"/>
+                                <accessibility key="accessibilityConfiguration" identifier="HostName"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Here are some super helpful notes and rules for this here election." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MLy-UG-tmH">
+                                <rect key="frame" x="80" y="250" width="254" height="212"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lFb-ZZ-QEg" firstAttribute="top" secondItem="rYY-pJ-YQe" secondAttribute="bottom" constant="20" id="3aE-qb-Vc4"/>
+                            <constraint firstItem="MLy-UG-tmH" firstAttribute="top" secondItem="n7X-Nz-Ylb" secondAttribute="bottom" constant="80" id="9dH-IL-mR8"/>
+                            <constraint firstItem="rYY-pJ-YQe" firstAttribute="top" secondItem="7oc-sP-Si7" secondAttribute="top" constant="20" id="CE4-of-MxN"/>
+                            <constraint firstItem="7oc-sP-Si7" firstAttribute="trailing" secondItem="MLy-UG-tmH" secondAttribute="trailing" constant="80" id="H8X-zx-b24"/>
+                            <constraint firstItem="7oc-sP-Si7" firstAttribute="trailing" secondItem="lFb-ZZ-QEg" secondAttribute="trailing" constant="20" id="KiX-9k-cTa"/>
+                            <constraint firstItem="7oc-sP-Si7" firstAttribute="trailing" secondItem="rYY-pJ-YQe" secondAttribute="trailing" constant="100" id="LVb-Ee-KAn"/>
+                            <constraint firstItem="MLy-UG-tmH" firstAttribute="leading" secondItem="7oc-sP-Si7" secondAttribute="leading" constant="80" id="W1Q-DL-wGl"/>
+                            <constraint firstItem="n7X-Nz-Ylb" firstAttribute="leading" secondItem="7oc-sP-Si7" secondAttribute="leading" constant="20" id="bq5-lr-NFR"/>
+                            <constraint firstItem="rYY-pJ-YQe" firstAttribute="leading" secondItem="7oc-sP-Si7" secondAttribute="leading" constant="100" id="oRG-Z8-WWO"/>
+                            <constraint firstItem="n7X-Nz-Ylb" firstAttribute="top" secondItem="rYY-pJ-YQe" secondAttribute="bottom" constant="20" id="vo5-Fo-1J4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7oc-sP-Si7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Vote Prep" id="fWN-dL-fX6">
+                        <barButtonItem key="rightBarButtonItem" title="Continue" id="CSr-BQ-vaD">
+                            <connections>
+                                <segue destination="rXh-8D-Nvv" kind="show" id="WUE-gg-Moj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="Host" destination="lFb-ZZ-QEg" id="9Df-28-FSc"/>
+                        <outlet property="name" destination="rYY-pJ-YQe" id="ExZ-4h-KSp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XBO-NR-3WS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3440.579710144928" y="811.60714285714278"/>
+        </scene>
+        <!--Ballot-->
+        <scene sceneID="sYX-JE-ttz">
+            <objects>
+                <viewController storyboardIdentifier="CastVote" id="rXh-8D-Nvv" customClass="CastVoteViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N4B-Qk-cZ6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Z5Y-Ga-uAM"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ballot" id="OY5-z3-xbC">
+                        <barButtonItem key="rightBarButtonItem" title="Cast Vote" id="ebg-9m-DTo">
+                            <connections>
+                                <action selector="onClickCastVote:" destination="rXh-8D-Nvv" id="sHi-JX-UAK"/>
+                                <segue destination="rnb-I8-aTN" kind="modal" identifier="nextView" id="Ctx-52-X0D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJQ-4v-XG1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4859" y="809"/>
+        </scene>
+        <!--Vote Complete-->
+        <scene sceneID="37R-sI-u6c">
+            <objects>
+                <viewController id="rnb-I8-aTN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XDW-Mg-LXz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your vote has been received" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIQ-0L-RYk">
+                                <rect key="frame" x="102" y="198" width="211" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="xqD-VM-UEu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Vote Complete" id="a74-vh-0aO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L1j-9r-9L6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5655" y="803"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e0D-vt-mYb">
@@ -81,5 +197,46 @@
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="811.60714285714278"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ecc-N6-AGz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gbK-8m-dTp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="w0B-oL-584"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sHd-z3-SJQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wNw-ci-upF" kind="relationship" relationship="rootViewController" id="xCf-1h-4K8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahg-vQ-bx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2690" y="1179"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sXQ-2c-nAJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gSv-ny-Ywd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bcm-dU-yQA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rXh-8D-Nvv" kind="relationship" relationship="rootViewController" id="NWb-Jy-Q8n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uom-Pa-ead" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4169.5652173913049" y="808.92857142857144"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WUE-gg-Moj"/>
+        <segue reference="gK0-3w-1K0"/>
+    </inferredMetricsTieBreakers>
 </document>

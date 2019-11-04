@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.decorators import api_view, permission_classes
@@ -11,12 +12,14 @@ from rest_framework import filters
 from django.db import connection
 
 from django.contrib.auth.models import User
-from elect_api.models import Election, BallotItem, BallotItemChoice
+from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject
+from elect_api.serializers import UserSerializer
 
 import random
 
 
 # Returns all election data of elections that contain the search string, ignoring case
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((AllowAny, ))
 def SearchViewSet(request):
@@ -36,14 +39,26 @@ def SearchViewSet(request):
 
 
 # Get results for election based on an election id
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def ViewResults(request):
 
-	return JsonResponse({'results':[10, 9, 8]})
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	votes = VoteObject.objects.filter(election=election)
+	candidates_to_counts = {}
+	for vote in votes:
+		if vote.answer not in candidates_to_counts:
+			candidates_to_counts[vote.answer] = 0
+		candidates_to_counts[vote.answer] += 1
+	response = {}
+	for candidate, ans in candidates_to_counts.iteritems():
+		response[candidate] = ans
+	return JsonResponse({'results': response})
 
 
 # POST request for registering for an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def Register(request):
@@ -52,16 +67,27 @@ def Register(request):
 
 
 # POST request for submitting a vote for an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def Cast(request):
 
-	# Implement corda vote in blockchain
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	answer = request.data['candidate']
+
+	new_vote = VoteObject.objects.create(
+			election = election,
+			answer = answer
+		)
+
+	if not new_vote:
+		return JsonResponse({'success': False})
 
 	return JsonResponse({'success': True})
 
 
 # GET request for viewing the ballot of an election, work in progress
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def Vote(request):
@@ -90,6 +116,7 @@ def Vote(request):
 
 
 # POST request for creating an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def CreateElection(request):
@@ -115,6 +142,7 @@ def CreateElection(request):
 
 
 # POST request for creating a ballot for a given election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def CreateBallot(request):
@@ -151,6 +179,7 @@ def CreateBallot(request):
 
 
 # POST request for changing the activity status of an election
+@csrf_exempt
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, ))
 def GoLive(request):
@@ -179,6 +208,7 @@ def GoLive(request):
 
 
 # Returns all elections that a host has made
+@csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def ViewElections(request):
@@ -198,3 +228,31 @@ def ViewElections(request):
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def CreateAccount(request):
+
+	if request.method != 'POST':
+		return JsonResponse({})
+
+	serializer = UserSerializer(data=request.data)
+	if serializer.is_valid():
+		user = serializer.save()
+		if user:
+			return JsonResponse(serializer.data)
+
+	return JsonResponse(serializer.errors)
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated,))
+def DeleteElection(request):
+
+	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	election.delete()
+
+	return JsonResponse({"status": "deleted"})
+
+
