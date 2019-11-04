@@ -12,6 +12,7 @@ from django.db import connection
 
 from django.contrib.auth.models import User
 from elect_api.models import Election, BallotItem, BallotItemChoice
+from elect_api.serializers import UserSerializer
 
 import random
 
@@ -198,3 +199,20 @@ def ViewElections(request):
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
+
+@api_view(['POST'])
+@permission_classes((AllowAny,))
+def CreateAccount(request):
+
+	if request.method != 'POST':
+		return JsonResponse({})
+
+	serializer = UserSerializer(data=request.data)
+	if serializer.is_valid():
+		user = serializer.save()
+		if user:
+			return JsonResponse(serializer.data)
+
+	return JsonResponse(serializer.errors)
+
+
