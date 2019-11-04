@@ -25,6 +25,8 @@ class SearchViewController: UIViewController {
     
     var results = [String]()
     var searching = false
+    var selectedElect = 0
+    var electionID = ""
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
@@ -36,6 +38,28 @@ class SearchViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedElect = indexPath.row
+        performSegue(withIdentifier: "segue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is VoteReadyController
+        {
+            let vc = segue.destination as? VoteReadyController
+            vc!.electionID = electionID
+            if (searching) {
+                vc!.electionName = results[selectedElect]
+                vc!.hostName = results[selectedElect]
+            }
+            else {
+                vc!.electionName = data[selectedElect]
+                vc!.hostName = data[selectedElect]
+            }
+        }
     }
 }
 
@@ -59,8 +83,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
-    
-    
 }
 
 extension SearchViewController: UISearchBarDelegate {
