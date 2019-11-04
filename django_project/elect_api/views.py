@@ -12,7 +12,7 @@ from rest_framework import filters
 from django.db import connection
 
 from django.contrib.auth.models import User
-from elect_api.models import Election, BallotItem, BallotItemChoice, Vote
+from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject
 from elect_api.serializers import UserSerializer
 
 import random
@@ -45,7 +45,7 @@ def SearchViewSet(request):
 def ViewResults(request):
 
 	election = Election.objects.filter(passcode=request.data['election_id'])[0]
-	votes = Vote.objects.filter(election=election)
+	votes = VoteObject.objects.filter(election=election)
 	candidates_to_counts = {}
 	for vote in votes:
 		if vote.answer not in candidates_to_counts:
@@ -75,7 +75,7 @@ def Cast(request):
 	election = Election.objects.filter(passcode=request.data['election_id'])[0]
 	answer = request.data['candidate']
 
-	new_vote = Vote.objects.create(
+	new_vote = VoteObject.objects.create(
 			election = election,
 			answer = answer
 		)
