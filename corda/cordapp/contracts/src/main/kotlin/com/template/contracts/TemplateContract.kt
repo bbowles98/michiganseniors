@@ -37,8 +37,8 @@ class VoteContract : Contract {
         when (command.value) {
             is Commands.Register -> {
                 // contract requirements when registering in an election
+                // implement voter authentication/registration for MVP
                 requireThat{
-//                    "user is a required signer" using (command.signers.contains(output.host.owningKey))
                 }
             }
 
@@ -46,8 +46,8 @@ class VoteContract : Contract {
                 //contract requirements when voting in election
                 requireThat{
                     // Constraints on the shape of the transaction.
-                    "No inputs should be consumed when issuing a vote" using (tx.inputs.isEmpty())
-//                    "There should be one output state of type VoteState" using (tx.outputs.size == 1)
+                    "Should have 3 inputs " using (tx.inputs.size == 3)
+                    "Input size should be the same as output size" using (tx.outputs.size == tx.inputs.size)
 
                     // Content constraints
                     "The votevalue must be non-negative." using (output.choice > 0)

@@ -12,7 +12,7 @@ import net.corda.core.identity.Party
 @BelongsToContract(VoteContract::class)
 class VoteState(
         val host: Party,
-        val issue: Int,
+        val voteCount: List<Int>,
         val choice: Int
         ) : ContractState{
      override val participants: List<AbstractParty> = listOf(host)

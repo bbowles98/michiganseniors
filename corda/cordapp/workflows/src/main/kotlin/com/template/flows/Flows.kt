@@ -17,7 +17,7 @@ import net.corda.core.utilities.ProgressTracker
 @InitiatingFlow
 @StartableByRPC
 class VoteFlow(val otherParty: Party,
-                val issueVal: Int,
+                val voteCount: List<Int>,
                val choiceVal: Int
               ) : FlowLogic<Unit>() {
 

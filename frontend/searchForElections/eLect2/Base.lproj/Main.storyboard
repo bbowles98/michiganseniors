@@ -57,7 +57,6 @@
                     <connections>
                         <outlet property="searchBar" destination="QLG-kB-LhE" id="Aj3-nL-IUa"/>
                         <outlet property="tblView" destination="cGA-pW-YUK" id="8Nw-U9-FVZ"/>
-                        <segue destination="wNw-ci-upF" kind="show" identifier="segue" id="gK0-3w-1K0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1te-wE-oeR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -73,21 +72,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Election Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYY-pJ-YQe">
-                                <rect key="frame" x="100" y="108" width="214" height="20.5"/>
+                                <rect key="frame" x="100" y="64" width="214" height="20.5"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7X-Nz-Ylb">
-                                <rect key="frame" x="20" y="148.5" width="83" height="21"/>
+                                <rect key="frame" x="20" y="104.5" width="83" height="21"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFb-ZZ-QEg">
-                                <rect key="frame" x="308.5" y="148.5" width="85.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Host Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFb-ZZ-QEg">
+                                <rect key="frame" x="308.5" y="104.5" width="85.5" height="20.5"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -107,7 +106,6 @@
                             <constraint firstItem="MLy-UG-tmH" firstAttribute="top" secondItem="n7X-Nz-Ylb" secondAttribute="bottom" constant="80" id="9dH-IL-mR8"/>
                             <constraint firstItem="rYY-pJ-YQe" firstAttribute="top" secondItem="7oc-sP-Si7" secondAttribute="top" constant="20" id="CE4-of-MxN"/>
                             <constraint firstItem="7oc-sP-Si7" firstAttribute="trailing" secondItem="MLy-UG-tmH" secondAttribute="trailing" constant="80" id="H8X-zx-b24"/>
-                            <constraint firstItem="7oc-sP-Si7" firstAttribute="trailing" secondItem="lFb-ZZ-QEg" secondAttribute="trailing" constant="20" id="KiX-9k-cTa"/>
                             <constraint firstItem="7oc-sP-Si7" firstAttribute="trailing" secondItem="rYY-pJ-YQe" secondAttribute="trailing" constant="100" id="LVb-Ee-KAn"/>
                             <constraint firstItem="MLy-UG-tmH" firstAttribute="leading" secondItem="7oc-sP-Si7" secondAttribute="leading" constant="80" id="W1Q-DL-wGl"/>
                             <constraint firstItem="n7X-Nz-Ylb" firstAttribute="leading" secondItem="7oc-sP-Si7" secondAttribute="leading" constant="20" id="bq5-lr-NFR"/>
@@ -119,7 +117,8 @@
                     <navigationItem key="navigationItem" title="Vote Prep" id="fWN-dL-fX6">
                         <barButtonItem key="rightBarButtonItem" title="Continue" id="CSr-BQ-vaD">
                             <connections>
-                                <segue destination="rXh-8D-Nvv" kind="show" id="WUE-gg-Moj"/>
+                                <action selector="onClickContinue:" destination="wNw-ci-upF" id="Umf-2k-SWf"/>
+                                <segue destination="rXh-8D-Nvv" kind="show" identifier="Vote" id="WUE-gg-Moj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -130,14 +129,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBO-NR-3WS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2691" y="809"/>
+            <point key="canvasLocation" x="2588" y="803"/>
         </scene>
         <!--Ballot-->
         <scene sceneID="sYX-JE-ttz">
             <objects>
                 <viewController storyboardIdentifier="CastVote" id="rXh-8D-Nvv" customClass="CastVoteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N4B-Qk-cZ6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-F5-QZf">
@@ -198,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1j-9r-9L6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4468" y="812"/>
+            <point key="canvasLocation" x="4964" y="829"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e0D-vt-mYb">

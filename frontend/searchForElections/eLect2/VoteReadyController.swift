@@ -28,6 +28,9 @@ class VoteReadyController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var Host: UILabel!
     
+    @IBAction func onClickContinue(_ sender: Any) {
+        performSegue(withIdentifier: "Vote", sender: self)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is CastVoteViewController

@@ -6,7 +6,11 @@
 //  Copyright © 2019 Grace Economou. All rights reserved.
 //
 
+
 import UIKit
+var electPass = ""
+
+var elections: [Dictionary<String, Any>] = []
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
@@ -23,43 +27,8 @@ class SearchViewController: UIViewController {
 
 @IBAction func testGetReq(_ sender: UIButton) {
     
-    let requestURL = "http://204.48.30.178/search?name=Test"
-    var request = URLRequest(url: URL(string: requestURL)!)
-    request.httpMethod = "GET"
-    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-        guard let _ = data, error == nil else {
-            print("NETWORKING ERROR")
-            DispatchQueue.main.async {
-                //self.refreshControl?.endRefreshing()
-            }
-            
-            return
-        }
-        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-            print("HTTP STATUS: \(httpStatus.statusCode)")
-            //self.refreshControl?.endRefreshing()
-            return
-        }
-
-        do {
-            let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-            //let chattsReceived = json["chatts"] as? [[String]] ?? []
-            print(json.debugDescription)
-            print(json)
-
-        }
-        catch let error as NSError {
-            print(error)
-        }
-    }
-    task.resume();
-}
-
-    
-
-    let data = ["test0", "test1", "test2", "Test0", "Test1", "Test2", "tester", "testing", "test this", "t0", "t1", "t2", "t3"]
-    
-    var results = [String]()
+    var data = elections
+    var results: [Dictionary<String, Any>] = []
     var searching = false
     var selectedElect = 0
     var electionID = ""
@@ -69,6 +38,34 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
+        let getURL = "http://204.48.30.178/search?name="
+        
+        // Get the data to load the ballot
+        var request = URLRequest(url:
+            URL(string: getURL)!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request)
+        { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return}
+            if let httpStatus = response as? HTTPURLResponse,
+                httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return}
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                print(json.debugDescription)
+                print(json)
+                elections = json["election"] as! [Dictionary<String, Any>]
+                print(elections)
+            }
+           catch let error as NSError {
+            print(error)
+           }
+        }
+        task.resume()
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,22 +75,28 @@ class SearchViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedElect = indexPath.row
-        performSegue(withIdentifier: "segue", sender: self)
+        //performSegue(withIdentifier: "segue", sender: self)
+        electPass = results[selectedElect]["passcode"] as! String
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateInitialViewController(withIdentifier: "BallotTableView") as? BallotTableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        print("here")
         if segue.destination is VoteReadyController
         {
             let vc = segue.destination as? VoteReadyController
             vc!.electionID = electionID
             if (searching) {
-                vc!.electionName = results[selectedElect]
-                vc!.hostName = results[selectedElect]
+                vc!.electionName = results[selectedElect]["name"] as! String
+                vc!.hostName = results[selectedElect]["creator"] as! String
+                vc!.electionID = results[selectedElect]["passcode"] as! String
             }
             else {
-                vc!.electionName = data[selectedElect]
-                vc!.hostName = data[selectedElect]
+                let election = elections[selectedElect]
+                vc!.electionName = election["name"] as! String
+                vc!.hostName = election["creator"] as! String
+                vc!.electionID = election["passcode"] as! String
             }
         }
     }
@@ -105,17 +108,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if searching {
             return results.count
         } else {
-            return data.count
+            return elections.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        //let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         if searching {
-            cell.textLabel?.text = results[indexPath.row]
+            cell.textLabel!.text = (results[indexPath.row]["name"] as! String)
         } else {
-            cell.textLabel?.text = data[indexPath.row]
+            cell.textLabel!.text = (elections[indexPath.row]["name"] as! String)
         }
         return cell
     }
@@ -124,7 +126,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        results = data.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        results = elections.filter({(($0["name"] as! String).lowercased() ).prefix(searchText.count) == searchText.lowercased()})
         searching = true
         tblView.reloadData()
     }
