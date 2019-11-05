@@ -38,13 +38,14 @@ def SearchViewSet(request):
 	return JsonResponse({'election': response})
 
 
+
 # Get results for election based on an election id
 @csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, ))
 def ViewResults(request):
 
-	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	election = Election.objects.filter(passcode=request.GET.get('election_id'))[0]
 	votes = VoteObject.objects.filter(election=election)
 	candidates_to_counts = {}
 	for vote in votes:
