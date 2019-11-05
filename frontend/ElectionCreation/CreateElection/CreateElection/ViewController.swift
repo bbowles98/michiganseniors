@@ -70,8 +70,6 @@ class SignInViewController: UIViewController {
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                
-                print(json)
                 let s = String(describing: json["token"])
                 token_response = s
                 let temp1 = token_response.split(separator: "(")[1]
