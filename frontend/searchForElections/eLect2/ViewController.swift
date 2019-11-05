@@ -20,7 +20,43 @@ class ViewController: UIViewController {
 }
 
 class SearchViewController: UIViewController {
+
+@IBAction func testGetReq(_ sender: UIButton) {
     
+    let requestURL = "http://204.48.30.178/search?name=Test"
+    var request = URLRequest(url: URL(string: requestURL)!)
+    request.httpMethod = "GET"
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let _ = data, error == nil else {
+            print("NETWORKING ERROR")
+            DispatchQueue.main.async {
+                //self.refreshControl?.endRefreshing()
+            }
+            
+            return
+        }
+        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+            print("HTTP STATUS: \(httpStatus.statusCode)")
+            //self.refreshControl?.endRefreshing()
+            return
+        }
+
+        do {
+            let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+            //let chattsReceived = json["chatts"] as? [[String]] ?? []
+            print(json.debugDescription)
+            print(json)
+
+        }
+        catch let error as NSError {
+            print(error)
+        }
+    }
+    task.resume();
+}
+
+    
+
     let data = ["test0", "test1", "test2", "Test0", "Test1", "Test2", "tester", "testing", "test this", "t0", "t1", "t2", "t3"]
     
     var results = [String]()

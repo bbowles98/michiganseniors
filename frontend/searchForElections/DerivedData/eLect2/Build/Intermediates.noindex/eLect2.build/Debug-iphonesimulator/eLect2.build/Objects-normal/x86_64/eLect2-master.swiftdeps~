@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+options: "d0afbee7154a08bc6fac7a1021b66ddd"
+build_time: [1572909664, 260936000]
+inputs:
+  "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/searchForElections/eLect2/ViewController.swift": [1572909664, 200912207]
+  "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/searchForElections/eLect2/CastVoteViewController.swift": !dirty [1572909172, 670379922]
+  "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/searchForElections/eLect2/AppDelegate.swift": [1572830754, 256210674]
+  "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/searchForElections/eLect2/SceneDelegate.swift": [1572830754, 284433804]
+  "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/searchForElections/eLect2/VoteReadyController.swift": !dirty [1572909172, 671076168]
