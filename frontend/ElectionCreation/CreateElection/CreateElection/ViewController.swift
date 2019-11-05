@@ -261,7 +261,9 @@ class ElectionViewController: UITableViewController {
     
     @IBOutlet weak var propName: UITextView!
     
-    self.tableView.reloadData()
+    func refreshOptions() {
+
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true) }

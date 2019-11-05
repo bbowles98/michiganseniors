@@ -430,7 +430,7 @@ depends-member:
 - !private ["14CreateElection0B14ViewControllerC", "propChoices"]
 - ["14CreateElection0B14ViewControllerC", "propName"]
 - !private ["14CreateElection0B14ViewControllerC", "refreshControl"]
-- ["14CreateElection0B14ViewControllerC", "refreshOptions"]
+- !private ["14CreateElection0B14ViewControllerC", "refreshOptions"]
 - ["14CreateElection0B14ViewControllerC", "tableView"]
 - !private ["14CreateElection0B14ViewControllerC", "token_response"]
 - ["14CreateElection0B14ViewControllerC", "viewDidLoad"]
@@ -782,7 +782,7 @@ depends-member:
 - !private ["So8NSObjectC", "propChoices"]
 - ["So8NSObjectC", "propName"]
 - !private ["So8NSObjectC", "refreshControl"]
-- ["So8NSObjectC", "refreshOptions"]
+- !private ["So8NSObjectC", "refreshOptions"]
 - !private ["So8NSObjectC", "resume"]
 - ["So8NSObjectC", "selectedEnd"]
 - ["So8NSObjectC", "selectedStart"]
@@ -1237,7 +1237,7 @@ depends-member:
 - !private ["So11UIResponderC", "propChoices"]
 - ["So11UIResponderC", "propName"]
 - !private ["So11UIResponderC", "refreshControl"]
-- ["So11UIResponderC", "refreshOptions"]
+- !private ["So11UIResponderC", "refreshOptions"]
 - ["So11UIResponderC", "selectedEnd"]
 - ["So11UIResponderC", "selectedStart"]
 - !private ["So11UIResponderC", "sizeToFit"]
@@ -1387,7 +1387,7 @@ depends-member:
 - !private ["So21UITableViewControllerC", "propChoices"]
 - ["So21UITableViewControllerC", "propName"]
 - !private ["So21UITableViewControllerC", "refreshControl"]
-- ["So21UITableViewControllerC", "refreshOptions"]
+- !private ["So21UITableViewControllerC", "refreshOptions"]
 - ["So21UITableViewControllerC", "tableView"]
 - !private ["So21UITableViewControllerC", "token_response"]
 - ["So21UITableViewControllerC", "viewDidLoad"]
@@ -1585,7 +1585,7 @@ depends-member:
 - !private ["So16UIViewControllerC", "propChoices"]
 - ["So16UIViewControllerC", "propName"]
 - !private ["So16UIViewControllerC", "refreshControl"]
-- ["So16UIViewControllerC", "refreshOptions"]
+- !private ["So16UIViewControllerC", "refreshOptions"]
 - ["So16UIViewControllerC", "selectedEnd"]
 - ["So16UIViewControllerC", "selectedStart"]
 - ["So16UIViewControllerC", "tableView"]
@@ -3119,4 +3119,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "d734ec8584a436db845bc1818e00e3d0"
+interface-hash: "f420505abd03464f711e6ae3a8f58cc9"
