@@ -9,6 +9,8 @@ import UIKit
 var propChoices = [votingOption]()
 var token_response = ""
 var election_passcode: Any = -1
+var electPass = ""
+var elections: [Dictionary<String, Any>] = []
 
 
 class ViewController: UIViewController {
@@ -70,8 +72,6 @@ class SignInViewController: UIViewController {
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                
-                print(json)
                 let s = String(describing: json["token"])
                 token_response = s
                 let temp1 = token_response.split(separator: "(")[1]
@@ -263,27 +263,8 @@ class ElectionViewController: UITableViewController {
     
     @IBOutlet weak var propName: UITextView!
     
-    //var choices = [votingOption]()
-    //var propChoices = [String]()
-    //var propC:String = ""
-    
-    //propChoices.append(propC)
-    
-    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is CreateOptionViewController {
-            
-            let vc = segue.destination as? CreateOptionViewController
-            vc!.propC = propC
-        
-        }
-    } */
-    
-    //var newProp = Proposal(proposalName: self.proposalName.text!, proposalOptions: propC)
-    
     func refreshOptions() {
-/*
-        where get requests go
- */
+
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -297,16 +278,22 @@ class ElectionViewController: UITableViewController {
             return propChoices.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "OptionTableCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OptionTableCell else {
-            fatalError("The dequeued cell is not an instance of OptionTableCell")
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cellIdentifier = "OptionTableCell"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OptionTableCell else {
+                fatalError("The dequeued cell is not an instance of OptionTableCell")
+            }
+            let option = propChoices[indexPath.row]
+            cell.optionName.text = option.optionName
+            print("Should print yes: ")
+            print(cell.optionName.text)
+            
+            cell.optionName.sizeToFit()
+            return cell
         }
-        let option = propChoices[indexPath.row]
-        cell.optionName.text = option.optionName
-        cell.optionName.sizeToFit()
-        return cell
-    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -328,27 +315,40 @@ class ElectionViewController: UITableViewController {
             answers.append(choice.optionName)
         }
     
-        
-        
         // API REQUEST
         let json: [String: Any] = [
             "election_id": election_passcode,
            "ballot_items": [
                 [
-                    "questions": election.question,
+                    "question": election.question,
                     "choices" : answers
                 ]
             ]
         ]
         
+        print("questions: " + election.question)
+        
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         var request = URLRequest(url: URL(string: "http://204.48.30.178/ballot/")!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let temp1 = token_response
+        let temp2 = token_response.split(separator: "(")[1]
+        let token_response = temp2.split(separator: ")")[0]
+        
+        request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
+        print("ballot token:")
+        print(token_response)
         request.httpMethod = "POST"
         request.httpBody = jsonData
-        print(request.debugDescription)
+        print("jsonData: ")
         
+        if let string = String(bytes: jsonData!, encoding: .utf8) {
+            print(string)
+        }
+        
+  
         //async error handling
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let _ = data, error == nil else {
@@ -365,12 +365,7 @@ class ElectionViewController: UITableViewController {
             }
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                print(json)
-              
-                let s = String(describing: json["token"])
-                token_response = s
-                let temp1 = token_response.split(separator: "(")[1]
-                let token_response = temp1.split(separator: ")")[0]
+
             }
             catch let error as NSError {
                 print(error)
@@ -420,6 +415,8 @@ class CreateOptionViewController: UIViewController {
         
         propChoices.append(option)
         
+        print("printing choices here:")
+        print(propChoices[0].optionName)
         // goes back to preview view controller
         dismiss(animated: true, completion: nil)
     }
@@ -433,5 +430,119 @@ class CreateOptionViewController: UIViewController {
 
 
 
+class SearchViewController: UIViewController {
 
+//@IBAction func testGetReq(_ sender: UIButton) {
+    
+    var data = elections
+    var results: [Dictionary<String, Any>] = []
+    var searching = false
+    var selectedElect = 0
+    var electionID = ""
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tblView: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchBar.delegate = self
+        // Do any additional setup after loading the view, typically from a nib.
+        let getURL = "http://204.48.30.178/search?name="
+        
+        // Get the data to load the ballot
+        var request = URLRequest(url:
+            URL(string: getURL)!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request)
+        { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return}
+            if let httpStatus = response as? HTTPURLResponse,
+                httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return}
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                print(json.debugDescription)
+                print(json)
+                elections = json["election"] as! [Dictionary<String, Any>]
+                print(elections)
+            }
+           catch let error as NSError {
+            print(error)
+           }
+        }
+        task.resume()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedElect = indexPath.row
+        //performSegue(withIdentifier: "segue", sender: self)
+        electPass = results[selectedElect]["passcode"] as! String
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateInitialViewController(withIdentifier: "BallotTableView") as? BallotTableView
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        print("here")
+        if segue.destination is VoteReadyController
+        {
+            let vc = segue.destination as? VoteReadyController
+            vc!.electionID = electionID
+            if (searching) {
+                vc!.electionName = results[selectedElect]["name"] as! String
+                vc!.hostName = results[selectedElect]["creator"] as! String
+                vc!.electionID = results[selectedElect]["passcode"] as! String
+            }
+            else {
+                let election = elections[selectedElect]
+                vc!.electionName = election["name"] as! String
+                vc!.hostName = election["creator"] as! String
+                vc!.electionID = election["passcode"] as! String
+            }
+        }
+    }
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searching {
+            return results.count
+        } else {
+            return elections.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        if searching {
+            cell.textLabel!.text = (results[indexPath.row]["name"] as! String)
+        } else {
+            cell.textLabel!.text = (elections[indexPath.row]["name"] as! String)
+        }
+        return cell
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        results = elections.filter({(($0["name"] as! String).lowercased() ).prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        tblView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tblView.reloadData()
+    }
+    
+}
 

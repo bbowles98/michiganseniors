@@ -12,7 +12,6 @@ depends-top-level:
 - "votingOption"
 depends-member:
 - ["14CreateElection12votingOptionC", "String"]
-- ["14CreateElection12votingOptionC", "deinit"]
 - ["14CreateElection12votingOptionC", "init"]
 - ["14CreateElection12votingOptionC", "optionInfo"]
 - ["14CreateElection12votingOptionC", "optionName"]

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>7BB03841-B2F6-4F2B-BA6C-70603B56EC94</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>7BB03841-B2F6-4F2B-BA6C-70603B56EC94.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>eLect2 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>eLect2</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build eLect2</string>
+			<key>timeStartedRecording</key>
+			<real>594602325.13264501</real>
+			<key>timeStoppedRecording</key>
+			<real>594602326.91345298</real>
+			<key>title</key>
+			<string>Build eLect2</string>
+			<key>uniqueIdentifier</key>
+			<string>7BB03841-B2F6-4F2B-BA6C-70603B56EC94</string>
+		</dict>
+		<key>BDF6B797-8724-4876-8B08-21105A638160</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BDF6B797-8724-4876-8B08-21105A638160.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>eLect2 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>eLect2</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build eLect2</string>
+			<key>timeStartedRecording</key>
+			<real>594602243.90386105</real>
+			<key>timeStoppedRecording</key>
+			<real>594602245.55853903</real>
+			<key>title</key>
+			<string>Build eLect2</string>
+			<key>uniqueIdentifier</key>
+			<string>BDF6B797-8724-4876-8B08-21105A638160</string>
+		</dict>
+		<key>C16A0E05-E6C3-442F-B4C8-FF990AD37D6E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C16A0E05-E6C3-442F-B4C8-FF990AD37D6E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>eLect2 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>eLect2</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build eLect2</string>
+			<key>timeStartedRecording</key>
+			<real>594602476.58810306</real>
+			<key>timeStoppedRecording</key>
+			<real>594602478.14367402</real>
+			<key>title</key>
+			<string>Build eLect2</string>
+			<key>uniqueIdentifier</key>
+			<string>C16A0E05-E6C3-442F-B4C8-FF990AD37D6E</string>
+		</dict>
+		<key>C28C6820-1008-486C-AC57-C0C472557A1A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C28C6820-1008-486C-AC57-C0C472557A1A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>eLect2 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>eLect2</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build eLect2</string>
+			<key>timeStartedRecording</key>
+			<real>594602454.12675798</real>
+			<key>timeStoppedRecording</key>
+			<real>594602455.74555802</real>
+			<key>title</key>
+			<string>Build eLect2</string>
+			<key>uniqueIdentifier</key>
+			<string>C28C6820-1008-486C-AC57-C0C472557A1A</string>
+		</dict>
+		<key>CBC0E6DE-F68C-454D-9C4D-4782A4EB66D5</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>CBC0E6DE-F68C-454D-9C4D-4782A4EB66D5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>eLect2 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>eLect2</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build eLect2</string>
+			<key>timeStartedRecording</key>
+			<real>594602347.81310403</real>
+			<key>timeStoppedRecording</key>
+			<real>594602349.39325702</real>
+			<key>title</key>
+			<string>Build eLect2</string>
+			<key>uniqueIdentifier</key>
+			<string>CBC0E6DE-F68C-454D-9C4D-4782A4EB66D5</string>
+		</dict>
+		<key>F9035780-5B71-4F7C-932E-1878CFD74172</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>F9035780-5B71-4F7C-932E-1878CFD74172.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>eLect2 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>eLect2</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build eLect2</string>
+			<key>timeStartedRecording</key>
+			<real>594602318.33166003</real>
+			<key>timeStoppedRecording</key>
+			<real>594602320.02461302</real>
+			<key>title</key>
+			<string>Build eLect2</string>
+			<key>uniqueIdentifier</key>
+			<string>F9035780-5B71-4F7C-932E-1878CFD74172</string>
+		</dict>
+		<key>FA61194C-69FC-432D-8906-C7103540CCC8</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FA61194C-69FC-432D-8906-C7103540CCC8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>eLect2 project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>eLect2</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build eLect2</string>
+			<key>timeStartedRecording</key>
+			<real>594602464.210832</real>
+			<key>timeStoppedRecording</key>
+			<real>594602466.76184905</real>
+			<key>title</key>
+			<string>Build eLect2</string>
+			<key>uniqueIdentifier</key>
+			<string>FA61194C-69FC-432D-8906-C7103540CCC8</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

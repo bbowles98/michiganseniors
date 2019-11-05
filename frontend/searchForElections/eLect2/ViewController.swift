@@ -24,6 +24,8 @@ class ViewController: UIViewController {
 }
 
 class SearchViewController: UIViewController {
+
+@IBAction func testGetReq(_ sender: UIButton) {
     
     var data = elections
     var results: [Dictionary<String, Any>] = []
