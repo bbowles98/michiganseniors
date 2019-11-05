@@ -95,8 +95,8 @@ def Vote(request):
 	code = request.GET.get('code')
 	try:
 		election = Election.objects.filter(passcode=code)[0]
-		if (election.status == False):
-			return JsonResponse({"status": "This election is not live yet"})
+		# if (election.status == False):
+		# 	return JsonResponse({"status": "This election is not live yet"})
 
 		ballot_items = BallotItem.objects.filter(election=election)
 		response = []
