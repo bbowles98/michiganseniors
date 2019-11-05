@@ -299,16 +299,6 @@ SWIFT_CLASS("_TtC14CreateElection15OptionTableCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-SWIFT_CLASS("_TtC14CreateElection17ProposalTableCell")
-@interface ProposalTableCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified proposalName;
-- (void)awakeFromNib;
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
-- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER SWIFT_AVAILABILITY(ios,introduced=3.0);
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class UIWindow;
 @class UIScene;
 

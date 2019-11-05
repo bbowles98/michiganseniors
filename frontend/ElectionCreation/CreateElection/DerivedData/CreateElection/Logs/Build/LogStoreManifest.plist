@@ -6,6 +6,142 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
+		<key>0290FE8C-7423-4489-959D-E7F5D18523A4</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0290FE8C-7423-4489-959D-E7F5D18523A4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594612378.86220002</real>
+			<key>timeStoppedRecording</key>
+			<real>594612380.07238102</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>0290FE8C-7423-4489-959D-E7F5D18523A4</string>
+		</dict>
+		<key>089F6C50-34DC-406A-B36C-9A38FEEE9530</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>089F6C50-34DC-406A-B36C-9A38FEEE9530.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614524.237728</real>
+			<key>timeStoppedRecording</key>
+			<real>594614524.30976701</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>089F6C50-34DC-406A-B36C-9A38FEEE9530</string>
+		</dict>
+		<key>0F5E7414-F224-4E44-88F0-39AFB0DEA05F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>0F5E7414-F224-4E44-88F0-39AFB0DEA05F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613837.05924702</real>
+			<key>timeStoppedRecording</key>
+			<real>594613841.04131401</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>0F5E7414-F224-4E44-88F0-39AFB0DEA05F</string>
+		</dict>
+		<key>10A7C760-0346-4701-891F-3689C8370A41</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>10A7C760-0346-4701-891F-3689C8370A41.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613016.85036504</real>
+			<key>timeStoppedRecording</key>
+			<real>594613017.98381805</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>10A7C760-0346-4701-891F-3689C8370A41</string>
+		</dict>
 		<key>1570D3E3-8D4F-40F0-A598-96A620C580D7</key>
 		<dict>
 			<key>className</key>
@@ -39,6 +175,176 @@
 			<string>Build CreateElection</string>
 			<key>uniqueIdentifier</key>
 			<string>1570D3E3-8D4F-40F0-A598-96A620C580D7</string>
+		</dict>
+		<key>1D991B5F-62FE-45EC-8FF5-D44B1AE249E6</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>1D991B5F-62FE-45EC-8FF5-D44B1AE249E6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594611769.27487803</real>
+			<key>timeStoppedRecording</key>
+			<real>594611772.02489698</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>1D991B5F-62FE-45EC-8FF5-D44B1AE249E6</string>
+		</dict>
+		<key>246B7689-84CA-4BF1-B7E1-53FF3E52DCC4</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>246B7689-84CA-4BF1-B7E1-53FF3E52DCC4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594611259.43318403</real>
+			<key>timeStoppedRecording</key>
+			<real>594611262.07748795</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>246B7689-84CA-4BF1-B7E1-53FF3E52DCC4</string>
+		</dict>
+		<key>251CA12D-7EE0-402C-BEB0-7EC7122CF5A2</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>251CA12D-7EE0-402C-BEB0-7EC7122CF5A2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594610611.10800803</real>
+			<key>timeStoppedRecording</key>
+			<real>594610613.15019906</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>251CA12D-7EE0-402C-BEB0-7EC7122CF5A2</string>
+		</dict>
+		<key>2DF7B1A8-37FB-4666-AE68-994475979F94</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2DF7B1A8-37FB-4666-AE68-994475979F94.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613041.20825195</real>
+			<key>timeStoppedRecording</key>
+			<real>594613041.42119896</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>2DF7B1A8-37FB-4666-AE68-994475979F94</string>
+		</dict>
+		<key>3169B196-D433-48F9-A426-63BBC2D089A7</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3169B196-D433-48F9-A426-63BBC2D089A7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614463.47224295</real>
+			<key>timeStoppedRecording</key>
+			<real>594614464.66610706</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>3169B196-D433-48F9-A426-63BBC2D089A7</string>
 		</dict>
 		<key>369DEC22-B210-493D-88B9-B2AD77CC5C1A</key>
 		<dict>
@@ -108,6 +414,74 @@
 			<key>uniqueIdentifier</key>
 			<string>3BEEF521-B4EF-4F52-A2C0-60B6CF493C23</string>
 		</dict>
+		<key>3CA2C2DF-1101-447E-90CF-116C40F7B2B6</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3CA2C2DF-1101-447E-90CF-116C40F7B2B6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614219.65702403</real>
+			<key>timeStoppedRecording</key>
+			<real>594614222.23379803</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>3CA2C2DF-1101-447E-90CF-116C40F7B2B6</string>
+		</dict>
+		<key>447FB143-66C3-4F6A-84E7-80F0315C3B37</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>447FB143-66C3-4F6A-84E7-80F0315C3B37.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614266.972718</real>
+			<key>timeStoppedRecording</key>
+			<real>594614268.00403202</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>447FB143-66C3-4F6A-84E7-80F0315C3B37</string>
+		</dict>
 		<key>44E61C8C-5E00-4934-9834-3E4EE46F9FE1</key>
 		<dict>
 			<key>className</key>
@@ -142,6 +516,414 @@
 			<key>uniqueIdentifier</key>
 			<string>44E61C8C-5E00-4934-9834-3E4EE46F9FE1</string>
 		</dict>
+		<key>4CE7BC68-D4EA-4416-836E-4546E291EB58</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>4CE7BC68-D4EA-4416-836E-4546E291EB58.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613569.80972505</real>
+			<key>timeStoppedRecording</key>
+			<real>594613569.86464</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>4CE7BC68-D4EA-4416-836E-4546E291EB58</string>
+		</dict>
+		<key>5AD21542-CF26-498D-BB9A-4A65EC3C60DC</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5AD21542-CF26-498D-BB9A-4A65EC3C60DC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613549.77156103</real>
+			<key>timeStoppedRecording</key>
+			<real>594613552.185498</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>5AD21542-CF26-498D-BB9A-4A65EC3C60DC</string>
+		</dict>
+		<key>5FC66B71-3D0B-4316-8B88-5E100FEF082C</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5FC66B71-3D0B-4316-8B88-5E100FEF082C.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594612424.09085596</real>
+			<key>timeStoppedRecording</key>
+			<real>594612427.42433405</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>5FC66B71-3D0B-4316-8B88-5E100FEF082C</string>
+		</dict>
+		<key>669811A9-51CC-41D7-A9EE-1417BAC54676</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>669811A9-51CC-41D7-A9EE-1417BAC54676.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614452.26716697</real>
+			<key>timeStoppedRecording</key>
+			<real>594614453.38131595</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>669811A9-51CC-41D7-A9EE-1417BAC54676</string>
+		</dict>
+		<key>67793DE8-30D3-495E-B49F-AE99873840DE</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>67793DE8-30D3-495E-B49F-AE99873840DE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594611185.67253101</real>
+			<key>timeStoppedRecording</key>
+			<real>594611188.50658906</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>67793DE8-30D3-495E-B49F-AE99873840DE</string>
+		</dict>
+		<key>695C4A71-60C0-4F61-B8B9-853D34F01263</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>695C4A71-60C0-4F61-B8B9-853D34F01263.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613399.34471595</real>
+			<key>timeStoppedRecording</key>
+			<real>594613401.78113198</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>695C4A71-60C0-4F61-B8B9-853D34F01263</string>
+		</dict>
+		<key>6B69DD03-39A4-4AD1-80FC-60357D3C0F28</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>6B69DD03-39A4-4AD1-80FC-60357D3C0F28.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613919.28482497</real>
+			<key>timeStoppedRecording</key>
+			<real>594613921.87935305</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>6B69DD03-39A4-4AD1-80FC-60357D3C0F28</string>
+		</dict>
+		<key>757A6873-6EB6-40BB-8DCB-8BC6DBAAA666</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>757A6873-6EB6-40BB-8DCB-8BC6DBAAA666.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614118.74924397</real>
+			<key>timeStoppedRecording</key>
+			<real>594614118.84430599</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>757A6873-6EB6-40BB-8DCB-8BC6DBAAA666</string>
+		</dict>
+		<key>7EDF2EE6-52B0-474E-B483-D64A77FA9819</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>7EDF2EE6-52B0-474E-B483-D64A77FA9819.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594612722.06761098</real>
+			<key>timeStoppedRecording</key>
+			<real>594612729.43203795</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>7EDF2EE6-52B0-474E-B483-D64A77FA9819</string>
+		</dict>
+		<key>7F7F5520-05F2-4EA3-8AFD-75079D935D5A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>7F7F5520-05F2-4EA3-8AFD-75079D935D5A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594611093.11354303</real>
+			<key>timeStoppedRecording</key>
+			<real>594611093.19346797</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>7F7F5520-05F2-4EA3-8AFD-75079D935D5A</string>
+		</dict>
+		<key>8152160E-8256-4801-A3B8-00841727A93A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>8152160E-8256-4801-A3B8-00841727A93A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613909.86268699</real>
+			<key>timeStoppedRecording</key>
+			<real>594613913.08787096</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>8152160E-8256-4801-A3B8-00841727A93A</string>
+		</dict>
+		<key>86A67DBD-F9F1-449D-9E72-D6EE73127528</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>86A67DBD-F9F1-449D-9E72-D6EE73127528.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594611086.77180004</real>
+			<key>timeStoppedRecording</key>
+			<real>594611089.71839201</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>86A67DBD-F9F1-449D-9E72-D6EE73127528</string>
+		</dict>
 		<key>8996B4E8-5F6E-4928-9CD3-15D085AD474E</key>
 		<dict>
 			<key>className</key>
@@ -175,6 +957,992 @@
 			<string>Build CreateElection</string>
 			<key>uniqueIdentifier</key>
 			<string>8996B4E8-5F6E-4928-9CD3-15D085AD474E</string>
+		</dict>
+		<key>91BF9D7B-927E-4D25-B8EB-1112CB0AB852</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>91BF9D7B-927E-4D25-B8EB-1112CB0AB852.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613347.66438103</real>
+			<key>timeStoppedRecording</key>
+			<real>594613348.88763797</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>91BF9D7B-927E-4D25-B8EB-1112CB0AB852</string>
+		</dict>
+		<key>9230A232-D04B-4589-B08C-3475D2E20C4F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9230A232-D04B-4589-B08C-3475D2E20C4F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613037.78925002</real>
+			<key>timeStoppedRecording</key>
+			<real>594613040.74118304</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>9230A232-D04B-4589-B08C-3475D2E20C4F</string>
+		</dict>
+		<key>9844CE29-1581-4210-8BA4-E934DBD3487F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9844CE29-1581-4210-8BA4-E934DBD3487F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594612712.59873402</real>
+			<key>timeStoppedRecording</key>
+			<real>594612713.69786596</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>9844CE29-1581-4210-8BA4-E934DBD3487F</string>
+		</dict>
+		<key>9EB9A3D1-4B2F-4BD3-A9FF-860712EAF18F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>9EB9A3D1-4B2F-4BD3-A9FF-860712EAF18F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613566.55749094</real>
+			<key>timeStoppedRecording</key>
+			<real>594613568.67676795</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>9EB9A3D1-4B2F-4BD3-A9FF-860712EAF18F</string>
+		</dict>
+		<key>A2DE9F68-72FA-4B5D-8DF1-D8C9EB36C39E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A2DE9F68-72FA-4B5D-8DF1-D8C9EB36C39E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614050.408288</real>
+			<key>timeStoppedRecording</key>
+			<real>594614050.47602499</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>A2DE9F68-72FA-4B5D-8DF1-D8C9EB36C39E</string>
+		</dict>
+		<key>A4904C3A-6956-4FD2-86C6-8DF6C4892416</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A4904C3A-6956-4FD2-86C6-8DF6C4892416.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614519.46491003</real>
+			<key>timeStoppedRecording</key>
+			<real>594614521.81092095</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>A4904C3A-6956-4FD2-86C6-8DF6C4892416</string>
+		</dict>
+		<key>A75E2C4D-C7F0-40FB-B290-219C4FDD077A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A75E2C4D-C7F0-40FB-B290-219C4FDD077A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614278.59985495</real>
+			<key>timeStoppedRecording</key>
+			<real>594614279.48319805</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>A75E2C4D-C7F0-40FB-B290-219C4FDD077A</string>
+		</dict>
+		<key>A9416C0B-8BDC-4182-9602-0A19A1A12F03</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>A9416C0B-8BDC-4182-9602-0A19A1A12F03.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613662.38330305</real>
+			<key>timeStoppedRecording</key>
+			<real>594613662.45783401</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>A9416C0B-8BDC-4182-9602-0A19A1A12F03</string>
+		</dict>
+		<key>ACC1158B-BF2F-4DF6-BE37-5E8BD463E2C0</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>ACC1158B-BF2F-4DF6-BE37-5E8BD463E2C0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614715.25011003</real>
+			<key>timeStoppedRecording</key>
+			<real>594614717.50115705</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>ACC1158B-BF2F-4DF6-BE37-5E8BD463E2C0</string>
+		</dict>
+		<key>B25A74A1-AC90-4256-9129-2552FCD19319</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B25A74A1-AC90-4256-9129-2552FCD19319.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613648.04164004</real>
+			<key>timeStoppedRecording</key>
+			<real>594613650.991359</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>B25A74A1-AC90-4256-9129-2552FCD19319</string>
+		</dict>
+		<key>B300AEC1-3E3C-40AC-BE52-4E6DC0E3517B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B300AEC1-3E3C-40AC-BE52-4E6DC0E3517B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613391.30263603</real>
+			<key>timeStoppedRecording</key>
+			<real>594613393.71136701</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>B300AEC1-3E3C-40AC-BE52-4E6DC0E3517B</string>
+		</dict>
+		<key>B8D55434-A8E8-4C90-B413-D863FCD7706E</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B8D55434-A8E8-4C90-B413-D863FCD7706E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613924.91561699</real>
+			<key>timeStoppedRecording</key>
+			<real>594613924.98131204</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>B8D55434-A8E8-4C90-B413-D863FCD7706E</string>
+		</dict>
+		<key>B9E736D8-822E-4F1A-9FA8-C776D0071317</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>B9E736D8-822E-4F1A-9FA8-C776D0071317.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613402.40629303</real>
+			<key>timeStoppedRecording</key>
+			<real>594613402.49413097</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>B9E736D8-822E-4F1A-9FA8-C776D0071317</string>
+		</dict>
+		<key>BC4213F6-2EEA-4360-B6C0-43B577C1D4EB</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BC4213F6-2EEA-4360-B6C0-43B577C1D4EB.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594610799.68508399</real>
+			<key>timeStoppedRecording</key>
+			<real>594610799.74526596</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>BC4213F6-2EEA-4360-B6C0-43B577C1D4EB</string>
+		</dict>
+		<key>BD4F9950-2E27-4530-9D16-1AAEF949327D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BD4F9950-2E27-4530-9D16-1AAEF949327D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594612640.09009898</real>
+			<key>timeStoppedRecording</key>
+			<real>594612643.17533398</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>BD4F9950-2E27-4530-9D16-1AAEF949327D</string>
+		</dict>
+		<key>BDB9E8F3-46F4-44EF-B6D4-76CAEE359FC5</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>BDB9E8F3-46F4-44EF-B6D4-76CAEE359FC5.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594611193.58293104</real>
+			<key>timeStoppedRecording</key>
+			<real>594611193.64381397</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>BDB9E8F3-46F4-44EF-B6D4-76CAEE359FC5</string>
+		</dict>
+		<key>C6797679-E362-4827-8649-83DBA22A8569</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C6797679-E362-4827-8649-83DBA22A8569.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613554.58463204</real>
+			<key>timeStoppedRecording</key>
+			<real>594613554.65839005</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>C6797679-E362-4827-8649-83DBA22A8569</string>
+		</dict>
+		<key>C6F9D3AF-4724-4221-BCEF-8A76C74045B8</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C6F9D3AF-4724-4221-BCEF-8A76C74045B8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594612465.73840904</real>
+			<key>timeStoppedRecording</key>
+			<real>594612469.67081594</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>C6F9D3AF-4724-4221-BCEF-8A76C74045B8</string>
+		</dict>
+		<key>C89212EE-A809-40DB-93DD-DA4EDD7C7DDD</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C89212EE-A809-40DB-93DD-DA4EDD7C7DDD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594611074.65495098</real>
+			<key>timeStoppedRecording</key>
+			<real>594611079.58926594</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>C89212EE-A809-40DB-93DD-DA4EDD7C7DDD</string>
+		</dict>
+		<key>D008D22C-5BF1-4368-B02A-A7F15338C444</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D008D22C-5BF1-4368-B02A-A7F15338C444.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613656.83953702</real>
+			<key>timeStoppedRecording</key>
+			<real>594613659.25805902</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>D008D22C-5BF1-4368-B02A-A7F15338C444</string>
+		</dict>
+		<key>D2E3B4CA-9DD3-49B9-B9A6-26179CD2CA73</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D2E3B4CA-9DD3-49B9-B9A6-26179CD2CA73.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613004.99156404</real>
+			<key>timeStoppedRecording</key>
+			<real>594613008.908234</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>D2E3B4CA-9DD3-49B9-B9A6-26179CD2CA73</string>
+		</dict>
+		<key>D4B80F38-C78D-4025-895C-0305F4C18352</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D4B80F38-C78D-4025-895C-0305F4C18352.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614046.68528295</real>
+			<key>timeStoppedRecording</key>
+			<real>594614048.83058095</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>D4B80F38-C78D-4025-895C-0305F4C18352</string>
+		</dict>
+		<key>D6A323EF-3BC4-4458-8FCE-B8B3D1A6E92F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D6A323EF-3BC4-4458-8FCE-B8B3D1A6E92F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594613338.58383596</real>
+			<key>timeStoppedRecording</key>
+			<real>594613340.95608604</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>D6A323EF-3BC4-4458-8FCE-B8B3D1A6E92F</string>
+		</dict>
+		<key>D8935D50-9386-4216-9AD5-1FA482FC71EC</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D8935D50-9386-4216-9AD5-1FA482FC71EC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614223.85309196</real>
+			<key>timeStoppedRecording</key>
+			<real>594614223.93011999</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>D8935D50-9386-4216-9AD5-1FA482FC71EC</string>
+		</dict>
+		<key>DB1D289D-A57D-462A-9222-739B1F1299E8</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DB1D289D-A57D-462A-9222-739B1F1299E8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614025.44235694</real>
+			<key>timeStoppedRecording</key>
+			<real>594614026.45655203</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>DB1D289D-A57D-462A-9222-739B1F1299E8</string>
+		</dict>
+		<key>DF6C8883-AE53-47CF-BD13-51E645176763</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DF6C8883-AE53-47CF-BD13-51E645176763.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594610710.24125004</real>
+			<key>timeStoppedRecording</key>
+			<real>594610714.98014402</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>DF6C8883-AE53-47CF-BD13-51E645176763</string>
+		</dict>
+		<key>E3465F13-2197-4609-B155-B8615C207503</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E3465F13-2197-4609-B155-B8615C207503.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594612003.03484404</real>
+			<key>timeStoppedRecording</key>
+			<real>594612003.13268805</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>E3465F13-2197-4609-B155-B8615C207503</string>
+		</dict>
+		<key>F31BCCD5-2A94-4385-B89F-2AE19E5E5533</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>F31BCCD5-2A94-4385-B89F-2AE19E5E5533.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614620.68048406</real>
+			<key>timeStoppedRecording</key>
+			<real>594614623.77110505</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>F31BCCD5-2A94-4385-B89F-2AE19E5E5533</string>
+		</dict>
+		<key>F73DA619-B020-417F-9152-82A5A8BAE9D6</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>F73DA619-B020-417F-9152-82A5A8BAE9D6.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594614033.10694695</real>
+			<key>timeStoppedRecording</key>
+			<real>594614034.02323699</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>F73DA619-B020-417F-9152-82A5A8BAE9D6</string>
 		</dict>
 	</dict>
 </dict>

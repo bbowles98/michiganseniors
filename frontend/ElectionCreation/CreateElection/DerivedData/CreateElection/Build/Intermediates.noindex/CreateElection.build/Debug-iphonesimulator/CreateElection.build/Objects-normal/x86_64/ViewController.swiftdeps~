@@ -231,6 +231,7 @@ depends-member:
 - ["14CreateElection0A20OptionViewControllerC", "init"]
 - ["14CreateElection0A20OptionViewControllerC", "optionInfo"]
 - ["14CreateElection0A20OptionViewControllerC", "optionName"]
+- !private ["14CreateElection0A20OptionViewControllerC", "print"]
 - !private ["14CreateElection0A20OptionViewControllerC", "propChoices"]
 - ["14CreateElection0A20OptionViewControllerC", "viewDidLoad"]
 - !private ["14CreateElection0A20OptionViewControllerC", "votingOption"]
@@ -369,6 +370,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "subscript"]
 - !private ["s23CustomStringConvertibleP", "text"]
 - !private ["s23CustomStringConvertibleP", "token_response"]
+- !private ["s23CustomStringConvertibleP", "utf8"]
 - !private ["s23CustomStringConvertibleP", "viewDidLoad"]
 - !private ["s23CustomStringConvertibleP", "viewSelector"]
 - !private ["s23CustomStringConvertibleP", "votingOption"]
@@ -443,6 +445,7 @@ depends-member:
 - !private ["SE", "split"]
 - !private ["SE", "subscript"]
 - !private ["SE", "text"]
+- !private ["SS10FoundationE8EncodingV", "utf8"]
 - !private ["SQ", "DateFormatter"]
 - !private ["SQ", "ElectionName"]
 - !private ["SQ", "ElectionViewController"]
@@ -501,6 +504,7 @@ depends-member:
 - !private ["SQ", "subscript"]
 - !private ["SQ", "text"]
 - !private ["SQ", "token_response"]
+- !private ["SQ", "utf8"]
 - !private ["SQ", "valueChanged"]
 - !private ["SQ", "viewDidLoad"]
 - !private ["SQ", "viewSelector"]
@@ -591,6 +595,7 @@ depends-member:
 - !private ["SH", "subscript"]
 - !private ["SH", "text"]
 - !private ["SH", "token_response"]
+- !private ["SH", "utf8"]
 - !private ["SH", "viewDidLoad"]
 - !private ["SH", "viewSelector"]
 - !private ["SH", "votingOption"]
@@ -871,6 +876,7 @@ depends-member:
 - ["Sm", "init"]
 - !private ["Sm", "split"]
 - !private ["Sm", "subscript"]
+- !private ["SY", "utf8"]
 - !private ["SY", "valueChanged"]
 - !private ["10Foundation20ReferenceConvertibleP", "addValue"]
 - !private ["10Foundation20ReferenceConvertibleP", "debugDescription"]
@@ -1785,6 +1791,7 @@ depends-nominal:
 - !private "SD"
 - "14CreateElection0B14ViewControllerC"
 - "SE"
+- !private "SS10FoundationE8EncodingV"
 - "SQ"
 - !private "So15UIControlEventsV"
 - "s25ExpressibleByArrayLiteralP"

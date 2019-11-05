@@ -202,7 +202,7 @@
                                 <rect key="frame" x="159" y="250" width="220" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jke-fL-m6L">
                                 <rect key="frame" x="147" y="498" width="121" height="68"/>
@@ -315,7 +315,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Add" id="RVt-th-uhp">
                             <connections>
                                 <action selector="addVotingOption:" destination="nSU-k5-lir" id="CBU-wA-LBi"/>
-                                <segue destination="QUD-jV-AJd" kind="show" id="Avh-fC-B5A"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -390,7 +389,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Add New Voting Option"/>
                                     <connections>
-                                        <segue destination="jgK-Z7-MrW" kind="show" id="c2t-Xe-tVf"/>
+                                        <segue destination="jgK-Z7-MrW" kind="show" id="B70-rD-Kf2"/>
                                     </connections>
                                 </button>
                             </subviews>
