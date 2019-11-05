@@ -31,8 +31,9 @@ class VoteReadyController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is CastVoteViewController
-        let vc = segue.destination as? CastVoteViewController
-        vc!.electionID = electionID
+        {
+            let vc = segue.destination as? CastVoteViewController
+            vc!.electionID = electionID
+        }
     }
-    
 }
