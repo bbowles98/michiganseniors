@@ -1,0 +1,23 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CCF21374E60D56324C81CF1B3D2C85D418CB8F76",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CCF21374E60D56324C81CF1B3D2C85D418CB8F76" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F1B4343C-FABB-4AB5-B47B-6D8FE5D706F4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CCF21374E60D56324C81CF1B3D2C85D418CB8F76" : "michiganseniors\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CreateElection",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "frontend\/ElectionCreation\/CreateElection\/CreateElection.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bbowles98\/michiganseniors.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CCF21374E60D56324C81CF1B3D2C85D418CB8F76"
+    }
+  ]
+}
