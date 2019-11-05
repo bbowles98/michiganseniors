@@ -75,7 +75,7 @@ class SearchViewController: UIViewController {
         selectedElect = indexPath.row
         //performSegue(withIdentifier: "segue", sender: self)
         electPass = results[selectedElect]["passcode"] as! String
-        
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateInitialViewController(withIdentifier: "BallotTableView") as? BallotTableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
