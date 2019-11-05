@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBO-NR-3WS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3440.579710144928" y="811.60714285714278"/>
+            <point key="canvasLocation" x="2691" y="809"/>
         </scene>
         <!--Ballot-->
         <scene sceneID="sYX-JE-ttz">
@@ -174,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJQ-4v-XG1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4857.971014492754" y="808.92857142857144"/>
+            <point key="canvasLocation" x="3532" y="812"/>
         </scene>
         <!--Vote Complete-->
         <scene sceneID="37R-sI-u6c">
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1j-9r-9L6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5655" y="803"/>
+            <point key="canvasLocation" x="4468" y="812"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e0D-vt-mYb">
@@ -218,46 +218,5 @@
             </objects>
             <point key="canvasLocation" x="931.88405797101461" y="811.60714285714278"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ecc-N6-AGz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gbK-8m-dTp" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="w0B-oL-584"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sHd-z3-SJQ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wNw-ci-upF" kind="relationship" relationship="rootViewController" id="xCf-1h-4K8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ahg-vQ-bx2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2690" y="1179"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sXQ-2c-nAJ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gSv-ny-Ywd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bcm-dU-yQA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="rXh-8D-Nvv" kind="relationship" relationship="rootViewController" id="NWb-Jy-Q8n"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uom-Pa-ead" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4169.5652173913049" y="808.92857142857144"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="WUE-gg-Moj"/>
-        <segue reference="gK0-3w-1K0"/>
-    </inferredMetricsTieBreakers>
 </document>
