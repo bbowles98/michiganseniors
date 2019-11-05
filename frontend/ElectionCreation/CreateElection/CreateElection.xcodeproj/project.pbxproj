@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DA832BF2370F1E70074E8CE /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA832BB2370F1E70074E8CE /* Proposal.swift */; };
-		3DA832C02370F1E70074E8CE /* OptionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA832BC2370F1E70074E8CE /* OptionTableCell.swift */; };
-		3DA832C12370F1E70074E8CE /* ProposalTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA832BD2370F1E70074E8CE /* ProposalTableCell.swift */; };
-		3DA832C22370F1E70074E8CE /* VotingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA832BE2370F1E70074E8CE /* VotingOption.swift */; };
+		3D39B5D8237108E30032ADC5 /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5D4237108E30032ADC5 /* Proposal.swift */; };
+		3D39B5D9237108E30032ADC5 /* OptionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5D5237108E30032ADC5 /* OptionTableCell.swift */; };
+		3D39B5DA237108E30032ADC5 /* ProposalTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5D6237108E30032ADC5 /* ProposalTableCell.swift */; };
+		3D39B5DB237108E30032ADC5 /* VotingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5D7237108E30032ADC5 /* VotingOption.swift */; };
 		E7E088F2236FC9A4001AEA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */; };
 		E7E088F4236FC9A4001AEA3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */; };
 		E7E088F6236FC9A4001AEA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F5236FC9A4001AEA3B /* ViewController.swift */; };
@@ -22,10 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3DA832BB2370F1E70074E8CE /* Proposal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Proposal.swift; path = ../../../CreateElection/CreateElection/Proposal.swift; sourceTree = "<group>"; };
-		3DA832BC2370F1E70074E8CE /* OptionTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionTableCell.swift; path = ../../../CreateElection/CreateElection/OptionTableCell.swift; sourceTree = "<group>"; };
-		3DA832BD2370F1E70074E8CE /* ProposalTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProposalTableCell.swift; path = ../../../CreateElection/CreateElection/ProposalTableCell.swift; sourceTree = "<group>"; };
-		3DA832BE2370F1E70074E8CE /* VotingOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VotingOption.swift; path = ../../../CreateElection/CreateElection/VotingOption.swift; sourceTree = "<group>"; };
+		3D39B5D4237108E30032ADC5 /* Proposal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
+		3D39B5D5237108E30032ADC5 /* OptionTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionTableCell.swift; sourceTree = "<group>"; };
+		3D39B5D6237108E30032ADC5 /* ProposalTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalTableCell.swift; sourceTree = "<group>"; };
+		3D39B5D7237108E30032ADC5 /* VotingOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingOption.swift; sourceTree = "<group>"; };
 		E7E088EE236FC9A4001AEA3B /* CreateElection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreateElection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,10 +68,10 @@
 		E7E088F0236FC9A4001AEA3B /* CreateElection */ = {
 			isa = PBXGroup;
 			children = (
-				3DA832BC2370F1E70074E8CE /* OptionTableCell.swift */,
-				3DA832BB2370F1E70074E8CE /* Proposal.swift */,
-				3DA832BD2370F1E70074E8CE /* ProposalTableCell.swift */,
-				3DA832BE2370F1E70074E8CE /* VotingOption.swift */,
+				3D39B5D5237108E30032ADC5 /* OptionTableCell.swift */,
+				3D39B5D4237108E30032ADC5 /* Proposal.swift */,
+				3D39B5D6237108E30032ADC5 /* ProposalTableCell.swift */,
+				3D39B5D7237108E30032ADC5 /* VotingOption.swift */,
 				E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */,
 				E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */,
 				E7E08907236FCF62001AEA3B /* BallotCreateViewController.swift */,
@@ -158,13 +158,13 @@
 			files = (
 				E7E08906236FCAE4001AEA3B /* election.swift in Sources */,
 				E7E088F6236FC9A4001AEA3B /* ViewController.swift in Sources */,
-				3DA832C22370F1E70074E8CE /* VotingOption.swift in Sources */,
-				3DA832C12370F1E70074E8CE /* ProposalTableCell.swift in Sources */,
+				3D39B5DB237108E30032ADC5 /* VotingOption.swift in Sources */,
+				3D39B5DA237108E30032ADC5 /* ProposalTableCell.swift in Sources */,
 				E7E088F2236FC9A4001AEA3B /* AppDelegate.swift in Sources */,
-				3DA832C02370F1E70074E8CE /* OptionTableCell.swift in Sources */,
+				3D39B5D9237108E30032ADC5 /* OptionTableCell.swift in Sources */,
 				E7E088F4236FC9A4001AEA3B /* SceneDelegate.swift in Sources */,
 				E7E08908236FCF62001AEA3B /* BallotCreateViewController.swift in Sources */,
-				3DA832BF2370F1E70074E8CE /* Proposal.swift in Sources */,
+				3D39B5D8237108E30032ADC5 /* Proposal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>8B8B9DC6-7C8A-4660-9722-0861C276B369</key>
+		<key>7C3A844C-5378-4CAE-B094-E6BFFD8D0227</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -15,24 +15,24 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
 			<key>fileName</key>
-			<string>8B8B9DC6-7C8A-4660-9722-0861C276B369.xcactivitylog</string>
+			<string>7C3A844C-5378-4CAE-B094-E6BFFD8D0227.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>E</string>
+				<string>W</string>
 			</dict>
 			<key>signature</key>
 			<string>CreateElection-bofdemtnogrjgpgdyzupkjvhgnse</string>
 			<key>timeStartedRecording</key>
-			<real>594609679.80349398</real>
+			<real>594610408.32742798</real>
 			<key>timeStoppedRecording</key>
-			<real>594609679.80708599</real>
+			<real>594610408.80144894</real>
 			<key>title</key>
 			<string>Build target CreateElection</string>
 			<key>uniqueIdentifier</key>
-			<string>8B8B9DC6-7C8A-4660-9722-0861C276B369</string>
+			<string>7C3A844C-5378-4CAE-B094-E6BFFD8D0227</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>
