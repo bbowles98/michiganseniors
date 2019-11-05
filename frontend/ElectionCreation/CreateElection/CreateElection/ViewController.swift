@@ -261,13 +261,7 @@ class ElectionViewController: UITableViewController {
     
     @IBOutlet weak var propName: UITextView!
     
-    //var newProp = Proposal(proposalName: self.proposalName.text!, proposalOptions: propC)
-    
-    func refreshOptions() {
-/*
-        where get requests go
- */
-    }
+    self.tableView.reloadData()
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true) }

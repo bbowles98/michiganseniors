@@ -1,9 +1,9 @@
 version: "Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
 options: "d273f4be6c2e1ab27b48e62adc477219"
-build_time: [1572921915, 326147000]
+build_time: [1572922581, 443058000]
 inputs:
   "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/ElectionCreation/CreateElection/CreateElection/election.swift": [1572902312, 74456144]
-  "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/ElectionCreation/CreateElection/CreateElection/ViewController.swift": [1572921915, 242122905]
+  "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/ElectionCreation/CreateElection/CreateElection/ViewController.swift": !dirty [1572922581, 291847466]
   "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/ElectionCreation/CreateElection/CreateElection/VotingOption.swift": [1572911255, 211801440]
   "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/ElectionCreation/CreateElection/CreateElection/AppDelegate.swift": [1572902312, 29468616]
   "/Users/kevinlee/Desktop/eecs441/eLect/michiganseniors/frontend/ElectionCreation/CreateElection/CreateElection/OptionTableCell.swift": [1572911255, 210162989]

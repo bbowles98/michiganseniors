@@ -1876,6 +1876,40 @@
 			<key>uniqueIdentifier</key>
 			<string>E3465F13-2197-4609-B155-B8615C207503</string>
 		</dict>
+		<key>EF25DC76-2CD9-4ACF-AF27-7A34B481AD5D</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>EF25DC76-2CD9-4ACF-AF27-7A34B481AD5D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>CreateElection project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>CreateElection</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build CreateElection</string>
+			<key>timeStartedRecording</key>
+			<real>594615381.29962897</real>
+			<key>timeStoppedRecording</key>
+			<real>594615382.45762599</real>
+			<key>title</key>
+			<string>Build CreateElection</string>
+			<key>uniqueIdentifier</key>
+			<string>EF25DC76-2CD9-4ACF-AF27-7A34B481AD5D</string>
+		</dict>
 		<key>F31BCCD5-2A94-4385-B89F-2AE19E5E5533</key>
 		<dict>
 			<key>className</key>
