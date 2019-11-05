@@ -139,7 +139,24 @@
                     <view key="view" contentMode="scaleToFill" id="N4B-Qk-cZ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fB-F5-QZf">
+                                <rect key="frame" x="118" y="140" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pek-xD-co0" customClass="BallotTableView">
+                                <rect key="frame" x="62" y="198" width="290" height="386"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pek-xD-co0" firstAttribute="centerX" secondItem="Z5Y-Ga-uAM" secondAttribute="centerX" id="XGj-qb-9ZH"/>
+                            <constraint firstItem="pek-xD-co0" firstAttribute="centerY" secondItem="Z5Y-Ga-uAM" secondAttribute="centerY" id="evr-so-BJm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Z5Y-Ga-uAM"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ballot" id="OY5-z3-xbC">
@@ -150,10 +167,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="Question" destination="1fB-F5-QZf" id="PE6-Ih-cmM"/>
+                        <outlet property="viewChoices" destination="pek-xD-co0" id="PgJ-KL-HeD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJQ-4v-XG1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4859" y="809"/>
+            <point key="canvasLocation" x="4857.971014492754" y="808.92857142857144"/>
         </scene>
         <!--Vote Complete-->
         <scene sceneID="37R-sI-u6c">
