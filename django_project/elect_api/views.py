@@ -45,7 +45,7 @@ def SearchViewSet(request):
 @permission_classes((IsAuthenticated, ))
 def ViewResults(request):
 
-	election = Election.objects.filter(passcode=request.GET.get('election_id'))[0]
+	election = Election.objects.filter(pk=request.GET.get('election_id'))[0]
 	votes = VoteObject.objects.filter(election=election)
 	candidates_to_counts = {}
 	for vote in votes:
@@ -73,7 +73,7 @@ def Register(request):
 @permission_classes((IsAuthenticated, ))
 def Cast(request):
 
-	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	election = Election.objects.filter(pk=request.data['election_id'])[0]
 	answer = request.data['candidate']
 
 	new_vote = VoteObject.objects.create(
@@ -93,9 +93,9 @@ def Cast(request):
 @permission_classes((IsAuthenticated, ))
 def Vote(request):
 
-	code = request.GET.get('code')
+	election_id = request.GET.get('election_id')
 	try:
-		election = Election.objects.filter(passcode=code)[0]
+		election = Election.objects.filter(pk=election_id)[0]
 		# if (election.status == False):
 		# 	return JsonResponse({"status": "This election is not live yet"})
 
@@ -152,7 +152,7 @@ def CreateBallot(request):
 	if not user:
 		return JsonResponse({'success': False})
 
-	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	election = Election.objects.filter(pk=request.data['election_id'])[0]
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
@@ -189,7 +189,7 @@ def GoLive(request):
 	if not user:
 		return JsonResponse({'success': False})
 
-	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	election = Election.objects.filter(pk=request.data['election_id'])[0]
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
@@ -251,7 +251,7 @@ def CreateAccount(request):
 @permission_classes((IsAuthenticated,))
 def DeleteElection(request):
 
-	election = Election.objects.filter(passcode=request.data['election_id'])[0]
+	election = Election.objects.filter(pk=request.data['election_id'])[0]
 	election.delete()
 
 	return JsonResponse({"status": "deleted"})
