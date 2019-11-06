@@ -34,3 +34,8 @@ class VoteObject(models.Model):
 
 	election = models.ForeignKey(Election, on_delete=models.CASCADE)
 	answer = models.CharField(max_length=500, default="")
+
+class VoterToElection(models.Model):
+
+	election = models.ForeignKey(Election, on_delete=models.CASCADE)
+	voter = models.ForeignKey(User, on_delete=models.CASCADE)
