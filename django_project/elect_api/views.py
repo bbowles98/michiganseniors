@@ -33,6 +33,7 @@ def SearchViewSet(request):
 		electionDict['creator'] = election.creator.username
 		electionDict['passcode'] = election.passcode
 		electionDict['status'] = election.status
+		electionDict['election_id'] = election.pk
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
@@ -226,6 +227,7 @@ def ViewElections(request):
 		electionDict['creator'] = election.creator.username
 		electionDict['passcode'] = election.passcode
 		electionDict['status'] = election.status
+		electionDict['election_id'] = election.pk
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
