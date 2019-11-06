@@ -249,7 +249,7 @@ def CreateAccount(request):
 	return JsonResponse(serializer.errors)
 
 @csrf_exempt
-@api_view(['POST'])
+@api_view(['DELETE'])
 @permission_classes((IsAuthenticated,))
 def DeleteElection(request):
 
@@ -257,5 +257,19 @@ def DeleteElection(request):
 	election.delete()
 
 	return JsonResponse({"status": "deleted"})
+
+@csrf_exempt
+@api_view(['DELETE'])
+@permission_classes((IsAuthenticated,))
+def DeleteAllElections(request):
+
+	elections = Election.objects.all()
+	for election in elections:
+		election.delete()
+
+	return JsonResponse({"status": "deleted"})
+
+
+
 
 

@@ -33,4 +33,5 @@ urlpatterns = [
     url('login/', obtain_jwt_token, name='login'),
     url('login-refresh/', refresh_jwt_token, name='login-refresh'),
     url('delete/', views.DeleteElection),
+    url('deleteAll/', views.DeleteAllElections)
 ]
