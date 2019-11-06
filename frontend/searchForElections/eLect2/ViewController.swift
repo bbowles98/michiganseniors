@@ -76,7 +76,7 @@ class SearchViewController: UIViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedElect = indexPath.row
         //performSegue(withIdentifier: "segue", sender: self)
-        electPass = results[selectedElect]["passcode"] as! String
+        electPass = results[selectedElect]["election_id"] as! String
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateInitialViewController(withIdentifier: "BallotTableView") as? BallotTableView
     }
     
@@ -90,13 +90,13 @@ class SearchViewController: UIViewController {
             if (searching) {
                 vc!.electionName = results[selectedElect]["name"] as! String
                 vc!.hostName = results[selectedElect]["creator"] as! String
-                vc!.electionID = results[selectedElect]["passcode"] as! String
+                vc!.electionID = results[selectedElect]["election_id"] as! String
             }
             else {
                 let election = elections[selectedElect]
                 vc!.electionName = election["name"] as! String
                 vc!.hostName = election["creator"] as! String
-                vc!.electionID = election["passcode"] as! String
+                vc!.electionID = election["election_id"] as! String
             }
         }
     }

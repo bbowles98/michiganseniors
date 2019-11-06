@@ -8,7 +8,7 @@
 import UIKit
 var propChoices = [votingOption]()
 var token_response = ""
-var election_passcode: Any = -1
+var election_id: Any = -1
 var electPass = ""
 var elections: [Dictionary<String, Any>] = []
 
@@ -233,8 +233,8 @@ class CreateElectViewController: UIViewController {
                 return}
    
             let json = try? JSONSerialization.jsonObject(with: data!) as! [String: Any]
-            election_passcode =  (json!["passcode"])!
-            print(election_passcode)
+            election_id =  (json!["election_id"])!
+            print(election_id)
      
         }
         
@@ -317,7 +317,7 @@ class ElectionViewController: UITableViewController {
     
         // API REQUEST
         let json: [String: Any] = [
-            "election_id": election_passcode,
+            "election_id": election_id,
            "ballot_items": [
                 [
                     "question": election.question,
@@ -497,13 +497,13 @@ class SearchViewController: UIViewController {
             if (searching) {
                 vc!.electionName = results[selectedElect]["name"] as! String
                 vc!.hostName = results[selectedElect]["creator"] as! String
-                vc!.electionID = results[selectedElect]["passcode"] as! String
+                vc!.electionID = results[selectedElect]["election_id"] as! String
             }
             else {
                 let election = elections[selectedElect]
                 vc!.electionName = election["name"] as! String
                 vc!.hostName = election["creator"] as! String
-                vc!.electionID = election["passcode"] as! String
+                vc!.electionID = election["election_id"] as! String
             }
         }
     }
