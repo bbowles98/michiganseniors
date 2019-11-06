@@ -25,62 +25,162 @@ API Guide for elect
 
 The digital ocean server is located at 204.48.30.178.
 
-To create an election:
-	Send a POST request to 204.48.30.178/election containing the name of the 	election
+* HOST FEATURES *
 
-	Example Json
-	{
-		"name": "The best election ever"
-	}
+	CREATE ELECTION
+		Send a POST request to 204.48.30.178/election/
 
-To search for an election:
-	Send a GET request to 204.48.30.178/search?name=<search_string>
+		SEND
+		{
+			"name": "The best election ever"
+		}
+		
+		RECEIVE
+		{
+			"election_id": string
+			"passcode": string
+			"success": "true"
+		}
+		
+	CREATE BALLOT
+		Send a POST request to 204.48.30.178/ballot/
+
+		SEND
+		{
+			"election_id": “<election_passcode>“,
+			"ballot_items": [{"question": “<example question>”, "choices" :[“<answer1>“, “<answer2>“, “<answer3>”]}]
+		}
+		
+		RECEIVE
+		{
+			"success": "true"
+		}
+		
+	MAKE ELECTION LIVE
+		Send a POST request to 204.48.30.178/live/
+
+		SEND
+		{
+			"election_id": “<election_id>“,
+			"active": "yes"
+		}
+		
+		RECEIVE
+		{
+			"success": "true",
+			"live": boolean
+		}
 	
-	search will return all elections that contain the search_string
-	
-To create a ballot for an election
-	Send a POST request to 204.48.30.178/ballot
+	VIEW ELECTIONS
+		Send a GET request to 204.48.30.178/elections/
+		
+		RECEIVE
+		{
+			"election": [
+				{
+				    "passcode": string,
+				    "status": boolean,
+				    "election_id": string,
+				    "name": string,
+				    "creator": string
+				}
+			    ]
+		}
+		
+	DELETE ELECTION
+		SEND a DELETE request to 204.48.30.178/delete/
+		
+		SEND
+		{
+			"election_id": string
+		}
 
-	Example Json
-	{
-		"election_id": “<election_passcode>“,
-		"ballot_items": [{"question": “<example question>”, "choices" :[“<answer1>“, “<answer2>“, “<answer3>”]}]
-	}
+* VOTER FEATURES *
 
-To make an election live to allow voting:
-	Send a POST request to 204.48.30.178/live
+	SEARCH FOR ELECTION
+		Send a GET request to 204.48.30.178/search/
+		
+		SEND
+		{
+			"name": string
+		}
+		
+		RECEIVE
+		{
+			"election": [
+				{
+				    "passcode": string,
+				    "status": boolean,
+				    "election_id": string,
+				    "name": string,
+				    "creator": string
+				}
+			    ]
+		}
+		* it will return all elections whose name contains 'name'
 
-	Example Json
-	{
-		"election_id": “<election_id>“,
-		"active": "yes"
-	}
+	VIEW BALLOT
+		Send a GET request to 204.48.30.178/vote/
+		
+		SEND
+		{
+			"election_id": string
+		}
+		
+		RECEIVE
+		{
+			"ballot": {
+				{
+					question of ballot: [
+						answer1,
+						answer2,
+						. . .
+					]
+				}
+			}
+		}
 
-To view elections that the logged in user owns:
-	Send a GET request to 204.48.30.178/elections
+	CAST VOTE
+		Send a POST request to 204.48.30.178/cast/
+		
+		SEND
+		{
+			"election_id": string,
+			"candidate": string
+		}
+		
+		RECEIVE
+		{
+			"success": boolean
+		}
+		*currently can only vote for one candidate, multiple votes will be implemented when needed
 
-	This will return the list of all elections that the user is hosting
+* JOINED FEATURES *
 
-To get the voting page for an election:
-	Send a GET request to 204.48.30.178/vote?code=<election_passcode>
+	SIGNUP
+		Send a POST request to 204.48.30.178/signup/
 
-	This will return the info for the ballot for the election, specified by election_passcode	
+		SEND
+		{
+			"username": "<username>",
+			"email": "<email>",
+			"password": "<password>"	
+		}	
+		
+	VIEW RESULTS
+		Send a GET request to 204.48.30.178/results/
+		
+		SEND
+		{
+			"election_id": string
+		}
+		
+		RECEIVE
+		{
+			"results": {
+				candidate 1: count,
+				candidate 2: count,
+				. . .
+			}
+		}
 
-To signup a new user:
-	Send a POST request to 204.48.30.178/signup
-
-	Example Json
-	{
-		"username": "<username>",
-		"email": "<email>",
-		"password": "<password>"	
-	}	
-
-To cast vote:
-	Send a POST request to 204.48.30.178/cast/
-
-	Example Json
-	{
-		"election_id": "<election_id>",
-		"candidate": "<candidate>"
-	}
