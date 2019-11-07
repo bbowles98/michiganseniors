@@ -182,4 +182,15 @@ The digital ocean server is located at 204.48.30.178.
 				. . .
 			}
 		}
+	VIEW ELECTIONS REGISTERED FOR
+		Send a GET request to 204.48.30.178/registeredElections/
+		
+		RECEIVE
+		{
+			"elections": [
+				1, (this is the election_id of an election)
+				2,
+				. . .
+			]
+		}
 
