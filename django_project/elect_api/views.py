@@ -48,7 +48,7 @@ def SearchViewSet(request):
 @permission_classes((IsAuthenticated, ))
 def ViewResults(request):
 
-	election = Election.objects.filter(pk=request.GET.get('election_id'))[0]
+	election = Election.objects.get(pk=request.GET.get('election_id'))
 	votes = VoteObject.objects.filter(election=election)
 	candidates_to_counts = {}
 	for vote in votes:
@@ -68,7 +68,7 @@ def ViewResults(request):
 def Register(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election = Election.objects.filter(pk=request.data['election_id'])[0]
+	election = Election.objects.get(pk=request.data['election_id'])
 	passcode = request.data['passcode']
 
 	if passcode != election.passcode:
@@ -88,12 +88,22 @@ def Register(request):
 def Cast(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election = Election.objects.filter(pk=request.data['election_id'])[0]
+	election = Election.objects.get(pk=request.data['election_id'])
+	ballot_items = BallotItem.objects.filter(election=election)
 	answer = request.data['candidate']
 
 	json = canUserVote(user, election)
 	if json:
 		return json
+
+	valid_candidate = False
+	for ballot_item in ballot_items:
+		ballot_item_choices = BallotItemChoice.objects.filter(ballot_item=ballot_item)
+		for ballot_item_choice in ballot_item_choices:
+			if ballot_item_choice.answer == answer:
+				valid_candidate = True
+	if not valid_candidate:
+		return JsonResponse({"error": "invalid candidate"})
 
 	new_vote = VoteObject.objects.create(
 			election = election,
@@ -118,8 +128,7 @@ def Cast(request):
 def Vote(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election_id = request.GET.get('election_id')
-	election = Election.objects.filter(pk=election_id)[0]
+	election = Election.objects.get(pk=request.data['election_id'])
 
 	json = canUserVote(user, election)
 	if json:
@@ -178,7 +187,7 @@ def CreateBallot(request):
 	if not user:
 		return JsonResponse({'success': False})
 
-	election = Election.objects.filter(pk=request.data['election_id'])[0]
+	election = Election.objects.get(pk=request.data['election_id'])
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
@@ -215,7 +224,7 @@ def GoLive(request):
 	if not user:
 		return JsonResponse({'success': False})
 
-	election = Election.objects.filter(pk=request.data['election_id'])[0]
+	election = Election.objects.get(pk=request.data['election_id'])
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
@@ -276,7 +285,7 @@ def CreateAccount(request):
 @permission_classes((IsAuthenticated,))
 def DeleteElection(request):
 
-	election = Election.objects.filter(pk=request.data['election_id'])[0]
+	election = Election.objects.get(pk=request.data['election_id'])
 	election.delete()
 
 	return JsonResponse({"status": "deleted"})
@@ -299,9 +308,7 @@ def canUserVote(user, election):
 
 	try:
 		is_user_registered = RegisterLink.objects.filter(election=election)
-		print(is_user_registered)
-		is_user_registered = is_user_registered.get(participant=user)
-		print(is_user_registered)
+		is_user_registered = is_user_registered.filter(participant=user)[0]
 	except:
 		return JsonResponse({'error': 'This user is not resisted in this election'})
 
