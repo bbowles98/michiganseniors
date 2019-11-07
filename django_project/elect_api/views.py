@@ -264,6 +264,20 @@ def ViewElections(request):
 
 	return JsonResponse({'election': response})
 
+# Returns all elections that a user is registered in
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def ViewRegisteredElections(request):
+
+	user = User.objects.get(pk=request.user.pk)
+	registered = RegisterLink.objects.filter(participant=user)
+	response = []
+	for register in registered:
+		response.append(register.election.pk)
+	
+	return JsonResponse({"elections": response})
+
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes((AllowAny,))
