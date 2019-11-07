@@ -37,7 +37,7 @@ The digital ocean server is located at 204.48.30.178.
 		
 		RECEIVE
 		{
-			"election_id": string
+			"election_id": int
 			"passcode": string
 			"success": "true"
 		}
@@ -47,7 +47,7 @@ The digital ocean server is located at 204.48.30.178.
 
 		SEND
 		{
-			"election_id": “<election_passcode>“,
+			"election_id": int,
 			"ballot_items": [{"question": “<example question>”, "choices" :[“<answer1>“, “<answer2>“, “<answer3>”]}]
 		}
 		
@@ -61,7 +61,7 @@ The digital ocean server is located at 204.48.30.178.
 
 		SEND
 		{
-			"election_id": “<election_id>“
+			"election_id": int
 		}
 		
 		RECEIVE
@@ -79,7 +79,7 @@ The digital ocean server is located at 204.48.30.178.
 				{
 				    "passcode": string,
 				    "status": boolean,
-				    "election_id": string,
+				    "election_id": int,
 				    "name": string,
 				    "creator": string
 				}
@@ -91,7 +91,7 @@ The digital ocean server is located at 204.48.30.178.
 		
 		SEND
 		{
-			"election_id": string
+			"election_id": int
 		}
 
 * VOTER FEATURES *
@@ -110,7 +110,7 @@ The digital ocean server is located at 204.48.30.178.
 				{
 				    "passcode": string,
 				    "status": boolean,
-				    "election_id": string,
+				    "election_id": int,
 				    "name": string,
 				    "creator": string
 				}
@@ -123,7 +123,7 @@ The digital ocean server is located at 204.48.30.178.
 		
 		SEND
 		{
-			"election_id": string
+			"election_id": int
 		}
 		
 		RECEIVE
@@ -144,7 +144,7 @@ The digital ocean server is located at 204.48.30.178.
 		
 		SEND
 		{
-			"election_id": string,
+			"election_id": int,
 			"candidate": string
 		}
 		
@@ -171,7 +171,7 @@ The digital ocean server is located at 204.48.30.178.
 		
 		SEND
 		{
-			"election_id": string
+			"election_id": int
 		}
 		
 		RECEIVE
