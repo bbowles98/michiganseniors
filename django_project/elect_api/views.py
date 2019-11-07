@@ -17,7 +17,7 @@ from elect_api.serializers import UserSerializer
 
 import random
 
-DEBUG = False
+DEBUG = True
 
 
 # Returns all election data of elections that contain the search string, ignoring case

@@ -61,8 +61,7 @@ The digital ocean server is located at 204.48.30.178.
 
 		SEND
 		{
-			"election_id": “<election_id>“,
-			"active": "yes"
+			"election_id": “<election_id>“
 		}
 		
 		RECEIVE
