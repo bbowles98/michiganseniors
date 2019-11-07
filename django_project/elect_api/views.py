@@ -12,12 +12,12 @@ from rest_framework import filters
 from django.db import connection
 
 from django.contrib.auth.models import User
-from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject, VoterToElection
+from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject, VoterToElection, RegisterLink
 from elect_api.serializers import UserSerializer
 
 import random
 
-DEBUG = True
+DEBUG = False
 
 
 # Returns all election data of elections that contain the search string, ignoring case
@@ -67,6 +67,17 @@ def ViewResults(request):
 @permission_classes((IsAuthenticated, ))
 def Register(request):
 
+	user = User.objects.get(pk=request.user.pk)
+	election = Election.objects.filter(pk=request.data['election_id'])[0]
+	passcode = request.data['passcode']
+
+	if passcode != election.passcode:
+		return JsonResponse({'error': 'incorrect passcode'})
+
+	registeredUser = RegisterLink.objects.create(
+			election = election,
+			participant = user
+		)
 	return JsonResponse({'success': True})
 
 
@@ -80,13 +91,9 @@ def Cast(request):
 	election = Election.objects.filter(pk=request.data['election_id'])[0]
 	answer = request.data['candidate']
 
-	try:
-		didUserVote = VoterToElection.objects.filter(voter=user)
-		didUserVote = didUserVote.filter(election=election)[0]
-		if not DEBUG:
-			return JsonResponse({"error": "This user has already voted in this election!"})
-	except:
-		pass
+	json = canUserVote(user, election)
+	if json:
+		return json
 
 	new_vote = VoteObject.objects.create(
 			election = election,
@@ -114,13 +121,9 @@ def Vote(request):
 	election_id = request.GET.get('election_id')
 	election = Election.objects.filter(pk=election_id)[0]
 
-	try:
-		didUserVote = VoterToElection.objects.filter(voter=user)
-		didUserVote = didUserVote.filter(election=election)[0]
-		if not DEBUG:
-			return JsonResponse({"error": "This user has already voted in this election!"})
-	except:
-		pass
+	json = canUserVote(user, election)
+	if json:
+		return json
 
 	if (election.status == False and not DEBUG):
 	 	return JsonResponse({"status": "This election is not live yet"})
@@ -216,14 +219,12 @@ def GoLive(request):
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
-	if request.data['active']:
-		
-		ballot_items = BallotItem.objects.filter(election=election)
-		if len(ballot_items) > 0 or DEBUG:
-			election.status = True
-			election.save()
+	ballot_items = BallotItem.objects.filter(election=election)
+	if len(ballot_items) > 0 or DEBUG:
+		election.status = True
+		election.save()
 
-			return JsonResponse({'success': True, 'live': True})
+		return JsonResponse({'success': True, 'live': True})
 
 	election.status = False
 	election.save()
@@ -291,7 +292,25 @@ def DeleteAllElections(request):
 
 	return JsonResponse({"status": "deleted"})
 
+def canUserVote(user, election):
 
+	if DEBUG:
+		return
+
+	try:
+		is_user_registered = RegisterLink.objects.filter(election=election)
+		print(is_user_registered)
+		is_user_registered = is_user_registered.get(participant=user)
+		print(is_user_registered)
+	except:
+		return JsonResponse({'error': 'This user is not resisted in this election'})
+
+	try:
+		didUserVote = VoterToElection.objects.filter(voter=user)
+		didUserVote = didUserVote.filter(election=election)[0]
+		return JsonResponse({"error": "This user has already voted in this election!"})
+	except:
+		pass
 
 
 
