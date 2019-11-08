@@ -232,17 +232,10 @@ def GoLive(request):
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
-	ballot_items = BallotItem.objects.filter(election=election)
-	if len(ballot_items) > 0 or DEBUG:
-		election.status = True
-		election.save()
-
-		return JsonResponse({'success': True, 'live': True})
-
-	election.status = False
+	election.status = (request.data['live'] == "true")
 	election.save()
 
-	return JsonResponse({'success': True, 'live': False})
+	return JsonResponse({'success': True, 'live': True})
 
 
 # Returns all elections that a host has made
