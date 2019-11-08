@@ -12,6 +12,7 @@
 		3D39B5DB237108E30032ADC5 /* VotingOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5D7237108E30032ADC5 /* VotingOption.swift */; };
 		3D39B5DD2371227A0032ADC5 /* CastVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5DC2371227A0032ADC5 /* CastVoteViewController.swift */; };
 		3D39B5DF237122950032ADC5 /* VoteReadyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5DE237122950032ADC5 /* VoteReadyController.swift */; };
+		3D8D84B823761FF300C84EF6 /* SignInSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D84B723761FF300C84EF6 /* SignInSignUp.swift */; };
 		E7E088F2236FC9A4001AEA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */; };
 		E7E088F4236FC9A4001AEA3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */; };
 		E7E088F6236FC9A4001AEA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F5236FC9A4001AEA3B /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		3D39B5D7237108E30032ADC5 /* VotingOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingOption.swift; sourceTree = "<group>"; };
 		3D39B5DC2371227A0032ADC5 /* CastVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastVoteViewController.swift; sourceTree = "<group>"; };
 		3D39B5DE237122950032ADC5 /* VoteReadyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteReadyController.swift; sourceTree = "<group>"; };
+		3D8D84B723761FF300C84EF6 /* SignInSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUp.swift; sourceTree = "<group>"; };
 		E7E088EE236FC9A4001AEA3B /* CreateElection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreateElection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				E7E088FF236FC9A6001AEA3B /* Info.plist */,
 				3D39B5DC2371227A0032ADC5 /* CastVoteViewController.swift */,
 				3D39B5DE237122950032ADC5 /* VoteReadyController.swift */,
+				3D8D84B723761FF300C84EF6 /* SignInSignUp.swift */,
 			);
 			path = CreateElection;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D8D84B823761FF300C84EF6 /* SignInSignUp.swift in Sources */,
 				E7E08906236FCAE4001AEA3B /* election.swift in Sources */,
 				E7E088F6236FC9A4001AEA3B /* ViewController.swift in Sources */,
 				3D39B5DB237108E30032ADC5 /* VotingOption.swift in Sources */,
