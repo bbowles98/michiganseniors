@@ -10,7 +10,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework import filters
 from django.db import connection
-
+from datetime import datetime
 from django.contrib.auth.models import User
 from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject, VoterToElection, RegisterLink
 from elect_api.serializers import UserSerializer
@@ -36,6 +36,8 @@ def SearchViewSet(request):
 		electionDict['passcode'] = election.passcode
 		electionDict['status'] = election.status
 		electionDict['election_id'] = election.pk
+		electionDict['start_date'] = election.start_date
+		electionDict['end_date'] = election.end_date
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
@@ -168,7 +170,9 @@ def CreateElection(request):
 		name=request.data['name'],
 		creator=user,
 		passcode=passcode,
-		status=False
+		status=True,
+		start_date=request.data['start_date'],
+		end_date=request.data['end_date']
 	)
 
 	if not new_election:
@@ -260,6 +264,8 @@ def ViewElections(request):
 		electionDict['passcode'] = election.passcode
 		electionDict['status'] = election.status
 		electionDict['election_id'] = election.pk
+		electionDict['start_date'] = election.start_date
+		electionDict['end_date'] = election.end_date
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
@@ -330,6 +336,11 @@ def DeleteAllElections(request):
 	return JsonResponse({"status": "deleted"})
 
 def canUserVote(user, election):
+
+
+	time = datetime.now()
+	if time < datetime.strptime(election.start_date, '%Y-%m-%d %H:%M:%S') or time > datetime.strptime(election.end_date, '%Y-%m-%d %H:%M:%S'):
+		return JsonResponse({'error': 'This election is not live yet'})
 
 	if DEBUG:
 		return
