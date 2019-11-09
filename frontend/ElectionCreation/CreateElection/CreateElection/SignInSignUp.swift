@@ -77,9 +77,18 @@ class SignInViewController: UIViewController {
 
 
 class SignUpViewController: UIViewController {
+    
     @IBOutlet weak var Signup_Email_Input: UITextField!
     @IBOutlet weak var Signup_Password_Input: UITextField!
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        //Dispose of any resources that can be created
+    }
     
     @IBAction func SignUpClicked(_ sender: UIButton) {
         let json: [String: Any] = ["username": self.Signup_Email_Input.text ?? "NULL",
@@ -107,15 +116,12 @@ class SignUpViewController: UIViewController {
                 httpStatus.statusCode != 200 {
                 print(response.debugDescription)
                 //let json_response = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                
-
                 print("HTTP STATUS: \(httpStatus.statusCode)")
                 return
             }
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-
                 print(json.debugDescription)
                 print(json)
                 
@@ -125,14 +131,9 @@ class SignUpViewController: UIViewController {
             }
     }
         task.resume()
+        
+        dismiss(animated: true, completion: nil)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
+    
 
 }
