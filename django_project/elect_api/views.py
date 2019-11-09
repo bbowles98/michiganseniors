@@ -10,7 +10,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework import filters
 from django.db import connection
-
+from datetime import datetime
 from django.contrib.auth.models import User
 from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject, VoterToElection, RegisterLink
 from elect_api.serializers import UserSerializer
@@ -36,6 +36,8 @@ def SearchViewSet(request):
 		electionDict['passcode'] = election.passcode
 		electionDict['status'] = election.status
 		electionDict['election_id'] = election.pk
+		electionDict['start_date'] = election.start_date
+		electionDict['end_date'] = election.end_date
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
@@ -168,7 +170,9 @@ def CreateElection(request):
 		name=request.data['name'],
 		creator=user,
 		passcode=passcode,
-		status=False
+		status=True,
+		start_date=request.data['start_date'],
+		end_date=request.data['end_date']
 	)
 
 	if not new_election:
@@ -228,17 +232,10 @@ def GoLive(request):
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
 
-	ballot_items = BallotItem.objects.filter(election=election)
-	if len(ballot_items) > 0 or DEBUG:
-		election.status = True
-		election.save()
-
-		return JsonResponse({'success': True, 'live': True})
-
-	election.status = False
+	election.status = (request.data['live'] == "true")
 	election.save()
 
-	return JsonResponse({'success': True, 'live': False})
+	return JsonResponse({'success': True, 'live': True})
 
 
 # Returns all elections that a host has made
@@ -260,6 +257,8 @@ def ViewElections(request):
 		electionDict['passcode'] = election.passcode
 		electionDict['status'] = election.status
 		electionDict['election_id'] = election.pk
+		electionDict['start_date'] = election.start_date
+		electionDict['end_date'] = election.end_date
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
@@ -272,6 +271,20 @@ def ViewRegisteredElections(request):
 
 	user = User.objects.get(pk=request.user.pk)
 	registered = RegisterLink.objects.filter(participant=user)
+	response = []
+	for register in registered:
+		response.append(register.election.pk)
+	
+	return JsonResponse({"elections": response})
+
+# Returns all elections that a user has voted in
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def ViewPastElectionsUserVotedIn(request):
+
+	user = User.objects.get(pk=request.user.pk)
+	registered = VoterToElection.objects.filter(voter=user)
 	response = []
 	for register in registered:
 		response.append(register.election.pk)
@@ -316,6 +329,11 @@ def DeleteAllElections(request):
 	return JsonResponse({"status": "deleted"})
 
 def canUserVote(user, election):
+
+
+	time = datetime.now()
+	if time < datetime.strptime(election.start_date, '%Y-%m-%d %H:%M:%S') or time > datetime.strptime(election.end_date, '%Y-%m-%d %H:%M:%S'):
+		return JsonResponse({'error': 'This election is not live yet'})
 
 	if DEBUG:
 		return

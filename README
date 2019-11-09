@@ -32,13 +32,15 @@ The digital ocean server is located at 204.48.30.178.
 
 		SEND
 		{
-			"name": "The best election ever"
+			"name": "The best election ever",
+			"start_date": "yyyy-MM-dd hh:mm:ss",
+			"end_date": "yyyy-MM-dd hh:mm:ss"
 		}
 		
 		RECEIVE
 		{
-			"election_id": int
-			"passcode": string
+			"election_id": int,
+			"passcode": string,
 			"success": "true"
 		}
 		
@@ -56,12 +58,13 @@ The digital ocean server is located at 204.48.30.178.
 			"success": "true"
 		}
 		
-	MAKE ELECTION LIVE
+	MAKE ELECTION LIVE/DEAD MANUALLY
 		Send a POST request to 204.48.30.178/live/
 
 		SEND
 		{
-			"election_id": int
+			"election_id": int,
+			"live": "true" or "false"
 		}
 		
 		RECEIVE
@@ -81,7 +84,9 @@ The digital ocean server is located at 204.48.30.178.
 				    "status": boolean,
 				    "election_id": int,
 				    "name": string,
-				    "creator": string
+				    "creator": string,    
+				    "start_date": "yyyy-MM-dd hh:mm:ss",
+				    "end_date": "yyyy-MM-dd hh:mm:ss"
 				}
 			    ]
 		}
@@ -112,7 +117,9 @@ The digital ocean server is located at 204.48.30.178.
 				    "status": boolean,
 				    "election_id": int,
 				    "name": string,
-				    "creator": string
+				    "creator": string,
+				    "start_date": "yyyy-MM-dd hh:mm:ss",
+				    "end_date": "yyyy-MM-dd hh:mm:ss"
 				}
 			    ]
 		}
@@ -182,6 +189,7 @@ The digital ocean server is located at 204.48.30.178.
 				. . .
 			}
 		}
+		
 	VIEW ELECTIONS REGISTERED FOR
 		Send a GET request to 204.48.30.178/registeredElections/
 		
@@ -193,4 +201,15 @@ The digital ocean server is located at 204.48.30.178.
 				. . .
 			]
 		}
-
+		
+	VIEW ELECTIONS THAT USER HAS VOTED IN
+		Send a GET request to 204.48.30.178/pastElectionsVotedIn/
+		
+		RECEIVE
+		{
+			"elections": [
+				1, (this is the election_id of an election)
+				2,
+				. . .
+			]
+		}
