@@ -73,27 +73,20 @@ class SearchViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedElect = indexPath.row
-        self.performSegue(withIdentifier: "ToReady", sender: indexPath)
-        //dismiss(animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is VoteReadyViewController
-        {
-            let vc = segue.destination as? VoteReadyViewController
-            if (searching) {
-                vc!.electionName = results[selectedElect]["name"] as! String
-                vc!.hostName = results[selectedElect]["creator"] as! String
-                vc!.electionIDpassed = String(results[selectedElect]["election_id"] as! Int)
-            }
-            else {
-                let election = elections[selectedElect]
-                vc!.electionName = election["name"] as! String
-                vc!.hostName = election["creator"] as! String
-                vc!.electionIDpassed = String(election["election_id"] as! Int)
-            }
+        
+        if (searching) {
+            vc.electionName = results[selectedElect]["name"] as! String
+            vc.hostName = results[selectedElect]["creator"] as! String
+            vc.electionIDpassed = String(results[selectedElect]["election_id"] as! Int)
         }
+        else {
+            let election = elections[selectedElect]
+            vc.electionName = election["name"] as! String
+            vc.hostName = election["creator"] as! String
+            vc.electionIDpassed = String(election["election_id"] as! Int)
+        }
+        
+        //dismiss(animated: true, completion: nil)
     }
 }
 
