@@ -1,22 +1,22 @@
 //
-//  VoteReadyController.swift
+//  VoteReadyControllerViewController.swift
 //  eLect2
 //
-//  Created by Madelyn Rycenga on 11/4/19.
+//  Created by Madelyn Rycenga on 11/8/19.
 //  Copyright © 2019 Grace Economou. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class VoteReadyController: UIViewController {
+class VoteReadyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        name.text = electionName
-        Host.text = hostName
+        name?.text = electionName
+        host?.text = hostName
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         //Dispose of any resources that can be created
@@ -24,19 +24,22 @@ class VoteReadyController: UIViewController {
     
     var electionName:String = ""
     var hostName:String = ""
-    var electionID:String = ""
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var Host: UILabel!
+    var electionIDpassed:String = ""
     
-    @IBAction func onClickContinue(_ sender: Any) {
-        performSegue(withIdentifier: "Vote", sender: self)
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var host: UILabel!
+    @IBAction func onVote(_ sender: Any) {
+        // On the click off the vote button, segue to ballot
+        self.performSegue(withIdentifier: "ToBallot", sender: (Any).self)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is CastVoteViewController
         {
             let vc = segue.destination as? CastVoteViewController
-            vc!.electionID = electionID
+            vc!.electionName = electionName
+            vc!.electionID = electionIDpassed
         }
     }
 }
