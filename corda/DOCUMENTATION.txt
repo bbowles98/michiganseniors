@@ -1,5 +1,6 @@
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-$		Documentation for our #CORDAPP#		      $
+$		Documentation for our #voteApp#		      $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-1. Cry
+1. The working cordapp is located in voteApp
+2. 
