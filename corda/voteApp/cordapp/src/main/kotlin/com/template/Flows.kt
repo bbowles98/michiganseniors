@@ -12,7 +12,7 @@ import net.corda.core.transactions.TransactionBuilder
 // *********
 @InitiatingFlow
 @StartableByRPC
-class IOUFlow(val issueVal: Int,
+class VoteFlow(val issueVal: Int,
               val selectionVal: Int,
               val electionVal: Party) : FlowLogic<Unit>() {
 

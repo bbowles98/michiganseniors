@@ -2,5 +2,21 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $		Documentation for our #voteApp#		      $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-1. The working cordapp is located in voteApp
-2. 
+#The working cordapp is located in voteApp#
+
+#THX to corda team for great documentation/examples/templates#
+
+
+---Node Network---
+
+1. voteapp/ :		./gradlew clean deployNodes
+2. voteapp/build/nodes:	./runnodes
+3. Congrats! You're running a simulated network of nodes running our cordapp
+
+Notes: 
+#	vaultQuery contractStateType path = "com.template.<yourStateName>"
+
+
+---HTTP Server---
+1. voteapp/:		./gradlew runtemplateserver
+2. Congrats! You're running an http server to reach our nodes on our simulated network! Woohoo!
