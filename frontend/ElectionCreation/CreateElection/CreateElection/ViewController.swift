@@ -25,17 +25,6 @@ class ViewController: UIViewController {
 }
 
 
-class LandingPageViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
-}
-
 class CreateElectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +73,7 @@ class CreateElectViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        //parse out token response
         let s = String(describing: token_response)
         var token = s
         let temp1 = token.split(separator: "(")[1]

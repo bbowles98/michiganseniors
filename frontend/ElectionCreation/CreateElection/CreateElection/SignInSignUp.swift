@@ -15,7 +15,6 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var Password_input: UITextField!
     
     @IBAction func SignInClicked(_ sender: UIButton) {
-        
         let json: [String: Any] = ["username": self.Email_Input.text ?? "NULL",
                                    "password": self.Password_input.text ?? "I wrote a blank message, oops!"]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
@@ -43,6 +42,7 @@ class SignInViewController: UIViewController {
                 return
             }
             
+            //parse out token response
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 let s = String(describing: json["token"])
@@ -134,6 +134,4 @@ class SignUpViewController: UIViewController {
         
         dismiss(animated: true, completion: nil)
     }
-    
-
 }
