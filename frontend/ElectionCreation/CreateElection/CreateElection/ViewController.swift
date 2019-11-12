@@ -56,9 +56,9 @@ class CreateElectViewController: UIViewController {
         var startString: String
         var endString: String
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:00"
         startString = dateFormatter.string(from: selectedStart.date)
-        endString = dateFormatter.string(from: selectedStart.date)
+        endString = dateFormatter.string(from: selectedEnd.date)
         
         
         // Package information into JSON
