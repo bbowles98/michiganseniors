@@ -64,8 +64,8 @@ class CreateElectViewController: UIViewController {
         // Package information into JSON
         let json: [String: Any] = [ "name": self.ElectionName.text ?? "NULL",
                                     "elec_is_public": isPublic,
-                                    "startDate": startString,
-                                    "endDate": endString
+                                    "start_date": startString,
+                                    "end_date": endString
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         var request = URLRequest(url:
