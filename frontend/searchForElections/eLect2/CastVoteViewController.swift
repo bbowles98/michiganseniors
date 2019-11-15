@@ -21,6 +21,15 @@ class CastVoteViewController: UIViewController {
         // Get the data to load the ballot
         var request = URLRequest(url:
             URL(string: getURL)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let s = String(describing: token_response)
+        var token = s
+        let temp1 = token.split(separator: "(")[1]
+        let token_response = temp1.split(separator: ")")[0]
+        
+        request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request)
