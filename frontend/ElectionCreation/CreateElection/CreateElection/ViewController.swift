@@ -25,17 +25,6 @@ class ViewController: UIViewController {
 }
 
 
-class LandingPageViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
-}
-
 class CreateElectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,16 +56,16 @@ class CreateElectViewController: UIViewController {
         var startString: String
         var endString: String
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:00"
         startString = dateFormatter.string(from: selectedStart.date)
-        endString = dateFormatter.string(from: selectedStart.date)
+        endString = dateFormatter.string(from: selectedEnd.date)
         
         
         // Package information into JSON
         let json: [String: Any] = [ "name": self.ElectionName.text ?? "NULL",
                                     "elec_is_public": isPublic,
-                                    "startDate": startString,
-                                    "endDate": endString
+                                    "start_date": startString,
+                                    "end_date": endString
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         var request = URLRequest(url:
@@ -84,6 +73,7 @@ class CreateElectViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        //parse out token response
         let s = String(describing: token_response)
         var token = s
         let temp1 = token.split(separator: "(")[1]

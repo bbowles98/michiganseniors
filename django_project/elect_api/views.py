@@ -14,6 +14,7 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject, VoterToElection, RegisterLink
 from elect_api.serializers import UserSerializer
+from elect_api.gmail import sendMail
 
 import random
 
@@ -80,6 +81,8 @@ def Register(request):
 			election = election,
 			participant = user
 		)
+	msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
+	sendMail(user.email, msg)
 	return JsonResponse({'success': True})
 
 
@@ -119,6 +122,9 @@ def Cast(request):
 			election = election,
 			voter = user
 		)
+
+	msg = "Subject: You've Voted!\n\nYou have been successfully voted in " + election.name
+	sendMail(user.email, msg)
 
 	return JsonResponse({'success': True})
 
