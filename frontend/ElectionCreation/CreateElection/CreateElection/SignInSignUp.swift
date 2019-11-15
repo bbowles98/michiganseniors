@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 
+
+
 class SignInViewController: UIViewController {
     @IBOutlet weak var Email_Input: UITextField!
     @IBOutlet weak var Password_input: UITextField!
@@ -28,7 +30,6 @@ class SignInViewController: UIViewController {
         
         print(request.debugDescription)
         
-        
         //async error handling
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let _ = data, error == nil else {
@@ -38,21 +39,30 @@ class SignInViewController: UIViewController {
             if let httpStatus = response as? HTTPURLResponse,
                 httpStatus.statusCode != 200 {
                 print(response.debugDescription)
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-                return
-            }
+                print("HTTP STATUS yayay: \(httpStatus.statusCode)")
             
-            //parse out token response
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                let s = String(describing: json["token"])
-                token_response = s
-                let temp1 = token_response.split(separator: "(")[1]
-                let token_response = temp1.split(separator: ")")[0]
-         
+                //show alert
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Login Error", message:
+                        "Unrecognized email and/or password", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                    self.present(alertController, animated: true, completion: nil)
+                
+                return
+                }
             }
-            catch let error as NSError {
-                print(error)
+            else {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                    let s = String(describing: json["token"])
+                    token_response = s
+                    let temp1 = token_response.split(separator: "(")[1]
+                    let token_response = temp1.split(separator: ")")[0]
+                }
+                catch let error as NSError {
+                               print(error)
+                           }
+                self.navigateToMainInterface()
             }
         }
         //run the previous copule lines of code in a seperate thread
@@ -61,6 +71,19 @@ class SignInViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    private func navigateToMainInterface() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+       
+        DispatchQueue.main.async{
+            guard let mainNavagationVC = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? MainNavigationController
+                else {
+                    return
+                }
+            //(currentWindow?.rootViewController as! UINavigationController).pushViewController(webViewController, animated: true)
+        
+            self.present(mainNavagationVC, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,5 +156,12 @@ class SignUpViewController: UIViewController {
         task.resume()
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+
+class MainNavigationController: UINavigationController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }
