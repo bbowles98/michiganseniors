@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hkl-zM-Gdm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faS-SH-GoQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-500.00000000000006" y="-1961.3839285714284"/>
+            <point key="canvasLocation" x="410.14492753623193" y="-1961.3839285714284"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gVv-kP-FFQ">
@@ -163,12 +163,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="203-9i-4nu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2150.7246376811595" y="-1961.3839285714284"/>
+            <point key="canvasLocation" x="-1240.5797101449277" y="-1961.3839285714284"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="eBK-ax-Sen">
             <objects>
-                <viewController id="whm-fR-Tq0" customClass="SignInViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="whm-fR-Tq0" customClass="SignInViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TJa-r4-Yfq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,7 +240,6 @@
                                 </state>
                                 <connections>
                                     <action selector="SignInClicked:" destination="whm-fR-Tq0" eventType="touchUpInside" id="qpe-yp-j5d"/>
-                                    <segue destination="bCd-6h-5GA" kind="show" id="pGp-CN-7Sd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -332,7 +331,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55Y-S0-1S4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1239.1304347826087" y="-1961.3839285714284"/>
+            <point key="canvasLocation" x="-328.98550724637681" y="-1961.3839285714284"/>
         </scene>
         <!--Add Voting Option-->
         <scene sceneID="arW-GP-kzJ">
@@ -395,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCl-6a-jrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4296" y="-1937"/>
+            <point key="canvasLocation" x="5205.7971014492759" y="-1937.2767857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fjG-iW-nw9">
@@ -414,7 +413,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbB-mE-nZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3236" y="-1937"/>
+            <point key="canvasLocation" x="4144.927536231884" y="-1937.2767857142856"/>
         </scene>
         <!--Voting Options-->
         <scene sceneID="qTx-YC-ewj">
@@ -510,7 +509,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yS-6G-noj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2159" y="-1937"/>
+            <point key="canvasLocation" x="3068.115942028986" y="-1937.2767857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UeR-c3-ysr">
@@ -528,7 +527,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFm-mD-stt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1142" y="-1937"/>
+            <point key="canvasLocation" x="2050.7246376811595" y="-1937.2767857142856"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="pBm-tT-dRd">
@@ -777,6 +776,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0H6-HH-5We" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3630.434782608696" y="-1235.4910714285713"/>
+        </scene>
+        <!--Main Navigation Controller-->
+        <scene sceneID="I0C-Jg-BVb">
+            <objects>
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0iN-ec-Dpp" customClass="MainNavigationController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lxi-RA-o5G">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bCd-6h-5GA" kind="relationship" relationship="rootViewController" id="vHJ-CO-qAt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81E-yT-y5Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2150.7246376811595" y="-1961.3839285714284"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
