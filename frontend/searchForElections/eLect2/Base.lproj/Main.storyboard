@@ -79,15 +79,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="9vx-it-s32">
-                                <rect key="frame" x="20" y="159" width="85" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="9vx-it-s32">
+                                <rect key="frame" x="20" y="159" width="83" height="21"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2o-oq-WVn">
-                                <rect key="frame" x="113" y="159" width="281" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2o-oq-WVn">
+                                <rect key="frame" x="111" y="159" width="85.5" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -105,7 +105,6 @@
                         <constraints>
                             <constraint firstItem="XRg-2E-9lf" firstAttribute="leading" secondItem="wJ3-ev-chJ" secondAttribute="leading" constant="20" id="40b-2V-Uh4"/>
                             <constraint firstItem="T2o-oq-WVn" firstAttribute="leading" secondItem="9vx-it-s32" secondAttribute="trailing" constant="8" id="5nL-y9-TYO"/>
-                            <constraint firstItem="wJ3-ev-chJ" firstAttribute="trailing" secondItem="T2o-oq-WVn" secondAttribute="trailing" constant="20" id="BPS-xr-KM2"/>
                             <constraint firstItem="T2o-oq-WVn" firstAttribute="top" secondItem="XRg-2E-9lf" secondAttribute="bottom" constant="20" id="F8l-jg-yVp"/>
                             <constraint firstItem="XRg-2E-9lf" firstAttribute="top" secondItem="wJ3-ev-chJ" secondAttribute="top" constant="30" id="GZK-9H-DT5"/>
                             <constraint firstItem="wJ3-ev-chJ" firstAttribute="trailing" secondItem="XRg-2E-9lf" secondAttribute="trailing" constant="20" id="Pl6-4g-wLD"/>
@@ -117,7 +116,6 @@
                             <constraint firstItem="9vx-it-s32" firstAttribute="top" secondItem="XRg-2E-9lf" secondAttribute="bottom" constant="20" id="eMi-Gr-QK3"/>
                             <constraint firstItem="bQy-Eu-KZR" firstAttribute="leading" secondItem="wJ3-ev-chJ" secondAttribute="leading" constant="80" id="gk2-l8-lXi"/>
                             <constraint firstAttribute="bottom" secondItem="bQy-Eu-KZR" secondAttribute="bottom" constant="20" id="mWg-CW-pcg"/>
-                            <constraint firstItem="T2o-oq-WVn" firstAttribute="trailing" secondItem="wJ3-ev-chJ" secondAttribute="trailing" constant="20" id="rug-3n-QIB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wJ3-ev-chJ"/>
                     </view>
