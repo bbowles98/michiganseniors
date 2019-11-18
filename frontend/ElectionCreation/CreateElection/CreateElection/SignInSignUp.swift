@@ -115,19 +115,15 @@ class SignUpViewController: UIViewController {
     
     @IBAction func SignUpClicked(_ sender: UIButton) {
         let json: [String: Any] = ["username": self.Signup_Email_Input.text ?? "NULL",
-                                   "password": self.Signup_Password_Input.text ?? "I wrote a blank message, oops!", "email": self.Signup_Email_Input.text ?? "NULL"]
+                                   "password": self.Signup_Password_Input.text ?? "I wrote a blank message, oops!",
+                                   "email": self.Signup_Email_Input.text ?? "NULL"]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
-        
-        
         var request = URLRequest(url:
             URL(string: "http://204.48.30.178/signup/")!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        //request.addValue("JWT " + whatever_token, forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         request.httpBody = jsonData
-                
-        print(request.debugDescription)
         
         //async error handling
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -137,25 +133,37 @@ class SignUpViewController: UIViewController {
             }
             if let httpStatus = response as? HTTPURLResponse,
                 httpStatus.statusCode != 200 {
+                print("got in to error!")
                 print(response.debugDescription)
-                //let json_response = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 print("HTTP STATUS: \(httpStatus.statusCode)")
                 return
             }
-            
+            DispatchQueue.main.async{
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                print(json.debugDescription)
-                print(json)
+                //print(json)
+                let email_text = json["email"]! as? String
+                let pass_text = json["password"]! as? String
                 
+                if (email_text == nil || pass_text == nil) {
+                    let alertController = UIAlertController(title: "Signup Error",
+                                                            message:"Please enter a valid email address, and/or make sure your password has at least 8 characters.",
+                                                            preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                    self.present(alertController, animated: true, completion: nil)
+                    return
+                }
+                else {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
+                
             catch let error as NSError {
                 print(error)
             }
+        }
     }
         task.resume()
-        
-        dismiss(animated: true, completion: nil)
     }
 }
 
