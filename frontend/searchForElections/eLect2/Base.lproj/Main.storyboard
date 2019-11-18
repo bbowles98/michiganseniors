@@ -138,6 +138,7 @@
         <!--Ballot-->
         <scene sceneID="sYX-JE-ttz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJQ-4v-XG1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CastVote" id="rXh-8D-Nvv" customClass="CastVoteViewController" customModule="eLect2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N4B-Qk-cZ6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -166,13 +167,13 @@
                         <outlet property="question" destination="1fB-F5-QZf" id="5mK-Nh-XR0"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AJQ-4v-XG1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4762" y="812"/>
         </scene>
         <!--Vote Complete-->
         <scene sceneID="37R-sI-u6c">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L1j-9r-9L6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="rnb-I8-aTN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XDW-Mg-LXz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -205,7 +206,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Vote Complete" id="a74-vh-0aO"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L1j-9r-9L6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5824.6376811594209" y="827.67857142857144"/>
         </scene>
@@ -230,6 +230,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bDO-kj-b6l">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lXk-vY-uLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gIF-YX-VEs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="COU-XX-dS6"/>
@@ -242,12 +243,11 @@
                         <segue destination="Kdg-Z1-kaU" kind="relationship" relationship="rootViewController" id="47b-QB-U1r"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lXk-vY-uLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2843" y="1241"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="47b-QB-U1r"/>
+        <segue reference="LiI-Bf-zeE"/>
     </inferredMetricsTieBreakers>
 </document>

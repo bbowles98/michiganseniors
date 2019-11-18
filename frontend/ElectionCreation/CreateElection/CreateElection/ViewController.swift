@@ -292,8 +292,6 @@ class CreateOptionViewController: UIViewController {
 
 
 class SearchViewController: UIViewController {
-
-//@IBAction func testGetReq(_ sender: UIButton) {
     
     var data = elections
     var results: [Dictionary<String, Any>] = []
@@ -343,28 +341,25 @@ class SearchViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedElect = indexPath.row
-        //performSegue(withIdentifier: "segue", sender: self)
-        electPass = results[selectedElect]["passcode"] as! String
-        dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "ToReady", sender: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        print("here")
-        if segue.destination is VoteReadyController
+        if segue.destination is VoteReadyViewController
         {
-            let vc = segue.destination as? VoteReadyController
-            vc!.electionID = electionID
+            let vc = segue.destination as? VoteReadyViewController
+            
             if (searching) {
                 vc!.electionName = results[selectedElect]["name"] as! String
                 vc!.hostName = results[selectedElect]["creator"] as! String
-                vc!.electionID = results[selectedElect]["election_id"] as! String
+                vc!.electionIDpassed = String(results[selectedElect]["election_id"] as! Int)
             }
             else {
                 let election = elections[selectedElect]
                 vc!.electionName = election["name"] as! String
                 vc!.hostName = election["creator"] as! String
-                vc!.electionID = election["election_id"] as! String
+                vc!.electionIDpassed = String(election["election_id"] as! Int)
             }
         }
     }
