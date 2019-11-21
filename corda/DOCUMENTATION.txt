@@ -15,7 +15,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 Notes: 
 #	vaultQuery contractStateType path = "com.template.<yourStateName>"
-#	on command line, kill all java (node network) = "killall -9 java"
+#	on command line ubuntu , kill all java (node network) = "killall -9 java"
 
 
 ---HTTP Server---

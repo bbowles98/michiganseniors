@@ -14,7 +14,8 @@ import net.corda.core.transactions.TransactionBuilder
 @StartableByRPC
 class VoteFlow(val issueVal: Int,
               val selectionVal: Int,
-              val electionVal: Party) : FlowLogic<Unit>() {
+              val electionVal: Party,
+               val voterVal: Party) : FlowLogic<Unit>() {
 
     /** The progress tracker provides checkpoints indicating the progress of the flow to observers. */
     override val progressTracker = ProgressTracker()
@@ -27,7 +28,7 @@ class VoteFlow(val issueVal: Int,
 
         // We create the transaction components.
 
-        val outputState = IOUState(issueVal, selectionVal, electionVal)
+        val outputState = IOUState(issueVal, selectionVal, electionVal, voterVal)
         val command = Command(TemplateContract.Commands.Action(), ourIdentity.owningKey)
 
         // We create a transaction builder and add the components.
@@ -41,4 +42,6 @@ class VoteFlow(val issueVal: Int,
         // We finalise the transaction.
         subFlow(FinalityFlow(signedTx))
     }
+
+
 }
