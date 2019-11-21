@@ -1,0 +1,14 @@
+[WARN ] 2019-11-11T06:24:05,858Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h26m39s693ms).
+[WARN ] 2019-11-11T07:31:38,894Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53m32s938ms).
+[WARN ] 2019-11-11T15:44:09,182Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h53m29s878ms).
+[WARN ] 2019-11-11T15:44:38,264Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s145ms), soft-evicting connections from pool.
+[WARN ] 2019-11-11T16:57:28,656Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m18s797ms).
+[WARN ] 2019-11-11T17:52:48,987Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m19s898ms).
+[WARN ] 2019-11-11T18:26:45,335Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m56s350ms).
+[WARN ] 2019-11-11T18:27:14,955Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s620ms), soft-evicting connections from pool.
+[WARN ] 2019-11-11T18:38:46,188Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m31s233ms).
+[WARN ] 2019-11-11T20:47:19,007Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h39m32s554ms).
+[WARN ] 2019-11-12T00:17:16,214Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m23s869ms).
+[WARN ] 2019-11-12T01:22:14,977Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m53s24ms).
+[WARN ] 2019-11-12T01:30:45,842Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m30s865ms).
+[WARN ] 2019-11-12T02:18:42,908Z [HikariPool-1 housekeeper] pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m26s698ms).

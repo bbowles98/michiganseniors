@@ -1,14 +1,12 @@
-2019-11-18 22:18:39,705 main WARN Unable to instantiate org.fusesource.jansi.WindowsAnsiOutputStream
-2019-11-18 22:18:39,746 main WARN Unable to instantiate org.fusesource.jansi.WindowsAnsiOutputStream
 
 [91m   ______               __
   / ____/     _________/ /___ _
- / /     __  / ___/ __  / __ `/         [94mSome bankers are generous ...
-[91m/ /___  /_/ / /  / /_/ / /_/ /          [94mto a vault!  
+ / /     __  / ___/ __  / __ `/         [94mWhat you can buy for a dollar these
+[91m/ /___  /_/ / /  / /_/ / /_/ /          [94mdays is absolute non-cents! 💰  
 [91m\____/     /_/   \__,_/\__,_/[m
 
 [99;1m--- Corda Open Source 3.3-corda (c834162) -----------------------------------------------
 
 [m
-Logs can be found in                    : C:\aeez\441\michiganseniors\corda\voteApp\build\nodes\Host\logs
-Database connection url is              : jdbc:h2:tcp://169.254.85.233:60853/node
+Logs can be found in                    : /Users/rahulsachdeva/Desktop/441/michiganseniors/corda/voteApp/build/nodes/Host/logs
+Database connection url is              : jdbc:h2:tcp://35.2.167.119:52892/node
