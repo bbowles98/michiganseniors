@@ -12,6 +12,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var results = [:] as [String: Any]
     var getURL:String = ""
     var live:Bool = false
@@ -71,18 +72,24 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+                
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableCell") as! ResultTableCell
             
         electionName = results["name"] as! String
         live = (results["live"] != nil)
         total = results["total_votes"] as! Int
         
-        cell.optionName?.text = ballotItems[indexPath.row] as! [String]
-        
-        cell.optionVotes.text = num
-        cell.optionPer.text = String(Int(num)/Int(total) * 100) + "%"
-        
+        var candidate = ballotItems[indexPath.row]
+        var votes = ballotItems[indexPath.row]
+        cell.optionName?.text = candidate
+        cell.optionVotes?.text = String(ballotItems["candidate"])
+        cell.optionPer?.text = String(Int(votes)!/Int(total) * 100) + "%"
+
         return cell
+
     }
+    
+    // if the poll is closed, say that poll is closed
+    // otherwise, say live analytics and you need to figure out how to loop to continuously be able to check for updates in results
 }
+

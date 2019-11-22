@@ -109,7 +109,8 @@
                         <outlet property="resultName" destination="kZy-sv-Df3" id="qbl-XZ-nIx"/>
                         <outlet property="resultPer" destination="jMC-Rd-hsH" id="cHC-5I-l8G"/>
                         <outlet property="resultVotes" destination="31y-RI-Bjo" id="LKv-B7-QVS"/>
-                        <outlet property="tableView" destination="J0z-9f-A5j" id="jyx-A8-yJq"/>
+                        <outlet property="tableVIew" destination="J0z-9f-A5j" id="MeM-oO-sOW"/>
+                        <outlet property="tableView" destination="J0z-9f-A5j" id="FL5-3Q-ffD"/>
                         <outlet property="tblView" destination="J0z-9f-A5j" id="SuB-Wv-SPS"/>
                     </connections>
                 </viewController>
