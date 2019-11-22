@@ -336,13 +336,12 @@ def DeleteAllElections(request):
 
 def canUserVote(user, election):
 
+	if DEBUG:
+		return
 
 	time = datetime.now()
 	if time < datetime.strptime(election.start_date, '%Y-%m-%d %H:%M:%S') or time > datetime.strptime(election.end_date, '%Y-%m-%d %H:%M:%S'):
 		return JsonResponse({'error': 'This election is not live yet'})
-
-	if DEBUG:
-		return
 
 	try:
 		is_user_registered = RegisterLink.objects.filter(election=election)
