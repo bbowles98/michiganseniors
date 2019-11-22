@@ -11,7 +11,8 @@ class Election(models.Model):
 	creator = models.ForeignKey(User, on_delete=models.CASCADE)
 	passcode = models.CharField(max_length=6, default="")
 	status = models.BooleanField(default=False)
-
+	start_date = models.CharField(max_length=40, default="")
+	end_date = models.CharField(max_length=40, default="")
 
 class BallotItem(models.Model):
 

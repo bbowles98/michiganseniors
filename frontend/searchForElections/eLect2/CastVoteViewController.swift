@@ -8,18 +8,29 @@
 
 import Foundation
 import UIKit
-var choices: [String] = []
-var selectedChoice = 0
 
 class CastVoteViewController: UIViewController {
+    
+    @IBOutlet weak var question: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     // Do any additional setup after loading the view.
-        getURL = "http://204.48.30.178/vote?code=532932"
+        getURL = "http://204.48.30.178/vote/?election_id=" + electionID
         
         // Get the data to load the ballot
+        
         var request = URLRequest(url:
             URL(string: getURL)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let s = String(describing: token_response)
+        let token = s
+        let temp1 = token.split(separator: "(")[1]
+        let token_response = temp1.split(separator: ")")[0]
+        
+        request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request)
@@ -34,8 +45,8 @@ class CastVoteViewController: UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 print(json.debugDescription)
-                print(json)
-                self.ballotItems = json["ballot_items"] as! [String: Any]
+                self.ballotItems = json["ballot"] as! [String: Any]
+                self.createBallot()
             }
            catch let error as NSError {
             print(error)
@@ -51,22 +62,37 @@ class CastVoteViewController: UIViewController {
     
     var electionID:String = ""
     var getURL:String = ""
+    var electionName:String = ""
     var ballotItems = [:] as [String: Any]
-    var question = ""
+    var questionText = ""
+    var choices: [String] = []
+    var chosen = ""
+    var token_response = ""
     
     func createBallot() {
-        question = ballotItems["question"].debugDescription
+        questionText = ballotItems["question"].debugDescription
         choices = ballotItems["choices"] as! [String]
-        Question.text = question
+        question!.text = questionText
         
+        var buttonY = 0
+        for choice in choices{
+            let optionButton = UIButton(frame: CGRect(x: 50, y: buttonY, width: 250, height: 30))
+            buttonY = buttonY + 50
+            optionButton.layer.cornerRadius = 10
+            optionButton.backgroundColor = UIColor.darkGray
+            optionButton.titleLabel?.text = choice
+            optionButton.addTarget(self, action: "selectedChoice:", for: UIControl.Event.touchUpInside)
+            self.view.addSubview(optionButton)
+        }
     }
     
-    @IBOutlet weak var viewChoices: BallotTableView!
-    @IBOutlet weak var Question: UILabel!
+    func selectedChoice(sender: UIButton!){
+        chosen = sender.titleLabel!.text!
+    }
+    
     @IBAction func onClickCastVote(_ sender: UIBarButtonItem) {
         // Package information into JSON
-        let option = choices[selectedChoice]
-        let json: [String: Any] = ["election_id": self.electionID, "candidate": option
+        let json: [String: Any] = ["election_id": self.electionID, "candidate": chosen
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
@@ -86,34 +112,6 @@ class CastVoteViewController: UIViewController {
                 return}
         }
         task.resume()
-        
-        performSegue(withIdentifier: "nextView", sender: self)
     }
 }
 
-class BallotTableView: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return choices.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = choices[indexPath.row]
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedChoice = indexPath.row
-    }
-}

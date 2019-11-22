@@ -12,10 +12,10 @@ var election_id: Any = -1
 var electPass = ""
 var elections: [Dictionary<String, Any>] = []
 
-
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
@@ -23,26 +23,13 @@ class ViewController: UIViewController {
         //Dispose of any resources that can be created
     }
 }
-
-
-class LandingPageViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
-}
-
-
+//*******************************************************SIGN IN***************************************************//
+//*****************************************************************************************************************//
 class SignInViewController: UIViewController {
     @IBOutlet weak var Email_Input: UITextField!
     @IBOutlet weak var Password_input: UITextField!
     
     @IBAction func SignInClicked(_ sender: UIButton) {
-        
         let json: [String: Any] = ["username": self.Email_Input.text ?? "NULL",
                                    "password": self.Password_input.text ?? "I wrote a blank message, oops!"]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
@@ -56,7 +43,6 @@ class SignInViewController: UIViewController {
         
         print(request.debugDescription)
         
-        
         //async error handling
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let _ = data, error == nil else {
@@ -66,28 +52,64 @@ class SignInViewController: UIViewController {
             if let httpStatus = response as? HTTPURLResponse,
                 httpStatus.statusCode != 200 {
                 print(response.debugDescription)
-                print("HTTP STATUS: \(httpStatus.statusCode)")
+                print("HTTP STATUS yayay: \(httpStatus.statusCode)")
+            
+                //show alert
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Login Error", message:
+                        "Unrecognized email and/or password", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                    self.present(alertController, animated: true, completion: nil)
+                
                 return
+                }
+            }
+            else {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                    let s = String(describing: json["token"])
+                    token_response = s
+                    
+                    let temp1 = token_response.split(separator: "(")[1]
+                    token_response = String(temp1.split(separator: ")")[0])
+                    
+                    print("Signin Token response: " + token_response)
+                }
+                catch let error as NSError {
+                               print(error)
+                           }
+                self.navigateToMainInterface()
             }
             
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                let s = String(describing: json["token"])
-                token_response = s
-                let temp1 = token_response.split(separator: "(")[1]
-                let token_response = temp1.split(separator: ")")[0]
-         
-            }
-            catch let error as NSError {
-                print(error)
-            }
         }
         //run the previous copule lines of code in a seperate thread
         task.resume()
-        
+    
         dismiss(animated: true, completion: nil)
+        /*
+        ********************CODE FOR PASSING DATA IF WE WANT TO USE SEGUE INSTEAD OF GLOBALS***********************
+        self.token_to_pass = token_response
+        performSegue(withIdentifier: "Insert Seguename Here", sender: self)
+        
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            var vc = segue.destination as! CastVoteViewController
+            vc.token = self.token_to_pass
+        }
+        */
     }
     
+    private func navigateToMainInterface() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+       
+        DispatchQueue.main.async{
+            guard let mainNavagationVC = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? MainNavigationController
+                else {
+                    return
+                }
+ 
+            self.present(mainNavagationVC, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,70 +122,8 @@ class SignInViewController: UIViewController {
     }
     
 }
-
-
-
-class SignUpViewController: UIViewController {
-    @IBOutlet weak var Signup_Email_Input: UITextField!
-    @IBOutlet weak var Signup_Password_Input: UITextField!
-    
-    
-    @IBAction func SignUpClicked(_ sender: UIButton) {
-        let json: [String: Any] = ["username": self.Signup_Email_Input.text ?? "NULL",
-                                   "password": self.Signup_Password_Input.text ?? "I wrote a blank message, oops!", "email": self.Signup_Email_Input.text ?? "NULL"]
-        let jsonData = try? JSONSerialization.data(withJSONObject: json)
-        
-        
-        var request = URLRequest(url:
-            URL(string: "http://204.48.30.178/signup/")!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        //request.addValue("JWT " + whatever_token, forHTTPHeaderField: "Authorization")
-        request.httpMethod = "POST"
-        request.httpBody = jsonData
-                
-        print(request.debugDescription)
-        
-        //async error handling
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let _ = data, error == nil else {
-                print("NETWORKING ERROR")
-                return
-            }
-            if let httpStatus = response as? HTTPURLResponse,
-                httpStatus.statusCode != 200 {
-                print(response.debugDescription)
-                //let json_response = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                
-
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-                return
-            }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-
-                print(json.debugDescription)
-                print(json)
-                
-            }
-            catch let error as NSError {
-                print(error)
-            }
-    }
-        task.resume()
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
-
-}
-
+//***********************************************CREATE ELECTION***************************************************//
+//*****************************************************************************************************************//
 
 class CreateElectViewController: UIViewController {
     override func viewDidLoad() {
@@ -196,16 +156,15 @@ class CreateElectViewController: UIViewController {
         var startString: String
         var endString: String
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:00"
         startString = dateFormatter.string(from: selectedStart.date)
-        endString = dateFormatter.string(from: selectedStart.date)
-        
+        endString = dateFormatter.string(from: selectedEnd.date)
         
         // Package information into JSON
         let json: [String: Any] = [ "name": self.ElectionName.text ?? "NULL",
                                     "elec_is_public": isPublic,
-                                    "startDate": startString,
-                                    "endDate": endString
+                                    "start_date": startString,
+                                    "end_date": endString
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         var request = URLRequest(url:
@@ -213,11 +172,14 @@ class CreateElectViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
+        //parse out token response
         let s = String(describing: token_response)
         var token = s
         let temp1 = token.split(separator: "(")[1]
         let token_response = temp1.split(separator: ")")[0]
         
+        
+        print("election creation token")
         request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         request.httpBody = jsonData
@@ -258,6 +220,9 @@ extension NSDate
     }
 }
 
+
+//************************************************* ELECTION VIEW **************************************************//
+//*****************************************************************************************************************//
 // when you add the proposal, then you add all of the voting objects
 class ElectionViewController: UITableViewController {
     
@@ -393,7 +358,8 @@ class ElectionViewController: UITableViewController {
     }
 }
 
-
+//************************************************  CREATE OPTIONS ************************************************//
+//*****************************************************************************************************************//
 class CreateOptionViewController: UIViewController {
     
     @IBOutlet weak var optionName: UITextField!
@@ -428,11 +394,10 @@ class CreateOptionViewController: UIViewController {
     
 }
 
-
+//*******************************************   SEARCH ELECTION   ************************************************//
+//*****************************************************************************************************************//
 
 class SearchViewController: UIViewController {
-
-//@IBAction func testGetReq(_ sender: UIButton) {
     
     var data = elections
     var results: [Dictionary<String, Any>] = []
@@ -482,28 +447,25 @@ class SearchViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedElect = indexPath.row
-        //performSegue(withIdentifier: "segue", sender: self)
-        electPass = results[selectedElect]["passcode"] as! String
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateInitialViewController(withIdentifier: "BallotTableView") as? BallotTableView
+        self.performSegue(withIdentifier: "ToReady", sender: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        print("here")
-        if segue.destination is VoteReadyController
+        if segue.destination is VoteReadyViewController
         {
-            let vc = segue.destination as? VoteReadyController
-            vc!.electionID = electionID
+            let vc = segue.destination as? VoteReadyViewController
+            
             if (searching) {
                 vc!.electionName = results[selectedElect]["name"] as! String
                 vc!.hostName = results[selectedElect]["creator"] as! String
-                vc!.electionID = results[selectedElect]["election_id"] as! String
+                vc!.electionIDpassed = String(results[selectedElect]["election_id"] as! Int)
             }
             else {
                 let election = elections[selectedElect]
                 vc!.electionName = election["name"] as! String
                 vc!.hostName = election["creator"] as! String
-                vc!.electionID = election["election_id"] as! String
+                vc!.electionIDpassed = String(election["election_id"] as! Int)
             }
         }
     }
@@ -544,5 +506,110 @@ extension SearchViewController: UISearchBarDelegate {
         tblView.reloadData()
     }
     
+}
+
+//********************************************    CAST VOTES      ************************************************//
+//*****************************************************************************************************************//
+
+class CastVoteViewController: UIViewController {
+    
+    @IBOutlet weak var question: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    // Do any additional setup after loading the view.
+        getURL = "http://204.48.30.178/vote/?election_id=" + electionID
+        
+        // Get the data to load the ballot
+        var request = URLRequest(url:
+            URL(string: getURL)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+        //token_response here is the same token_response that is created during Signin. (See line 76)
+        print("cast vote token: " + token_response)
+        request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request)
+        { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return}
+            if let httpStatus = response as? HTTPURLResponse,
+                httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return}
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                print(json.debugDescription)
+                self.ballotItems = json["ballot"] as! [String: Any]
+                self.createBallot()
+            }
+           catch let error as NSError {
+            print(error)
+           }
+        }
+        task.resume()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        //Dispose of any resources that can be created
+    }
+    
+    var electionID:String = ""
+    var getURL:String = ""
+    var electionName:String = ""
+    var ballotItems = [:] as [String: Any]
+    var questionText = ""
+    var choices: [String] = []
+    var chosen = ""
+    //var token_response = ""
+    
+    func createBallot() {
+        questionText = ballotItems["question"].debugDescription
+        choices = ballotItems["choices"] as! [String]
+        question!.text = questionText
+        
+        var buttonY = 0
+        for choice in choices{
+            let optionButton = UIButton(frame: CGRect(x: 50, y: buttonY, width: 250, height: 30))
+            buttonY = buttonY + 50
+            optionButton.layer.cornerRadius = 10
+            optionButton.backgroundColor = UIColor.darkGray
+            optionButton.titleLabel?.text = choice
+            optionButton.addTarget(self, action: Selector(("selectedChoice:")), for: UIControl.Event.touchUpInside)
+            self.view.addSubview(optionButton)
+        }
+    }
+    
+    func selectedChoice(sender: UIButton!){
+        chosen = sender.titleLabel!.text!
+    }
+    
+    @IBAction func onClickCastVote(_ sender: UIBarButtonItem) {
+        // Package information into JSON
+        let json: [String: Any] = ["election_id": self.electionID, "candidate": chosen
+        ]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        var request = URLRequest(url:
+            URL(string: "http://204.48.30.178/cast/")!)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request)
+        { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return}
+            if let httpStatus = response as? HTTPURLResponse,
+                httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return}
+        }
+        task.resume()
+    }
 }
 
