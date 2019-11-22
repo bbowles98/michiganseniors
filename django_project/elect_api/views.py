@@ -59,8 +59,15 @@ def ViewResults(request):
 			candidates_to_counts[vote.answer] = 0
 		candidates_to_counts[vote.answer] += 1
 	response = {}
+	response['ballot'] = {}
 	for candidate, ans in candidates_to_counts.iteritems():
-		response[candidate] = ans
+		response['ballot'][candidate] = ans
+	response['name'] = election.name
+	response['total_votes'] = len(votes)
+
+	live = isElectionLive(election)
+	response['live'] = live
+
 	return JsonResponse({'results': response})
 
 
@@ -355,6 +362,15 @@ def canUserVote(user, election):
 		return JsonResponse({"error": "This user has already voted in this election!"})
 	except:
 		pass
+
+def isElectionLive(election):
+	if election.start_date == '':
+		return False
+
+	time = datetime.now()
+	if time < datetime.strptime(election.start_date, '%Y-%m-%d %H:%M:%S') or time > datetime.strptime(election.end_date, '%Y-%m-%d %H:%M:%S'):
+		return False
+	return True
 
 
 
