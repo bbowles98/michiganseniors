@@ -184,10 +184,14 @@ The digital ocean server is located at 204.48.30.178.
 		RECEIVE
 		{
 			"results": {
-				candidate 1: count,
-				candidate 2: count,
-				. . .
-			}
+				"live": boolean,
+				"ballot": {
+				    candidate: num_votes,
+				    . . .
+				},
+				"name": string,
+				"total_votes": int
+    			}
 		}
 		
 	VIEW ELECTIONS REGISTERED FOR
