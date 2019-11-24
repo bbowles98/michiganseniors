@@ -154,25 +154,6 @@ def Cast(request):
 	return JsonResponse({'success': True})
 
 
-	# new_vote = VoteObject.objects.create(
-	# 		election = election,
-	# 		answer = answer
-	# 	)
-
-	# if not new_vote:
-	# 	return JsonResponse({'success': False})
-
-	# user_voted = VoterToElection.objects.create(
-	# 		election = election,
-	# 		voter = user
-	# 	)
-
-	# msg = "Subject: You've Voted!\n\nYou have been successfully voted in " + election.name
-	# sendMail(user.email, msg)
-
-	# return JsonResponse({'success': True})
-
-
 # GET request for viewing the ballot of an election, work in progress
 @csrf_exempt
 @api_view(['GET'])
