@@ -366,9 +366,9 @@ def CanViewElectionResults(request):
 		can_view = len(user_elections) == 0
 
 	except:
-		return Json({'can_view': False})
+		return JsonResponse({'can_view': False})
 
-	return Json({'can_view': can_view})
+	return JsonResponse({'can_view': can_view})
 
 
 def canUserVote(user, election):
