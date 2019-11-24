@@ -363,7 +363,7 @@ def CanViewElectionResults(request):
 	try:
 		election = Election.objects.get(pk=election_id)
 		user_elections = VoterToElection.objects.filter(election=election, user=request.user)
-		can_view = len(user_elections) == 0
+		can_view = len(user_elections) != 0
 
 	except:
 		return JsonResponse({'can_view': False})
