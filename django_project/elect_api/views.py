@@ -121,6 +121,10 @@ def Cast(request):
 	election_id = election.pk
 	selection_val = answer
 
+	headers = {
+		'Content-Type': 'application/x-www-form-urlencoded'
+	}
+
 
 	vote_corda_url = " http://206.81.10.10:10050/put?electionVal=O=Host0,L=London,C=GB&voter=O=Voter,L=NewYork,C=US"
 	vote_corda_url += "&issueVal=" + str(issue_val)
@@ -131,7 +135,7 @@ def Cast(request):
 	data = {}
 
 	try:
-		response = requests.post(url=vote_corda_url, data=data)
+		response = requests.post(url=vote_corda_url, data=data, headers=headers)
 		print(response.text)
 	except:
 		return JsonResponse({'success': False})
