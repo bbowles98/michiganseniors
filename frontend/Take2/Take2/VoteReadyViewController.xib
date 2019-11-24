@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VoteReadyControllerViewController" customModule="eLect2" customModuleProvider="target">
+            <connections>
+                <outlet property="VoteReadyView" destination="i5M-Pr-FkT" id="hff-Zf-g0q"/>
+                <outlet property="host" destination="1vy-qc-bl4" id="e5B-YK-S5q"/>
+                <outlet property="name" destination="nxb-wT-32b" id="l03-bh-lKC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="VoteReadyView" customModule="eLect2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Election Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxb-wT-32b">
+                    <rect key="frame" x="20" y="84" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6R-Tf-pQx">
+                    <rect key="frame" x="20" y="125" width="83" height="21"/>
+                    <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vy-qc-bl4">
+                    <rect key="frame" x="308.5" y="125" width="85.5" height="21"/>
+                    <accessibility key="accessibilityConfiguration" identifier="HostName"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Here are some super helpful notes and rules for this here election." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="o4Z-SJ-qCz">
+                    <rect key="frame" x="80" y="154" width="254" height="212"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="1vy-qc-bl4" firstAttribute="top" secondItem="nxb-wT-32b" secondAttribute="bottom" constant="20" id="O33-BO-C6c"/>
+                <constraint firstItem="o4Z-SJ-qCz" firstAttribute="top" secondItem="J6R-Tf-pQx" secondAttribute="bottom" constant="30" id="UaH-be-YUN"/>
+                <constraint firstItem="nxb-wT-32b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="ZJz-Jh-ZlL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="o4Z-SJ-qCz" secondAttribute="trailing" constant="80" id="hNI-N4-6UY"/>
+                <constraint firstItem="o4Z-SJ-qCz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="iwy-MO-6HP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1vy-qc-bl4" secondAttribute="trailing" constant="20" id="sH6-Zz-98d"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <connections>
+                <outlet property="host" destination="1vy-qc-bl4" id="kqd-Fc-sy9"/>
+                <outlet property="name" destination="nxb-wT-32b" id="lIp-6i-mOt"/>
+            </connections>
+            <point key="canvasLocation" x="716" y="-35"/>
+        </view>
+    </objects>
+</document>
