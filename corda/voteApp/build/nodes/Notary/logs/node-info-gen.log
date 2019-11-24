@@ -1,12 +1,12 @@
 
 [91m   ______               __
   / ____/     _________/ /___ _
- / /     __  / ___/ __  / __ `/         [94mTop tip: never say "oops", instead
-[91m/ /___  /_/ / /  / /_/ / /_/ /          [94malways say "Ah, Interesting!"
+ / /     __  / ___/ __  / __ `/         [94mOld bankers never die, they
+[91m/ /___  /_/ / /  / /_/ / /_/ /          [94mjust... pass the buck
 [91m\____/     /_/   \__,_/\__,_/[m
 
 [99;1m--- Corda Open Source 3.3-corda (c834162) -----------------------------------------------
 
 [m
 Logs can be found in                    : /Users/rahulsachdeva/Desktop/441/michiganseniors/corda/voteApp/build/nodes/Notary/logs
-Database connection url is              : jdbc:h2:tcp://35.2.174.84:57991/node
+Database connection url is              : jdbc:h2:tcp://35.2.174.84:58235/node
