@@ -53,29 +53,31 @@ def SearchViewSet(request):
 def ViewResults(request):
 
 	election = Election.objects.get(pk=request.GET.get('election_id'))
-
 	results_corda_url = "http://206.81.10.10:10050/votes"
-
 	response = requests.get(results_corda_url)
 
+	data = response.json()[0]
 
-	# votes = VoteObject.objects.filter(election=election)
-	# candidates_to_counts = {}
-	# for vote in votes:
-	# 	if vote.answer not in candidates_to_counts:
-	# 		candidates_to_counts[vote.answer] = 0
-	# 	candidates_to_counts[vote.answer] += 1
-	# response = {}
-	# response['ballot'] = {}
-	# for candidate, ans in candidates_to_counts.iteritems():
-	# 	response['ballot'][candidate] = ans
-	# response['name'] = election.name
-	# response['total_votes'] = len(votes)
 
-	# live = isElectionLive(election)
-	# response['live'] = live
+	candidates_to_counts = {}
 
-	return Response(response.json())
+	for vote in data:
+		if vote['state']['data']['electionID'] == election.pk:
+			if vote['selection'] not in candidates_to_counts:
+				candidates_to_counts[vote['selection']] = 0
+			candidates_to_counts[vote['selection']] += 1
+
+	results = {}
+	results['ballot'] = {}
+	for candidate, ans in candidates_to_counts.iteritems():
+		results['ballot'][candidate] = ans
+	results['name'] = election.name
+	results['total_votes'] = len(votes)
+
+	live = isElectionLive(election)
+	results['live'] = live
+
+	return JsonResponse({'results': results})
 
 
 # POST request for registering for an election
