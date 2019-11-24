@@ -13,6 +13,10 @@
 		3D39B5DD2371227A0032ADC5 /* CastVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5DC2371227A0032ADC5 /* CastVoteViewController.swift */; };
 		3D39B5DF237122950032ADC5 /* VoteReadyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5DE237122950032ADC5 /* VoteReadyController.swift */; };
 		3D8D84B823761FF300C84EF6 /* SignInSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D84B723761FF300C84EF6 /* SignInSignUp.swift */; };
+		E7BCB960238B2B0F00FFAEE2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB95F238B2B0F00FFAEE2 /* ResultsViewController.swift */; };
+		E7BCB962238B2BCF00FFAEE2 /* ResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB961238B2BCF00FFAEE2 /* ResultViewCell.swift */; };
+		E7BCB964238B317100FFAEE2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB963238B317100FFAEE2 /* SearchViewController.swift */; };
+		E7BCB966238B3A5900FFAEE2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB965238B3A5900FFAEE2 /* MainViewController.swift */; };
 		E7E088F2236FC9A4001AEA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */; };
 		E7E088F4236FC9A4001AEA3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */; };
 		E7E088F6236FC9A4001AEA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F5236FC9A4001AEA3B /* ViewController.swift */; };
@@ -30,6 +34,10 @@
 		3D39B5DC2371227A0032ADC5 /* CastVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastVoteViewController.swift; sourceTree = "<group>"; };
 		3D39B5DE237122950032ADC5 /* VoteReadyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteReadyController.swift; sourceTree = "<group>"; };
 		3D8D84B723761FF300C84EF6 /* SignInSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUp.swift; sourceTree = "<group>"; };
+		E7BCB95F238B2B0F00FFAEE2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		E7BCB961238B2BCF00FFAEE2 /* ResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewCell.swift; sourceTree = "<group>"; };
+		E7BCB963238B317100FFAEE2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E7BCB965238B3A5900FFAEE2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E7E088EE236FC9A4001AEA3B /* CreateElection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreateElection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,13 +81,17 @@
 			isa = PBXGroup;
 			children = (
 				3D39B5D5237108E30032ADC5 /* OptionTableCell.swift */,
+				E7BCB961238B2BCF00FFAEE2 /* ResultViewCell.swift */,
 				3D39B5D4237108E30032ADC5 /* Proposal.swift */,
 				3D39B5D7237108E30032ADC5 /* VotingOption.swift */,
 				E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */,
 				E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */,
+				E7BCB965238B3A5900FFAEE2 /* MainViewController.swift */,
+				E7BCB963238B317100FFAEE2 /* SearchViewController.swift */,
 				E7E08907236FCF62001AEA3B /* BallotCreateViewController.swift */,
 				E7E088F5236FC9A4001AEA3B /* ViewController.swift */,
 				E7E088F7236FC9A4001AEA3B /* Main.storyboard */,
+				E7BCB95F238B2B0F00FFAEE2 /* ResultsViewController.swift */,
 				E7E08905236FCAE4001AEA3B /* election.swift */,
 				E7E088FA236FC9A6001AEA3B /* Assets.xcassets */,
 				E7E088FC236FC9A6001AEA3B /* LaunchScreen.storyboard */,
@@ -170,9 +182,13 @@
 				3D39B5D9237108E30032ADC5 /* OptionTableCell.swift in Sources */,
 				3D39B5DF237122950032ADC5 /* VoteReadyController.swift in Sources */,
 				E7E088F4236FC9A4001AEA3B /* SceneDelegate.swift in Sources */,
+				E7BCB964238B317100FFAEE2 /* SearchViewController.swift in Sources */,
+				E7BCB966238B3A5900FFAEE2 /* MainViewController.swift in Sources */,
 				E7E08908236FCF62001AEA3B /* BallotCreateViewController.swift in Sources */,
+				E7BCB962238B2BCF00FFAEE2 /* ResultViewCell.swift in Sources */,
 				3D39B5D8237108E30032ADC5 /* Proposal.swift in Sources */,
 				3D39B5DD2371227A0032ADC5 /* CastVoteViewController.swift in Sources */,
+				E7BCB960238B2B0F00FFAEE2 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
