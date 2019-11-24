@@ -36,5 +36,5 @@ urlpatterns = [
     url('deleteAll/', views.DeleteAllElections),
     url('registeredElections/', views.ViewRegisteredElections),
     url('pastElectionsVotedIn/', views.ViewPastElectionsUserVotedIn),
-    url(r'^canViewResults/(?P<election_id>\d+)/', views.CanViewElectionResults),
+    url('canViewResults/', views.CanViewElectionResults),
 ]

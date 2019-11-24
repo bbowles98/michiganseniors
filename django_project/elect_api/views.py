@@ -354,7 +354,9 @@ def DeleteAllElections(request):
 @csrf_exempt
 @api_view(['GET'])
 @permission_classes((IsAuthenticated,))
-def CanViewElectionResults(request, election_id):
+def CanViewElectionResults(request):
+
+	election_id = request.GET.get('election_id')
 
 	can_view = False
 
