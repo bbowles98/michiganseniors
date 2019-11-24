@@ -117,33 +117,48 @@ def Cast(request):
 	if not valid_candidate:
 		return JsonResponse({"error": "invalid candidate"})
 
-	# vote_corda_url = "http://206.81.10.10:10050/put"
-
-	# data = {
-
-
-	# }
-
-	# response = requests.post(url=vote_corda_url, data=data)
+	issue_val = 0
+	election_id = election.pk
+	selection_val = answer
 
 
-	new_vote = VoteObject.objects.create(
-			election = election,
-			answer = answer
-		)
+	vote_corda_url = " http://206.81.10.10:10050/put?electionVal=O=Host0,L=London,C=GB&voter=O=Voter,L=NewYork,C=US"
+	vote_corda_url += "&issueVal=" + str(issue_val)
+	vote_corda_url += "&selectionVal=" + str(selection_val)
+	vote_corda_url += "&electionID=" + str(election_id)
 
-	if not new_vote:
+	print(vote_corda_url)
+	data = {}
+
+	try:
+		response = requests.post(url=vote_corda_url, data=data)
+		print(response.text)
+	except:
 		return JsonResponse({'success': False})
-
-	user_voted = VoterToElection.objects.create(
-			election = election,
-			voter = user
-		)
 
 	msg = "Subject: You've Voted!\n\nYou have been successfully voted in " + election.name
 	sendMail(user.email, msg)
 
 	return JsonResponse({'success': True})
+
+
+	# new_vote = VoteObject.objects.create(
+	# 		election = election,
+	# 		answer = answer
+	# 	)
+
+	# if not new_vote:
+	# 	return JsonResponse({'success': False})
+
+	# user_voted = VoterToElection.objects.create(
+	# 		election = election,
+	# 		voter = user
+	# 	)
+
+	# msg = "Subject: You've Voted!\n\nYou have been successfully voted in " + election.name
+	# sendMail(user.email, msg)
+
+	# return JsonResponse({'success': True})
 
 
 # GET request for viewing the ballot of an election, work in progress
