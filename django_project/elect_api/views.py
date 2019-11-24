@@ -13,7 +13,7 @@ from rest_framework import filters
 from django.db import connection
 from datetime import datetime
 from django.contrib.auth.models import User
-from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject, VoterToElection, RegisterLink
+from elect_api.models import Election, BallotItem, BallotItemChoice, VoterToElection, RegisterLink
 from elect_api.serializers import UserSerializer
 from elect_api.gmail import sendMail
 
