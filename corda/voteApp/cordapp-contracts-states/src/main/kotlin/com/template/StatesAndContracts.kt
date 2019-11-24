@@ -32,7 +32,8 @@ class TemplateContract : Contract {
 // * State *
 // *********
 class IOUState(val issue: Int,
-               val selection: Int,
+               val selection: String,
+               val election_id: Int,
                val election: Party,
                val voter: Party) : ContractState {
     override val participants get() = listOf(election, voter)
