@@ -25,12 +25,17 @@ class VoteReadyViewController: UIViewController {
     var electionName:String = ""
     var hostName:String = ""
     var electionIDpassed:String = ""
+    var token:String = ""
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var host: UILabel!
+    @IBOutlet weak var ViewResultButton: UIButton!
     @IBAction func onVote(_ sender: Any) {
         // On the click off the vote button, segue to ballot
         self.performSegue(withIdentifier: "ToBallot", sender: (Any).self)
+    }
+    @IBAction func onViewResult(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "ToResults", sender: (Any).self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -40,6 +45,13 @@ class VoteReadyViewController: UIViewController {
             let vc = segue.destination as? CastVoteViewController
             vc!.electionName = electionName
             vc!.electionID = electionIDpassed
+            vc!.token = token
+        }
+        else {
+            let vc = segue.destination as? ResultsViewController
+            vc!.electionName = electionName
+            vc!.electionID = electionIDpassed
+            vc!.token = token
         }
     }
 }

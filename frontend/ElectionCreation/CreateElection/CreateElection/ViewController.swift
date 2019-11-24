@@ -103,6 +103,7 @@ class SignInViewController: UIViewController {
        
         DispatchQueue.main.async{
             guard let mainNavagationVC = mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationController") as? MainNavigationController
+                
                 else {
                     return
                 }
@@ -139,7 +140,7 @@ class CreateElectViewController: UIViewController {
 
     @IBOutlet weak var ElectionName: UITextField!
     @IBOutlet weak var viewSelector: UISegmentedControl!
-
+    var token:String = ""
     @IBOutlet weak var selectedStart: UIDatePicker!
     @IBOutlet weak var selectedEnd: UIDatePicker!
     
@@ -173,8 +174,6 @@ class CreateElectViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         //parse out token response
-        let s = String(describing: token_response)
-        var token = s
         let temp1 = token.split(separator: "(")[1]
         let token_response = temp1.split(separator: ")")[0]
         
@@ -393,223 +392,3 @@ class CreateOptionViewController: UIViewController {
     }
     
 }
-
-//*******************************************   SEARCH ELECTION   ************************************************//
-//*****************************************************************************************************************//
-
-class SearchViewController: UIViewController {
-    
-    var data = elections
-    var results: [Dictionary<String, Any>] = []
-    var searching = false
-    var selectedElect = 0
-    var electionID = ""
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tblView: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        searchBar.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
-        let getURL = "http://204.48.30.178/search?name="
-        
-        // Get the data to load the ballot
-        var request = URLRequest(url:
-            URL(string: getURL)!)
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request)
-        { data, response, error in
-            guard let _ = data, error == nil else {
-                print("NETWORKING ERROR")
-                return}
-            if let httpStatus = response as? HTTPURLResponse,
-                httpStatus.statusCode != 200 {
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-                return}
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                print(json.debugDescription)
-                print(json)
-                elections = json["election"] as! [Dictionary<String, Any>]
-                print(elections)
-            }
-           catch let error as NSError {
-            print(error)
-           }
-        }
-        task.resume()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedElect = indexPath.row
-        self.performSegue(withIdentifier: "ToReady", sender: indexPath)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        if segue.destination is VoteReadyViewController
-        {
-            let vc = segue.destination as? VoteReadyViewController
-            
-            if (searching) {
-                vc!.electionName = results[selectedElect]["name"] as! String
-                vc!.hostName = results[selectedElect]["creator"] as! String
-                vc!.electionIDpassed = String(results[selectedElect]["election_id"] as! Int)
-            }
-            else {
-                let election = elections[selectedElect]
-                vc!.electionName = election["name"] as! String
-                vc!.hostName = election["creator"] as! String
-                vc!.electionIDpassed = String(election["election_id"] as! Int)
-            }
-        }
-    }
-}
-
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
-            return results.count
-        } else {
-            return elections.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        if searching {
-            cell.textLabel!.text = (results[indexPath.row]["name"] as! String)
-        } else {
-            cell.textLabel!.text = (elections[indexPath.row]["name"] as! String)
-        }
-        return cell
-    }
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        results = elections.filter({(($0["name"] as! String).lowercased() ).prefix(searchText.count) == searchText.lowercased()})
-        searching = true
-        tblView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchBar.text = ""
-        tblView.reloadData()
-    }
-    
-}
-
-//********************************************    CAST VOTES      ************************************************//
-//*****************************************************************************************************************//
-
-class CastVoteViewController: UIViewController {
-    
-    @IBOutlet weak var question: UILabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    // Do any additional setup after loading the view.
-        getURL = "http://204.48.30.178/vote/?election_id=" + electionID
-        
-        // Get the data to load the ballot
-        var request = URLRequest(url:
-            URL(string: getURL)!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-        //token_response here is the same token_response that is created during Signin. (See line 76)
-        print("cast vote token: " + token_response)
-        request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request)
-        { data, response, error in
-            guard let _ = data, error == nil else {
-                print("NETWORKING ERROR")
-                return}
-            if let httpStatus = response as? HTTPURLResponse,
-                httpStatus.statusCode != 200 {
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-                return}
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                print(json.debugDescription)
-                self.ballotItems = json["ballot"] as! [String: Any]
-                self.createBallot()
-            }
-           catch let error as NSError {
-            print(error)
-           }
-        }
-        task.resume()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
-    
-    var electionID:String = ""
-    var getURL:String = ""
-    var electionName:String = ""
-    var ballotItems = [:] as [String: Any]
-    var questionText = ""
-    var choices: [String] = []
-    var chosen = ""
-    //var token_response = ""
-    
-    func createBallot() {
-        questionText = ballotItems["question"].debugDescription
-        choices = ballotItems["choices"] as! [String]
-        question!.text = questionText
-        
-        var buttonY = 0
-        for choice in choices{
-            let optionButton = UIButton(frame: CGRect(x: 50, y: buttonY, width: 250, height: 30))
-            buttonY = buttonY + 50
-            optionButton.layer.cornerRadius = 10
-            optionButton.backgroundColor = UIColor.darkGray
-            optionButton.titleLabel?.text = choice
-            optionButton.addTarget(self, action: Selector(("selectedChoice:")), for: UIControl.Event.touchUpInside)
-            self.view.addSubview(optionButton)
-        }
-    }
-    
-    func selectedChoice(sender: UIButton!){
-        chosen = sender.titleLabel!.text!
-    }
-    
-    @IBAction func onClickCastVote(_ sender: UIBarButtonItem) {
-        // Package information into JSON
-        let json: [String: Any] = ["election_id": self.electionID, "candidate": chosen
-        ]
-        let jsonData = try? JSONSerialization.data(withJSONObject: json)
-        
-        var request = URLRequest(url:
-            URL(string: "http://204.48.30.178/cast/")!)
-        request.httpMethod = "POST"
-        request.httpBody = jsonData
-        
-        let task = URLSession.shared.dataTask(with: request)
-        { data, response, error in
-            guard let _ = data, error == nil else {
-                print("NETWORKING ERROR")
-                return}
-            if let httpStatus = response as? HTTPURLResponse,
-                httpStatus.statusCode != 200 {
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-                return}
-        }
-        task.resume()
-    }
-}
-
