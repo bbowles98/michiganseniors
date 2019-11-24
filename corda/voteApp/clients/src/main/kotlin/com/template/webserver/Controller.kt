@@ -56,10 +56,10 @@ class Controller(rpc: NodeRPCConnection) {
         val selectionVal = request.getParameter("selectionVal").toString()
         val partyName = request.getParameter("electionVal")
         val voterName = "O=Voter,L=New York,C=US"
-        val electionID = request.getParameter("electionID")
+        val electionID = request.getParameter("electionID").toInt()
 
-        if (issueVal < 0 || selectionVal < 0 ) {
-            return ResponseEntity.badRequest().body("Query parameters must be non-negative.\n")
+        if (issueVal < 0 ) {
+            return ResponseEntity.badRequest().body("Query parameters must be valid.\n")
         }
         val partyX500Name = CordaX500Name.parse(partyName)
         val partyX501Name = CordaX500Name.parse(voterName)
@@ -67,7 +67,7 @@ class Controller(rpc: NodeRPCConnection) {
         val otherParty = proxy.wellKnownPartyFromX500Name(partyX500Name) ?: return ResponseEntity.badRequest().body("Party named $partyName cannot be found.\n")
         val otherParty2 = proxy.wellKnownPartyFromX500Name(partyX501Name) ?: return ResponseEntity.badRequest().body("Party named $voterName cannot be found.\n")
         return try {
-            val signedTx = proxy.startTrackedFlow(::VoteFlow, issueVal, selectionVal, electionID, otherParty, otherParty2).returnValue.getOrThrow()
+            val signedTx = proxy.startTrackedFlow(::VoteFlow, issueVal, selectionVal, otherParty, otherParty2, electionID).returnValue.getOrThrow()
             ResponseEntity.status(HttpStatus.CREATED).body("Congrats u voted.\n")
 
         } catch (ex: Throwable) {

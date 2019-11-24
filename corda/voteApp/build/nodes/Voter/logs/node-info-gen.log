@@ -1,12 +1,12 @@
 
 [91m   ______               __
   / ____/     _________/ /___ _
- / /     __  / ___/ __  / __ `/         [94mWhenever I go near my bank I get
-[91m/ /___  /_/ / /  / /_/ / /_/ /          [94mwithdrawal symptoms 😎  
+ / /     __  / ___/ __  / __ `/         [94m"It's OK computer, I go to sleep after
+[91m/ /___  /_/ / /  / /_/ / /_/ /          [94mtwenty minutes of inactivity too!"
 [91m\____/     /_/   \__,_/\__,_/[m
 
 [99;1m--- Corda Open Source 3.3-corda (c834162) -----------------------------------------------
 
 [m
 Logs can be found in                    : /Users/rahulsachdeva/Desktop/441/michiganseniors/corda/voteApp/build/nodes/Voter/logs
-Database connection url is              : jdbc:h2:tcp://35.2.174.84:57987/node
+Database connection url is              : jdbc:h2:tcp://35.2.174.84:58236/node
