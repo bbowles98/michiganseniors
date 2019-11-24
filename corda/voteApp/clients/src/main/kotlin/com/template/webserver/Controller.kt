@@ -53,9 +53,10 @@ class Controller(rpc: NodeRPCConnection) {
     @PostMapping(value = "/put", produces = arrayOf("text/plain"), headers = arrayOf("Content-Type=application/x-www-form-urlencoded"))
     fun createIOU(request: HttpServletRequest): ResponseEntity<String> {
         val issueVal = request.getParameter("issueVal").toInt()
-        val selectionVal = request.getParameter("selectionVal").toInt()
+        val selectionVal = request.getParameter("selectionVal").toString()
         val partyName = request.getParameter("electionVal")
         val voterName = "O=Voter,L=New York,C=US"
+        val electionID = request.getParameter("electionID")
 
         if (issueVal < 0 || selectionVal < 0 ) {
             return ResponseEntity.badRequest().body("Query parameters must be non-negative.\n")
@@ -66,7 +67,7 @@ class Controller(rpc: NodeRPCConnection) {
         val otherParty = proxy.wellKnownPartyFromX500Name(partyX500Name) ?: return ResponseEntity.badRequest().body("Party named $partyName cannot be found.\n")
         val otherParty2 = proxy.wellKnownPartyFromX500Name(partyX501Name) ?: return ResponseEntity.badRequest().body("Party named $voterName cannot be found.\n")
         return try {
-            val signedTx = proxy.startTrackedFlow(::VoteFlow, issueVal, selectionVal, otherParty, otherParty2).returnValue.getOrThrow()
+            val signedTx = proxy.startTrackedFlow(::VoteFlow, issueVal, selectionVal, electionID, otherParty, otherParty2).returnValue.getOrThrow()
             ResponseEntity.status(HttpStatus.CREATED).body("Congrats u voted.\n")
 
         } catch (ex: Throwable) {
