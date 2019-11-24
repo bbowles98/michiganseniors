@@ -74,7 +74,7 @@ def ViewResults(request):
 	# live = isElectionLive(election)
 	# response['live'] = live
 
-	return JsonResponse(response.json())
+	return Response(response.json())
 
 
 # POST request for registering for an election
