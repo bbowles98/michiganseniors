@@ -56,23 +56,24 @@ def ViewResults(request):
 	results_corda_url = "http://206.81.10.10:10050/votes"
 	response = requests.get(results_corda_url)
 
-	data = response.json()[0]
+	data = response.json()
 
-
+	votes = 0
 	candidates_to_counts = {}
 
 	for vote in data:
 		if vote['state']['data']['electionID'] == election.pk:
-			if vote['selection'] not in candidates_to_counts:
-				candidates_to_counts[vote['selection']] = 0
-			candidates_to_counts[vote['selection']] += 1
+			if vote['state']['data']['selection'] not in candidates_to_counts:
+				candidates_to_counts[vote['state']['data']['selection']] = 0
+			candidates_to_counts[vote['state']['data']['selection']] += 1
+			votes += 1
 
 	results = {}
 	results['ballot'] = {}
 	for candidate, ans in candidates_to_counts.iteritems():
 		results['ballot'][candidate] = ans
 	results['name'] = election.name
-	results['total_votes'] = len(votes)
+	results['total_votes'] = votes
 
 	live = isElectionLive(election)
 	results['live'] = live
