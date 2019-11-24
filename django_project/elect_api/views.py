@@ -16,7 +16,7 @@ from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject,
 from elect_api.serializers import UserSerializer
 from elect_api.gmail import sendMail
 
-import random
+import random, requests
 
 DEBUG = True
 
@@ -116,6 +116,16 @@ def Cast(request):
 				valid_candidate = True
 	if not valid_candidate:
 		return JsonResponse({"error": "invalid candidate"})
+
+	# vote_corda_url = "http://206.81.10.10:10050/put"
+
+	# data = {
+
+
+	# }
+
+	# response = requests.post(url=vote_corda_url, data=data)
+
 
 	new_vote = VoteObject.objects.create(
 			election = election,
@@ -340,6 +350,26 @@ def DeleteAllElections(request):
 		election.delete()
 
 	return JsonResponse({"status": "deleted"})
+
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((IsAuthenticated,))
+def CanViewElectionResults(request):
+
+	election_id = request.GET.get('election_id')
+
+	can_view = False
+
+	try:
+		election = Election.objects.get(pk=election_id)
+		user_elections = VoterToElection.objects.filter(election=election, user=request.user)
+		can_view = len(user_elections) == 0
+
+	except:
+		return Json({'can_view': False})
+
+	return Json({'can_view': can_view})
+
 
 def canUserVote(user, election):
 
