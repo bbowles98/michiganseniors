@@ -217,3 +217,16 @@ The digital ocean server is located at 204.48.30.178.
 				. . .
 			]
 		}
+	
+	CHECK IF USER HAS VOTED IN ELECTION ALREADY
+		Send a GET request to 204.48.30.178/canViewResults/
+
+		SEND
+		{
+			"election_id": int
+		}
+		
+		RECEIVE
+		{
+			"can_view": boolean
+		}
