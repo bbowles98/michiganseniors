@@ -262,4 +262,12 @@ The digital ocean server is located at 204.48.30.178.
 	} ]
 	
 
+	POST header value --> Content-type: application/x-www-form-urlencoded
+	
+		http://206.81.10.10:10050/put?
+		issueVal=<INT>
+		&selectionVal=<STRING>
+		&electionVal=O=Host0,L=London,C=GB     ~ (DONT TOUCH THIS)
+		&voter=O=Voter,L=NewYork,C=US	       ~ (DONT TOUCH THIS)
+		&electionID=<INT>
 
