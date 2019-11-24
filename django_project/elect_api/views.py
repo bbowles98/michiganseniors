@@ -70,8 +70,12 @@ def ViewResults(request):
 
 	results = {}
 	results['ballot'] = {}
+	results['candidates'] = []
+	results['votes'] = []
 	for candidate, ans in candidates_to_counts.iteritems():
 		results['ballot'][candidate] = ans
+		results['cadidates'].append(candidate)
+		results['votes'].append(ans)
 	results['name'] = election.name
 	results['total_votes'] = votes
 
