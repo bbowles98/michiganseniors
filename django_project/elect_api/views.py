@@ -8,15 +8,16 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from rest_framework.response import Response
 from rest_framework import filters
 from django.db import connection
 from datetime import datetime
 from django.contrib.auth.models import User
-from elect_api.models import Election, BallotItem, BallotItemChoice, VoteObject, VoterToElection, RegisterLink
+from elect_api.models import Election, BallotItem, BallotItemChoice, VoterToElection, RegisterLink
 from elect_api.serializers import UserSerializer
 from elect_api.gmail import sendMail
 
-import random
+import random, requests
 
 DEBUG = True
 
@@ -52,23 +53,32 @@ def SearchViewSet(request):
 def ViewResults(request):
 
 	election = Election.objects.get(pk=request.GET.get('election_id'))
-	votes = VoteObject.objects.filter(election=election)
+	results_corda_url = "http://206.81.10.10:10050/votes"
+	response = requests.get(results_corda_url)
+
+	data = response.json()
+
+	votes = 0
 	candidates_to_counts = {}
-	for vote in votes:
-		if vote.answer not in candidates_to_counts:
-			candidates_to_counts[vote.answer] = 0
-		candidates_to_counts[vote.answer] += 1
-	response = {}
-	response['ballot'] = {}
+
+	for vote in data:
+		if vote['state']['data']['electionID'] == election.pk:
+			if vote['state']['data']['selection'] not in candidates_to_counts:
+				candidates_to_counts[vote['state']['data']['selection']] = 0
+			candidates_to_counts[vote['state']['data']['selection']] += 1
+			votes += 1
+
+	results = {}
+	results['ballot'] = {}
 	for candidate, ans in candidates_to_counts.iteritems():
-		response['ballot'][candidate] = ans
-	response['name'] = election.name
-	response['total_votes'] = len(votes)
+		results['ballot'][candidate] = ans
+	results['name'] = election.name
+	results['total_votes'] = votes
 
 	live = isElectionLive(election)
-	response['live'] = live
+	results['live'] = live
 
-	return JsonResponse({'results': response})
+	return JsonResponse({'results': results})
 
 
 # POST request for registering for an election
@@ -117,18 +127,26 @@ def Cast(request):
 	if not valid_candidate:
 		return JsonResponse({"error": "invalid candidate"})
 
-	new_vote = VoteObject.objects.create(
-			election = election,
-			answer = answer
-		)
+	issue_val = 0
+	election_id = election.pk
+	selection_val = answer
 
-	if not new_vote:
+	headers = {
+		'Content-Type': 'application/x-www-form-urlencoded'
+	}
+
+
+	vote_corda_url = "http://206.81.10.10:10050/put?electionVal=O=Host0,L=London,C=GB&voter=O=Voter,L=NewYork,C=US"
+	vote_corda_url += "&issueVal=" + str(issue_val)
+	vote_corda_url += "&selectionVal=" + str(selection_val)
+	vote_corda_url += "&electionID=" + str(election_id)
+
+	data = {}
+
+	try:
+		response = requests.post(url=vote_corda_url, data=data, headers=headers)
+	except:
 		return JsonResponse({'success': False})
-
-	user_voted = VoterToElection.objects.create(
-			election = election,
-			voter = user
-		)
 
 	msg = "Subject: You've Voted!\n\nYou have been successfully voted in " + election.name
 	sendMail(user.email, msg)
@@ -340,6 +358,26 @@ def DeleteAllElections(request):
 		election.delete()
 
 	return JsonResponse({"status": "deleted"})
+
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((IsAuthenticated,))
+def CanViewElectionResults(request):
+
+	election_id = request.GET.get('election_id')
+
+	can_view = False
+
+	try:
+		election = Election.objects.get(pk=election_id)
+		user_elections = VoterToElection.objects.filter(election=election, voter=request.user)
+		can_view = len(user_elections) != 0
+
+	except:
+		return JsonResponse({'can_view': False})
+
+	return JsonResponse({'can_view': can_view})
+
 
 def canUserVote(user, election):
 

@@ -7,7 +7,7 @@ File Structure For eLect Skeletal:
 michiganseniors
 |
 |--corda (under development)
-|	cordap - all files required to run to our cordapp on backend server
+|	voteApp - all files required to run to our cordapp on backend server
 |
 |--django_project
 |	django_project- URL's, URL definitions
@@ -217,3 +217,57 @@ The digital ocean server is located at 204.48.30.178.
 				. . .
 			]
 		}
+	
+	CHECK IF USER HAS VOTED IN ELECTION ALREADY
+		Send a GET request to 204.48.30.178/canViewResults/
+
+		SEND
+		{
+			"election_id": int
+		}
+		
+		RECEIVE
+		{
+			"can_view": boolean
+		}
+		
+*  CORDA STUFF *
+	
+	GET http://206.81.10.10:10050/votes 
+	
+	RECEIVE - what is relevant to us would be: object["state"]["data"]["issue"/"selection"/"electionID"]
+	[ {
+	  "state" : {
+	    "data" : {
+	      "issue" : int,
+	      "selection" : string,
+	      "election" : "O=Host0, L=London, C=GB",
+	      "voter" : "O=Voter, L=New York, C=US",
+	      "electionID" : int,
+	      "participants" : [ "O=Host0, L=London, C=GB", "O=Voter, L=New York, C=US" ]
+	    },
+	    DONT NEED ANYTHING HERE
+	  },
+	  "ref" : {
+	    DONT NEED ANYTHING IN HERE
+	  }
+	},
+	. 
+	.
+	.
+	~N VOTES~
+	. 
+	. 
+	. 
+	} ]
+	
+
+	POST header value --> Content-type: application/x-www-form-urlencoded
+	
+		http://206.81.10.10:10050/put?
+		issueVal=<INT>
+		&selectionVal=<STRING>
+		&electionVal=O=Host0,L=London,C=GB     ~ (DONT TOUCH THIS)
+		&voter=O=Voter,L=NewYork,C=US	       ~ (DONT TOUCH THIS)
+		&electionID=<INT>
+
