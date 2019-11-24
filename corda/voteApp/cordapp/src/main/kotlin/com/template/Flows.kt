@@ -14,7 +14,7 @@ import net.corda.core.transactions.TransactionBuilder
 @StartableByRPC
 class VoteFlow(val issueVal: Int,
               val selectionVal: String,
-               val elecionID: Int
+               val electionID: Int,
               val electionVal: Party,
                val voterVal: Party) : FlowLogic<Unit>() {
 
@@ -29,7 +29,7 @@ class VoteFlow(val issueVal: Int,
 
         // We create the transaction components.
 
-        val outputState = IOUState(issueVal, selectionVal, electionID electionVal, voterVal)
+        val outputState = IOUState(issueVal, selectionVal, electionID, electionVal, voterVal)
         val command = Command(TemplateContract.Commands.Action(), ourIdentity.owningKey)
 
         // We create a transaction builder and add the components.
