@@ -52,21 +52,27 @@ def SearchViewSet(request):
 def ViewResults(request):
 
 	election = Election.objects.get(pk=request.GET.get('election_id'))
-	votes = VoteObject.objects.filter(election=election)
-	candidates_to_counts = {}
-	for vote in votes:
-		if vote.answer not in candidates_to_counts:
-			candidates_to_counts[vote.answer] = 0
-		candidates_to_counts[vote.answer] += 1
-	response = {}
-	response['ballot'] = {}
-	for candidate, ans in candidates_to_counts.iteritems():
-		response['ballot'][candidate] = ans
-	response['name'] = election.name
-	response['total_votes'] = len(votes)
 
-	live = isElectionLive(election)
-	response['live'] = live
+	results_corda_url = "http://206.81.10.10:10050/votes"
+
+	response = requests.get(results_corda_url)
+
+
+	# votes = VoteObject.objects.filter(election=election)
+	# candidates_to_counts = {}
+	# for vote in votes:
+	# 	if vote.answer not in candidates_to_counts:
+	# 		candidates_to_counts[vote.answer] = 0
+	# 	candidates_to_counts[vote.answer] += 1
+	# response = {}
+	# response['ballot'] = {}
+	# for candidate, ans in candidates_to_counts.iteritems():
+	# 	response['ballot'][candidate] = ans
+	# response['name'] = election.name
+	# response['total_votes'] = len(votes)
+
+	# live = isElectionLive(election)
+	# response['live'] = live
 
 	return JsonResponse({'results': response})
 
@@ -126,17 +132,15 @@ def Cast(request):
 	}
 
 
-	vote_corda_url = " http://206.81.10.10:10050/put?electionVal=O=Host0,L=London,C=GB&voter=O=Voter,L=NewYork,C=US"
+	vote_corda_url = "http://206.81.10.10:10050/put?electionVal=O=Host0,L=London,C=GB&voter=O=Voter,L=NewYork,C=US"
 	vote_corda_url += "&issueVal=" + str(issue_val)
 	vote_corda_url += "&selectionVal=" + str(selection_val)
 	vote_corda_url += "&electionID=" + str(election_id)
 
-	print(vote_corda_url)
 	data = {}
 
 	try:
 		response = requests.post(url=vote_corda_url, data=data, headers=headers)
-		print(response.text)
 	except:
 		return JsonResponse({'success': False})
 
