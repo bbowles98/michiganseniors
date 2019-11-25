@@ -193,7 +193,7 @@ class CreateElectViewController: UIViewController {
                 print("HTTP STATUS: \(httpStatus.statusCode)")
                 return}
    
-            let json = try? JSONSerialization.jsonObject(with: data!) as! [String: Any]
+            let json = try? (JSONSerialization.jsonObject(with: data!) as! [String: Any])
             election_id =  (json!["election_id"])!
             print(election_id)
      
@@ -250,7 +250,7 @@ class ElectionViewController: UITableViewController {
             let option = propChoices[indexPath.row]
             cell.optionName.text = option.optionName
             print("Should print yes: ")
-            print(cell.optionName.text)
+            print(cell.optionName.text!)
             
             cell.optionName.sizeToFit()
             return cell
@@ -297,7 +297,7 @@ class ElectionViewController: UITableViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        let temp1 = token_response
+        _ = token_response
         let temp2 = token_response.split(separator: "(")[1]
         let token_response = temp2.split(separator: ")")[0]
         
