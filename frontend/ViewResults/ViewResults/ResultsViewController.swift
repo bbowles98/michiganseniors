@@ -9,16 +9,20 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ResultsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var livePrint: UILabel!
     
     var results = [:] as [String: Any]
     var getURL:String = ""
     var live:Bool = false
-    var ballotItems = [:] as [String: Any]
+    var votingOptions = [:] as [String: Any]
+    var votes = [:] as [Int: Any]
     var electionName:String = ""
     var total:Int = -1
+    var electionID:String = ""
+    var token:String = ""
     
     
     override func viewDidLoad() {
@@ -27,11 +31,12 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // Need to add API request here
         // Do any additional setup after loading the view.
-        getURL = "http://204.48.30.178/results/"
+        getURL = "http://204.48.30.178/results/?election_id=" + electionID
         
         // Get the data to load the ballot
         var request = URLRequest(url:
             URL(string: getURL)!)
+        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request)
@@ -79,9 +84,16 @@ class ViewController: UIViewController, UITableViewDataSource {
         live = (results["live"] != nil)
         total = results["total_votes"] as! Int
         
-        var candidate = ballotItems[indexPath.row]
-        var votes = ballotItems[indexPath.row]
-        cell.optionName?.text = candidate
+        if live == false {
+            livePrint.text = "Final Results"
+        } else {
+            livePrint.text = "Live Results"
+        }
+            
+        
+        var candidate = votingOptions[indexPath.row]
+        var numVotes = votes[indexPath.row]
+        cell.optionName?.text = (candidate as! String)
         cell.optionVotes?.text = String(ballotItems["candidate"])
         cell.optionPer?.text = String(Int(votes)!/Int(total) * 100) + "%"
 
