@@ -159,10 +159,6 @@
                         <viewLayoutGuide key="safeArea" id="gPl-oY-88B"/>
                     </view>
                     <navigationItem key="navigationItem" id="LJR-lX-0O6"/>
-                    <connections>
-                        <outlet property="CreateButton" destination="x8W-FG-waP" id="XaB-QU-8sX"/>
-                        <outlet property="SearchButton" destination="LuL-Sp-zAA" id="5ZG-fZ-JMI"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="203-9i-4nu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -734,8 +730,8 @@
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="85" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
-                                <rect key="frame" x="20" y="160.5" width="83" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
+                                <rect key="frame" x="20" y="160.5" width="79" height="21"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -749,7 +745,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
-                                <rect key="frame" x="299" y="160.5" width="85.5" height="21"/>
+                                <rect key="frame" x="312" y="160.5" width="82" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -765,7 +761,6 @@
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="ViewResults:" destination="WVG-bl-a6m" eventType="touchUpInside" id="gov-su-qDt"/>
                                     <action selector="onViewResult:" destination="WVG-bl-a6m" eventType="touchUpInside" id="ku9-VN-jE2"/>
                                     <segue destination="zJL-KU-E5X" kind="show" identifier="ToResults" id="TNJ-sO-pNU"/>
                                 </connections>
@@ -773,6 +768,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hAc-h4-YtL" firstAttribute="leading" secondItem="Ack-kj-h1n" secondAttribute="trailing" constant="8" id="0cs-2h-bvq"/>
                             <constraint firstItem="Ack-kj-h1n" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="20" id="5Ha-H2-BfS"/>
                             <constraint firstItem="WXQ-fl-HKn" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="89w-7W-HUG"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="hAc-h4-YtL" secondAttribute="trailing" constant="20" id="96W-7U-QDG"/>
@@ -784,7 +780,6 @@
                             <constraint firstItem="3zW-9b-2nH" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="iM2-o1-fqx"/>
                             <constraint firstItem="Ack-kj-h1n" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="20" id="kLY-59-8w9"/>
                             <constraint firstItem="Yg7-Bj-fyL" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="20" id="lHm-gm-8g5"/>
-                            <constraint firstItem="hAc-h4-YtL" firstAttribute="leading" secondItem="Ack-kj-h1n" secondAttribute="trailing" constant="8" id="m2O-vH-SBQ"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="Yg7-Bj-fyL" secondAttribute="trailing" constant="20" id="nUe-YM-SPA"/>
                             <constraint firstItem="hAc-h4-YtL" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="20" id="pR8-aE-KT4"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="WXQ-fl-HKn" secondAttribute="trailing" constant="80" id="slb-yj-gB7"/>
@@ -914,7 +909,7 @@
         <!--Election Results-->
         <scene sceneID="4bK-Wo-mpl">
             <objects>
-                <viewController id="zJL-KU-E5X" customClass="ResultsViewController" customModule="ViewResults" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zJL-KU-E5X" customClass="ResultsViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nn6-Eq-yo5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -924,7 +919,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResultTableCell" id="VeK-uO-6hC" customClass="ResultTableCell" customModule="ViewResults" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResultTableCell" id="VeK-uO-6hC" customClass="ResultTableCell" customModule="CreateElection">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VeK-uO-6hC" id="eP4-5C-8Mz">
@@ -1006,16 +1001,8 @@
                         <barButtonItem key="leftBarButtonItem" title="Done" id="0wg-5q-hdr"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="electionName" destination="PM7-BI-eVh" id="QT6-Me-6fF"/>
-                        <outlet property="optionName" destination="rof-q5-cVz" id="dM1-qq-HEY"/>
-                        <outlet property="optionPer" destination="Tcf-os-wC5" id="JCX-yM-di2"/>
-                        <outlet property="optionVotes" destination="EKt-W0-YJx" id="ZLj-qk-edI"/>
-                        <outlet property="resultName" destination="rof-q5-cVz" id="Kdx-Nt-7IM"/>
-                        <outlet property="resultPer" destination="Tcf-os-wC5" id="OmR-qS-ySK"/>
-                        <outlet property="resultVotes" destination="EKt-W0-YJx" id="x0G-dL-7pz"/>
-                        <outlet property="tableVIew" destination="6oo-wC-L5E" id="BP4-er-r3n"/>
+                        <outlet property="electName" destination="cu2-W6-S8t" id="DOY-3T-rqb"/>
                         <outlet property="tableView" destination="6oo-wC-L5E" id="Nid-Qs-FPs"/>
-                        <outlet property="tblView" destination="6oo-wC-L5E" id="E7m-A3-FNW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBL-9i-aOI" sceneMemberID="firstResponder"/>
