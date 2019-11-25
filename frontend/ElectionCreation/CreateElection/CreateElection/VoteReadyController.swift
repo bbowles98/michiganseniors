@@ -34,10 +34,9 @@ class VoteReadyViewController: UIViewController {
         // On the click off the vote button, segue to ballot
         self.performSegue(withIdentifier: "ToBallot", sender: (Any).self)
     }
-    @IBAction func onViewResult(_ sender: UIButton) {
+    @IBAction func onViewResult(_ sender: Any) {
         self.performSegue(withIdentifier: "ToResults", sender: (Any).self)
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is CastVoteViewController
