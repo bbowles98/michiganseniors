@@ -16,7 +16,8 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
     var results = [:] as [String: Any]
     var getURL:String = ""
     var live:Bool = false
-    var ballotItems = [:] as [String: Any]
+    var votingOptions = [:] as [String: Any]
+    var votes = [:] as [Int: Any]
     var electionName:String = ""
     var total:Int = -1
     var electionID:String = ""
@@ -82,8 +83,8 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
         live = (results["live"] != nil)
         total = results["total_votes"] as! Int
         
-        var candidate = ballotItems[indexPath.row]
-        var votes = ballotItems[indexPath.row]
+        var candidate = votingOptions[indexPath.row]
+        var numVotes = votes[indexPath.row]
         cell.optionName?.text = (candidate as! String)
         cell.optionVotes?.text = String(ballotItems["candidate"])
         cell.optionPer?.text = String(Int(votes)!/Int(total) * 100) + "%"
