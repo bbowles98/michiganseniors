@@ -19,6 +19,7 @@
 		E7BCB966238B3A5900FFAEE2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB965238B3A5900FFAEE2 /* MainViewController.swift */; };
 		E7BCB968238C9E2E00FFAEE2 /* ElectManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB967238C9E2E00FFAEE2 /* ElectManageViewController.swift */; };
 		E7BCB96A238CA1E200FFAEE2 /* DeleteElectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB969238CA1E200FFAEE2 /* DeleteElectViewController.swift */; };
+		E7BCB96C238CD3FE00FFAEE2 /* PreviewElectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB96B238CD3FE00FFAEE2 /* PreviewElectionViewController.swift */; };
 		E7E088F2236FC9A4001AEA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */; };
 		E7E088F4236FC9A4001AEA3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */; };
 		E7E088F6236FC9A4001AEA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E088F5236FC9A4001AEA3B /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 		E7BCB965238B3A5900FFAEE2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E7BCB967238C9E2E00FFAEE2 /* ElectManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectManageViewController.swift; sourceTree = "<group>"; };
 		E7BCB969238CA1E200FFAEE2 /* DeleteElectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteElectViewController.swift; sourceTree = "<group>"; };
+		E7BCB96B238CD3FE00FFAEE2 /* PreviewElectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewElectionViewController.swift; sourceTree = "<group>"; };
 		E7E088EE236FC9A4001AEA3B /* CreateElection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreateElection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				E7BCB967238C9E2E00FFAEE2 /* ElectManageViewController.swift */,
 				E7BCB969238CA1E200FFAEE2 /* DeleteElectViewController.swift */,
 				3D39B5D4237108E30032ADC5 /* Proposal.swift */,
+				E7BCB96B238CD3FE00FFAEE2 /* PreviewElectionViewController.swift */,
 				3D39B5D7237108E30032ADC5 /* VotingOption.swift */,
 				E7E088F1236FC9A4001AEA3B /* AppDelegate.swift */,
 				E7E088F3236FC9A4001AEA3B /* SceneDelegate.swift */,
@@ -184,6 +187,7 @@
 				E7E08906236FCAE4001AEA3B /* election.swift in Sources */,
 				E7E088F6236FC9A4001AEA3B /* ViewController.swift in Sources */,
 				3D39B5DB237108E30032ADC5 /* VotingOption.swift in Sources */,
+				E7BCB96C238CD3FE00FFAEE2 /* PreviewElectionViewController.swift in Sources */,
 				E7E088F2236FC9A4001AEA3B /* AppDelegate.swift in Sources */,
 				E7BCB96A238CA1E200FFAEE2 /* DeleteElectViewController.swift in Sources */,
 				3D39B5D9237108E30032ADC5 /* OptionTableCell.swift in Sources */,

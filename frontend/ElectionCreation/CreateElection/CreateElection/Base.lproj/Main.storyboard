@@ -602,6 +602,34 @@
             </objects>
             <point key="canvasLocation" x="4144.927536231884" y="-1937.2767857142856"/>
         </scene>
+        <!--Preview Election View Controller-->
+        <scene sceneID="Nig-Ip-pQg">
+            <objects>
+                <viewController id="mJI-Gn-t3T" customClass="PreviewElectionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2dW-T0-7YP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GU8-XC-CWh">
+                                <rect key="frame" x="96" y="124" width="222" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="v86-v0-wBd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zcm-ql-9Sd"/>
+                    <connections>
+                        <outlet property="questionLabel" destination="GU8-XC-CWh" id="u4r-Rc-e7x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlK-DX-6fm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3066.666666666667" y="-2643.0803571428569"/>
+        </scene>
         <!--Voting Options-->
         <scene sceneID="qTx-YC-ewj">
             <objects>
@@ -687,6 +715,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="T6e-eV-SnE">
                             <connections>
                                 <action selector="makeElection:" destination="QUD-jV-AJd" id="4ht-ap-K9g"/>
+                                <segue destination="mJI-Gn-t3T" kind="show" identifier="ToPreview" id="oJS-DE-va8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
