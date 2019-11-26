@@ -78,8 +78,8 @@ class VoteReadyViewController: UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 print(json.debugDescription)
-                let result = json["can_view"] as! String
-                if (result.elementsEqual("true")) {
+                let result = json["can_view"] as! Bool
+                if (!result) {
                     self.canViewResults = true
                 }
             }
