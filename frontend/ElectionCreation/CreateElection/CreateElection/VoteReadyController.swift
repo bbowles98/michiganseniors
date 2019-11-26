@@ -79,7 +79,7 @@ class VoteReadyViewController: UIViewController {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 print(json.debugDescription)
                 let result = json["can_view"] as! Bool
-                if (!result) {
+                if (result) {
                     self.canViewResults = true
                 }
             }
@@ -89,9 +89,11 @@ class VoteReadyViewController: UIViewController {
         }
         task.resume()
         
-        ViewResultButton.isHidden = !canViewResults
-        registrationButton.isHidden = (canViewResults && isRegistered)
-        voteButton.isEnabled = (!canViewResults && isRegistered)
+        ViewResultButton.isHidden = false//!canViewResults
+        registrationButton.isHidden = false//(isRegistered)
+        voteButton.isEnabled = true//(!canViewResults && isRegistered)
+        print("can vote?")
+        print(!canViewResults && isRegistered)
     }
     
     override func didReceiveMemoryWarning() {
@@ -108,7 +110,10 @@ class VoteReadyViewController: UIViewController {
     
     @IBOutlet weak var registrationButton: UIButton!
     @IBAction func onRegister(_ sender: Any) {
-        let getURL = "http://204.48.30.178/register/?election_id=" + self.electionIDpassed
+        let getURL = "http://204.48.30.178/publicRegister/"
+        print(self.electionIDpassed)
+        let json: [String: Any] = ["election_id": self.electionIDpassed]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         // Get the data to load the ballot
         var request = URLRequest(url:
@@ -116,7 +121,8 @@ class VoteReadyViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request)
                { data, response, error in
@@ -161,6 +167,12 @@ class VoteReadyViewController: UIViewController {
         }
         else if (segue.identifier == "ToResults") {
             let vc = segue.destination as? ResultsViewController
+            vc!.electionName = electionName
+            vc!.electionID = electionIDpassed
+            vc!.token = token
+        }
+        else if (segue.identifier == "ToRegister") {
+            let vc = segue.destination as? RegisterViewController
             vc!.electionName = electionName
             vc!.electionID = electionIDpassed
             vc!.token = token

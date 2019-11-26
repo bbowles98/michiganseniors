@@ -898,20 +898,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Election Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg7-Bj-fyL">
-                                <rect key="frame" x="20" y="86" width="374" height="22.5"/>
+                                <rect key="frame" x="20" y="30" width="374" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Here are some super helpful notes and rules for this here election." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3zW-9b-2nH">
-                                <rect key="frame" x="80" y="179.5" width="254" height="489.5"/>
+                                <rect key="frame" x="80" y="123.5" width="254" height="545.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
-                                <rect key="frame" x="274" y="128.5" width="120" height="21"/>
+                                <rect key="frame" x="274" y="72.5" width="120" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="E3q-ga-rKz"/>
@@ -951,7 +951,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onRegister:" destination="WVG-bl-a6m" eventType="touchUpInside" id="aGP-BW-YeZ"/>
-                                    <segue destination="rWi-mu-ah5" kind="show" id="QwJ-eO-9gg"/>
+                                    <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="QwJ-eO-9gg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1200,10 +1200,10 @@
             </objects>
             <point key="canvasLocation" x="2964" y="-163"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="r14-vG-e7U">
             <objects>
-                <viewController id="rWi-mu-ah5" sceneMemberID="viewController">
+                <viewController id="rWi-mu-ah5" customClass="RegisterViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gs6-Y0-wpy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1215,6 +1215,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Os1-AO-waP">
+                                <rect key="frame" x="103" y="435" width="208" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back to Vote">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBack:" destination="rWi-mu-ah5" eventType="touchUpInside" id="ICK-IG-8KI"/>
+                                    <segue destination="WVG-bl-a6m" kind="show" identifier="BackToReady" id="bxq-YA-BFd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Dl0-Mc-lCs"/>
@@ -1230,7 +1243,7 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WKm-IJ-EvW"/>
+        <segue reference="bxq-YA-BFd"/>
         <segue reference="bpA-hh-5my"/>
         <segue reference="eAW-bC-ZIK"/>
         <segue reference="71i-IC-api"/>

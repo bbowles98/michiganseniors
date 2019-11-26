@@ -42,7 +42,7 @@ class CastVoteViewController: UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 print(json.debugDescription)
-                self.ballotItems = json["ballot"] as! [String: Any]
+                self.ballotItems = json["ballot"] as! [String: [Any]]
                 self.createBallot()
             }
            catch let error as NSError {
@@ -60,7 +60,7 @@ class CastVoteViewController: UIViewController {
     var electionID:String = ""
     var getURL:String = ""
     var electionName:String = ""
-    var ballotItems = [:] as [String: Any]
+    var ballotItems = [:] as [String: [Any]]
     var questionText = ""
     var choices: [String] = []
     var chosen = ""
@@ -68,8 +68,10 @@ class CastVoteViewController: UIViewController {
     //var token_response = ""
     
     func createBallot() {
-        questionText = ballotItems["question"].debugDescription
-        choices = ballotItems["choices"] as! [String]
+        for (question, options) in ballotItems {
+            questionText = question
+            choices = options as! [String]
+        }
         question!.text = questionText
         
         var buttonY = 0

@@ -12,7 +12,7 @@ import UIKit
 class PreviewElectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        //questionTextLabel?.text = electionQuestion
+        questionTextLabel?.text = electionQuestion
         self.createBallot()
         // Do any additional setup after loading the view.
     }
@@ -85,6 +85,8 @@ class PreviewElectionViewController: UIViewController {
     
     func createBallot() {
         var buttonY = 0
+        print("the voting choices to preview are: ")
+        print(choices)
         for choice in choices{
             let optionButton = UIButton(frame: CGRect(x: 50, y: buttonY, width: 250, height: 30))
             buttonY = buttonY + 50
