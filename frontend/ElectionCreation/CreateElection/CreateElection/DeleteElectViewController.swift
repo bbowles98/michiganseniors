@@ -26,15 +26,20 @@ class DeleteElectViewController: UIViewController {
     var electionIDpassed:String = ""
     @IBOutlet weak var electNameLabel: UILabel!
     @IBAction func onSendResults(_ sender: Any) {
-        let getURL = "http://204.48.30.178/notify/?election_id=" + self.electionIDpassed
-    
-        // Get the data to load the ballot
-        var request = URLRequest(url:
-            URL(string: getURL)!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
-        request.httpMethod = "POST"
+    let getURL = "http://204.48.30.178/delete/"
+           let json: [String: Any] = ["election_id": self.electionIDpassed ?? "NULL",
+                                      ]
+           let jsonData = try? JSONSerialization.data(withJSONObject: json)
+           
+           // Get the data to load the ballot
+           var request = URLRequest(url:
+               URL(string: getURL)!)
+           request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+           request.addValue("application/json", forHTTPHeaderField: "Accept")
+           request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+           request.httpMethod = "DELETE"
+           request.httpBody = jsonData
+
         
         let task = URLSession.shared.dataTask(with: request)
                { data, response, error in
