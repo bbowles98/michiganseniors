@@ -159,7 +159,7 @@ class VoteReadyViewController: UIViewController {
             vc!.electionID = electionIDpassed
             vc!.token = token
         }
-        else {
+        else if (segue.identifier == "ToResults") {
             let vc = segue.destination as? ResultsViewController
             vc!.electionName = electionName
             vc!.electionID = electionIDpassed
