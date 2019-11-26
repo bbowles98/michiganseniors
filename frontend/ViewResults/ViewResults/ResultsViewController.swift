@@ -13,7 +13,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var livePrint: UILabel!
-    @IBOutlet weak var electionTitle: UILabel!
+    @IBOutlet weak var electName: UILabel!
     
     var results = [:] as [String: Any]
     var getURL:String = ""
@@ -24,9 +24,7 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
     var token:String = ""
     var candidates:[String] = []
     var voteCounts:[Int] = []
-    @IBOutlet weak var electName: UILabel!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -85,10 +83,10 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        electionTitle.text = electionName
+        electName.text = electionName
                 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableCell") as! ResultTableCell
-        
+                
         if live == false {
             livePrint.text = "Final Results"
         } else {
