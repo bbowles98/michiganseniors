@@ -18,17 +18,17 @@ class VoteReadyViewController: UIViewController {
         
         let checkURL = "http://204.48.30.178/registeredElections/"
         
-        var request = URLRequest(url:
+        var request1 = URLRequest(url:
             URL(string: checkURL)!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request1.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request1.addValue("application/json", forHTTPHeaderField: "Accept")
 
         //token_response here is the same token_response that is created during Signin. (See line 76)
         print("cast vote token: " + token)
-        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
+        request1.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+        request1.httpMethod = "GET"
         
-        let task = URLSession.shared.dataTask(with: request)
+        let task1 = URLSession.shared.dataTask(with: request1)
         { data, response, error in
             guard let _ = data, error == nil else {
                 print("NETWORKING ERROR")
@@ -40,14 +40,18 @@ class VoteReadyViewController: UIViewController {
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                 print(json.debugDescription)
-                let elections = json["elections"] as!
-                
+                let elections = json["elections"] as! [Int]
+                for elect in elections {
+                    if (Int(elect) == Int(self.electionIDpassed)) {
+                        self.isRegistered = true
+                    }
+                }
             }
            catch let error as NSError {
             print(error)
            }
         }
-        task.resume()
+        task1.resume()
         
         let getURL = "http://204.48.30.178/canViewResults/?election_id=" + electionIDpassed
         
@@ -86,8 +90,8 @@ class VoteReadyViewController: UIViewController {
         task.resume()
         
         ViewResultButton.isHidden = !canViewResults
-        registrationButton.isHidden = canViewResults
-        voteButton.isEnabled = !canViewResults
+        registrationButton.isHidden = (canViewResults && isRegistered)
+        voteButton.isEnabled = (!canViewResults && isRegistered)
     }
     
     override func didReceiveMemoryWarning() {
@@ -100,6 +104,7 @@ class VoteReadyViewController: UIViewController {
     var electionIDpassed:String = ""
     var token:String = ""
     var canViewResults = false
+    var isRegistered = false
     
     @IBOutlet weak var registrationButton: UIButton!
     @IBAction func onRegister(_ sender: Any) {
