@@ -120,8 +120,10 @@ def PublicRegister(request):
 			election = election,
 			participant = user
 		)
-	msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
-	sendMail(user.email, msg)
+
+	registeredUser.save()
+	# msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
+	# sendMail(user.email, msg)
 	return JsonResponse({'success': True})
 
 
@@ -367,7 +369,7 @@ def CreateAccount(request):
 	return JsonResponse(serializer.errors)
 
 @csrf_exempt
-@api_view(['DELETE'])
+@api_view(['POST'])
 @permission_classes((IsAuthenticated,))
 def DeleteElection(request):
 
