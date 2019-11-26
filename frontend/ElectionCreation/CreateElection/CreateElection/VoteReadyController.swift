@@ -15,6 +15,45 @@ class VoteReadyViewController: UIViewController {
         // Do any additional setup after loading the view.
         name?.text = electionName
         host?.text = hostName
+        
+        let getURL = "http://204.48.30.178/canViewResults/?election_id=" + electionIDpassed
+        
+        // Get the data to load the ballot
+        var request = URLRequest(url:
+            URL(string: getURL)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
+        //token_response here is the same token_response that is created during Signin. (See line 76)
+        print("cast vote token: " + token)
+        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request)
+        { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return}
+            if let httpStatus = response as? HTTPURLResponse,
+                httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return}
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                print(json.debugDescription)
+                let result = json["can_view"] as! String
+                if (result.elementsEqual("true")) {
+                    self.canViewBallot = true
+                }
+            }
+           catch let error as NSError {
+            print(error)
+           }
+        }
+        task.resume()
+        
+        ViewResultButton.isHidden = !canViewBallot
+        voteButton.isEnabled = canViewBallot
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,7 +65,9 @@ class VoteReadyViewController: UIViewController {
     var hostName:String = ""
     var electionIDpassed:String = ""
     var token:String = ""
+    var canViewBallot = false
     
+    @IBOutlet weak var voteButton: UIBarButtonItem!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var host: UILabel!
     @IBOutlet weak var ViewResultButton: UIButton!

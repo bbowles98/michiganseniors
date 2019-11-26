@@ -1,14 +1,14 @@
 //
-//  SearchViewController.swift
+//  ElectManageViewController.swift
 //  CreateElection
 //
-//  Created by Madelyn Rycenga on 11/24/19.
+//  Created by Madelyn Rycenga on 11/25/19.
 //  Copyright © 2019 Madelyn Rycenga. All rights reserved.
 //
 
 import Foundation
 import UIKit
-class SearchViewController: UIViewController {
+class ElectManageViewController: UIViewController {
     
     var data = elections
     var results: [Dictionary<String, Any>] = []
@@ -17,18 +17,14 @@ class SearchViewController: UIViewController {
     var electionID = ""
     var token:String = ""
     
+
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tblView: UITableView!
-    @IBAction func onClickCreate(_ sender: Any) {
-        performSegue(withIdentifier: "ToCreate2", sender: (Any).self)
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
+        //searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
-        let getURL = "http://204.48.30.178/search?name="
+        let getURL = "http://204.48.30.178/elections"
         
         // Get the data to load the ballot
         var request = URLRequest(url:
@@ -65,18 +61,17 @@ class SearchViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedElect = indexPath.row
-        self.performSegue(withIdentifier: "ToReady", sender: indexPath)
+        self.performSegue(withIdentifier: "ToDelete", sender: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is VoteReadyViewController
+        if segue.destination is DeleteElectViewController
         {
-            let vc = segue.destination as? VoteReadyViewController
+            let vc = segue.destination as? DeleteElectViewController
             
             vc!.token = token
-            
-            if (searching) {
+           if (searching) {
                 vc!.electionName = results[selectedElect]["name"] as! String
                 vc!.hostName = results[selectedElect]["creator"] as! String
                 vc!.electionIDpassed = String(results[selectedElect]["election_id"] as! Int)
@@ -88,46 +83,5 @@ class SearchViewController: UIViewController {
                 vc!.electionIDpassed = String(election["election_id"] as! Int)
             }
         }
-        else if segue.destination is CreateElectViewController {
-             let vc = segue.destination as? CreateElectViewController
-            vc!.token = token
-        }
     }
-}
-
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
-            return results.count
-        } else {
-            return elections.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        if searching {
-            cell.textLabel!.text = (results[indexPath.row]["name"] as! String)
-        } else {
-            cell.textLabel!.text = (elections[indexPath.row]["name"] as! String)
-        }
-        return cell
-    }
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        results = elections.filter({(($0["name"] as! String).lowercased() ).prefix(searchText.count) == searchText.lowercased()})
-        searching = true
-        tblView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchBar.text = ""
-        tblView.reloadData()
-    }
-    
 }

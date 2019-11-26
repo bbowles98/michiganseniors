@@ -37,6 +37,9 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
         // Get the data to load the ballot
         var request = URLRequest(url:
             URL(string: getURL)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+
         request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
