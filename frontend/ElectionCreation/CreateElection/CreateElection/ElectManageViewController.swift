@@ -85,3 +85,40 @@ class ElectManageViewController: UIViewController {
         }
     }
 }
+
+extension ElectManageViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searching {
+            return results.count
+        } else {
+            return elections.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        if searching {
+            cell.textLabel!.text = (results[indexPath.row]["name"] as! String)
+        } else {
+            cell.textLabel!.text = (elections[indexPath.row]["name"] as! String)
+        }
+        return cell
+    }
+}
+
+extension ElectManageViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        results = elections.filter({(($0["name"] as! String).lowercased() ).prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        tblView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tblView.reloadData()
+    }
+    
+}
