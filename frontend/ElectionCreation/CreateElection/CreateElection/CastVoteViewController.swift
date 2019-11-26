@@ -40,9 +40,9 @@ class CastVoteViewController: UIViewController {
                 print("HTTP STATUS: \(httpStatus.statusCode)")
                 return}
             do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:[String:Any]]
                 print(json.debugDescription)
-                self.ballotItems = json["ballot"] as! [String: [Any]]
+                self.ballotItems = json["ballot"] as! [String : [Any]]
                 self.createBallot()
             }
            catch let error as NSError {

@@ -903,25 +903,56 @@
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Here are some super helpful notes and rules for this here election." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3zW-9b-2nH">
-                                <rect key="frame" x="80" y="123.5" width="254" height="545.5"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Here are some super helpful notes and rules for this here election." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3zW-9b-2nH">
+                                <rect key="frame" x="80" y="124" width="254" height="134"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
-                                <rect key="frame" x="274" y="72.5" width="120" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
+                                <rect key="frame" x="207" y="70" width="187" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="E3q-ga-rKz"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXQ-fl-HKn">
-                                <rect key="frame" x="80" y="689" width="254" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hosted by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
+                                <rect key="frame" x="20" y="70" width="179" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-8h-RvJ">
+                                <rect key="frame" x="80" y="393" width="254" height="45"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRegister:" destination="WVG-bl-a6m" eventType="touchUpInside" id="aGP-BW-YeZ"/>
+                                    <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="QwJ-eO-9gg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTb-eg-MCJ">
+                                <rect key="frame" x="80" y="469" width="254" height="39"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Vote">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bV4-HW-Adc" kind="show" identifier="ToBallot" id="Aeq-9v-2jW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXQ-fl-HKn">
+                                <rect key="frame" x="80" y="546" width="254" height="39"/>
                                 <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -934,44 +965,19 @@
                                     <segue destination="zJL-KU-E5X" kind="show" identifier="ToResults" id="TNJ-sO-pNU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
-                                <rect key="frame" x="20" y="129" width="115" height="21"/>
-                                <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <color key="textColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-8h-RvJ">
-                                <rect key="frame" x="80" y="624" width="254" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onRegister:" destination="WVG-bl-a6m" eventType="touchUpInside" id="aGP-BW-YeZ"/>
-                                    <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="QwJ-eO-9gg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="hAc-h4-YtL" firstAttribute="leading" secondItem="Ack-kj-h1n" secondAttribute="trailing" constant="8" id="0cs-2h-bvq"/>
-                            <constraint firstItem="Ack-kj-h1n" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="20" id="5Ha-H2-BfS"/>
                             <constraint firstItem="WXQ-fl-HKn" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="89w-7W-HUG"/>
-                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="hAc-h4-YtL" secondAttribute="trailing" constant="20" id="96W-7U-QDG"/>
-                            <constraint firstItem="WXQ-fl-HKn" firstAttribute="top" secondItem="3zW-9b-2nH" secondAttribute="bottom" constant="20" id="GCj-Rs-d3Z"/>
-                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="bottom" secondItem="WXQ-fl-HKn" secondAttribute="bottom" constant="80" id="Gcc-QG-m1T"/>
                             <constraint firstItem="Yg7-Bj-fyL" firstAttribute="top" secondItem="IHf-ww-Yfx" secondAttribute="top" constant="30" id="HaL-kh-1hV"/>
-                            <constraint firstItem="3zW-9b-2nH" firstAttribute="top" secondItem="hAc-h4-YtL" secondAttribute="bottom" constant="30" id="Qe9-r0-CvC"/>
+                            <constraint firstItem="ZgZ-8h-RvJ" firstAttribute="top" secondItem="3zW-9b-2nH" secondAttribute="bottom" constant="20" id="TyP-EH-qtz"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="3zW-9b-2nH" secondAttribute="trailing" constant="80" id="aHi-UO-GJf"/>
+                            <constraint firstItem="WXQ-fl-HKn" firstAttribute="top" secondItem="uTb-eg-MCJ" secondAttribute="bottom" constant="20" id="gwu-gT-DVq"/>
                             <constraint firstItem="3zW-9b-2nH" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="iM2-o1-fqx"/>
-                            <constraint firstItem="Ack-kj-h1n" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="20" id="kLY-59-8w9"/>
                             <constraint firstItem="Yg7-Bj-fyL" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="20" id="lHm-gm-8g5"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="Yg7-Bj-fyL" secondAttribute="trailing" constant="20" id="nUe-YM-SPA"/>
-                            <constraint firstItem="hAc-h4-YtL" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="20" id="pR8-aE-KT4"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="WXQ-fl-HKn" secondAttribute="trailing" constant="80" id="slb-yj-gB7"/>
+                            <constraint firstItem="uTb-eg-MCJ" firstAttribute="top" secondItem="ZgZ-8h-RvJ" secondAttribute="bottom" constant="20" id="uJe-ng-J0c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IHf-ww-Yfx"/>
                     </view>
@@ -979,7 +985,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Vote" id="0hB-PT-pPx">
                             <connections>
                                 <action selector="onVote:" destination="WVG-bl-a6m" id="6qc-KZ-rEu"/>
-                                <segue destination="bV4-HW-Adc" kind="show" identifier="ToBallot" id="lR4-x8-vwH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1003,13 +1008,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBt-6B-qmT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBt-6B-qmT">
                                 <rect key="frame" x="118" y="140" width="179" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laF-yt-xwP">
+                                <rect key="frame" x="81" y="498" width="246" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Cast Vote">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="eIz-iX-LOV"/>
@@ -1028,7 +1042,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwX-7y-rdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3526" y="-856"/>
+            <point key="canvasLocation" x="3524.6376811594205" y="-856.47321428571422"/>
         </scene>
         <!--Vote Complete-->
         <scene sceneID="nQC-ZU-NBB">
@@ -1051,6 +1065,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="bCd-6h-5GA" kind="show" id="0Tu-BQ-hYn"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Thank you for voting!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NPg-G9-DwM">
                                 <rect key="frame" x="71" y="87" width="272" height="55"/>
@@ -1243,9 +1260,10 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="QwJ-eO-9gg"/>
         <segue reference="bxq-YA-BFd"/>
         <segue reference="bpA-hh-5my"/>
-        <segue reference="eAW-bC-ZIK"/>
+        <segue reference="0Tu-BQ-hYn"/>
         <segue reference="71i-IC-api"/>
     </inferredMetricsTieBreakers>
 </document>
