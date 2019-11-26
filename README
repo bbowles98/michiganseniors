@@ -99,6 +99,15 @@ The digital ocean server is located at 204.48.30.178.
 			"election_id": int
 		}
 
+	NOTIFY
+		SEND a POST request to 204.48.30.178/notify/
+		
+		SEND
+		{
+			"election_id": int
+		}
+		* This will send an email to all voters in that election to login to eLect and check the results
+
 * VOTER FEATURES *
 
 	SEARCH FOR ELECTION
