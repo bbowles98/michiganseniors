@@ -13,6 +13,7 @@ class Election(models.Model):
 	status = models.BooleanField(default=False)
 	start_date = models.CharField(max_length=40, default="")
 	end_date = models.CharField(max_length=40, default="")
+	message = models.CharField(max_length=100, default="")
 
 class BallotItem(models.Model):
 

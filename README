@@ -34,7 +34,8 @@ The digital ocean server is located at 204.48.30.178.
 		{
 			"name": "The best election ever",
 			"start_date": "yyyy-MM-dd hh:mm:ss",
-			"end_date": "yyyy-MM-dd hh:mm:ss"
+			"end_date": "yyyy-MM-dd hh:mm:ss",
+			"message": string
 		}
 		
 		RECEIVE
@@ -107,6 +108,16 @@ The digital ocean server is located at 204.48.30.178.
 			"election_id": int
 		}
 		* This will send an email to all voters in that election to login to eLect and check the results
+		
+	GET MESSAGE FROM ELECTION
+		Send a GET request to 204.48.30.178/getMessage/
+		
+		SEND
+		{
+			"election_id": int
+		}
+		
+		Returns the message that was sent when the election was created
 
 * VOTER FEATURES *
 

@@ -218,6 +218,11 @@ def CreateElection(request):
 		return JsonResponse({'success': False})
 
 	passcode = random.randint(100000, 999999)
+	message = ""
+	try:
+		message = request.data['message']
+	except:
+		pass
 
 	new_election = Election.objects.create(
 		name=request.data['name'],
@@ -225,7 +230,8 @@ def CreateElection(request):
 		passcode=passcode,
 		status=True,
 		start_date=request.data['start_date'],
-		end_date=request.data['end_date']
+		end_date=request.data['end_date'],
+		message = message
 	)
 
 	if not new_election:
@@ -419,6 +425,16 @@ def Notify(request):
 
 	return JsonResponse({'success': True, 'live': True})
 
+
+# POST request for registering for an election
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def GetMessage(request):
+
+	election = Election.objects.get(pk=request.data['election_id'])
+
+	return JsonResponse({'message': election.message})
 
 def canUserVote(user, election):
 
