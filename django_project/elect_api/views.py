@@ -371,7 +371,7 @@ def CreateAccount(request):
 @permission_classes((IsAuthenticated,))
 def DeleteElection(request):
 
-	election = Election.objects.get(pk=request.data['election_id'])
+	election = Election.objects.filter(pk=request.data['election_id'])
 	election.delete()
 
 	return JsonResponse({"status": "deleted"})
