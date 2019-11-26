@@ -12,15 +12,11 @@ import UIKit
 class ResultsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var livePrint: UILabel!
     
     var results = [:] as [String: Any]
     var getURL:String = ""
     var live:Bool = false
-<<<<<<< HEAD
-    var votingOptions = [:] as [String: Any]
-    var votes = [:] as [Int: Any]
-=======
->>>>>>> 25c6b222da289f7e524589f6a49e0c166d458ceb
     var electionName:String = ""
     var total:Int = -1
     var electionID:String = ""
@@ -93,20 +89,18 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
                 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableCell") as! ResultTableCell
         
-<<<<<<< HEAD
-        var candidate = votingOptions[indexPath.row]
-        var numVotes = votes[indexPath.row]
-        cell.optionName?.text = (candidate as! String)
-        cell.optionVotes?.text = String(ballotItems["candidate"])
-        cell.optionPer?.text = String(Int(votes)!/Int(total) * 100) + "%"
-=======
+        if live == false {
+            livePrint.text = "Final Results"
+        } else {
+            livePrint.text = "Live Results"
+        }
+        
         //let votes = voteCounts[Int(indexPath.row)]
-        let candidate = ""
+        let candidate = candidates[indexPath.row]
         cell.optionName!.text = candidate
-        cell.optionVotes!.text = ""
-        let percentage = ""//0/total * 100
-        cell.optionPer!.text = percentage//String(percentage)
->>>>>>> 25c6b222da289f7e524589f6a49e0c166d458ceb
+        cell.optionVotes!.text = String(voteCounts[indexPath.row])
+        let percentage = voteCounts[indexPath.row]/total * 100
+        cell.optionPer!.text = String(percentage)
 
         return cell
 

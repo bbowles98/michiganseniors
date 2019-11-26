@@ -248,7 +248,7 @@ class ElectionViewController: UITableViewController {
                 fatalError("The dequeued cell is not an instance of OptionTableCell")
             }
             let option = propChoices[indexPath.row]
-            cell.optionName.text = option.optionName
+            cell.optionName.text = String(option.optionName)
             print("Should print yes: ")
             print(cell.optionName.text!)
             
@@ -267,6 +267,8 @@ class ElectionViewController: UITableViewController {
             UIControl.Event.valueChanged)
         self.refreshOptions()
     }
+    var answers = [String]()
+    var electionQuestion = ""
     
     @IBAction func makeElection(_ sender: UIBarButtonItem) {
         
@@ -274,10 +276,11 @@ class ElectionViewController: UITableViewController {
         let propName = self.propName.text!
         let election = Proposal(question: propName, choices: propChoices)
         
-        var answers = [String]()
+        
         for choice in propChoices {
             answers.append(choice.optionName)
         }
+        electionQuestion = election.question
     
         // API REQUEST
         let json: [String: Any] = [
@@ -337,8 +340,19 @@ class ElectionViewController: UITableViewController {
         }
         //run the previous copule lines of code in a seperate thread
         task.resume()
-        
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "ToPreview", sender: (Any).self)
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is PreviewElectionViewController
+        {
+            let vc = segue.destination as? PreviewElectionViewController
+            vc!.token = token_response
+            vc!.electionQuestion = self.electionQuestion
+            vc!.choices = self.answers
+        }
     }
         
     
@@ -417,14 +431,11 @@ class MainViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is SearchViewController
+        if segue.identifier == "ToSearch"
         {
-            let vc = segue.destination as? SearchViewController
-            vc!.token = token
-        }
-        else if segue.destination is CreateElectViewController
-        {
-            let vc = segue.destination as? CreateElectViewController
+            print("going in to search segue!!: " + token)
+            let navVC = segue.destination as? UINavigationController
+            let vc = navVC?.viewControllers.first as? SearchViewController
             vc!.token = token
         }
         else if segue.destination is ElectManageViewController {

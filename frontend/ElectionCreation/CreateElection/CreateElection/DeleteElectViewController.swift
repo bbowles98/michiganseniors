@@ -12,7 +12,7 @@ import UIKit
 class DeleteElectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        ElectNameLabel.text = self.electionName
+        electNameLabel.text = self.electionName
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
@@ -24,6 +24,41 @@ class DeleteElectViewController: UIViewController {
     var electionName:String = ""
     var hostName:String = ""
     var electionIDpassed:String = ""
+    @IBOutlet weak var electNameLabel: UILabel!
+    @IBAction func onSendResults(_ sender: Any) {
+        let getURL = "http://204.48.30.178/notify/?election_id=" + self.electionIDpassed
+    
+        // Get the data to load the ballot
+        var request = URLRequest(url:
+            URL(string: getURL)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "POST"
+        
+        let task = URLSession.shared.dataTask(with: request)
+               { data, response, error in
+                   guard let _ = data, error == nil else {
+                       print("NETWORKING ERROR")
+                       return}
+                   if let httpStatus = response as? HTTPURLResponse,
+                       httpStatus.statusCode != 200 {
+                       print("HTTP STATUS: \(httpStatus.statusCode)")
+                       return}
+                   do {
+                       let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                       print(json.debugDescription)
+                       print(json)
+                   }
+                  catch let error as NSError {
+                   print(error)
+                  }
+               }
+               task.resume()
+        
+        performSegue(withIdentifier: "JustForwarded", sender: (Any).self)
+    }
+
     
     @IBAction func onDelete(_ sender: Any) {
         let getURL = "http://204.48.30.178/delete/election_id=" + self.electionIDpassed
@@ -58,7 +93,6 @@ class DeleteElectViewController: UIViewController {
         
         performSegue(withIdentifier: "JustDeleted", sender: (Any).self)
     }
-    @IBOutlet weak var ElectNameLabel: UILabel!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
