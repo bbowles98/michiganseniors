@@ -337,8 +337,17 @@ class ElectionViewController: UITableViewController {
         }
         //run the previous copule lines of code in a seperate thread
         task.resume()
-        
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "ToPreview", sender: (Any).self)
+        //dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is PreviewElectionViewController
+        {
+            let vc = segue.destination as? PreviewElectionViewController
+            vc!.token = token_response
+        }
     }
         
     
