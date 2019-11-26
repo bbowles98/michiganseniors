@@ -99,6 +99,15 @@ The digital ocean server is located at 204.48.30.178.
 			"election_id": int
 		}
 
+	NOTIFY
+		SEND a POST request to 204.48.30.178/notify/
+		
+		SEND
+		{
+			"election_id": int
+		}
+		* This will send an email to all voters in that election to login to eLect and check the results
+
 * VOTER FEATURES *
 
 	SEARCH FOR ELECTION
@@ -124,6 +133,23 @@ The digital ocean server is located at 204.48.30.178.
 			    ]
 		}
 		* it will return all elections whose name contains 'name'
+	
+	REGISTER FOR ELECTION (with passcode)
+		Send a POST request to 204.48.30.178/register/
+		
+		SEND
+		{
+			"election_id" : int,
+			"passcode": string
+		}
+		
+	REGISTER FOR ELECTION (without passcode)
+		Send a POST request to 204.48.30.178/publicRegister/
+		
+		SEND
+		{
+			"election_id" : int
+		}
 
 	VIEW BALLOT
 		Send a GET request to 204.48.30.178/vote/
@@ -238,6 +264,8 @@ The digital ocean server is located at 204.48.30.178.
 		{
 			"can_view": boolean
 		}
+			
+
 		
 *  CORDA STUFF *
 	
