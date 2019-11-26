@@ -120,6 +120,8 @@ def PublicRegister(request):
 			election = election,
 			participant = user
 		)
+
+	registeredUser.save()
 	msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
 	sendMail(user.email, msg)
 	return JsonResponse({'success': True})
@@ -183,7 +185,7 @@ def Cast(request):
 def Vote(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election = Election.objects.get(pk=request.data['election_id'])
+	election = Election.objects.get(pk=request.GET.get('election_id'))
 
 	json = canUserVote(user, election)
 	if json:
@@ -367,11 +369,11 @@ def CreateAccount(request):
 	return JsonResponse(serializer.errors)
 
 @csrf_exempt
-@api_view(['DELETE'])
+@api_view(['POST'])
 @permission_classes((IsAuthenticated,))
 def DeleteElection(request):
 
-	election = Election.objects.get(pk=request.data['election_id'])
+	election = Election.objects.filter(pk=request.data['election_id'])
 	election.delete()
 
 	return JsonResponse({"status": "deleted"})
