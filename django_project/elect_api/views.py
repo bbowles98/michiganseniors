@@ -122,8 +122,8 @@ def PublicRegister(request):
 		)
 
 	registeredUser.save()
-	# msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
-	# sendMail(user.email, msg)
+	msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
+	sendMail(user.email, msg)
 	return JsonResponse({'success': True})
 
 
