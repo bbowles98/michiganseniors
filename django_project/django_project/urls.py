@@ -37,4 +37,6 @@ urlpatterns = [
     url('registeredElections/', views.ViewRegisteredElections),
     url('pastElectionsVotedIn/', views.ViewPastElectionsUserVotedIn),
     url('canViewResults/', views.CanViewElectionResults),
+    url('notify/', views.Notify),
+    url('publicRegister/', views.PublicRegister),
 ]

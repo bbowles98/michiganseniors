@@ -107,6 +107,24 @@ def Register(request):
 	return JsonResponse({'success': True})
 
 
+# POST request for registering for an election
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated, ))
+def PublicRegister(request):
+
+	user = User.objects.get(pk=request.user.pk)
+	election = Election.objects.get(pk=request.data['election_id'])
+
+	registeredUser = RegisterLink.objects.create(
+			election = election,
+			participant = user
+		)
+	msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
+	sendMail(user.email, msg)
+	return JsonResponse({'success': True})
+
+
 # POST request for submitting a vote for an election
 @csrf_exempt
 @api_view(['POST'])
@@ -381,6 +399,25 @@ def CanViewElectionResults(request):
 		return JsonResponse({'can_view': False})
 
 	return JsonResponse({'can_view': can_view})
+
+
+# POST request for changing the activity status of an election
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated, ))
+def Notify(request):
+
+	user = User.objects.get(pk=request.user.pk)
+	if not user:
+		return JsonResponse({'success': False})
+
+	election = Election.objects.get(pk=request.data['election_id'])
+	voters = VoterToElection.objects.filter(election=election)
+	for voter in voters:
+		msg = "Subject: The Results Are In!\n\nThe results are in for " + election.name + ".\n Login to eLect to view them."
+		sendMail(voter.email, msg)
+
+	return JsonResponse({'success': True, 'live': True})
 
 
 def canUserVote(user, election):
