@@ -417,14 +417,11 @@ class MainViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is SearchViewController
+        if segue.identifier == "ToSearch"
         {
-            let vc = segue.destination as? SearchViewController
-            vc!.token = token
-        }
-        else if segue.destination is CreateElectViewController
-        {
-            let vc = segue.destination as? CreateElectViewController
+            print("going in to search segue!!: " + token)
+            let navVC = segue.destination as? UINavigationController
+            let vc = navVC?.viewControllers.first as? SearchViewController
             vc!.token = token
         }
         else if segue.destination is ElectManageViewController {
