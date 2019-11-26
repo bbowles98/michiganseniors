@@ -140,7 +140,7 @@ class CreateElectViewController: UIViewController {
 
     @IBOutlet weak var ElectionName: UITextField!
     @IBOutlet weak var viewSelector: UISegmentedControl!
-    var token:String = ""
+    var token:String = token_response
     @IBOutlet weak var selectedStart: UIDatePicker!
     @IBOutlet weak var selectedEnd: UIDatePicker!
     
@@ -174,8 +174,8 @@ class CreateElectViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         //parse out token response
-        let temp1 = token.split(separator: "(")[1]
-        let token_response = temp1.split(separator: ")")[0]
+        //let temp1 = token.split(separator: "(")[1]
+       // let token_response = temp1.split(separator: ")")[0]
         
         
         print("election creation token")
@@ -297,9 +297,9 @@ class ElectionViewController: UITableViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        _ = token_response
-        let temp2 = token_response.split(separator: "(")[1]
-        let token_response = temp2.split(separator: ")")[0]
+        //_ = token_response
+        //let temp2 = token_response.split(separator: "(")[1]
+        //let token_response = temp2.split(separator: ")")[0]
         
         request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
         print("ballot token:")
@@ -392,3 +392,45 @@ class CreateOptionViewController: UIViewController {
     }
     
 }
+
+class MainViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        //Dispose of any resources that can be created
+    }
+    var token:String = token_response
+    
+    @IBAction func SearchSegue(_ sender: Any) {
+        self.performSegue(withIdentifier: "ToSearch", sender: (Any).self)
+    }
+    @IBAction func CreateSegue(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "ToCreate", sender: (Any).self)
+    }
+    
+    @IBAction func toCreatedElects(_ sender: Any) {
+        self.performSegue(withIdentifier: "ToMyElects", sender: (Any).self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is SearchViewController
+        {
+            let vc = segue.destination as? SearchViewController
+            vc!.token = token
+        }
+        else if segue.destination is CreateElectViewController
+        {
+            let vc = segue.destination as? CreateElectViewController
+            vc!.token = token
+        }
+        else if segue.destination is ElectManageViewController {
+            let vc = segue.destination as? ElectManageViewController
+            vc!.token = token
+        }
+    }
+}
+
