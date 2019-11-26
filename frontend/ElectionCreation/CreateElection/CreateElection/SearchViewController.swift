@@ -19,6 +19,11 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tblView: UITableView!
+    @IBAction func onClickCreate(_ sender: Any) {
+        performSegue(withIdentifier: "ToCreate2", sender: (Any).self)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -82,6 +87,10 @@ class SearchViewController: UIViewController {
                 vc!.hostName = election["creator"] as! String
                 vc!.electionIDpassed = String(election["election_id"] as! Int)
             }
+        }
+        else if segue.destination is CreateElectViewController {
+             let vc = segue.destination as? CreateElectViewController
+            vc!.token = token
         }
     }
 }

@@ -10,7 +10,6 @@
         <!--Election Results-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ResultsViewController" customModule="ViewResults" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -103,18 +102,12 @@
                         <barButtonItem key="leftBarButtonItem" title="Done" id="9YP-KE-wFV"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="electionName" destination="cGl-UY-Huc" id="IuP-IH-Dhm"/>
-                        <outlet property="optionName" destination="kZy-sv-Df3" id="FNY-or-CSd"/>
-                        <outlet property="optionPer" destination="jMC-Rd-hsH" id="Zde-8K-Bc6"/>
-                        <outlet property="optionVotes" destination="31y-RI-Bjo" id="1Ga-5u-o3P"/>
-                        <outlet property="resultName" destination="kZy-sv-Df3" id="qbl-XZ-nIx"/>
-                        <outlet property="resultPer" destination="jMC-Rd-hsH" id="cHC-5I-l8G"/>
-                        <outlet property="resultVotes" destination="31y-RI-Bjo" id="LKv-B7-QVS"/>
-                        <outlet property="tableVIew" destination="J0z-9f-A5j" id="MeM-oO-sOW"/>
+                        <outlet property="electName" destination="qfJ-uH-LdO" id="lxT-0a-WVo"/>
+                        <outlet property="livePrint" destination="N8L-RY-HRA" id="cE1-WQ-Zwx"/>
                         <outlet property="tableView" destination="J0z-9f-A5j" id="FL5-3Q-ffD"/>
-                        <outlet property="tblView" destination="J0z-9f-A5j" id="SuB-Wv-SPS"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
