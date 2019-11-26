@@ -267,6 +267,8 @@ class ElectionViewController: UITableViewController {
             UIControl.Event.valueChanged)
         self.refreshOptions()
     }
+    var answers = [String]()
+    var electionQuestion = ""
     
     @IBAction func makeElection(_ sender: UIBarButtonItem) {
         
@@ -274,10 +276,11 @@ class ElectionViewController: UITableViewController {
         let propName = self.propName.text!
         let election = Proposal(question: propName, choices: propChoices)
         
-        var answers = [String]()
+        
         for choice in propChoices {
             answers.append(choice.optionName)
         }
+        electionQuestion = election.question
     
         // API REQUEST
         let json: [String: Any] = [
@@ -338,7 +341,7 @@ class ElectionViewController: UITableViewController {
         //run the previous copule lines of code in a seperate thread
         task.resume()
         performSegue(withIdentifier: "ToPreview", sender: (Any).self)
-        //dismiss(animated: true, completion: nil)
+    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -347,6 +350,8 @@ class ElectionViewController: UITableViewController {
         {
             let vc = segue.destination as? PreviewElectionViewController
             vc!.token = token_response
+            vc!.electionQuestion = self.electionQuestion
+            vc!.choices = self.answers
         }
     }
         

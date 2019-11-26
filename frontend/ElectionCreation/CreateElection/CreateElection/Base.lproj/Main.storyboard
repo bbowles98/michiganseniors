@@ -605,7 +605,7 @@
         <!--Preview Election View Controller-->
         <scene sceneID="Nig-Ip-pQg">
             <objects>
-                <viewController id="mJI-Gn-t3T" customClass="PreviewElectionViewController" sceneMemberID="viewController">
+                <viewController id="mJI-Gn-t3T" customClass="PreviewElectionViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2dW-T0-7YP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -621,9 +621,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="v86-v0-wBd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Zcm-ql-9Sd"/>
+                    <navigationItem key="navigationItem" id="Zcm-ql-9Sd">
+                        <barButtonItem key="rightBarButtonItem" title="Publish" id="nhy-XX-eS1">
+                            <connections>
+                                <action selector="onPublish:" destination="mJI-Gn-t3T" id="NYg-h3-hSu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="questionLabel" destination="GU8-XC-CWh" id="u4r-Rc-e7x"/>
+                        <outlet property="questionTextLabel" destination="GU8-XC-CWh" id="N8G-Ms-0xr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlK-DX-6fm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -712,7 +718,7 @@
                                 <action selector="cancelElection:" destination="QUD-jV-AJd" id="Sv1-1a-gG5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="T6e-eV-SnE">
+                        <barButtonItem key="rightBarButtonItem" title="Preview" id="T6e-eV-SnE">
                             <connections>
                                 <action selector="makeElection:" destination="QUD-jV-AJd" id="4ht-ap-K9g"/>
                                 <segue destination="mJI-Gn-t3T" kind="show" identifier="ToPreview" id="oJS-DE-va8"/>

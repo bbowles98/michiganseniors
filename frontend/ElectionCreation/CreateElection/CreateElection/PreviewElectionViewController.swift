@@ -12,39 +12,8 @@ import UIKit
 class PreviewElectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        getURL = "http://204.48.30.178/vote/?election_id=" + electionID
-        
-        // Get the data to load the ballot
-        var request = URLRequest(url:
-            URL(string: getURL)!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-        //token_response here is the same token_response that is created during Signin. (See line 76)
-        print("cast vote token: " + token)
-        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
-        request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request)
-        { data, response, error in
-            guard let _ = data, error == nil else {
-                print("NETWORKING ERROR")
-                return}
-            if let httpStatus = response as? HTTPURLResponse,
-                httpStatus.statusCode != 200 {
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-                return}
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                print(json.debugDescription)
-                self.ballotItems = json["ballot"] as! [String: Any]
-                self.createBallot()
-            }
-           catch let error as NSError {
-            print(error)
-           }
-        }
-        task.resume()
+        //questionTextLabel?.text = electionQuestion
+        self.createBallot()
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
@@ -52,23 +21,69 @@ class PreviewElectionViewController: UIViewController {
         //Dispose of any resources that can be created
     }
     
-    var electionID:String = ""
-    var getURL:String = ""
-    var electionName:String = ""
-    var ballotItems = [:] as [String: Any]
-    var questionText = ""
+    var electionQuestion:String = ""
     var choices: [String] = []
-    var chosen = ""
     var token:String = ""
     
-    @IBOutlet weak var questionLabel: UILabel!
+    @IBAction func onPublish(_ sender: Any) {
+        let json: [String: Any] = [
+            "election_id": election_id,
+                 "ballot_items": [
+                      [
+                        "question": self.electionQuestion,
+                        "choices" : self.choices
+                      ]
+                  ]
+              ]
+              
+              print("questions: " + electionQuestion)
+              
+              let jsonData = try? JSONSerialization.data(withJSONObject: json)
+              var request = URLRequest(url: URL(string: "http://204.48.30.178/ballot/")!)
+              request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+              request.addValue("application/json", forHTTPHeaderField: "Accept")
+              
+              request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+              print("ballot token:")
+              print(token)
+              request.httpMethod = "POST"
+              request.httpBody = jsonData
+              print("jsonData: ")
+              
+              if let string = String(bytes: jsonData!, encoding: .utf8) {
+                  print(string)
+              }
+              
+              //async error handling
+              let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                  guard let _ = data, error == nil else {
+                      
+                      print("NETWORKING ERROR")
+                      return
+                  }
+                  
+                  if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                      
+                      print(response.debugDescription)
+                      print("HTTP STATUS: \(httpStatus.statusCode)")
+                      return
+                  }
+                  do {
+                      let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+
+                  }
+                  catch let error as NSError {
+                      print(error)
+                  }
+              }
+              //run the previous copule lines of code in a seperate thread
+        task.resume()
+        dismiss(animated: true, completion: nil)
+    }
     
+    @IBOutlet weak var questionTextLabel: UILabel!
     
     func createBallot() {
-        questionText = ballotItems["question"].debugDescription
-        choices = ballotItems["choices"] as! [String]
-        questionLabel!.text = questionText
-        
         var buttonY = 0
         for choice in choices{
             let optionButton = UIButton(frame: CGRect(x: 50, y: buttonY, width: 250, height: 30))
@@ -79,9 +94,5 @@ class PreviewElectionViewController: UIViewController {
             optionButton.addTarget(self, action: Selector(("selectedChoice:")), for: UIControl.Event.touchUpInside)
             self.view.addSubview(optionButton)
         }
-    }
-    
-    func selectedChoice(sender: UIButton!){
-        chosen = sender.titleLabel!.text!
     }
 }
