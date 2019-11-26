@@ -400,7 +400,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Make your voice heard at the convenicnece of your finger tips" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wZF-xf-kLm">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Make your voice heard at the convenience of your finger tips" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wZF-xf-kLm">
                                 <rect key="frame" x="135" y="560" width="261" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1130,7 +1130,6 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TsR-g9-lNh"/>
         <segue reference="WKm-IJ-EvW"/>
         <segue reference="bpA-hh-5my"/>
         <segue reference="eAW-bC-ZIK"/>
