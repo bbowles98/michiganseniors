@@ -102,8 +102,10 @@
                         <barButtonItem key="leftBarButtonItem" title="Done" id="9YP-KE-wFV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="electName" destination="qfJ-uH-LdO" id="lxT-0a-WVo"/>
                         <outlet property="electionName" destination="cGl-UY-Huc" id="IuP-IH-Dhm"/>
-                        <outlet property="livePrint" destination="N8L-RY-HRA" id="4a2-ag-c4f"/>
+                        <outlet property="electionTitle" destination="qfJ-uH-LdO" id="fxT-pV-WK3"/>
+                        <outlet property="livePrint" destination="N8L-RY-HRA" id="cE1-WQ-Zwx"/>
                         <outlet property="optionName" destination="kZy-sv-Df3" id="FNY-or-CSd"/>
                         <outlet property="optionPer" destination="jMC-Rd-hsH" id="Zde-8K-Bc6"/>
                         <outlet property="optionVotes" destination="31y-RI-Bjo" id="1Ga-5u-o3P"/>
