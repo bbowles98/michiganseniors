@@ -423,7 +423,7 @@ def Notify(request):
 	voters = VoterToElection.objects.filter(election=election)
 	for voter in voters:
 		msg = "Subject: The Results Are In!\n\nThe results are in for " + election.name + ".\n Login to eLect to view them."
-		sendMail(voter.email, msg)
+		sendMail(voter.voter.email, msg)
 
 	return JsonResponse({'success': True, 'live': True})
 
