@@ -16,11 +16,6 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
     var results = [:] as [String: Any]
     var getURL:String = ""
     var live:Bool = false
-<<<<<<< HEAD
-    var votingOptions = [:] as [String: Any]
-    var votes = [:] as [Int: Any]
-=======
->>>>>>> 25c6b222da289f7e524589f6a49e0c166d458ceb
     var electionName:String = ""
     var total:Int = -1
     var electionID:String = ""
@@ -90,20 +85,12 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
                 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableCell") as! ResultTableCell
         
-<<<<<<< HEAD
-        var candidate = votingOptions[indexPath.row]
-        var numVotes = votes[indexPath.row]
-        cell.optionName?.text = (candidate as! String)
-        cell.optionVotes?.text = String(ballotItems["candidate"])
-        cell.optionPer?.text = String(Int(votes)!/Int(total) * 100) + "%"
-=======
         //let votes = voteCounts[Int(indexPath.row)]
         let candidate = ""
         cell.optionName!.text = candidate
         cell.optionVotes!.text = ""
         let percentage = ""//0/total * 100
         cell.optionPer!.text = percentage//String(percentage)
->>>>>>> 25c6b222da289f7e524589f6a49e0c166d458ceb
 
         return cell
 
