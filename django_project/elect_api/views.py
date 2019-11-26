@@ -107,6 +107,24 @@ def Register(request):
 	return JsonResponse({'success': True})
 
 
+# POST request for registering for an election
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated, ))
+def PublicRegister(request):
+
+	user = User.objects.get(pk=request.user.pk)
+	election = Election.objects.get(pk=request.data['election_id'])
+
+	registeredUser = RegisterLink.objects.create(
+			election = election,
+			participant = user
+		)
+	msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
+	sendMail(user.email, msg)
+	return JsonResponse({'success': True})
+
+
 # POST request for submitting a vote for an election
 @csrf_exempt
 @api_view(['POST'])
