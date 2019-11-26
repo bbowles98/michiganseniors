@@ -59,7 +59,7 @@ class SignUpViewController: UIViewController {
                 
                 if (email_text == nil || pass_text == nil) {
                     let alertController = UIAlertController(title: "Signup Error",
-                                                            message:"Please enter a valid email address, and/or make sure your password has at least 8 characters.",
+                                                            message: "Please enter a valid email address, and/or make sure your password has at least 8 characters.",
                                                             preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
                     self.present(alertController, animated: true, completion: nil)

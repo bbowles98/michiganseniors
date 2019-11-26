@@ -24,12 +24,20 @@ class ElectManageViewController: UIViewController {
         super.viewDidLoad()
         //searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
-        let getURL = "http://204.48.30.178/elections"
+        let getURL = "http://204.48.30.178/elections/"
+        
         
         // Get the data to load the ballot
         var request = URLRequest(url:
             URL(string: getURL)!)
-        request.httpMethod = "GET"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+         
+         print("election creation token")
+         request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+         request.httpMethod = "GET"
+        
         
         let task = URLSession.shared.dataTask(with: request)
         { data, response, error in

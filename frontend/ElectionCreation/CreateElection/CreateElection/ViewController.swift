@@ -248,7 +248,7 @@ class ElectionViewController: UITableViewController {
                 fatalError("The dequeued cell is not an instance of OptionTableCell")
             }
             let option = propChoices[indexPath.row]
-            cell.optionName.text = option.optionName
+            cell.optionName.text = String(option.optionName)
             print("Should print yes: ")
             print(cell.optionName.text!)
             
