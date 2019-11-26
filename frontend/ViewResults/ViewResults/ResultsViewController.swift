@@ -9,29 +9,35 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ResultsViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var livePrint: UILabel!
+    @IBOutlet weak var electName: UILabel!
     
     var results = [:] as [String: Any]
     var getURL:String = ""
     var live:Bool = false
-    var ballotItems = [:] as [String: Any]
     var electionName:String = ""
     var total:Int = -1
-    
-    
+    var electionID:String = ""
+    var token:String = ""
+    var candidates:[String] = []
+    var voteCounts:[Int] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         // Need to add API request here
         // Do any additional setup after loading the view.
-        getURL = "http://204.48.30.178/results/"
+        self.electName.text = electionName
+        getURL = "http://204.48.30.178/results/?election_id=" + electionID
         
         // Get the data to load the ballot
         var request = URLRequest(url:
             URL(string: getURL)!)
+        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request)
@@ -48,6 +54,10 @@ class ViewController: UIViewController, UITableViewDataSource {
                 print(json.debugDescription)
                 print(json)
                 self.results = json["results"] as! [String: Any]
+                self.candidates = self.results["candidates"] as! [String]
+                self.voteCounts =  self.results["votes"] as! [Int]
+                self.live = (self.results["live"] != nil)
+                self.total = self.results["total_votes"] as! Int
             }
            catch let error as NSError {
             print(error)
@@ -68,22 +78,27 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results.count
+        return candidates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        electName.text = electionName
                 
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableCell") as! ResultTableCell
-            
-        electionName = results["name"] as! String
-        live = (results["live"] != nil)
-        total = results["total_votes"] as! Int
+                
+        if live == false {
+            livePrint.text = "Final Results"
+        } else {
+            livePrint.text = "Live Results"
+        }
         
-        var candidate = ballotItems[indexPath.row]
-        var votes = ballotItems[indexPath.row]
-        cell.optionName?.text = candidate
-        cell.optionVotes?.text = String(ballotItems["candidate"])
-        cell.optionPer?.text = String(Int(votes)!/Int(total) * 100) + "%"
+        //let votes = voteCounts[Int(indexPath.row)]
+        let candidate = candidates[indexPath.row]
+        cell.optionName!.text = candidate
+        cell.optionVotes!.text = String(voteCounts[indexPath.row])
+        let percentage = voteCounts[indexPath.row]/total * 100
+        cell.optionPer!.text = String(percentage)
 
         return cell
 
@@ -92,4 +107,5 @@ class ViewController: UIViewController, UITableViewDataSource {
     // if the poll is closed, say that poll is closed
     // otherwise, say live analytics and you need to figure out how to loop to continuously be able to check for updates in results
 }
-
+            
+      
