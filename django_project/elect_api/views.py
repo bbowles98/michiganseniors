@@ -185,7 +185,7 @@ def Cast(request):
 def Vote(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election = Election.objects.get(pk=request.data['election_id'])
+	election = Election.objects.get(pk=request.GET.get('election_id'))
 
 	json = canUserVote(user, election)
 	if json:
