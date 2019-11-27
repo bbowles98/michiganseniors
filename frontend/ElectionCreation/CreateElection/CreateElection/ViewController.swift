@@ -173,11 +173,6 @@ class CreateElectViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        //parse out token response
-        //let temp1 = token.split(separator: "(")[1]
-       // let token_response = temp1.split(separator: ")")[0]
-        
-        
         print("election creation token")
         request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
@@ -202,7 +197,7 @@ class CreateElectViewController: UIViewController {
         task.resume()
         
         // Create election object
-        performSegue(withIdentifier: "segueToVotingOptions", sender: self)
+        performSegue(withIdentifier: "ToAthenicate", sender: self)
         
     }
 }

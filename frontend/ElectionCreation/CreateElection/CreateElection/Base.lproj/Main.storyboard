@@ -98,9 +98,10 @@
                                 <segue destination="bCd-6h-5GA" kind="show" id="ZQP-6k-uH7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="VTx-cv-cqd">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="VTx-cv-cqd">
                             <connections>
                                 <action selector="createClicked:" destination="Dtm-WJ-qFO" id="GLr-DR-h39"/>
+                                <segue destination="ben-mN-7jV" kind="show" identifier="ToAuthenticate" id="91y-aq-7rT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -110,12 +111,72 @@
                         <outlet property="selectedEnd" destination="Afx-79-E4t" id="MNl-gU-nA4"/>
                         <outlet property="selectedStart" destination="zVP-kH-JLj" id="Nc1-P7-v44"/>
                         <outlet property="viewSelector" destination="74V-0a-26M" id="7d5-Vu-lE2"/>
-                        <segue destination="QUD-jV-AJd" kind="show" identifier="segueToVotingOptions" id="bpA-hh-5my"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faS-SH-GoQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="410.14492753623193" y="-1961.3839285714284"/>
+        </scene>
+        <!--Authentication Set Up View Controller-->
+        <scene sceneID="3Tk-KM-r0Z">
+            <objects>
+                <viewController id="2R5-VA-Qn4" customClass="AuthenticationSetUpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wzv-w3-YQ2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter the number of voters allowed:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7b-Mi-o10">
+                                <rect key="frame" x="20" y="154" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Please enter the allowed voter email domain name:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbN-UZ-HwG">
+                                <rect key="frame" x="20" y="240" width="374" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vAy-XB-Zho">
+                                <rect key="frame" x="82" y="198" width="250" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the following fields to set up the voter authentication process for your election." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g3-uZ-Mhm">
+                                <rect key="frame" x="20" y="86" width="374" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qA5-U9-Epl">
+                                <rect key="frame" x="82" y="308" width="250" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0g3-uZ-Mhm" firstAttribute="leading" secondItem="SWT-7M-jTZ" secondAttribute="leading" constant="20" id="3dl-3N-YTh"/>
+                            <constraint firstItem="vAy-XB-Zho" firstAttribute="top" secondItem="v7b-Mi-o10" secondAttribute="bottom" constant="20" id="DYd-uh-W96"/>
+                            <constraint firstItem="SWT-7M-jTZ" firstAttribute="trailing" secondItem="0g3-uZ-Mhm" secondAttribute="trailing" constant="20" id="Fso-cK-Vwl"/>
+                            <constraint firstItem="LbN-UZ-HwG" firstAttribute="top" secondItem="vAy-XB-Zho" secondAttribute="bottom" constant="20" id="YG5-Yn-QWE"/>
+                            <constraint firstItem="vAy-XB-Zho" firstAttribute="top" secondItem="v7b-Mi-o10" secondAttribute="bottom" constant="20" id="YMh-Ch-TDk"/>
+                            <constraint firstItem="LbN-UZ-HwG" firstAttribute="top" secondItem="vAy-XB-Zho" secondAttribute="bottom" constant="20" id="cXa-me-QF5"/>
+                            <constraint firstItem="v7b-Mi-o10" firstAttribute="top" secondItem="0g3-uZ-Mhm" secondAttribute="bottom" constant="20" id="cYh-YS-UTf"/>
+                            <constraint firstItem="0g3-uZ-Mhm" firstAttribute="top" secondItem="SWT-7M-jTZ" secondAttribute="top" constant="30" id="cqB-nA-clV"/>
+                            <constraint firstItem="qA5-U9-Epl" firstAttribute="top" secondItem="LbN-UZ-HwG" secondAttribute="bottom" constant="20" id="wPL-GG-b5x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SWT-7M-jTZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BVB-hv-J4A"/>
+                    <connections>
+                        <outlet property="allowedDomain" destination="qA5-U9-Epl" id="nH5-kk-4gs"/>
+                        <outlet property="numVoters" destination="vAy-XB-Zho" id="m7p-h0-cH7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eR-oI-9it" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-1961"/>
         </scene>
         <!--Elect Manage View Controller-->
         <scene sceneID="5A5-ze-WMH">
@@ -525,7 +586,7 @@
             <objects>
                 <viewController id="nSU-k5-lir" customClass="CreateOptionViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wVK-t3-rbT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voting Option Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8X-Va-Q9Z">
@@ -581,7 +642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCl-6a-jrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5205.7971014492759" y="-1937.2767857142856"/>
+            <point key="canvasLocation" x="7936.2318840579719" y="-1937.2767857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fjG-iW-nw9">
@@ -590,7 +651,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="kpK-9i-5Vr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Aoo-EY-CEy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -600,14 +661,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbB-mE-nZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4144.927536231884" y="-1937.2767857142856"/>
+            <point key="canvasLocation" x="6873.913043478261" y="-1937.2767857142856"/>
         </scene>
         <!--Preview Election View Controller-->
         <scene sceneID="Nig-Ip-pQg">
             <objects>
                 <viewController id="mJI-Gn-t3T" customClass="PreviewElectionViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2dW-T0-7YP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GU8-XC-CWh">
@@ -634,14 +695,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlK-DX-6fm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3066.666666666667" y="-2643.0803571428569"/>
+            <point key="canvasLocation" x="5797.1014492753629" y="-2643.0803571428569"/>
         </scene>
         <!--Voting Options-->
         <scene sceneID="qTx-YC-ewj">
             <objects>
                 <tableViewController id="QUD-jV-AJd" customClass="ElectionViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QOL-E9-NnQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="kba-gJ-IW5">
@@ -731,7 +792,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yS-6G-noj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3068.115942028986" y="-1937.2767857142856"/>
+            <point key="canvasLocation" x="5798.5507246376819" y="-1937.2767857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UeR-c3-ysr">
@@ -749,7 +810,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFm-mD-stt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050.7246376811595" y="-1937.2767857142856"/>
+            <point key="canvasLocation" x="4781.159420289855" y="-1937.2767857142856"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="pBm-tT-dRd">
@@ -1255,15 +1316,32 @@
             </objects>
             <point key="canvasLocation" x="3904.347826086957" y="-138.61607142857142"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6dJ-UV-adu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ben-mN-7jV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="DZo-EC-P9K"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="01d-GD-GPb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2R5-VA-Qn4" kind="relationship" relationship="rootViewController" id="FGt-6w-VZo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EdJ-E3-zkr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="-2314"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QwJ-eO-9gg"/>
         <segue reference="bxq-YA-BFd"/>
-        <segue reference="bpA-hh-5my"/>
-        <segue reference="0Tu-BQ-hYn"/>
+        <segue reference="ZQP-6k-uH7"/>
         <segue reference="71i-IC-api"/>
     </inferredMetricsTieBreakers>
 </document>
