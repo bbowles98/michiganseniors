@@ -360,6 +360,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="toCreatedElects:" destination="bCd-6h-5GA" eventType="touchUpInside" id="ZEE-yf-kuI"/>
                                     <segue destination="YhV-Fx-o2P" kind="show" identifier="ToMyElects" id="TeM-eR-a0i"/>
                                 </connections>
                             </button>
@@ -1359,9 +1360,10 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="TeM-eR-a0i"/>
         <segue reference="bxq-YA-BFd"/>
-        <segue reference="dWF-I1-MOo"/>
-        <segue reference="xmI-cP-9Xi"/>
+        <segue reference="fmU-Qf-Psz"/>
+        <segue reference="eAW-bC-ZIK"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>
