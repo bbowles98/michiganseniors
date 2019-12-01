@@ -40,9 +40,9 @@ class CastVoteViewController: UIViewController {
                 print("HTTP STATUS: \(httpStatus.statusCode)")
                 return}
             do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:[String:Any]]
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:[String:[String]]]
                 print(json.debugDescription)
-                self.ballotItems = json["ballot"] as! [String : [Any]]
+                self.ballotItems = json["ballot"]!
                 self.createBallot()
             }
            catch let error as NSError {
@@ -60,7 +60,7 @@ class CastVoteViewController: UIViewController {
     var electionID:String = ""
     var getURL:String = ""
     var electionName:String = ""
-    var ballotItems = [:] as [String: [Any]]
+    var ballotItems = [:] as [String: [String]]
     var questionText = ""
     var choices: [String] = []
     var chosen = ""
@@ -70,17 +70,23 @@ class CastVoteViewController: UIViewController {
     func createBallot() {
         for (question, options) in ballotItems {
             questionText = question
-            choices = options as! [String]
+            choices = options 
         }
         question!.text = questionText
         
-        var buttonY = 0
+       var buttonY = 175
+        print("the voting choices to preview are: ")
+        print(choices)
         for choice in choices{
-            let optionButton = UIButton(frame: CGRect(x: 50, y: buttonY, width: 250, height: 30))
-            buttonY = buttonY + 50
+            print(choice)
+            let optionButton = UIButton(frame: CGRect(x: 80, y: buttonY, width: 250, height: 60))
+            buttonY = buttonY + 100
             optionButton.layer.cornerRadius = 10
-            optionButton.backgroundColor = UIColor.darkGray
-            optionButton.titleLabel?.text = choice
+            optionButton.backgroundColor = UIColor.systemTeal
+            optionButton.setTitleColor(UIColor.white, for: UIControl.State.normal )
+            optionButton.setTitle(choice, for: UIControl.State.normal)
+            optionButton.isEnabled = true
+            optionButton.showsTouchWhenHighlighted = true
             optionButton.addTarget(self, action: Selector(("selectedChoice:")), for: UIControl.Event.touchUpInside)
             self.view.addSubview(optionButton)
         }

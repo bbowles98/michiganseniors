@@ -16,19 +16,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up your election" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjF-iH-UuW">
-                                <rect key="frame" x="20" y="20" width="374" height="21"/>
+                                <rect key="frame" x="20" y="76" width="374" height="21"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFL-gA-543">
-                                <rect key="frame" x="20" y="156" width="374" height="21"/>
+                                <rect key="frame" x="20" y="212" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" restorationIdentifier="StartDate" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zVP-kH-JLj">
-                                <rect key="frame" x="20" y="187" width="374" height="216"/>
+                                <rect key="frame" x="20" y="243" width="374" height="216"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
                                     <!--2018-09-01 10:00:00 +0000-->
                                 </date>
@@ -38,7 +38,7 @@
                                 </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" restorationIdentifier="endDate" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Afx-79-E4t">
-                                <rect key="frame" x="20" y="454" width="374" height="216"/>
+                                <rect key="frame" x="20" y="510" width="374" height="216"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
                                     <!--2018-09-01 10:00:00 +0000-->
                                 </date>
@@ -47,19 +47,19 @@
                                 </connections>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Election Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G1F-ht-S4l">
-                                <rect key="frame" x="80" y="51" width="254" height="34"/>
+                                <rect key="frame" x="80" y="107" width="254" height="34"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectionName"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfW-zR-mEb">
-                                <rect key="frame" x="20" y="423" width="374" height="21"/>
+                                <rect key="frame" x="20" y="479" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="74V-0a-26M">
-                                <rect key="frame" x="80" y="105" width="254" height="32"/>
+                                <rect key="frame" x="80" y="161" width="254" height="32"/>
                                 <segments>
                                     <segment title="PUBLIC"/>
                                     <segment title="PRIVATE"/>
@@ -689,7 +689,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GU8-XC-CWh">
-                                <rect key="frame" x="96" y="124" width="222" height="21"/>
+                                <rect key="frame" x="95.769637650630102" y="125" width="222.00000000000045" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -703,6 +703,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Publish" id="nhy-XX-eS1">
                             <connections>
                                 <action selector="onPublish:" destination="mJI-Gn-t3T" id="NYg-h3-hSu"/>
+                                <segue destination="bCd-6h-5GA" kind="show" identifier="Created" id="xmI-cP-9Xi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -712,7 +713,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlK-DX-6fm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5186" y="-2633"/>
+            <point key="canvasLocation" x="5185.507246376812" y="-2633.0357142857142"/>
         </scene>
         <!--Voting Options-->
         <scene sceneID="qTx-YC-ewj">
@@ -1360,7 +1361,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="bxq-YA-BFd"/>
         <segue reference="dWF-I1-MOo"/>
-        <segue reference="ZQP-6k-uH7"/>
+        <segue reference="xmI-cP-9Xi"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -366,6 +366,7 @@ class ElectionViewController: UITableViewController {
             vc!.token = token_response
             vc!.electionQuestion = self.electionQuestion
             vc!.choices = self.answers
+            vc!.election_id = electID
         }
     }
         
