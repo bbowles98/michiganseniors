@@ -285,76 +285,77 @@ class ElectionViewController: UITableViewController {
     var token:String = ""
     var electID:String = ""
     
-    @IBAction func makeElection(_ sender: UIBarButtonItem) {
-        
+    @IBAction func previewBallot(_ sender: Any) {
         // need to add the proposal name and make the JSON
-        let propName = self.propName.text!
-        let election = Proposal(question: propName, choices: propChoices)
-        self.token = token_response
-        self.electID = election_id as! String
-        
-        
-        for choice in propChoices {
-            answers.append(choice.optionName)
-        }
-        electionQuestion = election.question
-    
-        // API REQUEST
-        let json: [String: Any] = [
-            "election_id": election_id,
-           "ballot_items": [
-                [
-                    "question": election.question,
-                    "choices" : answers
-                ]
-            ]
-        ]
-        
-        print("questions: " + election.question)
-        
-        let jsonData = try? JSONSerialization.data(withJSONObject: json)
-        var request = URLRequest(url: URL(string: "http://204.48.30.178/ballot/")!)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
-        print("ballot token:")
-        print(token_response)
-        request.httpMethod = "POST"
-        request.httpBody = jsonData
-        print("jsonData: ")
-        
-        if let string = String(bytes: jsonData!, encoding: .utf8) {
-            print(string)
-        }
-        
+      let propName = self.propName.text!
+      let election = Proposal(question: propName, choices: propChoices)
+      self.token = token_response
+      self.electID = election_id as! String
+      
+      
+      for choice in propChoices {
+          self.answers.append(choice.optionName)
+      }
+      electionQuestion = election.question
+      print(self.answers)
+      print(self.electionQuestion)
   
-        //async error handling
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let _ = data, error == nil else {
-                
-                print("NETWORKING ERROR")
-                return
-            }
-            
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                
-                print(response.debugDescription)
-                print("HTTP STATUS: \(httpStatus.statusCode)")
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+      // API REQUEST
+      let json: [String: Any] = [
+          "election_id": election_id,
+         "ballot_items": [
+              [
+                  "question": election.question,
+                  "choices" : self.answers
+              ]
+          ]
+      ]
+      
+      print("questions: " + election.question)
+      
+      let jsonData = try? JSONSerialization.data(withJSONObject: json)
+      var request = URLRequest(url: URL(string: "http://204.48.30.178/ballot/")!)
+      request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+      request.addValue("application/json", forHTTPHeaderField: "Accept")
+      
+      request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
+      print("ballot token:")
+      print(token_response)
+      request.httpMethod = "POST"
+      request.httpBody = jsonData
+      print("jsonData: ")
+      
+      if let string = String(bytes: jsonData!, encoding: .utf8) {
+          print(string)
+      }
+      
 
-            }
-            catch let error as NSError {
-                print(error)
-            }
-        }
-        //run the previous copule lines of code in a seperate thread
-        task.resume()
-        performSegue(withIdentifier: "ToPreview", sender: (Any).self)
-    
+      //async error handling
+      let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let _ = data, error == nil else {
+              
+              print("NETWORKING ERROR")
+              return
+          }
+          
+          if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+              
+              print(response.debugDescription)
+              print("HTTP STATUS: \(httpStatus.statusCode)")
+              return
+          }
+          do {
+              let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+
+          }
+          catch let error as NSError {
+              print(error)
+          }
+      }
+      //run the previous copule lines of code in a seperate thread
+      task.resume()
+      performSegue(withIdentifier: "ToPreview", sender: (Any).self)
+          
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -407,8 +408,8 @@ class CreateOptionViewController: UIViewController {
         
         propChoices.append(option)
         
-        print("printing choices here:")
-        print(propChoices[0].optionName)
+        print("printing added choice here:")
+        print(option.optionName)
         // goes back to preview view controller
         dismiss(animated: true, completion: nil)
     }

@@ -16,19 +16,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up your election" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjF-iH-UuW">
-                                <rect key="frame" x="20" y="76" width="374" height="21"/>
+                                <rect key="frame" x="20" y="20" width="374" height="21"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFL-gA-543">
-                                <rect key="frame" x="20" y="212" width="374" height="21"/>
+                                <rect key="frame" x="20" y="156" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" restorationIdentifier="StartDate" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="zVP-kH-JLj">
-                                <rect key="frame" x="20" y="243" width="374" height="216"/>
+                                <rect key="frame" x="20" y="187" width="374" height="216"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
                                     <!--2018-09-01 10:00:00 +0000-->
                                 </date>
@@ -38,7 +38,7 @@
                                 </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" restorationIdentifier="endDate" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Afx-79-E4t">
-                                <rect key="frame" x="20" y="510" width="374" height="216"/>
+                                <rect key="frame" x="20" y="454" width="374" height="216"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
                                     <!--2018-09-01 10:00:00 +0000-->
                                 </date>
@@ -47,19 +47,19 @@
                                 </connections>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Election Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G1F-ht-S4l">
-                                <rect key="frame" x="80" y="107" width="254" height="34"/>
+                                <rect key="frame" x="80" y="51" width="254" height="34"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectionName"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfW-zR-mEb">
-                                <rect key="frame" x="20" y="479" width="374" height="21"/>
+                                <rect key="frame" x="20" y="423" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="74V-0a-26M">
-                                <rect key="frame" x="80" y="161" width="254" height="32"/>
+                                <rect key="frame" x="80" y="105" width="254" height="32"/>
                                 <segments>
                                     <segment title="PUBLIC"/>
                                     <segment title="PRIVATE"/>
@@ -117,30 +117,30 @@
             </objects>
             <point key="canvasLocation" x="410.14492753623193" y="-1961.3839285714284"/>
         </scene>
-        <!--Authentication Set Up View Controller-->
+        <!--Authentication Set Up-->
         <scene sceneID="3Tk-KM-r0Z">
             <objects>
-                <viewController id="2R5-VA-Qn4" customClass="AuthenticationSetUpViewController" sceneMemberID="viewController">
+                <viewController id="2R5-VA-Qn4" customClass="AuthenticationSetUpViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wzv-w3-YQ2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter the number of voters allowed:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7b-Mi-o10">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the number of voters allowed:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7b-Mi-o10">
                                 <rect key="frame" x="20" y="154" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Please enter the allowed voter email domain name:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbN-UZ-HwG">
-                                <rect key="frame" x="20" y="240" width="374" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the allowed voter email domain name:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbN-UZ-HwG">
+                                <rect key="frame" x="20" y="253" width="374" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vAy-XB-Zho">
-                                <rect key="frame" x="82" y="198" width="250" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vAy-XB-Zho">
+                                <rect key="frame" x="81.5" y="198" width="250" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the following fields to set up the voter authentication process for your election." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g3-uZ-Mhm">
                                 <rect key="frame" x="20" y="86" width="374" height="48"/>
@@ -148,8 +148,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qA5-U9-Epl">
-                                <rect key="frame" x="82" y="308" width="250" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qA5-U9-Epl">
+                                <rect key="frame" x="81.5" y="308" width="250" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -159,16 +159,20 @@
                             <constraint firstItem="0g3-uZ-Mhm" firstAttribute="leading" secondItem="SWT-7M-jTZ" secondAttribute="leading" constant="20" id="3dl-3N-YTh"/>
                             <constraint firstItem="vAy-XB-Zho" firstAttribute="top" secondItem="v7b-Mi-o10" secondAttribute="bottom" constant="20" id="DYd-uh-W96"/>
                             <constraint firstItem="SWT-7M-jTZ" firstAttribute="trailing" secondItem="0g3-uZ-Mhm" secondAttribute="trailing" constant="20" id="Fso-cK-Vwl"/>
+                            <constraint firstItem="LbN-UZ-HwG" firstAttribute="leading" secondItem="SWT-7M-jTZ" secondAttribute="leading" constant="20" id="MbY-dg-Kfb"/>
+                            <constraint firstItem="v7b-Mi-o10" firstAttribute="leading" secondItem="SWT-7M-jTZ" secondAttribute="leading" constant="20" id="XeX-ed-wqr"/>
                             <constraint firstItem="LbN-UZ-HwG" firstAttribute="top" secondItem="vAy-XB-Zho" secondAttribute="bottom" constant="20" id="YG5-Yn-QWE"/>
                             <constraint firstItem="vAy-XB-Zho" firstAttribute="top" secondItem="v7b-Mi-o10" secondAttribute="bottom" constant="20" id="YMh-Ch-TDk"/>
+                            <constraint firstItem="SWT-7M-jTZ" firstAttribute="trailing" secondItem="v7b-Mi-o10" secondAttribute="trailing" constant="20" id="ZMF-Ij-AOK"/>
                             <constraint firstItem="LbN-UZ-HwG" firstAttribute="top" secondItem="vAy-XB-Zho" secondAttribute="bottom" constant="20" id="cXa-me-QF5"/>
                             <constraint firstItem="v7b-Mi-o10" firstAttribute="top" secondItem="0g3-uZ-Mhm" secondAttribute="bottom" constant="20" id="cYh-YS-UTf"/>
                             <constraint firstItem="0g3-uZ-Mhm" firstAttribute="top" secondItem="SWT-7M-jTZ" secondAttribute="top" constant="30" id="cqB-nA-clV"/>
+                            <constraint firstItem="SWT-7M-jTZ" firstAttribute="trailing" secondItem="LbN-UZ-HwG" secondAttribute="trailing" constant="20" id="oQk-Ry-W0v"/>
                             <constraint firstItem="qA5-U9-Epl" firstAttribute="top" secondItem="LbN-UZ-HwG" secondAttribute="bottom" constant="20" id="wPL-GG-b5x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SWT-7M-jTZ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BVB-hv-J4A">
+                    <navigationItem key="navigationItem" title="Authentication Set Up" id="BVB-hv-J4A">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="yUl-rJ-Heh">
                             <connections>
                                 <action selector="onBack:" destination="2R5-VA-Qn4" id="Qf0-fK-mD6"/>
@@ -794,7 +798,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Preview" id="T6e-eV-SnE">
                             <connections>
-                                <action selector="makeElection:" destination="QUD-jV-AJd" id="4ht-ap-K9g"/>
+                                <action selector="previewBallot:" destination="QUD-jV-AJd" id="ngi-8k-q13"/>
                                 <segue destination="mJI-Gn-t3T" kind="show" identifier="ToPreview" id="oJS-DE-va8"/>
                             </connections>
                         </barButtonItem>
