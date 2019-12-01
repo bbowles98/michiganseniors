@@ -290,7 +290,7 @@ class ElectionViewController: UITableViewController {
       let propName = self.propName.text!
       let election = Proposal(question: propName, choices: propChoices)
       self.token = token_response
-      self.electID = election_id as! String
+      //self.electID = election_id
       
       
       for choice in propChoices {
@@ -302,7 +302,7 @@ class ElectionViewController: UITableViewController {
   
       // API REQUEST
       let json: [String: Any] = [
-          "election_id": election_id,
+          "election_id": electID,
          "ballot_items": [
               [
                   "question": election.question,

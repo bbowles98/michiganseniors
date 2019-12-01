@@ -799,12 +799,12 @@
                         <barButtonItem key="rightBarButtonItem" title="Preview" id="T6e-eV-SnE">
                             <connections>
                                 <action selector="previewBallot:" destination="QUD-jV-AJd" id="ngi-8k-q13"/>
-                                <segue destination="mJI-Gn-t3T" kind="show" identifier="ToPreview" id="oJS-DE-va8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="propName" destination="NHn-dm-tBp" id="yWF-my-HnQ"/>
+                        <segue destination="mJI-Gn-t3T" kind="show" identifier="ToPreview" id="wZ2-Kt-1G4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yS-6G-noj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
