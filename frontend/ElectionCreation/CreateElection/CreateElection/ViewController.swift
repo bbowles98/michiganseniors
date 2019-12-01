@@ -140,7 +140,8 @@ class CreateElectViewController: UIViewController {
 
     @IBOutlet weak var ElectionName: UITextField!
     @IBOutlet weak var viewSelector: UISegmentedControl!
-    var token:String = token_response
+    var token:String = ""
+    var electID = ""
     @IBOutlet weak var selectedStart: UIDatePicker!
     @IBOutlet weak var selectedEnd: UIDatePicker!
     
@@ -174,6 +175,7 @@ class CreateElectViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         print("election creation token")
+        self.token = token_response
         request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
         request.httpMethod = "POST"
         request.httpBody = jsonData
@@ -189,15 +191,31 @@ class CreateElectViewController: UIViewController {
                 return}
    
             let json = try? (JSONSerialization.jsonObject(with: data!) as! [String: Any])
-            election_id =  (json!["election_id"])!
+            election_id =  (json!["election_id"])! as! String
             print(election_id)
-     
+            self.electID = election_id as! String
         }
         
         task.resume()
         
         // Create election object
         performSegue(withIdentifier: "ToAthenicate", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToAuthenticate" {
+            print("Going to authication view: " + token_response)
+            let navVC = segue.destination as? UINavigationController
+            let vc = navVC?.viewControllers.first as? AuthenticationSetUpViewController
+            //if token_response != nil {
+                vc!.token = token_response
+            //}
+            //else {
+                //vc!.token = ""
+            //}
+            vc!.electID = self.electID
+        }
         
     }
 }
@@ -264,12 +282,16 @@ class ElectionViewController: UITableViewController {
     }
     var answers = [String]()
     var electionQuestion = ""
+    var token:String = ""
+    var electID:String = ""
     
     @IBAction func makeElection(_ sender: UIBarButtonItem) {
         
         // need to add the proposal name and make the JSON
         let propName = self.propName.text!
         let election = Proposal(question: propName, choices: propChoices)
+        self.token = token_response
+        self.electID = election_id as! String
         
         
         for choice in propChoices {
@@ -294,10 +316,6 @@ class ElectionViewController: UITableViewController {
         var request = URLRequest(url: URL(string: "http://204.48.30.178/ballot/")!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        //_ = token_response
-        //let temp2 = token_response.split(separator: "(")[1]
-        //let token_response = temp2.split(separator: ")")[0]
         
         request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
         print("ballot token:")
