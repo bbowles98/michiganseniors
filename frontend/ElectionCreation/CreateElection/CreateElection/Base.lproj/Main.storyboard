@@ -360,6 +360,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="toCreatedElects:" destination="bCd-6h-5GA" eventType="touchUpInside" id="gkg-hf-dJL"/>
                                     <segue destination="YhV-Fx-o2P" kind="show" identifier="ToMyElects" id="TeM-eR-a0i"/>
                                 </connections>
                             </button>
@@ -990,17 +991,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
-                                <rect key="frame" x="207" y="70" width="187" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
+                                <rect key="frame" x="312" y="82.5" width="82" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hosted by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
-                                <rect key="frame" x="20" y="70" width="179" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
+                                <rect key="frame" x="20" y="82.5" width="79" height="21"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1048,8 +1047,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hAc-h4-YtL" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="30" id="2vA-cx-1kf"/>
+                            <constraint firstItem="3zW-9b-2nH" firstAttribute="top" secondItem="hAc-h4-YtL" secondAttribute="bottom" constant="30" id="6iP-zM-O3Q"/>
                             <constraint firstItem="WXQ-fl-HKn" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="89w-7W-HUG"/>
+                            <constraint firstItem="ZgZ-8h-RvJ" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="ASM-ig-xOM"/>
                             <constraint firstItem="Yg7-Bj-fyL" firstAttribute="top" secondItem="IHf-ww-Yfx" secondAttribute="top" constant="30" id="HaL-kh-1hV"/>
+                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="uTb-eg-MCJ" secondAttribute="trailing" constant="80" id="PjL-vk-i0o"/>
+                            <constraint firstItem="Ack-kj-h1n" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="20" id="PqC-rc-bCg"/>
+                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="ZgZ-8h-RvJ" secondAttribute="trailing" constant="80" id="TWE-dH-8Fi"/>
                             <constraint firstItem="ZgZ-8h-RvJ" firstAttribute="top" secondItem="3zW-9b-2nH" secondAttribute="bottom" constant="20" id="TyP-EH-qtz"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="3zW-9b-2nH" secondAttribute="trailing" constant="80" id="aHi-UO-GJf"/>
                             <constraint firstItem="WXQ-fl-HKn" firstAttribute="top" secondItem="uTb-eg-MCJ" secondAttribute="bottom" constant="20" id="gwu-gT-DVq"/>
@@ -1058,6 +1063,9 @@
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="Yg7-Bj-fyL" secondAttribute="trailing" constant="20" id="nUe-YM-SPA"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="WXQ-fl-HKn" secondAttribute="trailing" constant="80" id="slb-yj-gB7"/>
                             <constraint firstItem="uTb-eg-MCJ" firstAttribute="top" secondItem="ZgZ-8h-RvJ" secondAttribute="bottom" constant="20" id="uJe-ng-J0c"/>
+                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="hAc-h4-YtL" secondAttribute="trailing" constant="20" id="vhO-8l-ryb"/>
+                            <constraint firstItem="Ack-kj-h1n" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="30" id="wk5-5P-iiW"/>
+                            <constraint firstItem="uTb-eg-MCJ" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="wy6-ZM-sC9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IHf-ww-Yfx"/>
                     </view>
@@ -1359,8 +1367,10 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="QwJ-eO-9gg"/>
+        <segue reference="mWv-vj-ydG"/>
         <segue reference="bxq-YA-BFd"/>
-        <segue reference="dWF-I1-MOo"/>
+        <segue reference="fmU-Qf-Psz"/>
         <segue reference="xmI-cP-9Xi"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>

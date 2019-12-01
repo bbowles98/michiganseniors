@@ -22,7 +22,7 @@ class ElectManageViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //searchBar.delegate = self
+        searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         let getURL = "http://204.48.30.178/elections/"
         

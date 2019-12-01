@@ -29,13 +29,10 @@ class PreviewElectionViewController: UIViewController {
     @IBAction func onPublish(_ sender: Any) {
         let json: [String: Any] = [
             "election_id": self.election_id,
-                 "ballot_items": [
-                      [
-                        "question": self.electionQuestion,
-                        "choices" : self.choices
-                      ]
-                  ]
-              ]
+            "ballot_items": [
+                ["question" : self.electionQuestion, "choices" : self.choices]
+            ]
+        ]
               
               print("questions: " + electionQuestion)
               
@@ -96,7 +93,6 @@ class PreviewElectionViewController: UIViewController {
             optionButton.backgroundColor = UIColor.systemTeal
             optionButton.setTitleColor(UIColor.white, for: UIControl.State.normal )
             optionButton.setTitle(choice, for: UIControl.State.normal)
-            //optionButton.titleLabel?.text = choice
             optionButton.isEnabled = false
             optionButton.addTarget(self, action: Selector(("selectedChoice:")), for: UIControl.Event.touchUpInside)
             self.view.addSubview(optionButton)
