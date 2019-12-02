@@ -33,6 +33,7 @@ class ResultsViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.electName.text = electionName
         getURL = "http://204.48.30.178/results/?election_id=" + electionID
+        print("Election id to view: " + electionID)
         
         // Get the data to load the ballot
         var request = URLRequest(url:
@@ -41,6 +42,7 @@ class ResultsViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+        print("View Results Token: " + token)
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request)

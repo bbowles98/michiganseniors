@@ -260,25 +260,13 @@ extension NSDate
 // when you add the proposal, then you add all of the voting objects
 class ElectionViewController: UITableViewController {
     
-    @IBOutlet weak var propName: UITextView!
+    @IBOutlet weak var propName: UITextField!
     @IBOutlet weak var newOption: UITextField!
     @IBOutlet var tblView: UITableView!
     @IBOutlet weak var mode: UISegmentedControl!
-    //@IBOutlet weak var regularView: UIView!
     
     @IBAction func addItem(_ sender: Any) {
         print("it got here")
-        //if newOption.text != nil {
-            
-        /* let option = votingOption(optionName: newOption.text!, optionInfo: "NULL")
-        propChoices.append(option)
-        newOption.text = ""
-        print("did it append")
-        for choice in propChoices {
-            print("printing propChoices")
-            print(choice.optionName)
-            print("what the fuck")
-        } */
         
         allOptions.append(newOption.text!)
         newOption.text = ""
@@ -288,8 +276,6 @@ class ElectionViewController: UITableViewController {
         }
         
         tblView.reloadData()
-        
-        //}
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -299,49 +285,17 @@ class ElectionViewController: UITableViewController {
         }
     }
     
-    //func refreshOptions() {
-
-    //}
-    
-    //override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //    tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-    //}
-    
-    /* override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 } */
-    
-    //override func viewDidAppear(_ animated: Bool) {
-    //    print("is this happening?")
-    //    tblView.reloadData()
-    //}
     override func tableView(_ tableView: UITableView, numberOfRowsInSection
             section: Int) -> Int {
-        //print("printing propchoices size")
-        //print(propChoices.count)
-        //return propChoices.count
         return allOptions.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cellIdentifier = "OptionTableCell"
-        //guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OptionTableCell else {
-        //    fatalError("The dequeued cell is not an instance of OptionTableCell")
-        //}
-        
         
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "OptionTableCell")
-        /* let option = propChoices[indexPath.row]
-        
-        print("Printing optionName")
-        print(option.optionName)
-        cell.textLabel?.text = option.optionName */
         
         cell.textLabel?.text = allOptions[indexPath.row]
-        //cell.optionName.text = String(option.optionName)
-        //print("Should print yes: ")
-        //print(cell.optionName.text!)
         
-        //cell.optionName.sizeToFit()
         return cell
     }
     
@@ -361,11 +315,6 @@ class ElectionViewController: UITableViewController {
     override func viewDidLoad() {
         print("what is happening")
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //self.refreshControl?.addTarget(self, action:
-        //    #selector(ElectionViewController.handleRefresh(_:)), for:
-        //    UIControl.Event.valueChanged)
-       //self.refreshOptions()
     }
     var answers = [String]()
     var electionQuestion = ""
@@ -374,16 +323,10 @@ class ElectionViewController: UITableViewController {
     
     @IBAction func previewBallot(_ sender: Any) {
         
-        // need to add the proposal name and make the JSON
+    // need to add the proposal name and make the JSON
       let propName = self.propName.text!
       let election = Proposal(question: propName, choices: propChoices)
       self.token = token_response
-      //self.electID = election_id
-      
-      
-      /* for choice in propChoices {
-          self.answers.append(choice.optionName)
-      } */
         
         for item in allOptions {
             self.answers.append(item)
