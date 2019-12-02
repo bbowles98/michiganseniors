@@ -85,6 +85,10 @@ class PreviewElectionViewController: UIViewController {
     @IBOutlet weak var questionTextLabel: UILabel!
     
     func createBallot() {
+        
+        print("printing whether it should be light mode or not")
+        print("AAHHHHHHHHHHH")
+        print(isLight)
         var buttonY = 175
         print("the voting choices to preview are: ")
         print(choices)
@@ -93,7 +97,11 @@ class PreviewElectionViewController: UIViewController {
             let optionButton = UIButton(frame: CGRect(x: 80, y: buttonY, width: 250, height: 60))
             buttonY = buttonY + 100
             optionButton.layer.cornerRadius = 10
-            optionButton.backgroundColor = UIColor.systemTeal
+            if isLight == false {
+                optionButton.backgroundColor = UIColor.systemGray
+            } else {
+                optionButton.backgroundColor = UIColor.systemTeal
+            }
             optionButton.setTitleColor(UIColor.white, for: UIControl.State.normal )
             optionButton.setTitle(choice, for: UIControl.State.normal)
             optionButton.isEnabled = false

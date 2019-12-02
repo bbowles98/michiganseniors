@@ -741,15 +741,9 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="FvN-H4-e8v">
-                            <rect key="frame" x="0.0" y="244.5" width="414" height="117"/>
+                            <rect key="frame" x="0.0" y="244.5" width="414" height="182"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Voting Option Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oe7-7H-30i">
-                                    <rect key="frame" x="80" y="17" width="254" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzI-gg-f9l">
                                     <rect key="frame" x="144" y="71" width="126" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -758,8 +752,34 @@
                                         <action selector="addItem:" destination="QUD-jV-AJd" eventType="touchUpInside" id="dh8-i3-1h5"/>
                                     </connections>
                                 </button>
+                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Voting Option Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oe7-7H-30i">
+                                    <rect key="frame" x="80" y="17" width="254" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Select ballot display mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4B7-f9-7sC">
+                                    <rect key="frame" x="21" y="135" width="254" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2C9-ea-qKm">
+                                    <rect key="frame" x="265" y="130" width="124" height="32"/>
+                                    <segments>
+                                        <segment title="Light"/>
+                                        <segment title="Dark"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="modeChanged:" destination="QUD-jV-AJd" eventType="valueChanged" id="mi9-1Y-MvH"/>
+                                    </connections>
+                                </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="2C9-ea-qKm" secondAttribute="trailing" constant="22" id="4Mt-7p-p3e"/>
+                                <constraint firstItem="2C9-ea-qKm" firstAttribute="leading" secondItem="4B7-f9-7sC" secondAttribute="trailing" constant="16" id="eVk-KG-3nz"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OptionTableCell" id="EUn-OD-Q53" customClass="OptionTableCell" customModule="CreateElection" customModuleProvider="target">
@@ -801,6 +821,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mode" destination="2C9-ea-qKm" id="cC7-7x-sZ4"/>
                         <outlet property="newOption" destination="oe7-7H-30i" id="0eK-t6-S6p"/>
                         <outlet property="propName" destination="NHn-dm-tBp" id="yWF-my-HnQ"/>
                         <outlet property="tblView" destination="QOL-E9-NnQ" id="TPf-as-5SN"/>
@@ -1322,7 +1343,7 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tl2-Ke-gnc"/>
+        <segue reference="wZ2-Kt-1G4"/>
         <segue reference="bxq-YA-BFd"/>
         <segue reference="dWF-I1-MOo"/>
         <segue reference="xmI-cP-9Xi"/>

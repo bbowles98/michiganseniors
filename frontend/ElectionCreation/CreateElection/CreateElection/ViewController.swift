@@ -12,6 +12,7 @@ var token_response = ""
 var election_id: Any = -1
 var electPass = ""
 var elections: [Dictionary<String, Any>] = []
+var isLight = false
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
@@ -262,6 +263,8 @@ class ElectionViewController: UITableViewController {
     @IBOutlet weak var propName: UITextView!
     @IBOutlet weak var newOption: UITextField!
     @IBOutlet var tblView: UITableView!
+    @IBOutlet weak var mode: UISegmentedControl!
+    //@IBOutlet weak var regularView: UIView!
     
     @IBAction func addItem(_ sender: Any) {
         print("it got here")
@@ -343,6 +346,16 @@ class ElectionViewController: UITableViewController {
     }
     
     
+    @IBAction func modeChanged(_ sender: Any) {
+        switch mode.selectedSegmentIndex {
+            case 0:
+                isLight = true
+            case 1:
+                isLight = false
+            default:
+                break
+        }
+    }
     
     
     override func viewDidLoad() {
