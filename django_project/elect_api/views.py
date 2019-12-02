@@ -98,6 +98,17 @@ def Register(request):
 	if passcode != election.passcode:
 		return JsonResponse({'error': 'incorrect passcode'})
 
+
+	if election.max_voters > 0:
+		num_registered = len(RegisterLink.objects.filter(election=election))
+		if num_registered >= election.max_voters:
+			return JsonResponse({'success': False, 'error': 'Max number of voters has been reached'})
+
+	if election.email_domain != "":
+		if election.email_domain not in request.user.email:
+			return JsonResponse({'success': False, 'error': 'User cannot register for election because of email restrictions'})
+
+
 	registeredUser = RegisterLink.objects.create(
 			election = election,
 			participant = user
@@ -115,6 +126,15 @@ def PublicRegister(request):
 
 	user = User.objects.get(pk=request.user.pk)
 	election = Election.objects.get(pk=request.data['election_id'])
+
+	if election.max_voters > 0:
+		num_registered = len(RegisterLink.objects.filter(election=election))
+		if num_registered >= election.max_voters:
+			return JsonResponse({'success': False, 'error': 'Max number of voters has been reached'})
+
+	if election.email_domain != "":
+		if election.email_domain not in request.user.email:
+			return JsonResponse({'success': False, 'error': 'User cannot register for election because of email restrictions'})
 
 	registeredUser = RegisterLink.objects.create(
 			election = election,
