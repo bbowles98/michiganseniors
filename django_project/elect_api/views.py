@@ -438,6 +438,36 @@ def GetMessage(request):
 
 	return JsonResponse({'message': election.message})
 
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated, ))
+def AddElectionRestrictions(request):
+
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found'})
+
+	try:
+		if 'max_voters' in request.data.keys() and request.data['max_voters'] > 0:
+			election.max_voters = request.data['max_voters']
+			election.save()
+
+	except:
+		return JsonResponse({'success': False, 'error': 'Invalid number of max voters'})
+
+	try:
+		if 'email_domain' in request.data.keys() and request.data['email_domain'] != '':
+			election.email_domain = request.data['email_domain']
+			election.save()
+	except:
+		return JsonResponse({'success': False, 'error': 'Invalid email domain'})
+
+	return JsonResponse({'success': True})
+
+
+
 def canUserVote(user, election):
 
 	if DEBUG:

@@ -14,6 +14,8 @@ class Election(models.Model):
 	start_date = models.CharField(max_length=40, default="")
 	end_date = models.CharField(max_length=40, default="")
 	message = models.CharField(max_length=100, default="")
+	max_voters = models.IntegerField(default=0)
+	email_domain = models.CharField(max_length=100, default="")
 
 class BallotItem(models.Model):
 
