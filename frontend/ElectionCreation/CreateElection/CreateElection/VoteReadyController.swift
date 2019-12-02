@@ -169,6 +169,9 @@ class VoteReadyViewController: UIViewController {
     @IBAction func onViewResult(_ sender: Any) {
         self.performSegue(withIdentifier: "ToResults", sender: (Any).self)
     }
+    @IBAction func onSearch(_ sender: Any) {
+        self.performSegue(withIdentifier: "BackToSearch", sender: (Any).self)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is CastVoteViewController
@@ -192,6 +195,11 @@ class VoteReadyViewController: UIViewController {
             vc!.electionID = electionIDpassed
             vc!.token = token
             vc!.host = hostName
+        }
+        else if (segue.identifier == "BackToSearch") {
+            let vc = segue.destination as? SearchViewController
+            vc!.token = token
+            
         }
     }
 }

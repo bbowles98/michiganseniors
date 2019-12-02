@@ -1125,7 +1125,7 @@
                     <navigationItem key="navigationItem" title="Election" id="yub-Ki-Ls6">
                         <barButtonItem key="leftBarButtonItem" title="Search" id="oCH-Jt-YIv">
                             <connections>
-                                <segue destination="rp5-wN-G4V" kind="show" identifier="BackToSearch" id="Pe1-tz-aQB"/>
+                                <action selector="onSearch:" destination="WVG-bl-a6m" id="BU6-T8-lNg"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="0hB-PT-pPx">
@@ -1144,6 +1144,7 @@
                         <segue destination="zJL-KU-E5X" kind="show" identifier="ToResults" id="jcN-Jb-C36"/>
                         <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="Hzl-19-Sy0"/>
                         <segue destination="gAc-K9-oMm" kind="show" identifier="NoRegister" id="TTC-dM-iYo"/>
+                        <segue destination="rp5-wN-G4V" kind="show" identifier="BackToSearch" id="6ib-JY-s6f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PB8-lO-Vbr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1452,9 +1453,8 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TTC-dM-iYo"/>
-        <segue reference="nKs-yV-yIv"/>
-        <segue reference="Pe1-tz-aQB"/>
+        <segue reference="oKy-mv-4ol"/>
+        <segue reference="6ib-JY-s6f"/>
         <segue reference="fmU-Qf-Psz"/>
         <segue reference="0Tu-BQ-hYn"/>
         <segue reference="a96-Pf-i1R"/>
