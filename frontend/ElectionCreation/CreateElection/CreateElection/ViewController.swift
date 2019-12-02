@@ -259,7 +259,28 @@ extension NSDate
 class ElectionViewController: UITableViewController {
     
     @IBOutlet weak var propName: UITextView!
+    @IBOutlet weak var newOption: UITextField!
     @IBOutlet var tblView: UITableView!
+    
+    @IBAction func addItem(_ sender: Any) {
+        print("it got here")
+        //if newOption.text != nil {
+            
+        let option = votingOption(optionName: newOption.text!, optionInfo: "NULL")
+        propChoices.append(option)
+        newOption.text = ""
+        print("did it append")
+        for choice in propChoices {
+            print("printing propChoices")
+            print(choice.optionName)
+            print("what the fuck")
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+        //}
+    }
+    
     
     //func refreshOptions() {
 
@@ -272,6 +293,10 @@ class ElectionViewController: UITableViewController {
     /* override func numberOfSections(in tableView: UITableView) -> Int {
         return 1 } */
     
+    //override func viewDidAppear(_ animated: Bool) {
+    //    print("is this happening?")
+    //    tblView.reloadData()
+    //}
     override func tableView(_ tableView: UITableView, numberOfRowsInSection
             section: Int) -> Int {
         print("printing propchoices size")
@@ -302,6 +327,7 @@ class ElectionViewController: UITableViewController {
     
     
     override func viewDidLoad() {
+        print("what is happening")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //self.refreshControl?.addTarget(self, action:

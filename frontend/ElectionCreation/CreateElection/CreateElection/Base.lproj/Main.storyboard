@@ -594,7 +594,7 @@
             <objects>
                 <viewController id="nSU-k5-lir" customClass="CreateOptionViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wVK-t3-rbT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voting Option Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8X-Va-Q9Z">
@@ -659,7 +659,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="kpK-9i-5Vr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Aoo-EY-CEy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -741,15 +741,21 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="FvN-H4-e8v">
-                            <rect key="frame" x="0.0" y="244.5" width="414" height="55"/>
+                            <rect key="frame" x="0.0" y="244.5" width="414" height="117"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzI-gg-f9l">
-                                    <rect key="frame" x="127" y="13" width="160" height="30"/>
+                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Voting Option Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oe7-7H-30i">
+                                    <rect key="frame" x="80" y="17" width="254" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Add New Voting Option"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzI-gg-f9l">
+                                    <rect key="frame" x="144" y="71" width="126" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Add Voting Option"/>
                                     <connections>
-                                        <segue destination="jgK-Z7-MrW" kind="show" id="B70-rD-Kf2"/>
+                                        <action selector="addItem:" destination="QUD-jV-AJd" eventType="touchUpInside" id="dh8-i3-1h5"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -795,13 +801,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="newOption" destination="oe7-7H-30i" id="0eK-t6-S6p"/>
                         <outlet property="propName" destination="NHn-dm-tBp" id="yWF-my-HnQ"/>
+                        <outlet property="tblView" destination="QOL-E9-NnQ" id="TPf-as-5SN"/>
                         <segue destination="mJI-Gn-t3T" kind="show" identifier="ToPreview" id="wZ2-Kt-1G4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yS-6G-noj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4281" y="-1961"/>
+            <point key="canvasLocation" x="4279.7101449275369" y="-1961.3839285714284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UeR-c3-ysr">
@@ -1314,10 +1322,10 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QwJ-eO-9gg"/>
+        <segue reference="wZ2-Kt-1G4"/>
         <segue reference="bxq-YA-BFd"/>
         <segue reference="fmU-Qf-Psz"/>
-        <segue reference="eAW-bC-ZIK"/>
+        <segue reference="xmI-cP-9Xi"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>
