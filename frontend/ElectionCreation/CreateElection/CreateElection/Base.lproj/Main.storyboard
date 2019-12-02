@@ -196,7 +196,7 @@
             <objects>
                 <viewController id="YhV-Fx-o2P" customClass="ElectManageViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ars-Z9-goC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4rj-ai-YrN">
@@ -245,7 +245,7 @@
             <objects>
                 <viewController id="RCc-Uh-b1u" customClass="DeleteElectViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qV7-36-OZd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Election Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAA-2w-RAB">
@@ -272,6 +272,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="onDelete:" destination="RCc-Uh-b1u" eventType="touchUpInside" id="ZZG-l3-s6R"/>
                                     <segue destination="bCd-6h-5GA" kind="show" identifier="JustDeleted" id="eAW-bC-ZIK"/>
                                 </connections>
                             </button>
@@ -313,11 +314,11 @@
             <objects>
                 <viewController id="bCd-6h-5GA" customClass="MainViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLz-qH-CTe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-FG-waP">
-                                <rect key="frame" x="20" y="407" width="180" height="75"/>
+                                <rect key="frame" x="20" y="363" width="180" height="75"/>
                                 <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="GpH-gw-Aw0"/>
@@ -333,14 +334,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HCU-B3-RJR">
-                                <rect key="frame" x="88" y="94" width="238" height="193"/>
+                                <rect key="frame" x="88" y="50" width="238" height="193"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="h5A-FW-5CZ"/>
                                     <constraint firstAttribute="width" constant="238" id="xiW-ue-Uh5"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-dt-lkf">
-                                <rect key="frame" x="20" y="490" width="374" height="75"/>
+                                <rect key="frame" x="20" y="446" width="374" height="75"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="VUz-mx-nnP"/>
@@ -354,7 +355,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Sp-zAA">
-                                <rect key="frame" x="214" y="407" width="180" height="75"/>
+                                <rect key="frame" x="214" y="363" width="180" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Jv7-ax-vkB"/>
@@ -606,7 +607,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0ua-Zh-kcf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bmg-De-K7x">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -958,7 +959,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="63t-xv-Rjq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l0e-P5-D93">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1013,7 +1014,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8ND-OE-F02"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lxi-RA-o5G">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1456,7 +1457,7 @@
         <segue reference="oKy-mv-4ol"/>
         <segue reference="6ib-JY-s6f"/>
         <segue reference="fmU-Qf-Psz"/>
-        <segue reference="0Tu-BQ-hYn"/>
+        <segue reference="eAW-bC-ZIK"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -105,7 +105,7 @@ extension ElectManageViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("kevins test")
+        //print("kevins test")
         let cell = UITableViewCell()
         if searching {
             cell.textLabel!.text = (results[indexPath.row]["name"] as! String)
