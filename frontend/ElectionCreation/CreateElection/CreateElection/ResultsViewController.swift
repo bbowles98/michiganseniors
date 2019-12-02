@@ -9,20 +9,19 @@
 import UIKit
 
 
-class ResultsViewController: UIViewController, UITableViewDataSource {
+class ResultsViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var livePrint: UILabel!
     
     var results = [:] as [String: Any]
     var getURL:String = ""
     var live:Bool = false
     var electionName:String = ""
-    var total:Int = -1
+    var total:Float = -1
     var electionID:String = ""
     var token:String = ""
     var candidates:[String] = []
-    var voteCounts:[Int] = []
+    var voteCounts = [:] as [String: Any]
     @IBOutlet weak var electName: UILabel!
     
     
@@ -59,9 +58,18 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
                 print(json)
                 self.results = json["results"] as! [String: Any]
                 self.candidates = self.results["candidates"] as! [String]
-                self.voteCounts =  self.results["votes"] as! [Int]
+                self.voteCounts =  self.results["ballot"] as! [String: Any]
                 self.live = (self.results["live"] != nil)
-                self.total = self.results["total_votes"] as! Int
+                DispatchQueue.main.async {
+                    if (self.live) {
+                        self.livePrint.text = "Live Results"
+                    }
+                    else {
+                        self.livePrint.text = "Final Results"
+                    }
+                }
+                self.total = self.results["total_votes"] as! Float
+                self.showResults()
             }
            catch let error as NSError {
             print(error)
@@ -69,41 +77,39 @@ class ResultsViewController: UIViewController, UITableViewDataSource {
         }
         task.resume()
         
-        // tableView.dataSource = self
-        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         //Dispose of any resources that can be created
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return candidates.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func showResults() {
+        print("Creating results")
+        DispatchQueue.main.async {
+            var labelY = 160
+            for candidate in self.candidates {
+                print(candidate)
+                let temp = (self.voteCounts[candidate] as! Int)
+                let votes = String(temp)
+                let percentage = ((self.voteCounts[candidate] as! Float)/self.total) * 100
+                let resultLabel = UILabel(frame: CGRect(x: 20, y: labelY, width: 150, height: 60))
+                let resultLabel2 = UILabel(frame: CGRect(x: 260, y: labelY, width: 30, height: 60))
+                let resultLabel3 = UILabel(frame: CGRect(x: 315, y: labelY, width: 80, height: 60))
+                labelY = labelY + 50
                 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultTableCell") as! ResultTableCell
-        
-        if live == false {
-            livePrint.text = "Final Results"
-        } else {
-            livePrint.text = "Live Results"
+                resultLabel.text = candidate
+                resultLabel.textColor = UIColor.black
+                resultLabel2.text = votes
+                resultLabel2.textColor = UIColor.black
+                resultLabel3.text = String(format:"%.2f%%", percentage)
+                resultLabel3.textColor = UIColor.black
+                
+                self.view.addSubview(resultLabel)
+                self.view.addSubview(resultLabel2)
+                self.view.addSubview(resultLabel3)
+            }
         }
-        
-        //let votes = voteCounts[Int(indexPath.row)]
-        let candidate = candidates[indexPath.row]
-        cell.optionName!.text = candidate
-        cell.optionVotes!.text = String(voteCounts[indexPath.row])
-        let percentage = voteCounts[indexPath.row]/total * 100
-        cell.optionPer!.text = String(percentage)
-
-        return cell
-
     }
     
     // if the poll is closed, say that poll is closed
