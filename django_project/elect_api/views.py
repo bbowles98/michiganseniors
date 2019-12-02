@@ -97,9 +97,17 @@ def Register(request):
 	election = Election.objects.get(pk=request.data['election_id'])
 	passcode = request.data['passcode']
 
-	if passcode != election.passcode:
+	keys = ElectionKey.objects.filter(election=election)
+	list_of_keys = []
+	for key in keys:
+		list_of_keys.append(key.key)
+	print(list_of_keys)
+	if passcode != election.passcode and passcode not in list_of_keys:
 		return JsonResponse({'error': 'incorrect passcode'})
 
+	if passcode in list_of_keys:
+		key = keys.get(key=passcode)
+		key.delete()
 
 	if election.max_voters > 0:
 		num_registered = len(RegisterLink.objects.filter(election=election))
