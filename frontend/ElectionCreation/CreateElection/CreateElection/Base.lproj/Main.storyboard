@@ -669,7 +669,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbB-mE-nZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5374" y="-1937"/>
+            <point key="canvasLocation" x="5606" y="-1937"/>
         </scene>
         <!--Preview Election View Controller-->
         <scene sceneID="Nig-Ip-pQg">
@@ -1322,9 +1322,9 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wZ2-Kt-1G4"/>
+        <segue reference="tl2-Ke-gnc"/>
         <segue reference="bxq-YA-BFd"/>
-        <segue reference="fmU-Qf-Psz"/>
+        <segue reference="dWF-I1-MOo"/>
         <segue reference="xmI-cP-9Xi"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
