@@ -20,9 +20,14 @@ class ResultsViewController: UIViewController {
     var total:Float = -1
     var electionID:String = ""
     var token:String = ""
+    var host:String = ""
     var candidates:[String] = []
     var voteCounts = [:] as [String: Any]
     @IBOutlet weak var electName: UILabel!
+    
+    @IBAction func onDone() {
+        performSegue(withIdentifier: "ToElection", sender: (Any).self)
+    }
     
     
     override func viewDidLoad() {
@@ -116,5 +121,17 @@ class ResultsViewController: UIViewController {
     
     // if the poll is closed, say that poll is closed
     // otherwise, say live analytics and you need to figure out how to loop to continuously be able to check for updates in results
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is VoteReadyViewController
+        {
+            let vc = segue.destination as? VoteReadyViewController
+            vc!.electionName = electionName
+            vc!.electionIDpassed = electionID
+            vc!.token = token
+            vc!.hostName = host
+        }
+    }
 }
 

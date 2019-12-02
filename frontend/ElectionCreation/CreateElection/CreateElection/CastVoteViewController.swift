@@ -67,6 +67,7 @@ class CastVoteViewController: UIViewController {
     var choices: [String] = []
     var chosen = ""
     var token:String = ""
+    var host:String = ""
     //var token_response = ""
     
     func createBallot() {
@@ -101,6 +102,11 @@ class CastVoteViewController: UIViewController {
                 self.view.addSubview(optionButton)
             }
         }
+    }
+    
+    
+    @IBAction func onBack(_ sender: Any) {
+        performSegue(withIdentifier: "NoVote", sender: (Any).self)
     }
     
     @IBAction func voteSelected(_ sender: UIButton){
@@ -153,5 +159,17 @@ class CastVoteViewController: UIViewController {
         }
         task.resume()
         performSegue(withIdentifier: "ToVoteComplete", sender: (Any).self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is VoteReadyViewController
+        {
+            let vc = segue.destination as? VoteReadyViewController
+            vc!.electionName = electionName
+            vc!.electionIDpassed = electionID
+            vc!.token = token
+            vc!.hostName = host
+        }
     }
 }

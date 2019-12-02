@@ -23,6 +23,7 @@ class RegisterViewController: UIViewController {
     var electionName:String = ""
     var electionID:String = ""
     var token:String = ""
+    var host:String = ""
     
     @IBAction func onBack(_ sender: Any) {
         performSegue(withIdentifier: "BackToReady", sender: (Any).self)
@@ -35,6 +36,7 @@ class RegisterViewController: UIViewController {
             vc!.electionName = electionName
             vc!.electionIDpassed = electionID
             vc!.token = token
+            vc!.hostName = host
         }
     }
 }

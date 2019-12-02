@@ -168,18 +168,21 @@ class VoteReadyViewController: UIViewController {
             vc!.electionName = electionName
             vc!.electionID = electionIDpassed
             vc!.token = token
+            vc!.host = hostName
         }
         else if (segue.identifier == "ToResults") {
             let vc = segue.destination as? ResultsViewController
             vc!.electionName = electionName
             vc!.electionID = electionIDpassed
             vc!.token = token
+            vc!.host = hostName
         }
         else if (segue.identifier == "ToRegister") {
             let vc = segue.destination as? RegisterViewController
             vc!.electionName = electionName
             vc!.electionID = electionIDpassed
             vc!.token = token
+            vc!.host = hostName
         }
     }
 }
