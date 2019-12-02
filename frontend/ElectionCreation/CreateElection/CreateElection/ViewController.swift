@@ -259,35 +259,44 @@ extension NSDate
 class ElectionViewController: UITableViewController {
     
     @IBOutlet weak var propName: UITextView!
+    @IBOutlet var tblView: UITableView!
     
-    func refreshOptions() {
+    //func refreshOptions() {
 
-    }
+    //}
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true) }
+    //override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //    tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    //}
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 }
+    /* override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1 } */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection
             section: Int) -> Int {
-            return propChoices.count
+        print("printing propchoices size")
+        print(propChoices.count)
+        return propChoices.count
     }
     
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cellIdentifier = "OptionTableCell"
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OptionTableCell else {
-                fatalError("The dequeued cell is not an instance of OptionTableCell")
-            }
-            let option = propChoices[indexPath.row]
-            cell.optionName.text = String(option.optionName)
-            print("Should print yes: ")
-            print(cell.optionName.text!)
-            
-            cell.optionName.sizeToFit()
-            return cell
-        }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cellIdentifier = "OptionTableCell"
+        //guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OptionTableCell else {
+        //    fatalError("The dequeued cell is not an instance of OptionTableCell")
+        //}
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "OptionTableCell")
+        let option = propChoices[indexPath.row]
+        
+        print("Printing optionName")
+        print(option.optionName)
+        cell.textLabel?.text = option.optionName
+        //cell.optionName.text = String(option.optionName)
+        //print("Should print yes: ")
+        //print(cell.optionName.text!)
+        
+        //cell.optionName.sizeToFit()
+        return cell
+    }
     
     
     
@@ -295,10 +304,10 @@ class ElectionViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.refreshControl?.addTarget(self, action:
-            #selector(ElectionViewController.handleRefresh(_:)), for:
-            UIControl.Event.valueChanged)
-        self.refreshOptions()
+        //self.refreshControl?.addTarget(self, action:
+        //    #selector(ElectionViewController.handleRefresh(_:)), for:
+        //    UIControl.Event.valueChanged)
+       //self.refreshOptions()
     }
     var answers = [String]()
     var electionQuestion = ""
@@ -402,8 +411,9 @@ class ElectionViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        self.refreshOptions() }
+    //@objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    //    self.refreshOptions()
+    //}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
