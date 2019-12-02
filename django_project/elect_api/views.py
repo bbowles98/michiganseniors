@@ -40,6 +40,8 @@ def SearchViewSet(request):
 		electionDict['election_id'] = election.pk
 		electionDict['start_date'] = election.start_date
 		electionDict['end_date'] = election.end_date
+		electionDict['max_voters'] = election.max_voters
+		electionDict['email_domain'] = electin.email_domain
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
