@@ -13,7 +13,7 @@ from rest_framework import filters
 from django.db import connection
 from datetime import datetime
 from django.contrib.auth.models import User
-from elect_api.models import Election, BallotItem, BallotItemChoice, VoterToElection, RegisterLink
+from elect_api.models import Election, BallotItem, BallotItemChoice, VoterToElection, RegisterLink, ElectionKey
 from elect_api.serializers import UserSerializer
 from elect_api.gmail import sendMail
 
@@ -247,6 +247,7 @@ def CreateElection(request):
 		message = request.data['message']
 	except:
 		pass
+	print(request.data)
 
 	new_election = Election.objects.create(
 		name=request.data['name'],
@@ -471,13 +472,23 @@ def AddElectionRestrictions(request):
 	except:
 		return JsonResponse({'success': False, 'error': 'Election not found'})
 
-	try:
-		if 'max_voters' in request.data.keys() and request.data['max_voters'] > 0:
-			election.max_voters = request.data['max_voters']
-			election.save()
+	# try:
+	if 'max_voters' in request.data.keys() and request.data['max_voters'] > 0:
+		election.max_voters = request.data['max_voters']
+		election.save()
+		# generate max_voters tokens and email them to host
+		keys = random.sample(range(1, 999999), election.max_voters)
+		for key in keys:
+			new_key = ElectionKey.objects.create(
+				election_id = election.pk,
+				key = key
+			)
+		print(keys)
+		sendMail(election.creator.email, "Subject: Your Keys\n\n" + ', '.join(str(e) for e in keys))
 
-	except:
-		return JsonResponse({'success': False, 'error': 'Invalid number of max voters'})
+
+	# except:
+	# 	return JsonResponse({'success': False, 'error': 'Invalid number of max voters'})
 
 	try:
 		if 'email_domain' in request.data.keys() and request.data['email_domain'] != '':

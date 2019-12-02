@@ -32,19 +32,12 @@
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
                                     <!--2018-09-01 10:00:00 +0000-->
                                 </date>
-                                <connections>
-                                    <action selector="GetStartDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="9oN-na-3wB"/>
-                                    <action selector="verifyDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="Mhn-by-13K"/>
-                                </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" restorationIdentifier="endDate" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Afx-79-E4t">
                                 <rect key="frame" x="20" y="454" width="374" height="216"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
                                     <!--2018-09-01 10:00:00 +0000-->
                                 </date>
-                                <connections>
-                                    <action selector="GetEndDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="k58-I7-F8J"/>
-                                </connections>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Election Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G1F-ht-S4l">
                                 <rect key="frame" x="80" y="51" width="254" height="34"/>
@@ -101,16 +94,15 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="VTx-cv-cqd">
                             <connections>
                                 <action selector="createClicked:" destination="Dtm-WJ-qFO" id="GLr-DR-h39"/>
-                                <segue destination="ben-mN-7jV" kind="show" identifier="ToAuthenticate" id="9Wf-Oa-x0E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ElectionName" destination="G1F-ht-S4l" id="7Gm-38-6k0"/>
-                        <outlet property="SelectedStart" destination="zVP-kH-JLj" id="jMF-br-SPy"/>
                         <outlet property="selectedEnd" destination="Afx-79-E4t" id="MNl-gU-nA4"/>
                         <outlet property="selectedStart" destination="zVP-kH-JLj" id="Nc1-P7-v44"/>
                         <outlet property="viewSelector" destination="74V-0a-26M" id="7d5-Vu-lE2"/>
+                        <segue destination="ben-mN-7jV" kind="show" identifier="ToAuthenticate" id="Dzx-oS-QJL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faS-SH-GoQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1371,8 +1363,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WKm-IJ-EvW"/>
-        <segue reference="dWF-I1-MOo"/>
-        <segue reference="3UE-5Q-bzq"/>
+        <segue reference="fmU-Qf-Psz"/>
+        <segue reference="ZQP-6k-uH7"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>
