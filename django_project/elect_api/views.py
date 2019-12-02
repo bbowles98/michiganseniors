@@ -101,7 +101,6 @@ def Register(request):
 	list_of_keys = []
 	for key in keys:
 		list_of_keys.append(key.key)
-	print(list_of_keys)
 	if passcode != election.passcode and passcode not in list_of_keys:
 		return JsonResponse({'error': 'incorrect passcode'})
 
