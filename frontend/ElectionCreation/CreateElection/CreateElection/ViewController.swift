@@ -7,6 +7,7 @@
 //
 import UIKit
 var propChoices = [votingOption]()
+var help = [String]()
 var token_response = ""
 var election_id: Any = -1
 var electPass = ""
@@ -266,7 +267,7 @@ class ElectionViewController: UITableViewController {
         print("it got here")
         //if newOption.text != nil {
             
-        let option = votingOption(optionName: newOption.text!, optionInfo: "NULL")
+        /* let option = votingOption(optionName: newOption.text!, optionInfo: "NULL")
         propChoices.append(option)
         newOption.text = ""
         print("did it append")
@@ -274,9 +275,16 @@ class ElectionViewController: UITableViewController {
             print("printing propChoices")
             print(choice.optionName)
             print("what the fuck")
+        } */
+        
+        help.append(newOption.text!)
+        newOption.text = ""
+        print("it added and here is the new array: ")
+        for item in help {
+            print(item)
         }
         
-        dismiss(animated: true, completion: nil)
+        tblView.reloadData()
         
         //}
     }
@@ -301,7 +309,8 @@ class ElectionViewController: UITableViewController {
             section: Int) -> Int {
         print("printing propchoices size")
         print(propChoices.count)
-        return propChoices.count
+        //return propChoices.count
+        return help.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -309,12 +318,16 @@ class ElectionViewController: UITableViewController {
         //guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OptionTableCell else {
         //    fatalError("The dequeued cell is not an instance of OptionTableCell")
         //}
+        
+        
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "OptionTableCell")
-        let option = propChoices[indexPath.row]
+        /* let option = propChoices[indexPath.row]
         
         print("Printing optionName")
         print(option.optionName)
-        cell.textLabel?.text = option.optionName
+        cell.textLabel?.text = option.optionName */
+        
+        cell.textLabel?.text = help[indexPath.row]
         //cell.optionName.text = String(option.optionName)
         //print("Should print yes: ")
         //print(cell.optionName.text!)
