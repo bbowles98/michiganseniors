@@ -7,7 +7,7 @@
 //
 import UIKit
 var propChoices = [votingOption]()
-var help = [String]()
+var allOptions = [String]()
 var token_response = ""
 var election_id: Any = -1
 var electPass = ""
@@ -277,10 +277,10 @@ class ElectionViewController: UITableViewController {
             print("what the fuck")
         } */
         
-        help.append(newOption.text!)
+        allOptions.append(newOption.text!)
         newOption.text = ""
         print("it added and here is the new array: ")
-        for item in help {
+        for item in allOptions {
             print(item)
         }
         
@@ -289,6 +289,12 @@ class ElectionViewController: UITableViewController {
         //}
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            allOptions.remove(at: indexPath.row)
+            tblView.reloadData()
+        }
+    }
     
     //func refreshOptions() {
 
@@ -307,10 +313,10 @@ class ElectionViewController: UITableViewController {
     //}
     override func tableView(_ tableView: UITableView, numberOfRowsInSection
             section: Int) -> Int {
-        print("printing propchoices size")
-        print(propChoices.count)
+        //print("printing propchoices size")
+        //print(propChoices.count)
         //return propChoices.count
-        return help.count
+        return allOptions.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -327,7 +333,7 @@ class ElectionViewController: UITableViewController {
         print(option.optionName)
         cell.textLabel?.text = option.optionName */
         
-        cell.textLabel?.text = help[indexPath.row]
+        cell.textLabel?.text = allOptions[indexPath.row]
         //cell.optionName.text = String(option.optionName)
         //print("Should print yes: ")
         //print(cell.optionName.text!)
@@ -362,9 +368,13 @@ class ElectionViewController: UITableViewController {
       //self.electID = election_id
       
       
-      for choice in propChoices {
+      /* for choice in propChoices {
           self.answers.append(choice.optionName)
-      }
+      } */
+        
+        for item in allOptions {
+            self.answers.append(item)
+        }
       electionQuestion = election.question
       print(self.answers)
       print(self.electionQuestion)
@@ -462,6 +472,8 @@ class ElectionViewController: UITableViewController {
 
 //************************************************  CREATE OPTIONS ************************************************//
 //*****************************************************************************************************************//
+
+/*
 class CreateOptionViewController: UIViewController {
     
     @IBOutlet weak var optionName: UITextField!
@@ -494,7 +506,7 @@ class CreateOptionViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-}
+} */
 
 class MainViewController: UIViewController {
     override func viewDidLoad() {
