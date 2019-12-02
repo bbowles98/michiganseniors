@@ -40,6 +40,8 @@ def SearchViewSet(request):
 		electionDict['election_id'] = election.pk
 		electionDict['start_date'] = election.start_date
 		electionDict['end_date'] = election.end_date
+		electionDict['max_voters'] = election.max_voters
+		electionDict['email_domain'] = election.email_domain
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
@@ -74,7 +76,7 @@ def ViewResults(request):
 	results['votes'] = []
 	for candidate, ans in candidates_to_counts.iteritems():
 		results['ballot'][candidate] = ans
-		results['cadidates'].append(candidate)
+		results['candidates'].append(candidate)
 		results['votes'].append(ans)
 	results['name'] = election.name
 	results['total_votes'] = votes
@@ -98,6 +100,17 @@ def Register(request):
 	if passcode != election.passcode:
 		return JsonResponse({'error': 'incorrect passcode'})
 
+
+	if election.max_voters > 0:
+		num_registered = len(RegisterLink.objects.filter(election=election))
+		if num_registered >= election.max_voters:
+			return JsonResponse({'success': False, 'error': 'Max number of voters has been reached'})
+
+	if election.email_domain != "":
+		if election.email_domain not in request.user.email:
+			return JsonResponse({'success': False, 'error': 'User cannot register for election because of email restrictions'})
+
+
 	registeredUser = RegisterLink.objects.create(
 			election = election,
 			participant = user
@@ -115,6 +128,15 @@ def PublicRegister(request):
 
 	user = User.objects.get(pk=request.user.pk)
 	election = Election.objects.get(pk=request.data['election_id'])
+
+	if election.max_voters > 0:
+		num_registered = len(RegisterLink.objects.filter(election=election))
+		if num_registered >= election.max_voters:
+			return JsonResponse({'success': False, 'error': 'Max number of voters has been reached'})
+
+	if election.email_domain != "":
+		if election.email_domain not in request.user.email:
+			return JsonResponse({'success': False, 'error': 'User cannot register for election because of email restrictions'})
 
 	registeredUser = RegisterLink.objects.create(
 			election = election,
@@ -437,6 +459,36 @@ def GetMessage(request):
 	election = Election.objects.get(pk=request.data['election_id'])
 
 	return JsonResponse({'message': election.message})
+
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated, ))
+def AddElectionRestrictions(request):
+
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found'})
+
+	try:
+		if 'max_voters' in request.data.keys() and request.data['max_voters'] > 0:
+			election.max_voters = request.data['max_voters']
+			election.save()
+
+	except:
+		return JsonResponse({'success': False, 'error': 'Invalid number of max voters'})
+
+	try:
+		if 'email_domain' in request.data.keys() and request.data['email_domain'] != '':
+			election.email_domain = request.data['email_domain']
+			election.save()
+	except:
+		return JsonResponse({'success': False, 'error': 'Invalid email domain'})
+
+	return JsonResponse({'success': True})
+
+
 
 def canUserVote(user, election):
 

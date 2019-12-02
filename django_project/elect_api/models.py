@@ -14,6 +14,8 @@ class Election(models.Model):
 	start_date = models.CharField(max_length=40, default="")
 	end_date = models.CharField(max_length=40, default="")
 	message = models.CharField(max_length=100, default="")
+	max_voters = models.IntegerField(default=0)
+	email_domain = models.CharField(max_length=100, default="")
 
 class BallotItem(models.Model):
 
@@ -37,3 +39,8 @@ class VoterToElection(models.Model):
 
 	election = models.ForeignKey(Election, on_delete=models.CASCADE)
 	voter = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class ElectionKey(models.Model):
+
+	election = models.ForeignKey(Election, on_delete=models.CASCADE)
+	key = models.CharField(max_length=6, default="")

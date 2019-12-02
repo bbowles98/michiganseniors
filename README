@@ -58,6 +58,21 @@ The digital ocean server is located at 204.48.30.178.
 		{
 			"success": "true"
 		}
+
+	ADD ELECTION RESTRICTIONS
+		Send a POST request to 204.48.30.178/addElectionRestrictions/
+
+		SEND
+		{
+			"election_id": int,
+			"max_voters": int, (restriction will be created if max_voters > 0)
+			"email_domain": string (restriction will be created if email_domain != "")
+		}
+
+		RECEIVE
+		{
+			"success": "true"
+		}
 		
 	MAKE ELECTION LIVE/DEAD MANUALLY
 		Send a POST request to 204.48.30.178/live/
