@@ -25,7 +25,8 @@ class DeleteElectViewController: UIViewController {
     var hostName:String = ""
     var electionIDpassed:String = ""
     @IBOutlet weak var electNameLabel: UILabel!
-    @IBAction func onSendResults(_ sender: Any) {
+    @IBAction func onSendResults(_ sender: Any){
+        print("THIS IS WHERE YOURE SENDING DELETE REQUEST")
     let getURL = "http://204.48.30.178/notify/"
            let json: [String: Any] = ["election_id": self.electionIDpassed ?? "NULL",
                                       ]
