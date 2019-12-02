@@ -268,7 +268,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onDelete:" destination="RCc-Uh-b1u" eventType="touchUpInside" id="jEQ-Tp-pQX"/>
                                     <segue destination="bCd-6h-5GA" kind="show" identifier="JustDeleted" id="eAW-bC-ZIK"/>
                                 </connections>
                             </button>
@@ -352,7 +351,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="toCreatedElects:" destination="bCd-6h-5GA" eventType="touchUpInside" id="gkg-hf-dJL"/>
                                     <segue destination="YhV-Fx-o2P" kind="show" identifier="ToMyElects" id="TeM-eR-a0i"/>
                                 </connections>
                             </button>
@@ -971,7 +969,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Election Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg7-Bj-fyL">
-                                <rect key="frame" x="20" y="86" width="374" height="22.5"/>
+                                <rect key="frame" x="20" y="30" width="374" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -984,14 +982,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
-                                <rect key="frame" x="312" y="138.5" width="82" height="21"/>
+                                <rect key="frame" x="312" y="82.5" width="82" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
-                                <rect key="frame" x="20" y="138.5" width="79" height="21"/>
+                                <rect key="frame" x="20" y="82.5" width="79" height="21"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1032,7 +1030,6 @@
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="onViewResult:" destination="WVG-bl-a6m" eventType="touchUpInside" id="ku9-VN-jE2"/>
                                     <segue destination="zJL-KU-E5X" kind="show" identifier="ToResults" id="TNJ-sO-pNU"/>
                                 </connections>
                             </button>
@@ -1136,12 +1133,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your vote has been received" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TBZ-Cr-1kq">
-                                <rect key="frame" x="100" y="176" width="214" height="34"/>
+                                <rect key="frame" x="100" y="120" width="214" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjN-Ny-bUf">
-                                <rect key="frame" x="147" y="240" width="120" height="35"/>
+                                <rect key="frame" x="147" y="184" width="120" height="35"/>
                                 <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Return Home">
@@ -1324,7 +1321,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onBack:" destination="rWi-mu-ah5" eventType="touchUpInside" id="ICK-IG-8KI"/>
                                     <segue destination="WVG-bl-a6m" kind="show" identifier="BackToReady" id="bxq-YA-BFd"/>
                                 </connections>
                             </button>
@@ -1362,7 +1358,8 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WKm-IJ-EvW"/>
+        <segue reference="QwJ-eO-9gg"/>
+        <segue reference="bxq-YA-BFd"/>
         <segue reference="fmU-Qf-Psz"/>
         <segue reference="eAW-bC-ZIK"/>
         <segue reference="a96-Pf-i1R"/>
