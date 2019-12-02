@@ -316,23 +316,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Sp-zAA">
-                                <rect key="frame" x="223" y="423" width="162" height="91"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Search for elections">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="SearchSegue:" destination="bCd-6h-5GA" eventType="touchUpInside" id="OjN-Dd-Nm2"/>
-                                    <segue destination="RIa-PV-Scm" kind="show" identifier="ToSearch" id="mWv-vj-ydG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-FG-waP">
-                                <rect key="frame" x="22" y="423" width="175" height="91"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-FG-waP">
+                                <rect key="frame" x="20" y="407" width="180" height="75"/>
                                 <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="GpH-gw-Aw0"/>
+                                    <constraint firstAttribute="width" constant="180" id="fmM-nu-1kg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Create an election">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -342,14 +332,19 @@
                                     <segue destination="E7G-ph-PVK" kind="show" identifier="ToCreate" id="fmU-Qf-Psz"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HCU-B3-RJR">
-                                <rect key="frame" x="88" y="110" width="238" height="193"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HCU-B3-RJR">
+                                <rect key="frame" x="88" y="94" width="238" height="193"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="193" id="h5A-FW-5CZ"/>
+                                    <constraint firstAttribute="width" constant="238" id="xiW-ue-Uh5"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-dt-lkf">
-                                <rect key="frame" x="20" y="522" width="365" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-dt-lkf">
+                                <rect key="frame" x="20" y="490" width="374" height="75"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="VUz-mx-nnP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <state key="normal" title="My Created Elections">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -358,8 +353,38 @@
                                     <segue destination="YhV-Fx-o2P" kind="show" identifier="ToMyElects" id="TeM-eR-a0i"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Sp-zAA">
+                                <rect key="frame" x="214" y="407" width="180" height="75"/>
+                                <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Jv7-ax-vkB"/>
+                                    <constraint firstAttribute="width" constant="180" id="YBA-lg-AHP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Search for elections">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="SearchSegue:" destination="bCd-6h-5GA" eventType="touchUpInside" id="OjN-Dd-Nm2"/>
+                                    <segue destination="RIa-PV-Scm" kind="show" identifier="ToSearch" id="mWv-vj-ydG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="LuL-Sp-zAA" secondAttribute="bottom" constant="8" id="1Iv-bi-9ey"/>
+                            <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="20" id="3wm-hJ-gIj"/>
+                            <constraint firstItem="x8W-FG-waP" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="120" id="FIt-lc-P9t"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="120" id="FVv-Dr-Cex"/>
+                            <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="LuL-Sp-zAA" secondAttribute="trailing" constant="20" id="JO3-Ea-6RZ"/>
+                            <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="HCU-B3-RJR" secondAttribute="trailing" constant="88" id="Jvw-8W-3Cp"/>
+                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="LuL-Sp-zAA" secondAttribute="bottom" constant="8" id="dDH-tP-DLD"/>
+                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="x8W-FG-waP" secondAttribute="bottom" constant="8" id="i3s-qi-l1C"/>
+                            <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="MLQ-dt-lkf" secondAttribute="trailing" constant="20" id="io1-VI-QZw"/>
+                            <constraint firstItem="HCU-B3-RJR" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="88" id="o48-od-oDu"/>
+                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="20" id="s3F-ms-iuY"/>
+                            <constraint firstItem="HCU-B3-RJR" firstAttribute="top" secondItem="gPl-oY-88B" secondAttribute="top" constant="50" id="ub6-RH-9ac"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gPl-oY-88B"/>
                     </view>
                     <navigationItem key="navigationItem" id="LJR-lX-0O6"/>
@@ -1044,7 +1069,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onRegister:" destination="WVG-bl-a6m" eventType="touchUpInside" id="aGP-BW-YeZ"/>
-                                    <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="QwJ-eO-9gg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTb-eg-MCJ">
@@ -1104,7 +1128,7 @@
                                 <segue destination="rp5-wN-G4V" kind="show" identifier="BackToSearch" id="Pe1-tz-aQB"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Vote" id="0hB-PT-pPx">
+                        <barButtonItem key="rightBarButtonItem" id="0hB-PT-pPx">
                             <connections>
                                 <action selector="onVote:" destination="WVG-bl-a6m" id="6qc-KZ-rEu"/>
                             </connections>
@@ -1116,8 +1140,10 @@
                         <outlet property="host" destination="hAc-h4-YtL" id="f4i-P9-sXx"/>
                         <outlet property="name" destination="Yg7-Bj-fyL" id="U5E-pu-j3w"/>
                         <outlet property="registrationButton" destination="ZgZ-8h-RvJ" id="AO0-nT-bJM"/>
-                        <outlet property="voteButton" destination="0hB-PT-pPx" id="DbF-AG-mKC"/>
+                        <outlet property="voteButton" destination="uTb-eg-MCJ" id="4MR-qu-8cr"/>
                         <segue destination="zJL-KU-E5X" kind="show" identifier="ToResults" id="jcN-Jb-C36"/>
+                        <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="Hzl-19-Sy0"/>
+                        <segue destination="gAc-K9-oMm" kind="show" identifier="NoRegister" id="TTC-dM-iYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PB8-lO-Vbr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1361,6 +1387,47 @@
             </objects>
             <point key="canvasLocation" x="3904.347826086957" y="-138.61607142857142"/>
         </scene>
+        <!--No Register View Controller-->
+        <scene sceneID="jy0-Si-uoB">
+            <objects>
+                <viewController id="gAc-K9-oMm" customClass="NoRegisterViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mCh-SC-X9m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are not elligible to register for this election." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh9-gU-ENe">
+                                <rect key="frame" x="58" y="20" width="299" height="210"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zh8-Ag-Nua">
+                                <rect key="frame" x="103" y="201" width="208" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back to Election">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onExit:" destination="gAc-K9-oMm" eventType="touchUpInside" id="wim-fv-ind"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="d4b-on-aZV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lOS-i7-LPy"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="WVG-bl-a6m" kind="show" identifier="BackFromNotReg" id="nKs-yV-yIv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sNE-wi-Ol5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4776" y="-141"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="6dJ-UV-adu">
             <objects>
@@ -1385,9 +1452,10 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WKm-IJ-EvW"/>
+        <segue reference="TTC-dM-iYo"/>
+        <segue reference="nKs-yV-yIv"/>
         <segue reference="Pe1-tz-aQB"/>
-        <segue reference="dWF-I1-MOo"/>
+        <segue reference="fmU-Qf-Psz"/>
         <segue reference="0Tu-BQ-hYn"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>

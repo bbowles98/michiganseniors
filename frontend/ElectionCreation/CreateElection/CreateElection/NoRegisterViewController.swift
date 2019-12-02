@@ -1,15 +1,15 @@
 //
-//  RegisterViewController.swift
+//  NoRegisterViewController.swift
 //  CreateElection
 //
-//  Created by Madelyn Rycenga on 11/26/19.
+//  Created by Madelyn Rycenga on 12/2/19.
 //  Copyright © 2019 Madelyn Rycenga. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class RegisterViewController: UIViewController {
+class NoRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,9 +26,10 @@ class RegisterViewController: UIViewController {
     var token:String = ""
     var host:String = ""
     
-    @IBAction func onBack(_ sender: Any) {
-        performSegue(withIdentifier: "BackToReady", sender: (Any).self)
+    @IBAction func onExit(_ sender: Any) {
+        performSegue(withIdentifier: "BackFromNotReg", sender: (Any).self)
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is VoteReadyViewController

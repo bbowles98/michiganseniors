@@ -82,22 +82,25 @@ class VoteReadyViewController: UIViewController {
                 if (result) {
                     self.canViewResults = true
                 }
+                DispatchQueue.main.async {
+                    self.ViewResultButton.isHidden = !self.canViewResults
+                    self.registrationButton.isHidden = self.isRegistered
+                    self.voteButton.isHidden = (self.canViewResults || !self.isRegistered)
+                    
+                    print("can view register button:")
+                    print(!self.isRegistered)
+                    print("Can view result button:")
+                    print(self.canViewResults)
+                    print("can view vote button:")
+                    print(!self.canViewResults && self.isRegistered)
+                }
+                
             }
            catch let error as NSError {
             print(error)
            }
         }
         task.resume()
-        
-        ViewResultButton.isHidden = !canViewResults
-        registrationButton.isHidden = isRegistered
-        voteButton.isEnabled = (!canViewResults && isRegistered)
-        print("can view register button:")
-        print(!isRegistered)
-        print("Can view result button:")
-        print(canViewResults)
-        print("can view vote button:")
-        print(!canViewResults && isRegistered)
     }
     
     override func didReceiveMemoryWarning() {
@@ -138,21 +141,27 @@ class VoteReadyViewController: UIViewController {
                        print("HTTP STATUS: \(httpStatus.statusCode)")
                        return}
                    do {
-                       let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                       print(json.debugDescription)
-                       print(json)
+                        let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                        print(json.debugDescription)
+                        print(json)
+                        DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "ToRegister", sender: (Any).self)
+                    }
                         
                    }
                   catch let error as NSError {
                    print(error)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "NoRegister", sender: (Any).self)
+                    }
                   }
                }
                task.resume()
     }
-    @IBOutlet weak var voteButton: UIBarButtonItem!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var host: UILabel!
     @IBOutlet weak var ViewResultButton: UIButton!
+    @IBOutlet weak var voteButton: UIButton!
     @IBAction func onVote(_ sender: Any) {
         // On the click off the vote button, segue to ballot
         self.performSegue(withIdentifier: "ToBallot", sender: (Any).self)
