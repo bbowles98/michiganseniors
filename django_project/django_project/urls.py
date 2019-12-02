@@ -40,4 +40,5 @@ urlpatterns = [
     url('notify/', views.Notify),
     url('publicRegister/', views.PublicRegister),
     url('getMessage/', views.GetMessage),
+    url('addElectionRestrictions/', views.AddElectionRestrictions)
 ]
