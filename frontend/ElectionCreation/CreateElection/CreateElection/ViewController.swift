@@ -149,6 +149,10 @@ class CreateElectViewController: UIViewController {
     
     @IBAction func createClicked(_ sender: UIBarButtonItem) {
         
+        allOptions.removeAll()
+        print("printing all options, should be at start of election")
+        print(allOptions.count)
+        
         print("give me a gd number: ")
         print(electID)
         
