@@ -109,7 +109,7 @@ class VoteReadyViewController: UIViewController {
     var hostName:String = ""
     var electionIDpassed:String = ""
     var token:String = ""
-    var canViewResults = false
+    var canViewResults = true
     var isRegistered = false
     
     @IBOutlet weak var registrationButton: UIButton!

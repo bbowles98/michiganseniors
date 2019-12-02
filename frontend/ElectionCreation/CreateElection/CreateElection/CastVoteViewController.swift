@@ -88,7 +88,7 @@ class CastVoteViewController: UIViewController {
                 optionButton.layer.cornerRadius = 10
                 optionButton.backgroundColor = UIColor.systemTeal
                 optionButton.setTitleColor(UIColor.white, for: UIControl.State.normal )
-                optionButton.setTitleColor(UIColor.black, for: .highlighted)
+                optionButton.setTitleColor(UIColor.black, for: .selected)
                 optionButton.setTitle(choice, for: UIControl.State.normal)
                 optionButton.isEnabled = true
                 optionButton.addTarget(self, action: #selector(self.voteSelected(_:)), for: .touchUpInside)
@@ -101,6 +101,12 @@ class CastVoteViewController: UIViewController {
     
     @IBAction func voteSelected(_ sender: UIButton){
         chosen = sender.titleLabel!.text!
+        for view in self.view.subviews as [UIView] {
+            if let button = view as? UIButton {
+                button.isSelected = false
+            }
+        }
+        sender.isSelected = true
         print("chosen option:")
         print(chosen)
     }
@@ -112,12 +118,20 @@ class CastVoteViewController: UIViewController {
     
     @IBAction func onClickCastVote(_ sender: Any) {
         // Package information into JSON
-        let json: [String: Any] = ["election_id": self.electionID, "candidate": chosen
+        let json: [String: Any] = ["election_id": Int(self.electionID)!, "candidate": chosen
         ]
+        print("jsonData for voting")
+        print(json)
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         var request = URLRequest(url:
             URL(string: "http://204.48.30.178/cast/")!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+        print("Cast Vote token:")
+        print(token)
         request.httpMethod = "POST"
         request.httpBody = jsonData
         
@@ -128,6 +142,8 @@ class CastVoteViewController: UIViewController {
                 return}
             if let httpStatus = response as? HTTPURLResponse,
                 httpStatus.statusCode != 200 {
+                print(httpStatus.allHeaderFields)
+                print(httpStatus.debugDescription)
                 print("HTTP STATUS: \(httpStatus.statusCode)")
                 return}
         }
