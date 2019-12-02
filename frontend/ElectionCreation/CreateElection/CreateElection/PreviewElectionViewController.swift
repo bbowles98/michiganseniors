@@ -86,9 +86,9 @@ class PreviewElectionViewController: UIViewController {
     
     func createBallot() {
         
-        print("printing whether it should be light mode or not")
-        print("AAHHHHHHHHHHH")
-        print(isLight)
+        //print("printing whether it should be light mode or not")
+        //print("AAHHHHHHHHHHH")
+        //print(isLight)
         var buttonY = 175
         print("the voting choices to preview are: ")
         print(choices)

@@ -86,7 +86,11 @@ class CastVoteViewController: UIViewController {
                 let optionButton = UIButton(frame: CGRect(x: 80, y: buttonY, width: 250, height: 60))
                 buttonY = buttonY + 100
                 optionButton.layer.cornerRadius = 10
-                optionButton.backgroundColor = UIColor.systemTeal
+                if isLight == false {
+                    optionButton.backgroundColor = UIColor.systemGray
+                } else {
+                    optionButton.backgroundColor = UIColor.systemTeal
+                }
                 optionButton.setTitleColor(UIColor.white, for: UIControl.State.normal )
                 optionButton.setTitleColor(UIColor.black, for: .selected)
                 optionButton.setTitle(choice, for: UIControl.State.normal)
