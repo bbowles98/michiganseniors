@@ -26,7 +26,7 @@ class DeleteElectViewController: UIViewController {
     var electionIDpassed:String = ""
     @IBOutlet weak var electNameLabel: UILabel!
     @IBAction func onSendResults(_ sender: Any) {
-    let getURL = "http://204.48.30.178/delete/"
+    let getURL = "http://204.48.30.178/notify/"
            let json: [String: Any] = ["election_id": self.electionIDpassed ?? "NULL",
                                       ]
            let jsonData = try? JSONSerialization.data(withJSONObject: json)
@@ -37,7 +37,7 @@ class DeleteElectViewController: UIViewController {
            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
            request.addValue("application/json", forHTTPHeaderField: "Accept")
            request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
-           request.httpMethod = "DELETE"
+           request.httpMethod = "POST"
            request.httpBody = jsonData
 
         
@@ -66,7 +66,11 @@ class DeleteElectViewController: UIViewController {
 
     
     @IBAction func onDelete(_ sender: Any) {
-        let getURL = "http://204.48.30.178/delete/election_id=" + self.electionIDpassed
+        let json: [String: Any] = ["election_id": self.electionIDpassed ?? "NULL",
+                                   ]
+        print(json)
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        let getURL = "http://204.48.30.178/delete/"
         
         // Get the data to load the ballot
         var request = URLRequest(url:
@@ -74,7 +78,8 @@ class DeleteElectViewController: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
-        request.httpMethod = "DELETE"
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request)
                { data, response, error in

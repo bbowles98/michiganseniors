@@ -173,6 +173,7 @@ class CreateElectViewController: UIViewController {
                                     "end_date": endString
         ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        print("POST", jsonData)
         var request = URLRequest(url:
             URL(string: "http://204.48.30.178/election/")!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -195,20 +196,28 @@ class CreateElectViewController: UIViewController {
                 return}
    
             let json = try? (JSONSerialization.jsonObject(with: data!) as! [String: Any])
-            election_id =  (json!["election_id"])! as! String
+            print("HERE", json!["election_id"])
+            election_id =  (json!["election_id"])!
             print("please print a number: ")
-            print(election_id)
-            self.electID = election_id as! String
+            print(type(of: election_id))
+            var temp = election_id as! Int
+            self.electID = String(temp)
+            print("Printing election id here: ", self.electID)
+            
+            // Create election object
+            DispatchQueue.main.async{
+                self.performSegue(withIdentifier: "ToAuthenticate", sender: self)
+
+            }
         }
         
         task.resume()
         
-        print("Printing the election ids: ")
-        print(self.electID)
-        print(election_id)
+//        print("Printing the election ids: ")
+//        print(self.electID)
+//        print(election_id)
         
-        // Create election object
-        performSegue(withIdentifier: "ToAuthenticate", sender: self)
+        
         
     }
     
@@ -223,6 +232,8 @@ class CreateElectViewController: UIViewController {
             //else {
                 //vc!.token = ""
             //}
+            print("printing electID before segue")
+            print(self.electID)
             vc!.electID = self.electID
         }
         
@@ -310,7 +321,7 @@ class ElectionViewController: UITableViewController {
       print(self.answers)
       print(self.electionQuestion)
         print("printing electID to test: ")
-        print(electID)
+        print(self.electID)
   
       // API REQUEST
       let json: [String: Any] = [

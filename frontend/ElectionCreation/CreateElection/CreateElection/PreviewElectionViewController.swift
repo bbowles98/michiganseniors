@@ -27,6 +27,7 @@ class PreviewElectionViewController: UIViewController {
     var election_id:String = ""
     
     @IBAction func onPublish(_ sender: Any) {
+        
         print("printing election_id to test it: ")
         print(self.election_id)
         let json: [String: Any] = [

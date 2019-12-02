@@ -33,7 +33,7 @@ class AuthenticationSetUpViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "ToAddOption" {
+    if segue.identifier == "ToAddOptions" {
         print("Going to add voting options: " + token)
         let navVC = segue.destination as? UINavigationController
         let vc = navVC?.viewControllers.first as? ElectionViewController
