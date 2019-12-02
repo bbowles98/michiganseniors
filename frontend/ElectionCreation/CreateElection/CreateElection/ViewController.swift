@@ -146,6 +146,10 @@ class CreateElectViewController: UIViewController {
     @IBOutlet weak var selectedEnd: UIDatePicker!
     
     @IBAction func createClicked(_ sender: UIBarButtonItem) {
+        
+        print("give me a gd number: ")
+        print(electID)
+        
         // the election has been set up, proceed to ballot creation
         print("sanitycheck here")
         // Determine who can view the election
@@ -192,14 +196,19 @@ class CreateElectViewController: UIViewController {
    
             let json = try? (JSONSerialization.jsonObject(with: data!) as! [String: Any])
             election_id =  (json!["election_id"])! as! String
+            print("please print a number: ")
             print(election_id)
             self.electID = election_id as! String
         }
         
         task.resume()
         
+        print("Printing the election ids: ")
+        print(self.electID)
+        print(election_id)
+        
         // Create election object
-        performSegue(withIdentifier: "ToAthenicate", sender: self)
+        performSegue(withIdentifier: "ToAuthenticate", sender: self)
         
     }
     
@@ -286,6 +295,7 @@ class ElectionViewController: UITableViewController {
     var electID:String = ""
     
     @IBAction func previewBallot(_ sender: Any) {
+        
         // need to add the proposal name and make the JSON
       let propName = self.propName.text!
       let election = Proposal(question: propName, choices: propChoices)
@@ -299,6 +309,8 @@ class ElectionViewController: UITableViewController {
       electionQuestion = election.question
       print(self.answers)
       print(self.electionQuestion)
+        print("printing electID to test: ")
+        print(electID)
   
       // API REQUEST
       let json: [String: Any] = [
@@ -323,7 +335,9 @@ class ElectionViewController: UITableViewController {
       print(token_response)
       request.httpMethod = "POST"
       request.httpBody = jsonData
-      print("jsonData: ")
+      print("electID 338: ")
+        print(electID)
+      print("jsonData 338: ")
       
       if let string = String(bytes: jsonData!, encoding: .utf8) {
           print(string)
@@ -366,7 +380,7 @@ class ElectionViewController: UITableViewController {
             vc!.token = token_response
             vc!.electionQuestion = self.electionQuestion
             vc!.choices = self.answers
-            vc!.election_id = electID
+            vc!.election_id = self.electID
         }
     }
         
