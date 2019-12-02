@@ -39,3 +39,8 @@ class VoterToElection(models.Model):
 
 	election = models.ForeignKey(Election, on_delete=models.CASCADE)
 	voter = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class ElectionKey(models.Model):
+
+	election = models.ForeignKey(Election, on_delete=models.CASCADE)
+	key = models.CharField(max_length=6, default="")
