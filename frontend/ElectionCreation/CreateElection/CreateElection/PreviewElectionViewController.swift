@@ -24,17 +24,15 @@ class PreviewElectionViewController: UIViewController {
     var electionQuestion:String = ""
     var choices: [String] = []
     var token:String = ""
+    var election_id:String = ""
     
     @IBAction func onPublish(_ sender: Any) {
         let json: [String: Any] = [
-            "election_id": election_id,
-                 "ballot_items": [
-                      [
-                        "question": self.electionQuestion,
-                        "choices" : self.choices
-                      ]
-                  ]
-              ]
+            "election_id": self.election_id,
+            "ballot_items": [
+                ["question" : self.electionQuestion, "choices" : self.choices]
+            ]
+        ]
               
               print("questions: " + electionQuestion)
               
@@ -78,21 +76,24 @@ class PreviewElectionViewController: UIViewController {
               }
               //run the previous copule lines of code in a seperate thread
         task.resume()
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "Created", sender: (Any).self)
     }
     
     @IBOutlet weak var questionTextLabel: UILabel!
     
     func createBallot() {
-        var buttonY = 0
+        var buttonY = 175
         print("the voting choices to preview are: ")
         print(choices)
         for choice in choices{
-            let optionButton = UIButton(frame: CGRect(x: 50, y: buttonY, width: 250, height: 30))
-            buttonY = buttonY + 50
+            print(choice)
+            let optionButton = UIButton(frame: CGRect(x: 80, y: buttonY, width: 250, height: 60))
+            buttonY = buttonY + 100
             optionButton.layer.cornerRadius = 10
-            optionButton.backgroundColor = UIColor.darkGray
-            optionButton.titleLabel?.text = choice
+            optionButton.backgroundColor = UIColor.systemTeal
+            optionButton.setTitleColor(UIColor.white, for: UIControl.State.normal )
+            optionButton.setTitle(choice, for: UIControl.State.normal)
+            optionButton.isEnabled = false
             optionButton.addTarget(self, action: Selector(("selectedChoice:")), for: UIControl.Event.touchUpInside)
             self.view.addSubview(optionButton)
         }

@@ -98,9 +98,10 @@
                                 <segue destination="bCd-6h-5GA" kind="show" id="ZQP-6k-uH7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="VTx-cv-cqd">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="VTx-cv-cqd">
                             <connections>
                                 <action selector="createClicked:" destination="Dtm-WJ-qFO" id="GLr-DR-h39"/>
+                                <segue destination="ben-mN-7jV" kind="show" identifier="ToAuthenticate" id="9Wf-Oa-x0E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -110,12 +111,89 @@
                         <outlet property="selectedEnd" destination="Afx-79-E4t" id="MNl-gU-nA4"/>
                         <outlet property="selectedStart" destination="zVP-kH-JLj" id="Nc1-P7-v44"/>
                         <outlet property="viewSelector" destination="74V-0a-26M" id="7d5-Vu-lE2"/>
-                        <segue destination="QUD-jV-AJd" kind="show" identifier="segueToVotingOptions" id="bpA-hh-5my"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faS-SH-GoQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="410.14492753623193" y="-1961.3839285714284"/>
+        </scene>
+        <!--Authentication Set Up-->
+        <scene sceneID="3Tk-KM-r0Z">
+            <objects>
+                <viewController id="2R5-VA-Qn4" customClass="AuthenticationSetUpViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wzv-w3-YQ2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the number of voters allowed:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7b-Mi-o10">
+                                <rect key="frame" x="20" y="154" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the allowed voter email domain name:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbN-UZ-HwG">
+                                <rect key="frame" x="20" y="253" width="374" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vAy-XB-Zho">
+                                <rect key="frame" x="81.5" y="198" width="250" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the following fields to set up the voter authentication process for your election." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g3-uZ-Mhm">
+                                <rect key="frame" x="20" y="86" width="374" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qA5-U9-Epl">
+                                <rect key="frame" x="81.5" y="308" width="250" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0g3-uZ-Mhm" firstAttribute="leading" secondItem="SWT-7M-jTZ" secondAttribute="leading" constant="20" id="3dl-3N-YTh"/>
+                            <constraint firstItem="vAy-XB-Zho" firstAttribute="top" secondItem="v7b-Mi-o10" secondAttribute="bottom" constant="20" id="DYd-uh-W96"/>
+                            <constraint firstItem="SWT-7M-jTZ" firstAttribute="trailing" secondItem="0g3-uZ-Mhm" secondAttribute="trailing" constant="20" id="Fso-cK-Vwl"/>
+                            <constraint firstItem="LbN-UZ-HwG" firstAttribute="leading" secondItem="SWT-7M-jTZ" secondAttribute="leading" constant="20" id="MbY-dg-Kfb"/>
+                            <constraint firstItem="v7b-Mi-o10" firstAttribute="leading" secondItem="SWT-7M-jTZ" secondAttribute="leading" constant="20" id="XeX-ed-wqr"/>
+                            <constraint firstItem="LbN-UZ-HwG" firstAttribute="top" secondItem="vAy-XB-Zho" secondAttribute="bottom" constant="20" id="YG5-Yn-QWE"/>
+                            <constraint firstItem="vAy-XB-Zho" firstAttribute="top" secondItem="v7b-Mi-o10" secondAttribute="bottom" constant="20" id="YMh-Ch-TDk"/>
+                            <constraint firstItem="SWT-7M-jTZ" firstAttribute="trailing" secondItem="v7b-Mi-o10" secondAttribute="trailing" constant="20" id="ZMF-Ij-AOK"/>
+                            <constraint firstItem="LbN-UZ-HwG" firstAttribute="top" secondItem="vAy-XB-Zho" secondAttribute="bottom" constant="20" id="cXa-me-QF5"/>
+                            <constraint firstItem="v7b-Mi-o10" firstAttribute="top" secondItem="0g3-uZ-Mhm" secondAttribute="bottom" constant="20" id="cYh-YS-UTf"/>
+                            <constraint firstItem="0g3-uZ-Mhm" firstAttribute="top" secondItem="SWT-7M-jTZ" secondAttribute="top" constant="30" id="cqB-nA-clV"/>
+                            <constraint firstItem="SWT-7M-jTZ" firstAttribute="trailing" secondItem="LbN-UZ-HwG" secondAttribute="trailing" constant="20" id="oQk-Ry-W0v"/>
+                            <constraint firstItem="qA5-U9-Epl" firstAttribute="top" secondItem="LbN-UZ-HwG" secondAttribute="bottom" constant="20" id="wPL-GG-b5x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SWT-7M-jTZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Authentication Set Up" id="BVB-hv-J4A">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="yUl-rJ-Heh">
+                            <connections>
+                                <action selector="onBack:" destination="2R5-VA-Qn4" id="Qf0-fK-mD6"/>
+                                <segue destination="E7G-ph-PVK" kind="show" identifier="BackToCreate" id="dWF-I1-MOo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="azL-J3-bU9">
+                            <connections>
+                                <action selector="onNext:" destination="2R5-VA-Qn4" id="OXI-xK-Gg2"/>
+                                <segue destination="dak-P7-4Wx" kind="show" identifier="ToAddOptions" id="tl2-Ke-gnc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="allowedDomain" destination="qA5-U9-Epl" id="nH5-kk-4gs"/>
+                        <outlet property="numVoters" destination="vAy-XB-Zho" id="m7p-h0-cH7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eR-oI-9it" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-1961"/>
         </scene>
         <!--Elect Manage View Controller-->
         <scene sceneID="5A5-ze-WMH">
@@ -282,6 +360,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="toCreatedElects:" destination="bCd-6h-5GA" eventType="touchUpInside" id="gkg-hf-dJL"/>
                                     <segue destination="YhV-Fx-o2P" kind="show" identifier="ToMyElects" id="TeM-eR-a0i"/>
                                 </connections>
                             </button>
@@ -581,7 +660,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCl-6a-jrg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5205.7971014492759" y="-1937.2767857142856"/>
+            <point key="canvasLocation" x="6272" y="-1937"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fjG-iW-nw9">
@@ -600,7 +679,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbB-mE-nZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4144.927536231884" y="-1937.2767857142856"/>
+            <point key="canvasLocation" x="5374" y="-1937"/>
         </scene>
         <!--Preview Election View Controller-->
         <scene sceneID="Nig-Ip-pQg">
@@ -611,7 +690,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GU8-XC-CWh">
-                                <rect key="frame" x="96" y="124" width="222" height="21"/>
+                                <rect key="frame" x="95.769637650630102" y="125" width="222.00000000000045" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -625,6 +704,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Publish" id="nhy-XX-eS1">
                             <connections>
                                 <action selector="onPublish:" destination="mJI-Gn-t3T" id="NYg-h3-hSu"/>
+                                <segue destination="bCd-6h-5GA" kind="show" identifier="Created" id="xmI-cP-9Xi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -634,7 +714,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlK-DX-6fm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3066.666666666667" y="-2643.0803571428569"/>
+            <point key="canvasLocation" x="5185.507246376812" y="-2633.0357142857142"/>
         </scene>
         <!--Voting Options-->
         <scene sceneID="qTx-YC-ewj">
@@ -720,26 +800,27 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Preview" id="T6e-eV-SnE">
                             <connections>
-                                <action selector="makeElection:" destination="QUD-jV-AJd" id="4ht-ap-K9g"/>
-                                <segue destination="mJI-Gn-t3T" kind="show" identifier="ToPreview" id="oJS-DE-va8"/>
+                                <action selector="previewBallot:" destination="QUD-jV-AJd" id="ngi-8k-q13"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="propName" destination="NHn-dm-tBp" id="yWF-my-HnQ"/>
+                        <segue destination="mJI-Gn-t3T" kind="show" identifier="ToPreview" id="wZ2-Kt-1G4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2yS-6G-noj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3068.115942028986" y="-1937.2767857142856"/>
+            <point key="canvasLocation" x="4281" y="-1961"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UeR-c3-ysr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dak-P7-4Wx" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="rVk-fy-bgn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LPj-gU-IQY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -749,7 +830,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFm-mD-stt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050.7246376811595" y="-1937.2767857142856"/>
+            <point key="canvasLocation" x="3162" y="-1961"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="pBm-tT-dRd">
@@ -903,25 +984,54 @@
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Here are some super helpful notes and rules for this here election." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3zW-9b-2nH">
-                                <rect key="frame" x="80" y="123.5" width="254" height="545.5"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Here are some super helpful notes and rules for this here election." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3zW-9b-2nH">
+                                <rect key="frame" x="80" y="124" width="254" height="134"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
-                                <rect key="frame" x="274" y="72.5" width="120" height="21"/>
+                                <rect key="frame" x="312" y="82.5" width="82" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="E3q-ga-rKz"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXQ-fl-HKn">
-                                <rect key="frame" x="80" y="689" width="254" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
+                                <rect key="frame" x="20" y="82.5" width="79" height="21"/>
+                                <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-8h-RvJ">
+                                <rect key="frame" x="80" y="393" width="254" height="45"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRegister:" destination="WVG-bl-a6m" eventType="touchUpInside" id="aGP-BW-YeZ"/>
+                                    <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="QwJ-eO-9gg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTb-eg-MCJ">
+                                <rect key="frame" x="80" y="469" width="254" height="39"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Vote">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bV4-HW-Adc" kind="show" identifier="ToBallot" id="Aeq-9v-2jW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXQ-fl-HKn">
+                                <rect key="frame" x="80" y="546" width="254" height="39"/>
                                 <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -934,44 +1044,28 @@
                                     <segue destination="zJL-KU-E5X" kind="show" identifier="ToResults" id="TNJ-sO-pNU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hosted by:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
-                                <rect key="frame" x="20" y="129" width="115" height="21"/>
-                                <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <color key="textColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-8h-RvJ">
-                                <rect key="frame" x="80" y="624" width="254" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onRegister:" destination="WVG-bl-a6m" eventType="touchUpInside" id="aGP-BW-YeZ"/>
-                                    <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="QwJ-eO-9gg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="hAc-h4-YtL" firstAttribute="leading" secondItem="Ack-kj-h1n" secondAttribute="trailing" constant="8" id="0cs-2h-bvq"/>
-                            <constraint firstItem="Ack-kj-h1n" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="20" id="5Ha-H2-BfS"/>
+                            <constraint firstItem="hAc-h4-YtL" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="30" id="2vA-cx-1kf"/>
+                            <constraint firstItem="3zW-9b-2nH" firstAttribute="top" secondItem="hAc-h4-YtL" secondAttribute="bottom" constant="30" id="6iP-zM-O3Q"/>
                             <constraint firstItem="WXQ-fl-HKn" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="89w-7W-HUG"/>
-                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="hAc-h4-YtL" secondAttribute="trailing" constant="20" id="96W-7U-QDG"/>
-                            <constraint firstItem="WXQ-fl-HKn" firstAttribute="top" secondItem="3zW-9b-2nH" secondAttribute="bottom" constant="20" id="GCj-Rs-d3Z"/>
-                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="bottom" secondItem="WXQ-fl-HKn" secondAttribute="bottom" constant="80" id="Gcc-QG-m1T"/>
+                            <constraint firstItem="ZgZ-8h-RvJ" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="ASM-ig-xOM"/>
                             <constraint firstItem="Yg7-Bj-fyL" firstAttribute="top" secondItem="IHf-ww-Yfx" secondAttribute="top" constant="30" id="HaL-kh-1hV"/>
-                            <constraint firstItem="3zW-9b-2nH" firstAttribute="top" secondItem="hAc-h4-YtL" secondAttribute="bottom" constant="30" id="Qe9-r0-CvC"/>
+                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="uTb-eg-MCJ" secondAttribute="trailing" constant="80" id="PjL-vk-i0o"/>
+                            <constraint firstItem="Ack-kj-h1n" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="20" id="PqC-rc-bCg"/>
+                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="ZgZ-8h-RvJ" secondAttribute="trailing" constant="80" id="TWE-dH-8Fi"/>
+                            <constraint firstItem="ZgZ-8h-RvJ" firstAttribute="top" secondItem="3zW-9b-2nH" secondAttribute="bottom" constant="20" id="TyP-EH-qtz"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="3zW-9b-2nH" secondAttribute="trailing" constant="80" id="aHi-UO-GJf"/>
+                            <constraint firstItem="WXQ-fl-HKn" firstAttribute="top" secondItem="uTb-eg-MCJ" secondAttribute="bottom" constant="20" id="gwu-gT-DVq"/>
                             <constraint firstItem="3zW-9b-2nH" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="iM2-o1-fqx"/>
-                            <constraint firstItem="Ack-kj-h1n" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="20" id="kLY-59-8w9"/>
                             <constraint firstItem="Yg7-Bj-fyL" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="20" id="lHm-gm-8g5"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="Yg7-Bj-fyL" secondAttribute="trailing" constant="20" id="nUe-YM-SPA"/>
-                            <constraint firstItem="hAc-h4-YtL" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="20" id="pR8-aE-KT4"/>
                             <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="WXQ-fl-HKn" secondAttribute="trailing" constant="80" id="slb-yj-gB7"/>
+                            <constraint firstItem="uTb-eg-MCJ" firstAttribute="top" secondItem="ZgZ-8h-RvJ" secondAttribute="bottom" constant="20" id="uJe-ng-J0c"/>
+                            <constraint firstItem="IHf-ww-Yfx" firstAttribute="trailing" secondItem="hAc-h4-YtL" secondAttribute="trailing" constant="20" id="vhO-8l-ryb"/>
+                            <constraint firstItem="Ack-kj-h1n" firstAttribute="top" secondItem="Yg7-Bj-fyL" secondAttribute="bottom" constant="30" id="wk5-5P-iiW"/>
+                            <constraint firstItem="uTb-eg-MCJ" firstAttribute="leading" secondItem="IHf-ww-Yfx" secondAttribute="leading" constant="80" id="wy6-ZM-sC9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IHf-ww-Yfx"/>
                     </view>
@@ -979,7 +1073,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Vote" id="0hB-PT-pPx">
                             <connections>
                                 <action selector="onVote:" destination="WVG-bl-a6m" id="6qc-KZ-rEu"/>
-                                <segue destination="bV4-HW-Adc" kind="show" identifier="ToBallot" id="lR4-x8-vwH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1003,13 +1096,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBt-6B-qmT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBt-6B-qmT">
                                 <rect key="frame" x="118" y="140" width="179" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laF-yt-xwP">
+                                <rect key="frame" x="81" y="498" width="246" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Cast Vote">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="eIz-iX-LOV"/>
@@ -1028,7 +1130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwX-7y-rdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3526" y="-856"/>
+            <point key="canvasLocation" x="3524.6376811594205" y="-856.47321428571422"/>
         </scene>
         <!--Vote Complete-->
         <scene sceneID="nQC-ZU-NBB">
@@ -1051,6 +1153,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="bCd-6h-5GA" kind="show" id="0Tu-BQ-hYn"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Thank you for voting!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NPg-G9-DwM">
                                 <rect key="frame" x="71" y="87" width="272" height="55"/>
@@ -1238,14 +1343,34 @@
             </objects>
             <point key="canvasLocation" x="3904.347826086957" y="-138.61607142857142"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6dJ-UV-adu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ben-mN-7jV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="DZo-EC-P9K"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="01d-GD-GPb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2R5-VA-Qn4" kind="relationship" relationship="rootViewController" id="FGt-6w-VZo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EdJ-E3-zkr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="-2314"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wZ2-Kt-1G4"/>
         <segue reference="bxq-YA-BFd"/>
-        <segue reference="bpA-hh-5my"/>
-        <segue reference="eAW-bC-ZIK"/>
-        <segue reference="71i-IC-api"/>
+        <segue reference="fmU-Qf-Psz"/>
+        <segue reference="xmI-cP-9Xi"/>
+        <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>

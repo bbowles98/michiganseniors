@@ -89,10 +89,14 @@ class VoteReadyViewController: UIViewController {
         }
         task.resume()
         
-        ViewResultButton.isHidden = false//!canViewResults
-        registrationButton.isHidden = false//(isRegistered)
-        voteButton.isEnabled = true//(!canViewResults && isRegistered)
-        print("can vote?")
+        ViewResultButton.isHidden = !canViewResults
+        registrationButton.isHidden = isRegistered
+        voteButton.isEnabled = (!canViewResults && isRegistered)
+        print("can view register button:")
+        print(!isRegistered)
+        print("Can view result button:")
+        print(canViewResults)
+        print("can view vote button:")
         print(!canViewResults && isRegistered)
     }
     

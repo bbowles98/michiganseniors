@@ -22,7 +22,7 @@ class ElectManageViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //searchBar.delegate = self
+        searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         let getURL = "http://204.48.30.178/elections/"
         
@@ -50,10 +50,10 @@ class ElectManageViewController: UIViewController {
                 return}
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                print(json.debugDescription)
-                print(json)
+                //print(json.debugDescription)
+                //print(json)
                 elections = json["election"] as! [Dictionary<String, Any>]
-                print(elections)
+                //print(elections)
             }
            catch let error as NSError {
             print(error)
@@ -105,6 +105,7 @@ extension ElectManageViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("kevins test")
         let cell = UITableViewCell()
         if searching {
             cell.textLabel!.text = (results[indexPath.row]["name"] as! String)
