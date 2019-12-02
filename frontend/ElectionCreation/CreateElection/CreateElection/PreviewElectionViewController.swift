@@ -27,6 +27,8 @@ class PreviewElectionViewController: UIViewController {
     var election_id:String = ""
     
     @IBAction func onPublish(_ sender: Any) {
+        print("printing election_id to test it: ")
+        print(self.election_id)
         let json: [String: Any] = [
             "election_id": self.election_id,
             "ballot_items": [
@@ -46,7 +48,7 @@ class PreviewElectionViewController: UIViewController {
               print(token)
               request.httpMethod = "POST"
               request.httpBody = jsonData
-              print("jsonData: ")
+              print("jsonData 51: ")
               
               if let string = String(bytes: jsonData!, encoding: .utf8) {
                   print(string)

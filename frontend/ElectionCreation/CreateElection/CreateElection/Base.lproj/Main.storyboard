@@ -32,19 +32,12 @@
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
                                     <!--2018-09-01 10:00:00 +0000-->
                                 </date>
-                                <connections>
-                                    <action selector="GetStartDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="9oN-na-3wB"/>
-                                    <action selector="verifyDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="Mhn-by-13K"/>
-                                </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" restorationIdentifier="endDate" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Afx-79-E4t">
                                 <rect key="frame" x="20" y="510" width="374" height="216"/>
                                 <date key="minimumDate" timeIntervalSinceReferenceDate="557488800">
                                     <!--2018-09-01 10:00:00 +0000-->
                                 </date>
-                                <connections>
-                                    <action selector="GetEndDate:" destination="Dtm-WJ-qFO" eventType="editingDidEnd" id="k58-I7-F8J"/>
-                                </connections>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Election Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G1F-ht-S4l">
                                 <rect key="frame" x="80" y="107" width="254" height="34"/>
@@ -101,16 +94,15 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="VTx-cv-cqd">
                             <connections>
                                 <action selector="createClicked:" destination="Dtm-WJ-qFO" id="GLr-DR-h39"/>
-                                <segue destination="ben-mN-7jV" kind="show" identifier="ToAuthenticate" id="9Wf-Oa-x0E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ElectionName" destination="G1F-ht-S4l" id="7Gm-38-6k0"/>
-                        <outlet property="SelectedStart" destination="zVP-kH-JLj" id="jMF-br-SPy"/>
                         <outlet property="selectedEnd" destination="Afx-79-E4t" id="MNl-gU-nA4"/>
                         <outlet property="selectedStart" destination="zVP-kH-JLj" id="Nc1-P7-v44"/>
                         <outlet property="viewSelector" destination="74V-0a-26M" id="7d5-Vu-lE2"/>
+                        <segue destination="ben-mN-7jV" kind="show" identifier="ToAuthenticate" id="Dzx-oS-QJL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faS-SH-GoQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -979,7 +971,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Election Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg7-Bj-fyL">
-                                <rect key="frame" x="20" y="30" width="374" height="22.5"/>
+                                <rect key="frame" x="20" y="86" width="374" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -992,14 +984,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-h4-YtL">
-                                <rect key="frame" x="312" y="82.5" width="82" height="21"/>
+                                <rect key="frame" x="312" y="138.5" width="82" height="21"/>
                                 <accessibility key="accessibilityConfiguration" identifier="HostName"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted by:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ack-kj-h1n">
-                                <rect key="frame" x="20" y="82.5" width="79" height="21"/>
+                                <rect key="frame" x="20" y="138.5" width="79" height="21"/>
                                 <accessibility key="accessibilityConfiguration" hint="Election Name" identifier="ElectName"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1367,10 +1359,9 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wZ2-Kt-1G4"/>
-        <segue reference="bxq-YA-BFd"/>
+        <segue reference="WKm-IJ-EvW"/>
         <segue reference="fmU-Qf-Psz"/>
-        <segue reference="xmI-cP-9Xi"/>
+        <segue reference="ZQP-6k-uH7"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>
