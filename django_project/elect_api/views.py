@@ -198,13 +198,12 @@ def Cast(request):
 
 	try:
 		response = requests.post(url=vote_corda_url, data=data, headers=headers)
-		vote_to_election = VoterToElection.objects.create()
-		vote_to_election.election = election
-		vote_to_election.voter = user
-		vote_to_election.save()
 
 	except:
 		return JsonResponse({'success': False})
+
+	voter_to_election = VoterToElection(election=election, voter=user)
+	voter_to_election.save()
 
 	msg = "Subject: You've Voted!\n\nYou have been successfully voted in " + election.name
 	sendMail(user.email, msg)
@@ -238,6 +237,7 @@ def Vote(request):
 			choices.append(ballot_item_choice.answer)
 		ballot[ballot_item.question] = choices
 		response.append(ballot)
+	response['is_light'] = election.message
 	return JsonResponse({"ballot": response})
 
 
@@ -290,6 +290,10 @@ def CreateBallot(request):
 	election = Election.objects.get(pk=request.data['election_id'])
 	if not election or election.creator != user:
 		return JsonResponse({'success': False})
+
+	is_light = request.data['is_light']
+	election.message = is_light
+	election.save()
 
 	for ballot_item in request.data['ballot_items']:
 
