@@ -143,6 +143,7 @@ class CreateElectViewController: UIViewController {
     @IBOutlet weak var viewSelector: UISegmentedControl!
     var token:String = ""
     var electID = ""
+    var isPublic = true
     @IBOutlet weak var selectedStart: UIDatePicker!
     @IBOutlet weak var selectedEnd: UIDatePicker!
     
@@ -158,10 +159,6 @@ class CreateElectViewController: UIViewController {
         // the election has been set up, proceed to ballot creation
         print("sanitycheck here")
         // Determine who can view the election
-        var isPublic = true
-        if (viewSelector.isEnabledForSegment(at: 1)) {
-            isPublic = false
-        }
         print(isPublic)
         
         // Check fields are valid
@@ -219,6 +216,17 @@ class CreateElectViewController: UIViewController {
         
         task.resume()
         
+    }
+    
+    @IBAction func publicChanged(_ sender: Any) {
+        switch viewSelector.selectedSegmentIndex {
+            case 0:
+                self.isPublic = true
+            case 1:
+                self.isPublic = false
+            default:
+                break
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
