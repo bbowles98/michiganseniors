@@ -178,13 +178,13 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="azL-J3-bU9">
                             <connections>
                                 <action selector="onNext:" destination="2R5-VA-Qn4" id="OXI-xK-Gg2"/>
-                                <segue destination="dak-P7-4Wx" kind="show" identifier="ToAddOptions" id="tl2-Ke-gnc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="allowedDomain" destination="qA5-U9-Epl" id="nH5-kk-4gs"/>
                         <outlet property="numVoters" destination="vAy-XB-Zho" id="m7p-h0-cH7"/>
+                        <segue destination="dak-P7-4Wx" kind="show" identifier="ToAddOptions" id="D7i-Is-fCg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eR-oI-9it" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -607,7 +607,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0ua-Zh-kcf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bmg-De-K7x">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1456,7 +1456,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="oKy-mv-4ol"/>
         <segue reference="6ib-JY-s6f"/>
-        <segue reference="fmU-Qf-Psz"/>
+        <segue reference="dWF-I1-MOo"/>
         <segue reference="eAW-bC-ZIK"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
