@@ -280,8 +280,7 @@ def Vote(request):
 			choices.append(ballot_item_choice.answer)
 		ballot[ballot_item.question] = choices
 		response.append(ballot)
-	response['is_light'] = election.message
-	return JsonResponse({"ballot": response})
+	return JsonResponse({"ballot": response, 'is_light': election.message})
 
 
 
