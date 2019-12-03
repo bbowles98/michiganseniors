@@ -12,7 +12,6 @@ var token_response = ""
 var election_id: Any = -1
 var electPass = ""
 var elections: [Dictionary<String, Any>] = []
-var isLight = false
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
@@ -324,6 +323,7 @@ class ElectionViewController: UITableViewController {
     var electionQuestion:String = ""
     var token:String = ""
     var electID:String = ""
+    var isLight:Bool = false
     
     @IBAction func previewBallot(_ sender: Any) {
         
@@ -341,62 +341,6 @@ class ElectionViewController: UITableViewController {
         print("printing electID to test: ")
         print(self.electID)
   
-      // API REQUEST
-      /*let json: [String: Any] = [
-          "election_id": electID,
-         "ballot_items": [
-              [
-                  "question": election.question,
-                  "choices" : self.answers
-              ]
-          ]
-      ]
-      
-      print("questions: " + election.question)
-      
-      let jsonData = try? JSONSerialization.data(withJSONObject: json)
-      var request = URLRequest(url: URL(string: "http://204.48.30.178/ballot/")!)
-      request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-      request.addValue("application/json", forHTTPHeaderField: "Accept")
-      
-      request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
-      print("ballot token:")
-      print(token_response)
-      request.httpMethod = "POST"
-      request.httpBody = jsonData
-      print("electID 338: ")
-        print(electID)
-      print("jsonData 338: ")
-      
-      if let string = String(bytes: jsonData!, encoding: .utf8) {
-          print(string)
-      }
-      
-
-      //async error handling
-      let task = URLSession.shared.dataTask(with: request) { data, response, error in
-          guard let _ = data, error == nil else {
-              
-              print("NETWORKING ERROR")
-              return
-          }
-          
-          if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-              
-              print(response.debugDescription)
-              print("HTTP STATUS: \(httpStatus.statusCode)")
-              return
-          }
-          do {
-              let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-
-          }
-          catch let error as NSError {
-              print(error)
-          }
-      }
-      //run the previous copule lines of code in a seperate thread
-      task.resume()*/
       performSegue(withIdentifier: "ToPreview", sender: (Any).self)
           
     }
@@ -410,6 +354,7 @@ class ElectionViewController: UITableViewController {
             vc!.electionQuestion = self.electionQuestion
             vc!.choices = self.answers
             vc!.election_id = self.electID
+            vc!.isLight = self.isLight
         }
     }
         
