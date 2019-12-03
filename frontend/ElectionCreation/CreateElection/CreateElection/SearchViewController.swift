@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     var data = elections
     var results: [Dictionary<String, Any>] = []
     var searching = false
-    var selectedElect = 0
+    var selectedElect = -1
     var electionID = ""
     var token:String = ""
     
@@ -26,8 +26,47 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+        results = []
+        //elections = [] ?
         searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
+        let getURL = "http://204.48.30.178/search?name="
+        
+        // Get the data to load the ballot
+        var request = URLRequest(url:
+            URL(string: getURL)!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request)
+        { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return}
+            if let httpStatus = response as? HTTPURLResponse,
+                httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return}
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                print(json.debugDescription)
+                print(json)
+                elections = json["election"] as! [Dictionary<String, Any>]
+                print(elections)
+            }
+           catch let error as NSError {
+            print(error)
+           }
+        }
+        task.resume()
+ */
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        results = []
         let getURL = "http://204.48.30.178/search?name="
         
         // Get the data to load the ballot

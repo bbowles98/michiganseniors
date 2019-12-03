@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 class ElectManageViewController: UIViewController {
     
-    var data = elections
+    //var data = elections
     var results: [Dictionary<String, Any>] = []
     var searching = false
     var selectedElect = 0
@@ -22,6 +22,8 @@ class ElectManageViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        results = []
         searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         let getURL = "http://204.48.30.178/elections/"
@@ -60,6 +62,7 @@ class ElectManageViewController: UIViewController {
            }
         }
         task.resume()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,17 +81,24 @@ class ElectManageViewController: UIViewController {
         {
             let vc = segue.destination as? DeleteElectViewController
             
+            vc!.selectedElect = selectedElect
             vc!.token = token
            if (searching) {
                 vc!.electionName = results[selectedElect]["name"] as! String
                 vc!.hostName = results[selectedElect]["creator"] as! String
                 vc!.electionIDpassed = String(results[selectedElect]["election_id"] as! Int)
+                /* results.remove(at: selectedElect)
+                print("it deleted this correctly")
+                print(results[selectedElect]["name"]) */
             }
             else {
                 let election = elections[selectedElect]
                 vc!.electionName = election["name"] as! String
                 vc!.hostName = election["creator"] as! String
                 vc!.electionIDpassed = String(election["election_id"] as! Int)
+                /* elections.remove(at: selectedElect)
+                print("it deleted this correctly")
+                print(elections[selectedElect]["name"]) */
             }
         }
     }
@@ -110,6 +120,7 @@ extension ElectManageViewController: UITableViewDelegate, UITableViewDataSource 
         if searching {
             cell.textLabel!.text = (results[indexPath.row]["name"] as! String)
         } else {
+            print(elections[indexPath.row]["name"])
             cell.textLabel!.text = (elections[indexPath.row]["name"] as! String)
         }
         return cell

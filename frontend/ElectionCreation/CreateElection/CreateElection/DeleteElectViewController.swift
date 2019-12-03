@@ -24,6 +24,7 @@ class DeleteElectViewController: UIViewController {
     var electionName:String = ""
     var hostName:String = ""
     var electionIDpassed:String = ""
+    var selectedElect:Int = -1
     @IBOutlet weak var electNameLabel: UILabel!
     @IBAction func onSendResults(_ sender: Any){
         print("THIS IS WHERE YOURE SENDING DELETE REQUEST")
@@ -100,6 +101,7 @@ class DeleteElectViewController: UIViewController {
                    print(error)
                   }
                }
+        elections.remove(at: selectedElect)
                task.resume()
         
         performSegue(withIdentifier: "JustDeleted", sender: (Any).self)
