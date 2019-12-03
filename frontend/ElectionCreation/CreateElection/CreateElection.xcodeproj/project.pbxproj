@@ -13,6 +13,7 @@
 		3D39B5DD2371227A0032ADC5 /* CastVoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5DC2371227A0032ADC5 /* CastVoteViewController.swift */; };
 		3D39B5DF237122950032ADC5 /* VoteReadyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B5DE237122950032ADC5 /* VoteReadyController.swift */; };
 		3D8D84B823761FF300C84EF6 /* SignInSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D84B723761FF300C84EF6 /* SignInSignUp.swift */; };
+		656679BB2395F57C00EEE377 /* PrivateRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656679BA2395F57C00EEE377 /* PrivateRegisterViewController.swift */; };
 		E7BCB960238B2B0F00FFAEE2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB95F238B2B0F00FFAEE2 /* ResultsViewController.swift */; };
 		E7BCB962238B2BCF00FFAEE2 /* ResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB961238B2BCF00FFAEE2 /* ResultViewCell.swift */; };
 		E7BCB964238B317100FFAEE2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BCB963238B317100FFAEE2 /* SearchViewController.swift */; };
@@ -40,6 +41,7 @@
 		3D39B5DC2371227A0032ADC5 /* CastVoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastVoteViewController.swift; sourceTree = "<group>"; };
 		3D39B5DE237122950032ADC5 /* VoteReadyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteReadyController.swift; sourceTree = "<group>"; };
 		3D8D84B723761FF300C84EF6 /* SignInSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUp.swift; sourceTree = "<group>"; };
+		656679BA2395F57C00EEE377 /* PrivateRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateRegisterViewController.swift; sourceTree = "<group>"; };
 		E7BCB95F238B2B0F00FFAEE2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		E7BCB961238B2BCF00FFAEE2 /* ResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewCell.swift; sourceTree = "<group>"; };
 		E7BCB963238B317100FFAEE2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				3D39B5DC2371227A0032ADC5 /* CastVoteViewController.swift */,
 				3D39B5DE237122950032ADC5 /* VoteReadyController.swift */,
 				3D8D84B723761FF300C84EF6 /* SignInSignUp.swift */,
+				656679BA2395F57C00EEE377 /* PrivateRegisterViewController.swift */,
 			);
 			path = CreateElection;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				3D39B5DB237108E30032ADC5 /* VotingOption.swift in Sources */,
 				E7BCB96E238D6D9300FFAEE2 /* RegisterViewController.swift in Sources */,
 				E7BCB96C238CD3FE00FFAEE2 /* PreviewElectionViewController.swift in Sources */,
+				656679BB2395F57C00EEE377 /* PrivateRegisterViewController.swift in Sources */,
 				E7BCB9722395BD5300FFAEE2 /* NoRegisterViewController.swift in Sources */,
 				E7E088F2236FC9A4001AEA3B /* AppDelegate.swift in Sources */,
 				E7BCB96A238CA1E200FFAEE2 /* DeleteElectViewController.swift in Sources */,
