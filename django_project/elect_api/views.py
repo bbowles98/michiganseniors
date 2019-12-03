@@ -198,6 +198,11 @@ def Cast(request):
 
 	try:
 		response = requests.post(url=vote_corda_url, data=data, headers=headers)
+		vote_to_election = VoterToElection.objects.create()
+		vote_to_election.election = election
+		vote_to_election.voter = user
+		vote_to_election.save()
+
 	except:
 		return JsonResponse({'success': False})
 
