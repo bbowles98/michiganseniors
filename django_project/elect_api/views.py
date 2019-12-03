@@ -295,10 +295,7 @@ def CreateElection(request):
 
 	passcode = random.randint(100000, 999999)
 	message = ""
-	try:
-		message = request.data['message']
-	except:
-		return JsonResponse({'success': False, 'error': 'Please send message with election data'})
+	message = request.data['message']
 
 
 	new_election = Election.objects.create(
