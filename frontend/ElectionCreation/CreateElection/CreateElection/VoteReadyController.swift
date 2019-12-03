@@ -23,7 +23,6 @@ class VoteReadyViewController: UIViewController {
         request1.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request1.addValue("application/json", forHTTPHeaderField: "Accept")
 
-        //token_response here is the same token_response that is created during Signin. (See line 76)
         print("cast vote token: " + token)
         request1.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
         request1.httpMethod = "GET"
@@ -61,8 +60,6 @@ class VoteReadyViewController: UIViewController {
             URL(string: getURL)!)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-        //token_response here is the same token_response that is created during Signin. (See line 76)
         print("cast vote token: " + token)
         request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
@@ -142,22 +139,23 @@ class VoteReadyViewController: UIViewController {
             if let httpStatus = response as? HTTPURLResponse,
                 httpStatus.statusCode != 200 {
                 print("HTTP STATUS: \(httpStatus.statusCode)")
-                return}
+                return }
             do {
-                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                 let json = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
                 print(json.debugDescription)
                 print(json)
                 self.isPublic = json["public"] as! Bool
                 if self.isPublic == true {
                     self.registerFunc()
-                } else {
+                }
+                else {
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: "toPrivateRegister", sender: (Any).self)
                     }
                 }
             }
            catch let error as NSError {
-            print(error)
+                print(error)
            }
         }
         task.resume()
