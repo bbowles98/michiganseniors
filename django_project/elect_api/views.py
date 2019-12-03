@@ -563,7 +563,7 @@ def AddElectionRestrictions(request):
 				key = key
 			)
 
-		sendMail(election.creator.email, "Subject: Your Keys\n\n" + ', '.join(str(e) for e in keys))
+		sendMail(election.creator.email, "Subject: Your Keys\n\nSend each voter one of these private passcodes to give them access to vote in your eleciton\n\n" + ', '.join(str(e) for e in keys))
 
 	try:
 		if 'email_domain' in request.data.keys() and request.data['email_domain'] != '':
