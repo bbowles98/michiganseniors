@@ -535,6 +535,19 @@ def GetMessage(request):
 
 	return JsonResponse({'message': election.message})
 
+# POST request for registering for an election
+@csrf_exempt
+@api_view(['GET'])
+@permission_classes((IsAuthenticated, ))
+def IsPublic(request):
+
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'error': 'Election not found, make sure election_id is sent correctly.'})
+
+	return JsonResponse({'public': election.status})
+
 
 @csrf_exempt
 @api_view(['POST'])
