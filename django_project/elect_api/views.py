@@ -198,13 +198,12 @@ def Cast(request):
 
 	try:
 		response = requests.post(url=vote_corda_url, data=data, headers=headers)
-		vote_to_election = VoterToElection.objects.create()
-		vote_to_election.election = election
-		vote_to_election.voter = user
-		vote_to_election.save()
 
 	except:
 		return JsonResponse({'success': False})
+
+	voter_to_election = VoterToElection(election=election, voter=user)
+	voter_to_election.save()
 
 	msg = "Subject: You've Voted!\n\nYou have been successfully voted in " + election.name
 	sendMail(user.email, msg)
