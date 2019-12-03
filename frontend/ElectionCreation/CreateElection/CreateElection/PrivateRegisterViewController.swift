@@ -47,7 +47,7 @@ class PrivateRegisterViewController: UIViewController {
                    do {
                         let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                         print(json.debugDescription)
-                        print(json)
+                        print("THIS", json)
                         
                     let temp = json["success"] as! Bool
                         if !temp {
