@@ -313,7 +313,12 @@ class ElectionViewController: UITableViewController {
         print("what is happening")
         super.viewDidLoad()
         if (self.answers != [String]()) {
-            
+            if (self.isLight) {
+                self.mode.selectedSegmentIndex = 0
+            }
+            else {
+                self.mode.selectedSegmentIndex = 1
+            }
             allOptions = self.answers
             answers = [String]()
             self.propName.text! = electionQuestion
@@ -323,7 +328,7 @@ class ElectionViewController: UITableViewController {
     var electionQuestion:String = ""
     var token:String = ""
     var electID:String = ""
-    var isLight:Bool = false
+    var isLight:Bool = true
     
     @IBAction func previewBallot(_ sender: Any) {
         
@@ -374,44 +379,6 @@ class ElectionViewController: UITableViewController {
         //Dispose of any resources that can be created
     }
 }
-
-//************************************************  CREATE OPTIONS ************************************************//
-//*****************************************************************************************************************//
-
-/*
-class CreateOptionViewController: UIViewController {
-    
-    @IBOutlet weak var optionName: UITextField!
-    @IBOutlet weak var optionInfo: UITextView!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
-    
-    @IBAction func addVotingOption(_ sender: UIBarButtonItem) {
-        
-        let option = votingOption(optionName: self.optionName.text!, optionInfo: self.optionInfo.text ?? "NULL")
-        
-        propChoices.append(option)
-        
-        print("printing added choice here:")
-        print(option.optionName)
-        // goes back to preview view controller
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelVotingOption(_ sender: UIBarButtonItem) {
-        // goes back to preview view controller
-        dismiss(animated: true, completion: nil)
-    }
-    
-} */
 
 class MainViewController: UIViewController {
     override func viewDidLoad() {
