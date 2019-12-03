@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 class ElectManageViewController: UIViewController {
     
-    //var data = elections
+    var data = elections
     var results: [Dictionary<String, Any>] = []
     var searching = false
     var selectedElect = 0

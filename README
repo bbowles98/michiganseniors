@@ -51,6 +51,7 @@ The digital ocean server is located at 204.48.30.178.
 		SEND
 		{
 			"election_id": int,
+			"is_light": string,
 			"ballot_items": [{"question": “<example question>”, "choices" :[“<answer1>“, “<answer2>“, “<answer3>”]}]
 		}
 		
@@ -189,6 +190,7 @@ The digital ocean server is located at 204.48.30.178.
 		{
 			"ballot": {
 				{
+					"is_light": string,
 					question of ballot: [
 						answer1,
 						answer2,
