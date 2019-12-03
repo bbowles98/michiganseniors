@@ -196,7 +196,7 @@
             <objects>
                 <viewController id="YhV-Fx-o2P" customClass="ElectManageViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ars-Z9-goC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4rj-ai-YrN">
@@ -245,7 +245,7 @@
             <objects>
                 <viewController id="RCc-Uh-b1u" customClass="DeleteElectViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qV7-36-OZd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Election Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAA-2w-RAB">
@@ -314,11 +314,11 @@
             <objects>
                 <viewController id="bCd-6h-5GA" customClass="MainViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLz-qH-CTe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-FG-waP">
-                                <rect key="frame" x="20" y="363" width="180" height="75"/>
+                                <rect key="frame" x="20" y="451" width="180" height="75"/>
                                 <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="GpH-gw-Aw0"/>
@@ -334,14 +334,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HCU-B3-RJR">
-                                <rect key="frame" x="88" y="50" width="238" height="193"/>
+                                <rect key="frame" x="88" y="138" width="238" height="193"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="h5A-FW-5CZ"/>
                                     <constraint firstAttribute="width" constant="238" id="xiW-ue-Uh5"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-dt-lkf">
-                                <rect key="frame" x="20" y="446" width="374" height="75"/>
+                                <rect key="frame" x="20" y="534" width="374" height="75"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="VUz-mx-nnP"/>
@@ -355,7 +355,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Sp-zAA">
-                                <rect key="frame" x="214" y="363" width="180" height="75"/>
+                                <rect key="frame" x="214" y="451" width="180" height="75"/>
                                 <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Jv7-ax-vkB"/>
@@ -701,7 +701,7 @@
             </objects>
             <point key="canvasLocation" x="5606" y="-1937"/>
         </scene>
-        <!--Preview Election View Controller-->
+        <!--Ballot-->
         <scene sceneID="Nig-Ip-pQg">
             <objects>
                 <viewController id="mJI-Gn-t3T" customClass="PreviewElectionViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
@@ -720,7 +720,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="v86-v0-wBd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Zcm-ql-9Sd">
+                    <navigationItem key="navigationItem" title="Ballot" id="Zcm-ql-9Sd">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="RTy-Uw-O0l">
+                            <connections>
+                                <action selector="onBackToAdd:" destination="mJI-Gn-t3T" id="mxB-KO-hZH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Publish" id="nhy-XX-eS1">
                             <connections>
                                 <action selector="onPublish:" destination="mJI-Gn-t3T" id="NYg-h3-hSu"/>
@@ -728,8 +733,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="questionTextLabel" destination="GU8-XC-CWh" id="N8G-Ms-0xr"/>
+                        <segue destination="QUD-jV-AJd" kind="show" identifier="BackToAdd" id="SyY-dO-uvk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlK-DX-6fm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -959,7 +966,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="63t-xv-Rjq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l0e-P5-D93">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1014,7 +1021,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="8ND-OE-F02"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lxi-RA-o5G">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1454,10 +1461,11 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oKy-mv-4ol"/>
+        <segue reference="WKm-IJ-EvW"/>
         <segue reference="6ib-JY-s6f"/>
-        <segue reference="dWF-I1-MOo"/>
-        <segue reference="eAW-bC-ZIK"/>
+        <segue reference="SyY-dO-uvk"/>
+        <segue reference="fmU-Qf-Psz"/>
+        <segue reference="xmI-cP-9Xi"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,7 +13,7 @@ class SearchViewController: UIViewController {
     var data = elections
     var results: [Dictionary<String, Any>] = []
     var searching = false
-    var selectedElect = 0
+    var selectedElect = -1
     var electionID = ""
     var token:String = ""
     
@@ -26,6 +26,9 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        results = []
+        //elections = [] ?
         searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         let getURL = "http://204.48.30.178/search?name="

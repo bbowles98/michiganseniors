@@ -280,6 +280,7 @@ def Vote(request):
 			choices.append(ballot_item_choice.answer)
 		ballot[ballot_item.question] = choices
 		response.append(ballot)
+	response['is_light'] = election.message
 	return JsonResponse({"ballot": response})
 
 
@@ -331,6 +332,13 @@ def CreateBallot(request):
 
 	if election.creator != user:
 		return JsonResponse({'success': False, 'error': 'Authenticated user is not the election creator'})
+	
+	try:
+		is_light = request.data['is_light']
+		election.message = is_light
+		election.save()
+	except:
+		return JsonResponse({'success': False, 'error': 'is_light is not set'})
 
 	try:
 		for ballot_item in request.data['ballot_items']:

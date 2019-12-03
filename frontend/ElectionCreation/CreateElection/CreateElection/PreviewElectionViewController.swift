@@ -25,6 +25,9 @@ class PreviewElectionViewController: UIViewController {
     var choices: [String] = []
     var token:String = ""
     var election_id:String = ""
+    @IBAction func onBackToAdd(_ sender: Any) {
+        self.performSegue(withIdentifier: "BackToAdd", sender: (Any).self)
+    }
     
     @IBAction func onPublish(_ sender: Any) {
         
@@ -107,6 +110,18 @@ class PreviewElectionViewController: UIViewController {
             optionButton.isEnabled = false
             optionButton.addTarget(self, action: Selector(("selectedChoice:")), for: UIControl.Event.touchUpInside)
             self.view.addSubview(optionButton)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is ElectionViewController
+        {
+            let vc = segue.destination as? ElectionViewController
+            vc!.token = self.token
+            vc!.electionQuestion = self.electionQuestion
+            vc!.answers = self.choices
+            vc!.electID = self.election_id
         }
     }
 }

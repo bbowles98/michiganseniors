@@ -219,12 +219,6 @@ class CreateElectViewController: UIViewController {
         
         task.resume()
         
-//        print("Printing the election ids: ")
-//        print(self.electID)
-//        print(election_id)
-        
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -319,9 +313,15 @@ class ElectionViewController: UITableViewController {
     override func viewDidLoad() {
         print("what is happening")
         super.viewDidLoad()
+        if (self.answers != [String]()) {
+            
+            allOptions = self.answers
+            answers = [String]()
+            self.propName.text! = electionQuestion
+        }
     }
     var answers = [String]()
-    var electionQuestion = ""
+    var electionQuestion:String = ""
     var token:String = ""
     var electID:String = ""
     
@@ -342,7 +342,7 @@ class ElectionViewController: UITableViewController {
         print(self.electID)
   
       // API REQUEST
-      let json: [String: Any] = [
+      /*let json: [String: Any] = [
           "election_id": electID,
          "ballot_items": [
               [
@@ -396,7 +396,7 @@ class ElectionViewController: UITableViewController {
           }
       }
       //run the previous copule lines of code in a seperate thread
-      task.resume()
+      task.resume()*/
       performSegue(withIdentifier: "ToPreview", sender: (Any).self)
           
     }
