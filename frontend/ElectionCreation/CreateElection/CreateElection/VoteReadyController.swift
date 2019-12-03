@@ -116,9 +116,54 @@ class VoteReadyViewController: UIViewController {
     var token:String = ""
     var canViewResults = false
     var isRegistered = false
+    var isPublic:Bool = true
     
     @IBOutlet weak var registrationButton: UIButton!
     @IBAction func onRegister(_ sender: Any) {
+        
+        let getURL = "http://204.48.30.178/isPublic/?election_id=" + self.electionIDpassed
+        print(self.electionIDpassed)
+        
+        print(getURL)
+        // Get the data to load the ballot
+        var request = URLRequest(url:
+            URL(string: getURL)!)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        print("cast vote token: " + token)
+        request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request)
+        { data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                return}
+            if let httpStatus = response as? HTTPURLResponse,
+                httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return}
+            do {
+                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                print(json.debugDescription)
+                print(json)
+                self.isPublic = json["public"] as! Bool
+                if self.isPublic == true {
+                    self.registerFunc()
+                } else {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toPrivateRegister", sender: (Any).self)
+                    }
+                }
+            }
+           catch let error as NSError {
+            print(error)
+           }
+        }
+        task.resume()
+    }
+    
+    func registerFunc() {
         let getURL = "http://204.48.30.178/publicRegister/"
         print(self.electionIDpassed)
         let json: [String: Any] = ["election_id": self.electionIDpassed]
@@ -134,31 +179,31 @@ class VoteReadyViewController: UIViewController {
         request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request)
-               { data, response, error in
-                   guard let _ = data, error == nil else {
-                       print("NETWORKING ERROR")
-                       return}
-                   if let httpStatus = response as? HTTPURLResponse,
-                       httpStatus.statusCode != 200 {
-                       print("HTTP STATUS: \(httpStatus.statusCode)")
-                       return}
-                   do {
-                        let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                        print(json.debugDescription)
-                        print(json)
-                        DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "ToRegister", sender: (Any).self)
-                    }
-                        
-                   }
-                  catch let error as NSError {
-                   print(error)
+           { data, response, error in
+               guard let _ = data, error == nil else {
+                   print("NETWORKING ERROR")
+                   return}
+               if let httpStatus = response as? HTTPURLResponse,
+                   httpStatus.statusCode != 200 {
+                   print("HTTP STATUS: \(httpStatus.statusCode)")
+                   return}
+               do {
+                    let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                    print(json.debugDescription)
+                    print(json)
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "NoRegister", sender: (Any).self)
-                    }
-                  }
+                    self.performSegue(withIdentifier: "ToRegister", sender: (Any).self)
+                }
+                    
                }
-               task.resume()
+              catch let error as NSError {
+               print(error)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "NoRegister", sender: (Any).self)
+                }
+              }
+           }
+           task.resume()
     }
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var host: UILabel!
