@@ -542,10 +542,10 @@ def IsPublic(request):
 
 	try:
 		election = Election.objects.get(pk=request.data['election_id'])
+		return JsonResponse({'public': election.status})
 	except:
 		return JsonResponse({'error': 'Election not found, make sure election_id is sent correctly.'})
 
-	return JsonResponse({'public': election.status})
 
 
 @csrf_exempt
