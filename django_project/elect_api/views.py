@@ -295,7 +295,9 @@ def CreateElection(request):
 
 	passcode = random.randint(100000, 999999)
 	message = ""
-	message = request.data['message']
+
+	if 'message' in request.data.keys():
+		message = request.data['message']
 
 
 	new_election = Election.objects.create(
