@@ -12,7 +12,6 @@ var token_response = ""
 var election_id: Any = -1
 var electPass = ""
 var elections: [Dictionary<String, Any>] = []
-var isLight = false
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
@@ -174,7 +173,7 @@ class CreateElectViewController: UIViewController {
         
         // Package information into JSON
         let json: [String: Any] = [ "name": self.ElectionName.text ?? "NULL",
-                                    "elec_is_public": isPublic,
+                                    "status": isPublic,
                                     "start_date": startString,
                                     "end_date": endString
         ]
@@ -202,7 +201,7 @@ class CreateElectViewController: UIViewController {
                 return}
    
             let json = try? (JSONSerialization.jsonObject(with: data!) as! [String: Any])
-            print("HERE", json!["election_id"])
+            //print("HERE", json!["election_id"])
             election_id =  (json!["election_id"])!
             print("please print a number: ")
             print(type(of: election_id))
@@ -314,7 +313,12 @@ class ElectionViewController: UITableViewController {
         print("what is happening")
         super.viewDidLoad()
         if (self.answers != [String]()) {
-            
+            if (self.isLight) {
+                self.mode.selectedSegmentIndex = 0
+            }
+            else {
+                self.mode.selectedSegmentIndex = 1
+            }
             allOptions = self.answers
             answers = [String]()
             self.propName.text! = electionQuestion
@@ -324,6 +328,7 @@ class ElectionViewController: UITableViewController {
     var electionQuestion:String = ""
     var token:String = ""
     var electID:String = ""
+    var isLight:Bool = true
     
     @IBAction func previewBallot(_ sender: Any) {
         
@@ -341,62 +346,6 @@ class ElectionViewController: UITableViewController {
         print("printing electID to test: ")
         print(self.electID)
   
-      // API REQUEST
-      /*let json: [String: Any] = [
-          "election_id": electID,
-         "ballot_items": [
-              [
-                  "question": election.question,
-                  "choices" : self.answers
-              ]
-          ]
-      ]
-      
-      print("questions: " + election.question)
-      
-      let jsonData = try? JSONSerialization.data(withJSONObject: json)
-      var request = URLRequest(url: URL(string: "http://204.48.30.178/ballot/")!)
-      request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-      request.addValue("application/json", forHTTPHeaderField: "Accept")
-      
-      request.addValue("JWT " + token_response, forHTTPHeaderField: "Authorization")
-      print("ballot token:")
-      print(token_response)
-      request.httpMethod = "POST"
-      request.httpBody = jsonData
-      print("electID 338: ")
-        print(electID)
-      print("jsonData 338: ")
-      
-      if let string = String(bytes: jsonData!, encoding: .utf8) {
-          print(string)
-      }
-      
-
-      //async error handling
-      let task = URLSession.shared.dataTask(with: request) { data, response, error in
-          guard let _ = data, error == nil else {
-              
-              print("NETWORKING ERROR")
-              return
-          }
-          
-          if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-              
-              print(response.debugDescription)
-              print("HTTP STATUS: \(httpStatus.statusCode)")
-              return
-          }
-          do {
-              let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-
-          }
-          catch let error as NSError {
-              print(error)
-          }
-      }
-      //run the previous copule lines of code in a seperate thread
-      task.resume()*/
       performSegue(withIdentifier: "ToPreview", sender: (Any).self)
           
     }
@@ -410,6 +359,7 @@ class ElectionViewController: UITableViewController {
             vc!.electionQuestion = self.electionQuestion
             vc!.choices = self.answers
             vc!.election_id = self.electID
+            vc!.isLight = self.isLight
         }
     }
         
@@ -429,44 +379,6 @@ class ElectionViewController: UITableViewController {
         //Dispose of any resources that can be created
     }
 }
-
-//************************************************  CREATE OPTIONS ************************************************//
-//*****************************************************************************************************************//
-
-/*
-class CreateOptionViewController: UIViewController {
-    
-    @IBOutlet weak var optionName: UITextField!
-    @IBOutlet weak var optionInfo: UITextView!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        //Dispose of any resources that can be created
-    }
-    
-    @IBAction func addVotingOption(_ sender: UIBarButtonItem) {
-        
-        let option = votingOption(optionName: self.optionName.text!, optionInfo: self.optionInfo.text ?? "NULL")
-        
-        propChoices.append(option)
-        
-        print("printing added choice here:")
-        print(option.optionName)
-        // goes back to preview view controller
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelVotingOption(_ sender: UIBarButtonItem) {
-        // goes back to preview view controller
-        dismiss(animated: true, completion: nil)
-    }
-    
-} */
 
 class MainViewController: UIViewController {
     override func viewDidLoad() {

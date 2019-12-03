@@ -280,8 +280,7 @@ def Vote(request):
 			choices.append(ballot_item_choice.answer)
 		ballot[ballot_item.question] = choices
 		response.append(ballot)
-	response['is_light'] = election.message
-	return JsonResponse({"ballot": response})
+	return JsonResponse({"ballot": response, 'is_light': election.message})
 
 
 
@@ -577,7 +576,7 @@ def AddElectionRestrictions(request):
 				key = key
 			)
 
-		sendMail(election.creator.email, "Subject: Your Keys\n\n" + ', '.join(str(e) for e in keys))
+		sendMail(election.creator.email, "Subject: Your Keys\n\nSend each voter one of these private passcodes to give them access to vote in your eleciton\n\n" + ', '.join(str(e) for e in keys))
 
 	try:
 		if 'email_domain' in request.data.keys() and request.data['email_domain'] != '':

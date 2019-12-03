@@ -38,6 +38,7 @@ class RegisterViewController: UIViewController {
             vc!.electionIDpassed = electionID
             vc!.token = token
             vc!.hostName = host
+            vc!.isRegistered = true
         }
     }
 }
