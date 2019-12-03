@@ -39,6 +39,7 @@ class VoteReadyViewController: UIViewController {
                 return}
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                print("result when asking if registered in id" + self.electionIDpassed)
                 print(json.debugDescription)
                 let elections = json["elections"] as! [Int]
                 for elect in elections {
@@ -77,6 +78,7 @@ class VoteReadyViewController: UIViewController {
                 return}
             do {
                 let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                print("Result of asking if i've voted in " + self.electionIDpassed)
                 print(json.debugDescription)
                 let result = json["can_view"] as! Bool
                 if (result) {
@@ -85,14 +87,14 @@ class VoteReadyViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.ViewResultButton.isHidden = !self.canViewResults
                     self.registrationButton.isHidden = self.isRegistered
-                    self.voteButton.isHidden = (self.canViewResults || !self.isRegistered)
+                    self.voteButton.isHidden = ((self.canViewResults && self.isRegistered) || !self.isRegistered)
                     
                     print("can view register button:")
                     print(!self.isRegistered)
                     print("Can view result button:")
                     print(self.canViewResults)
                     print("can view vote button:")
-                    print(!self.canViewResults && self.isRegistered)
+                    print((!self.canViewResults && self.isRegistered))
                 }
                 
             }
@@ -112,7 +114,7 @@ class VoteReadyViewController: UIViewController {
     var hostName:String = ""
     var electionIDpassed:String = ""
     var token:String = ""
-    var canViewResults = true
+    var canViewResults = false
     var isRegistered = false
     
     @IBOutlet weak var registrationButton: UIButton!

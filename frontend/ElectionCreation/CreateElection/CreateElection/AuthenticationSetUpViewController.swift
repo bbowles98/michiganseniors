@@ -29,8 +29,8 @@ class AuthenticationSetUpViewController: UIViewController {
         
         let json: [String: Any] = [
             "election_id": self.electID,
-            "max_voters": numVoters,
-            "email_domain": allowedDomain
+            "max_voters": Int(numVoters.text!)!,
+            "email_domain": allowedDomain.text!
         ]
               
               
@@ -66,7 +66,9 @@ class AuthenticationSetUpViewController: UIViewController {
           }
           do {
               let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "ToAddOptions", sender: (Any).self)
+            }
           }
           catch let error as NSError {
               print(error)
@@ -75,7 +77,7 @@ class AuthenticationSetUpViewController: UIViewController {
       //run the previous copule lines of code in a seperate thread
         task.resume()
         
-        performSegue(withIdentifier: "ToAddOption", sender: (Any).self)
+        
         
     }
     @IBAction func onBack(_ sender: Any) {

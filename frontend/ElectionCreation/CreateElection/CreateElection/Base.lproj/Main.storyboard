@@ -178,13 +178,13 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="azL-J3-bU9">
                             <connections>
                                 <action selector="onNext:" destination="2R5-VA-Qn4" id="OXI-xK-Gg2"/>
-                                <segue destination="dak-P7-4Wx" kind="show" identifier="ToAddOptions" id="tl2-Ke-gnc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="allowedDomain" destination="qA5-U9-Epl" id="nH5-kk-4gs"/>
                         <outlet property="numVoters" destination="vAy-XB-Zho" id="m7p-h0-cH7"/>
+                        <segue destination="dak-P7-4Wx" kind="show" identifier="ToAddOptions" id="D7i-Is-fCg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eR-oI-9it" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
