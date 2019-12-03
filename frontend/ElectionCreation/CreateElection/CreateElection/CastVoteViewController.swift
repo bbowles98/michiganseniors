@@ -40,11 +40,18 @@ class CastVoteViewController: UIViewController {
                 print("HTTP STATUS: \(httpStatus.statusCode)")
                 return}
             do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String: [[String: [String]]]]
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
                 print("The json received is:")
                 print(json)
                 //print(json.debugDescription)
-                self.ballotItems = json["ballot"]!
+                self.ballotItems = json["ballot"] as! [[String: [String]]]
+                let string_response = json["is_light"] as! String
+                if (string_response == "true") {
+                    self.isLight = true
+                }
+                else {
+                    self.isLight = false
+                }
                 self.createBallot()
             }
            catch let error as NSError {
@@ -68,6 +75,7 @@ class CastVoteViewController: UIViewController {
     var chosen = ""
     var token:String = ""
     var host:String = ""
+    var isLight:Bool = false
     //var token_response = ""
     
     func createBallot() {
@@ -87,7 +95,7 @@ class CastVoteViewController: UIViewController {
                 let optionButton = UIButton(frame: CGRect(x: 80, y: buttonY, width: 250, height: 60))
                 buttonY = buttonY + 100
                 optionButton.layer.cornerRadius = 10
-                if isLight == false {
+                if self.isLight == false {
                     optionButton.backgroundColor = UIColor.systemGray
                 } else {
                     optionButton.backgroundColor = UIColor.systemTeal

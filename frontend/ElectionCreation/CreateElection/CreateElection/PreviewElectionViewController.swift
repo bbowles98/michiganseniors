@@ -25,6 +25,7 @@ class PreviewElectionViewController: UIViewController {
     var choices: [String] = []
     var token:String = ""
     var election_id:String = ""
+    var isLight:Bool = false
     @IBAction func onBackToAdd(_ sender: Any) {
         self.performSegue(withIdentifier: "BackToAdd", sender: (Any).self)
     }
@@ -37,7 +38,8 @@ class PreviewElectionViewController: UIViewController {
             "election_id": self.election_id,
             "ballot_items": [
                 ["question" : self.electionQuestion, "choices" : self.choices]
-            ]
+            ],
+            "is_light": String(self.isLight)
         ]
               
               print("questions: " + electionQuestion)
@@ -74,24 +76,22 @@ class PreviewElectionViewController: UIViewController {
                   }
                   do {
                       let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                    print(json)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "Created", sender: (Any).self)
+                    }
 
                   }
                   catch let error as NSError {
                       print(error)
                   }
               }
-              //run the previous copule lines of code in a seperate thread
         task.resume()
-        performSegue(withIdentifier: "Created", sender: (Any).self)
     }
     
     @IBOutlet weak var questionTextLabel: UILabel!
     
     func createBallot() {
-        
-        //print("printing whether it should be light mode or not")
-        //print("AAHHHHHHHHHHH")
-        //print(isLight)
         var buttonY = 175
         print("the voting choices to preview are: ")
         print(choices)
@@ -122,6 +122,7 @@ class PreviewElectionViewController: UIViewController {
             vc!.electionQuestion = self.electionQuestion
             vc!.answers = self.choices
             vc!.electID = self.election_id
+            vc!.isLight = self.isLight
         }
     }
 }
