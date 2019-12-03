@@ -292,7 +292,19 @@ The digital ocean server is located at 204.48.30.178.
 		{
 			"can_view": boolean
 		}
-			
+		
+	CHECK IF ELECTION IS PUBLIC
+		Send a GET request to 204.48.30.178/isPublic/
+		
+		SEND
+		{
+			"election_id": int
+		}
+		
+		RECEIVE
+		{
+			"public": boolean
+		}
 
 		
 *  CORDA STUFF *

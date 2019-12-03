@@ -40,5 +40,6 @@ urlpatterns = [
     url('notify/', views.Notify),
     url('publicRegister/', views.PublicRegister),
     url('getMessage/', views.GetMessage),
-    url('addElectionRestrictions/', views.AddElectionRestrictions)
+    url('addElectionRestrictions/', views.AddElectionRestrictions),
+    url('isPublic/', views.IsPublic)
 ]

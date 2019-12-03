@@ -86,17 +86,12 @@ class PreviewElectionViewController: UIViewController {
                       print(error)
                   }
               }
-              //run the previous copule lines of code in a seperate thread
         task.resume()
     }
     
     @IBOutlet weak var questionTextLabel: UILabel!
     
     func createBallot() {
-        
-        //print("printing whether it should be light mode or not")
-        //print("AAHHHHHHHHHHH")
-        //print(isLight)
         var buttonY = 175
         print("the voting choices to preview are: ")
         print(choices)
