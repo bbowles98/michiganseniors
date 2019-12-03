@@ -158,10 +158,11 @@ class CreateElectViewController: UIViewController {
         // the election has been set up, proceed to ballot creation
         print("sanitycheck here")
         // Determine who can view the election
-        var isPublic = "false"
-        if (viewSelector.isEnabledForSegment(at: 0)) {
-            isPublic = "true"
+        var isPublic = true
+        if (viewSelector.isEnabledForSegment(at: 1)) {
+            isPublic = false
         }
+        print(isPublic)
         
         // Check fields are valid
         var startString: String
