@@ -482,7 +482,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLl-Aa-Fln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4242.0289855072469" y="-2038.3928571428571"/>
+            <point key="canvasLocation" x="-4428" y="-2006"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="rZY-g2-sEQ">
@@ -1153,6 +1153,7 @@
                         <segue destination="rWi-mu-ah5" kind="show" identifier="ToRegister" id="Hzl-19-Sy0"/>
                         <segue destination="gAc-K9-oMm" kind="show" identifier="NoRegister" id="TTC-dM-iYo"/>
                         <segue destination="rp5-wN-G4V" kind="show" identifier="BackToSearch" id="6ib-JY-s6f"/>
+                        <segue destination="s0Y-ze-kKR" kind="show" identifier="toPrivateRegister" id="IKx-CV-D0M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PB8-lO-Vbr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1353,7 +1354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBL-9i-aOI" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2962.3188405797105" y="-163.39285714285714"/>
+            <point key="canvasLocation" x="2546" y="98"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="r14-vG-e7U">
@@ -1395,6 +1396,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HjV-5C-YO0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3904.347826086957" y="-138.61607142857142"/>
+        </scene>
+        <!--Private Register View Controller-->
+        <scene sceneID="XCT-Qf-S7S">
+            <objects>
+                <viewController id="s0Y-ze-kKR" customClass="PrivateRegisterViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h1k-dd-7CL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the passcode to participate in this election." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDn-Wc-4yh">
+                                <rect key="frame" x="32" y="70" width="350" height="67"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your passcode here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E03-hK-wbe">
+                                <rect key="frame" x="32" y="207" width="350" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsm-IA-yr6">
+                                <rect key="frame" x="98" y="291" width="218" height="39"/>
+                                <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRegister:" destination="s0Y-ze-kKR" eventType="touchUpInside" id="GJZ-BQ-cJ1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IDn-Wc-4yh" firstAttribute="top" secondItem="AjD-Ed-bac" secondAttribute="top" constant="70" id="4yW-xC-t82"/>
+                            <constraint firstItem="AjD-Ed-bac" firstAttribute="trailing" secondItem="E03-hK-wbe" secondAttribute="trailing" constant="32" id="Bxw-dL-VBd"/>
+                            <constraint firstItem="E03-hK-wbe" firstAttribute="leading" secondItem="AjD-Ed-bac" secondAttribute="leading" constant="32" id="JPn-6o-htQ"/>
+                            <constraint firstItem="tsm-IA-yr6" firstAttribute="top" secondItem="E03-hK-wbe" secondAttribute="bottom" constant="50" id="Jx1-dh-aSN"/>
+                            <constraint firstItem="tsm-IA-yr6" firstAttribute="leading" secondItem="AjD-Ed-bac" secondAttribute="leading" constant="98" id="K7d-y5-H8y"/>
+                            <constraint firstItem="E03-hK-wbe" firstAttribute="top" secondItem="IDn-Wc-4yh" secondAttribute="bottom" constant="70" id="Rus-vb-uM0"/>
+                            <constraint firstItem="AjD-Ed-bac" firstAttribute="trailing" secondItem="tsm-IA-yr6" secondAttribute="trailing" constant="98" id="Trx-gv-jj7"/>
+                            <constraint firstItem="AjD-Ed-bac" firstAttribute="trailing" secondItem="IDn-Wc-4yh" secondAttribute="trailing" constant="32" id="mxe-qV-iml"/>
+                            <constraint firstItem="IDn-Wc-4yh" firstAttribute="leading" secondItem="AjD-Ed-bac" secondAttribute="leading" constant="32" id="vMF-SG-00W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AjD-Ed-bac"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9l5-PC-gig"/>
+                    <connections>
+                        <outlet property="passcodeEntry" destination="E03-hK-wbe" id="5Bt-BQ-RLo"/>
+                        <segue destination="rWi-mu-ah5" kind="show" identifier="PrivateRegSuccess" id="1Ou-bd-eXg"/>
+                        <segue destination="gAc-K9-oMm" kind="show" identifier="PrivateRegFail" id="tu5-bP-s39"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kpc-Am-JXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3600.0000000000005" y="539.0625"/>
         </scene>
         <!--No Register View Controller-->
         <scene sceneID="jy0-Si-uoB">
@@ -1461,8 +1518,10 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TsR-g9-lNh"/>
-        <segue reference="WKm-IJ-EvW"/>
+        <segue reference="jcN-Jb-C36"/>
+        <segue reference="tu5-bP-s39"/>
+        <segue reference="1Ou-bd-eXg"/>
+        <segue reference="lgp-pz-wLY"/>
         <segue reference="gSZ-66-ibF"/>
         <segue reference="6ib-JY-s6f"/>
         <segue reference="SyY-dO-uvk"/>
