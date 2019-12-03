@@ -298,12 +298,12 @@ def CreateElection(request):
 	if 'message' in request.data.keys():
 		message = request.data['message']
 
-
+	status = request.data['status']
 	new_election = Election.objects.create(
 		name=request.data['name'],
 		creator=user,
 		passcode=passcode,
-		status=True,
+		status=status,
 		start_date=request.data['start_date'],
 		end_date=request.data['end_date'],
 		message = message
