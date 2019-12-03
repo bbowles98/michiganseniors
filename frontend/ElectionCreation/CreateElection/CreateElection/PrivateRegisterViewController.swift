@@ -51,9 +51,15 @@ class PrivateRegisterViewController: UIViewController {
                         
                     let temp = json["success"] as! Bool
                         if !temp {
-                            let alertController = UIAlertController(title: "Registration Error",
-                            message: "Invalid passcode.",
-                            preferredStyle: .alert)
+                            DispatchQueue.main.async {
+                                let alertController = UIAlertController(title: "Registration Error",
+                                message: "Invalid passcode.",
+                                preferredStyle: .alert)
+                                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                                    self.present(alertController, animated: true, completion: nil)
+                                
+                                return
+                            }
                         } else {
                             DispatchQueue.main.async {
                                 self.performSegue(withIdentifier: "PrivateRegSuccess", sender: (Any).self)
