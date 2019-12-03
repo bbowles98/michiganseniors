@@ -173,7 +173,7 @@ class CreateElectViewController: UIViewController {
         
         // Package information into JSON
         let json: [String: Any] = [ "name": self.ElectionName.text ?? "NULL",
-                                    "elec_is_public": isPublic,
+                                    "status": isPublic,
                                     "start_date": startString,
                                     "end_date": endString
         ]
@@ -201,7 +201,7 @@ class CreateElectViewController: UIViewController {
                 return}
    
             let json = try? (JSONSerialization.jsonObject(with: data!) as! [String: Any])
-            print("HERE", json!["election_id"])
+            //print("HERE", json!["election_id"])
             election_id =  (json!["election_id"])!
             print("please print a number: ")
             print(type(of: election_id))
