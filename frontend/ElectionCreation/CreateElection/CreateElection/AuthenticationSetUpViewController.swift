@@ -26,10 +26,9 @@ class AuthenticationSetUpViewController: UIViewController {
     var electID:String = ""
     
     @IBAction func onNext(_ sender: Any) {
-        
         let json: [String: Any] = [
             "election_id": self.electID,
-            "max_voters": Int(numVoters.text!)!,
+            "max_voters": Int(numVoters.text!) ?? 0,
             "email_domain": allowedDomain.text!
         ]
               

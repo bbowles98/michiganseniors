@@ -28,8 +28,12 @@ DEBUG = True
 @permission_classes((AllowAny, ))
 def SearchViewSet(request):
 
-	electionName = request.GET.get('name')
-	elections = Election.objects.filter(name__icontains=electionName)
+	try:
+		electionName = request.GET.get('name')
+		elections = Election.objects.filter(name__icontains=electionName)
+	except:
+		election = Election.objects.all()
+
 	response = []
 	for election in elections:
 		electionDict = {}
@@ -54,11 +58,18 @@ def SearchViewSet(request):
 @permission_classes((IsAuthenticated, ))
 def ViewResults(request):
 
-	election = Election.objects.get(pk=request.GET.get('election_id'))
-	results_corda_url = "http://206.81.10.10:10050/votes"
-	response = requests.get(results_corda_url)
+	try:
+		election = Election.objects.get(pk=request.GET.get('election_id'))
+	except:
+		return JsonResponse({'error': 'Election not found, make sure election_id is sent correctly.'})
 
-	data = response.json()
+	results_corda_url = "http://206.81.10.10:10050/votes"
+
+	try:
+		response = requests.get(results_corda_url)
+		data = response.json()
+	except:
+		return JsonResponse({'error': 'Corda API connection error'})
 
 	votes = 0
 	candidates_to_counts = {}
@@ -94,15 +105,27 @@ def ViewResults(request):
 def Register(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election = Election.objects.get(pk=request.data['election_id'])
-	passcode = request.data['passcode']
+
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found, make sure election_id is sent correctly.'})
+
+	registration_check = RegisterLink.objects.filter(election=election, participant=user)
+	if len(registration_check) != 0:
+		return JsonResponse({'success': False, 'error': 'User has already registered in this election'})
+
+	try:
+		passcode = request.data['passcode']
+	except:
+		return JsonResponse({'success': False, 'error': 'Make sure to send passcode in JSON data'})
 
 	keys = ElectionKey.objects.filter(election=election)
 	list_of_keys = []
 	for key in keys:
 		list_of_keys.append(key.key)
 	if passcode != election.passcode and passcode not in list_of_keys:
-		return JsonResponse({'error': 'incorrect passcode'})
+		return JsonResponse({'success': False, 'error': 'Invalid passcode'})
 
 	if passcode in list_of_keys:
 		key = keys.get(key=passcode)
@@ -122,8 +145,10 @@ def Register(request):
 			election = election,
 			participant = user
 		)
+
 	msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
 	sendMail(user.email, msg)
+
 	return JsonResponse({'success': True})
 
 
@@ -134,7 +159,11 @@ def Register(request):
 def PublicRegister(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election = Election.objects.get(pk=request.data['election_id'])
+
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found, make sure election_id is sent correctly.'})
 
 	if election.max_voters > 0:
 		num_registered = len(RegisterLink.objects.filter(election=election))
@@ -150,9 +179,9 @@ def PublicRegister(request):
 			participant = user
 		)
 
-	registeredUser.save()
 	msg = "Subject: You're Registered!\n\nYou have been successfully registered for " + election.name
 	sendMail(user.email, msg)
+
 	return JsonResponse({'success': True})
 
 
@@ -163,9 +192,21 @@ def PublicRegister(request):
 def Cast(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election = Election.objects.get(pk=request.data['election_id'])
+
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found, make sure election_id is sent correctly.'})
+
 	ballot_items = BallotItem.objects.filter(election=election)
-	answer = request.data['candidate']
+
+	if not ballot_items:
+		return JsonResponse({'success': False, 'error': 'No ballot items found for this election'})
+
+	try:
+		answer = request.data['candidate']
+	except:
+		return JsonResponse({'success': False, 'error': 'Candidate choice not sent'})
 
 	json = canUserVote(user, election)
 	if json:
@@ -178,7 +219,7 @@ def Cast(request):
 			if ballot_item_choice.answer == answer:
 				valid_candidate = True
 	if not valid_candidate:
-		return JsonResponse({"error": "invalid candidate"})
+		return JsonResponse({'success': False, "error": "invalid candidate"})
 
 	issue_val = 0
 	election_id = election.pk
@@ -187,7 +228,6 @@ def Cast(request):
 	headers = {
 		'Content-Type': 'application/x-www-form-urlencoded'
 	}
-
 
 	vote_corda_url = "http://206.81.10.10:10050/put?electionVal=O=Host0,L=London,C=GB&voter=O=Voter,L=NewYork,C=US"
 	vote_corda_url += "&issueVal=" + str(issue_val)
@@ -200,10 +240,9 @@ def Cast(request):
 		response = requests.post(url=vote_corda_url, data=data, headers=headers)
 
 	except:
-		return JsonResponse({'success': False})
+		return JsonResponse({'success': False, 'error': 'Corda API error while voting'})
 
-	voter_to_election = VoterToElection(election=election, voter=user)
-	voter_to_election.save()
+	voter_to_election = VoterToElection.objects.create(election=election, voter=user)
 
 	msg = "Subject: You've Voted!\n\nYou have been successfully voted in " + election.name
 	sendMail(user.email, msg)
@@ -218,14 +257,18 @@ def Cast(request):
 def Vote(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	election = Election.objects.get(pk=request.GET.get('election_id'))
+
+	try:
+		election = Election.objects.get(pk=request.GET.get('election_id'))
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found, make sure election_id is sent correctly.'})
 
 	json = canUserVote(user, election)
 	if json:
 		return json
 
 	if (election.status == False and not DEBUG):
-	 	return JsonResponse({"status": "This election is not live yet"})
+	 	return JsonResponse({'success': False, "error": "This election is not live yet"})
 
 	ballot_items = BallotItem.objects.filter(election=election)
 	response = []
@@ -237,8 +280,7 @@ def Vote(request):
 			choices.append(ballot_item_choice.answer)
 		ballot[ballot_item.question] = choices
 		response.append(ballot)
-	response['is_light'] = election.message
-	return JsonResponse({"ballot": response})
+	return JsonResponse({"ballot": response, 'is_light': election.message})
 
 
 
@@ -250,16 +292,12 @@ def CreateElection(request):
 
 	user = User.objects.get(pk=request.user.pk)
 
-	if not user:
-		return JsonResponse({'success': False})
-
 	passcode = random.randint(100000, 999999)
 	message = ""
-	try:
+
+	if 'message' in request.data.keys():
 		message = request.data['message']
-	except:
-		pass
-	print(request.data)
+
 
 	new_election = Election.objects.create(
 		name=request.data['name'],
@@ -272,7 +310,7 @@ def CreateElection(request):
 	)
 
 	if not new_election:
-		return JsonResponse({'success': False})
+		return JsonResponse({'success': False, 'error': 'Election could not be created'})
 
 	return JsonResponse({'election_id': new_election.pk, 'passcode': passcode, 'success': True})
 
@@ -284,36 +322,44 @@ def CreateElection(request):
 def CreateBallot(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	if not user:
-		return JsonResponse({'success': False})
 
-	election = Election.objects.get(pk=request.data['election_id'])
-	if not election or election.creator != user:
-		return JsonResponse({'success': False})
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found, make sure election_id is sent correctly.'})
 
-	is_light = request.data['is_light']
-	election.message = is_light
-	election.save()
+	if election.creator != user:
+		return JsonResponse({'success': False, 'error': 'Authenticated user is not the election creator'})
+	
+	try:
+		is_light = request.data['is_light']
+		election.message = is_light
+		election.save()
+	except:
+		return JsonResponse({'success': False, 'error': 'is_light is not set'})
 
-	for ballot_item in request.data['ballot_items']:
+	try:
+		for ballot_item in request.data['ballot_items']:
 
-		new_ballot_item = BallotItem.objects.create(
-			election=election,
-			question=ballot_item['question']
-		)
-
-		if not new_ballot_item:
-			return JsonResponse({'success': False})
-
-		for ballot_item_choice in ballot_item['choices']:
-
-			new_ballot_item_choice = BallotItemChoice.objects.create(
-				ballot_item = new_ballot_item,
-				answer=ballot_item_choice
+			new_ballot_item = BallotItem.objects.create(
+				election=election,
+				question=ballot_item['question']
 			)
 
-			if not new_ballot_item_choice:
-				return JsonResponse({'success': False})
+			if not new_ballot_item:
+				return JsonResponse({'success': False, 'error': 'Ballot item could not be created'})
+
+			for ballot_item_choice in ballot_item['choices']:
+
+				new_ballot_item_choice = BallotItemChoice.objects.create(
+					ballot_item = new_ballot_item,
+					answer=ballot_item_choice
+				)
+
+				if not new_ballot_item_choice:
+					return JsonResponse({'success': False, 'error': 'Ballot item choice could not be created'})
+	except:
+		return JsonResponse({'success': False, 'error': 'Error creating ballot'})
 
 	return JsonResponse({'success': True})
 
@@ -325,12 +371,14 @@ def CreateBallot(request):
 def GoLive(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	if not user:
-		return JsonResponse({'success': False})
 
-	election = Election.objects.get(pk=request.data['election_id'])
-	if not election or election.creator != user:
-		return JsonResponse({'success': False})
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found, make sure election_id is sent correctly.'})
+
+	if election.creator != user:
+		return JsonResponse({'success': False, 'error': 'Authenticated user is not the election creator'})
 
 	election.status = (request.data['live'] == "true")
 	election.save()
@@ -345,10 +393,9 @@ def GoLive(request):
 def ViewElections(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	if not user:
-		return JsonResponse({'success': False})
 
 	elections = Election.objects.filter(creator=user)
+
 	response = []
 	for election in elections:
 		electionDict = {}
@@ -359,6 +406,8 @@ def ViewElections(request):
 		electionDict['election_id'] = election.pk
 		electionDict['start_date'] = election.start_date
 		electionDict['end_date'] = election.end_date
+		electionDict['max_voters'] = election.max_voters
+		electionDict['email_domain'] = election.email_domain
 		response.append(electionDict)
 
 	return JsonResponse({'election': response})
@@ -396,9 +445,6 @@ def ViewPastElectionsUserVotedIn(request):
 @permission_classes((AllowAny,))
 def CreateAccount(request):
 
-	if request.method != 'POST':
-		return JsonResponse({})
-
 	serializer = UserSerializer(data=request.data)
 	if serializer.is_valid():
 		user = serializer.save()
@@ -412,8 +458,11 @@ def CreateAccount(request):
 @permission_classes((IsAuthenticated,))
 def DeleteElection(request):
 
-	election = Election.objects.filter(pk=request.data['election_id'])
-	election.delete()
+	try:
+		election = Election.objects.filter(pk=request.data['election_id'])
+		election.delete()
+	except:
+		return JsonResponse({'error': 'Please send election_id'})
 
 	return JsonResponse({"status": "deleted"})
 
@@ -433,7 +482,10 @@ def DeleteAllElections(request):
 @permission_classes((IsAuthenticated,))
 def CanViewElectionResults(request):
 
-	election_id = request.GET.get('election_id')
+	try:
+		election_id = request.GET.get('election_id')
+	except:
+		return JsonResponse({'error': 'Please send election_id'})
 
 	can_view = False
 
@@ -455,10 +507,12 @@ def CanViewElectionResults(request):
 def Notify(request):
 
 	user = User.objects.get(pk=request.user.pk)
-	if not user:
-		return JsonResponse({'success': False})
 
-	election = Election.objects.get(pk=request.data['election_id'])
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'success': False, 'error': 'Election not found, make sure election_id is sent correctly.'})
+
 	voters = VoterToElection.objects.filter(election=election)
 	for voter in voters:
 		msg = "Subject: The Results Are In!\n\nThe results are in for " + election.name + ".\n Login to eLect to view them."
@@ -473,7 +527,10 @@ def Notify(request):
 @permission_classes((IsAuthenticated, ))
 def GetMessage(request):
 
-	election = Election.objects.get(pk=request.data['election_id'])
+	try:
+		election = Election.objects.get(pk=request.data['election_id'])
+	except:
+		return JsonResponse({'error': 'Election not found, make sure election_id is sent correctly.'})
 
 	return JsonResponse({'message': election.message})
 
@@ -486,12 +543,18 @@ def AddElectionRestrictions(request):
 	try:
 		election = Election.objects.get(pk=request.data['election_id'])
 	except:
-		return JsonResponse({'success': False, 'error': 'Election not found'})
+		return JsonResponse({'success': False, 'error': 'Election not found, make sure election_id is sent correctly.'})
 
-	# try:
 	if 'max_voters' in request.data.keys() and request.data['max_voters'] > 0:
-		election.max_voters = request.data['max_voters']
+
+		try:
+			max_voters = int(request.data['max_voters'])
+		except:
+			return JsonResponse({'success': False, 'error': 'max_voters must be a valid integer'})
+
+		election.max_voters = max_voters
 		election.save()
+		
 		# generate max_voters tokens and email them to host
 		keys = random.sample(range(1, 999999), election.max_voters)
 		for key in keys:
@@ -499,12 +562,8 @@ def AddElectionRestrictions(request):
 				election_id = election.pk,
 				key = key
 			)
-		print(keys)
+
 		sendMail(election.creator.email, "Subject: Your Keys\n\n" + ', '.join(str(e) for e in keys))
-
-
-	# except:
-	# 	return JsonResponse({'success': False, 'error': 'Invalid number of max voters'})
 
 	try:
 		if 'email_domain' in request.data.keys() and request.data['email_domain'] != '':
@@ -516,7 +575,6 @@ def AddElectionRestrictions(request):
 	return JsonResponse({'success': True})
 
 
-
 def canUserVote(user, election):
 
 	if DEBUG:
@@ -524,18 +582,18 @@ def canUserVote(user, election):
 
 	time = datetime.now()
 	if time < datetime.strptime(election.start_date, '%Y-%m-%d %H:%M:%S') or time > datetime.strptime(election.end_date, '%Y-%m-%d %H:%M:%S'):
-		return JsonResponse({'error': 'This election is not live yet'})
+		return JsonResponse({'success': False, 'error': 'This election is not live yet'})
 
 	try:
 		is_user_registered = RegisterLink.objects.filter(election=election)
 		is_user_registered = is_user_registered.filter(participant=user)[0]
 	except:
-		return JsonResponse({'error': 'This user is not resisted in this election'})
+		return JsonResponse({'success': False, 'error': 'This user is not resisted in this election'})
 
 	try:
 		didUserVote = VoterToElection.objects.filter(voter=user)
 		didUserVote = didUserVote.filter(election=election)[0]
-		return JsonResponse({"error": "This user has already voted in this election!"})
+		return JsonResponse({'success': False, "error": "This user has already voted in this election!"})
 	except:
 		pass
 
