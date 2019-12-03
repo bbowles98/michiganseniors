@@ -1518,7 +1518,6 @@
         <image name="Logo" width="244" height="208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jcN-Jb-C36"/>
         <segue reference="tu5-bP-s39"/>
         <segue reference="1Ou-bd-eXg"/>
         <segue reference="lgp-pz-wLY"/>

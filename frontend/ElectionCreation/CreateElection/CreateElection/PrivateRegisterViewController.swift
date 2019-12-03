@@ -49,8 +49,8 @@ class PrivateRegisterViewController: UIViewController {
                         print(json.debugDescription)
                         print(json)
                         
-                    let temp = json["success"] as! String
-                        if temp == "false" {
+                    let temp = json["success"] as! Bool
+                        if !temp {
                             let alertController = UIAlertController(title: "Registration Error",
                             message: "Invalid passcode.",
                             preferredStyle: .alert)

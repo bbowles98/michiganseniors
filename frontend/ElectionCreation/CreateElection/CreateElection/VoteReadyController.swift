@@ -138,8 +138,10 @@ class VoteReadyViewController: UIViewController {
                 return}
             if let httpStatus = response as? HTTPURLResponse,
                 httpStatus.statusCode != 200 {
+                
                 print("HTTP STATUS: \(httpStatus.statusCode)")
-                return }
+                return
+            }
             do {
                  let json = try JSONSerialization.jsonObject(with: data!) as! [String: Any]
                 print(json.debugDescription)
@@ -245,6 +247,12 @@ class VoteReadyViewController: UIViewController {
             let vc = segue.destination as? SearchViewController
             vc!.token = token
             
+        } else if (segue.identifier == "toPrivateRegister") {
+            let vc = segue.destination as? PrivateRegisterViewController
+            vc!.electionName = electionName
+            vc!.electionIDpassed = electionIDpassed
+            vc!.token = token
+            vc!.hostName = hostName
         }
     }
 }
