@@ -95,6 +95,8 @@ class SearchViewController: UIViewController {
              let vc = segue.destination as? CreateElectViewController
             vc!.token = token
         }
+        
+        viewDidLoad()
     }
 }
 

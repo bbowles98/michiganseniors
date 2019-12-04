@@ -101,6 +101,7 @@ class ElectManageViewController: UIViewController {
                 print(elections[selectedElect]["name"]) */
             }
         }
+        viewDidLoad()
     }
 }
 

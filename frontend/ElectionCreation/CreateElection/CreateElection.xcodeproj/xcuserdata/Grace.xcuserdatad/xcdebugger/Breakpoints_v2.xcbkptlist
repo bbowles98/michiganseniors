@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
             endingLineNumber = "222"
-            landmarkName = "createClicked(_:)"
+            landmarkName = "publicChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -80,8 +80,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "268"
             endingLineNumber = "268"
-            landmarkName = "addItem(_:)"
-            landmarkType = "7">
+            landmarkName = "ElectionViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
