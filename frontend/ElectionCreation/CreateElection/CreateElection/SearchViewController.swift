@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround() 
         results = []
         //elections = [] ?
         searchBar.delegate = self

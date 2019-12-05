@@ -24,6 +24,19 @@ class ViewController: UIViewController {
         //Dispose of any resources that can be created
     }
 }
+
+//tapping anywhere dismisses the keyboard
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
 //*******************************************************SIGN IN***************************************************//
 //*****************************************************************************************************************//
 class SignInViewController: UIViewController {
@@ -116,6 +129,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround() 
         
     }
     override func didReceiveMemoryWarning() {
@@ -130,6 +144,7 @@ class SignInViewController: UIViewController {
 class CreateElectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.hideKeyboardWhenTappedAround() 
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
@@ -321,6 +336,7 @@ class ElectionViewController: UITableViewController {
     override func viewDidLoad() {
         print("what is happening")
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         if (self.answers != [String]()) {
             if (self.isLight) {
                 self.mode.selectedSegmentIndex = 0

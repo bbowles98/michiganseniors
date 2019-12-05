@@ -22,6 +22,7 @@ class ElectManageViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         results = []
         searchBar.delegate = self
