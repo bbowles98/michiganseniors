@@ -340,12 +340,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-FG-waP">
-                                <rect key="frame" x="20" y="363" width="160" height="75"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HCU-B3-RJR">
+                                <rect key="frame" x="88" y="106" width="226" height="193"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-dt-lkf">
+                                <rect key="frame" x="20" y="446" width="374" height="75"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="hMS-br-2QG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                <state key="normal" title="My Created Elections">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="YhV-Fx-o2P" kind="show" identifier="ToMyElects" id="TeM-eR-a0i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Sp-zAA">
+                                <rect key="frame" x="215" y="362" width="179" height="75"/>
+                                <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Search All Elections">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="SearchSegue:" destination="bCd-6h-5GA" eventType="touchUpInside" id="OjN-Dd-Nm2"/>
+                                    <segue destination="RIa-PV-Scm" kind="show" identifier="ToSearch" id="mWv-vj-ydG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-FG-waP">
+                                <rect key="frame" x="20" y="363" width="180" height="75"/>
                                 <color key="backgroundColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="GpH-gw-Aw0"/>
-                                    <constraint firstAttribute="width" constant="160" id="fmM-nu-1kg"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="56c-tg-w3C"/>
+                                    <constraint firstAttribute="height" constant="75" id="leD-fQ-oUB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Create An Election">
@@ -356,59 +385,22 @@
                                     <segue destination="E7G-ph-PVK" kind="show" identifier="ToCreate" id="fmU-Qf-Psz"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="HCU-B3-RJR">
-                                <rect key="frame" x="88" y="50" width="186" height="193"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="193" id="h5A-FW-5CZ"/>
-                                    <constraint firstAttribute="width" constant="238" id="xiW-ue-Uh5"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-dt-lkf">
-                                <rect key="frame" x="20" y="446" width="374" height="75"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="VUz-mx-nnP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                <state key="normal" title="My Created Elections">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="YhV-Fx-o2P" kind="show" identifier="ToMyElects" id="TeM-eR-a0i"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Sp-zAA">
-                                <rect key="frame" x="214" y="362" width="180" height="75"/>
-                                <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="Jv7-ax-vkB"/>
-                                    <constraint firstAttribute="width" constant="160" id="YBA-lg-AHP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Search All Elections">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="SearchSegue:" destination="bCd-6h-5GA" eventType="touchUpInside" id="OjN-Dd-Nm2"/>
-                                    <segue destination="RIa-PV-Scm" kind="show" identifier="ToSearch" id="mWv-vj-ydG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="LuL-Sp-zAA" secondAttribute="bottom" constant="8" id="1Iv-bi-9ey"/>
-                            <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="20" id="3wm-hJ-gIj"/>
-                            <constraint firstItem="x8W-FG-waP" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="120" id="FIt-lc-P9t"/>
-                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="120" id="FVv-Dr-Cex"/>
-                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="leading" secondItem="x8W-FG-waP" secondAttribute="trailing" constant="10" id="INd-1G-uV4"/>
-                            <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="LuL-Sp-zAA" secondAttribute="trailing" constant="20" id="JO3-Ea-6RZ"/>
-                            <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="HCU-B3-RJR" secondAttribute="trailing" constant="88" id="Jvw-8W-3Cp"/>
-                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="LuL-Sp-zAA" secondAttribute="bottom" constant="8" id="dDH-tP-DLD"/>
-                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="x8W-FG-waP" secondAttribute="bottom" constant="8" id="i3s-qi-l1C"/>
-                            <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="MLQ-dt-lkf" secondAttribute="trailing" constant="20" id="io1-VI-QZw"/>
-                            <constraint firstItem="HCU-B3-RJR" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="88" id="o48-od-oDu"/>
-                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="20" id="s3F-ms-iuY"/>
-                            <constraint firstItem="HCU-B3-RJR" firstAttribute="top" secondItem="gPl-oY-88B" secondAttribute="top" constant="50" id="ub6-RH-9ac"/>
+                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="x8W-FG-waP" secondAttribute="bottom" constant="8" symbolic="YES" id="6w2-8D-Gr0"/>
+                            <constraint firstItem="gPl-oY-88B" firstAttribute="bottom" secondItem="MLQ-dt-lkf" secondAttribute="bottom" constant="287" id="9NA-1d-aSt"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="trailing" secondItem="MLQ-dt-lkf" secondAttribute="trailing" id="Daw-nQ-p0f"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="trailing" secondItem="KLz-qH-CTe" secondAttribute="trailingMargin" id="HKz-i3-zJ3"/>
+                            <constraint firstItem="HCU-B3-RJR" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="88" id="SKH-0S-lHj"/>
+                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="LuL-Sp-zAA" secondAttribute="bottom" constant="9" id="SVr-pD-cle"/>
+                            <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="MLQ-dt-lkf" secondAttribute="leading" id="VbG-yj-pVV"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="leading" secondItem="x8W-FG-waP" secondAttribute="trailing" constant="15" id="YNx-yn-RD4"/>
+                            <constraint firstItem="HCU-B3-RJR" firstAttribute="top" secondItem="gPl-oY-88B" secondAttribute="top" constant="50" id="hKc-mo-LLL"/>
+                            <constraint firstItem="x8W-FG-waP" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="64" id="s6n-rg-4RA"/>
+                            <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="KLz-qH-CTe" secondAttribute="leadingMargin" id="ykM-gE-P4v"/>
+                            <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="HCU-B3-RJR" secondAttribute="trailing" constant="100" id="yr8-TS-I4d"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="63" id="z36-71-A0x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gPl-oY-88B"/>
                     </view>
@@ -1633,7 +1625,7 @@
         <segue reference="6ib-JY-s6f"/>
         <segue reference="SyY-dO-uvk"/>
         <segue reference="fmU-Qf-Psz"/>
-        <segue reference="eAW-bC-ZIK"/>
+        <segue reference="vHJ-CO-qAt"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
 </document>
