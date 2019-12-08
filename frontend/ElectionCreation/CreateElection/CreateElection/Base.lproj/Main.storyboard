@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -121,30 +122,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the number of voters allowed:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7b-Mi-o10">
-                                <rect key="frame" x="20" y="186" width="374" height="24"/>
+                                <rect key="frame" x="20" y="210" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the allowed voter email domain name:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbN-UZ-HwG">
-                                <rect key="frame" x="20" y="285" width="374" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the allowed voter email domain name (only voters with this email domain will be able to vote):" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbN-UZ-HwG">
+                                <rect key="frame" x="20" y="309" width="374" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vAy-XB-Zho">
-                                <rect key="frame" x="82" y="230" width="250" height="35"/>
+                                <rect key="frame" x="82" y="254" width="250" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the following fields to set up the voter authentication process for your election." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g3-uZ-Mhm">
-                                <rect key="frame" x="20" y="118" width="374" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the following (optional) fields to set up the voter authentication process for your election." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0g3-uZ-Mhm">
+                                <rect key="frame" x="20" y="118" width="374" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qA5-U9-Epl">
-                                <rect key="frame" x="82" y="353" width="250" height="35"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="35" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="eg. gmail.com, umich.edu" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qA5-U9-Epl">
+                                <rect key="frame" x="82" y="399" width="250" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -345,32 +346,17 @@
                                 <rect key="frame" x="88" y="50" width="226" height="208"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-dt-lkf">
-                                <rect key="frame" x="20" y="405" width="374" height="75"/>
+                                <rect key="frame" x="215" y="322" width="179" height="75"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="eHF-Ch-3RR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                <state key="normal" title="My Created Elections">
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Hosted Elections">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="YhV-Fx-o2P" kind="show" identifier="ToMyElects" id="TeM-eR-a0i"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Sp-zAA">
-                                <rect key="frame" x="215" y="321" width="179" height="75"/>
-                                <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="179" id="2ht-yo-m8m"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Search All Elections">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="SearchSegue:" destination="bCd-6h-5GA" eventType="touchUpInside" id="OjN-Dd-Nm2"/>
-                                    <segue destination="RIa-PV-Scm" kind="show" identifier="ToSearch" id="mWv-vj-ydG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8W-FG-waP">
@@ -388,21 +374,36 @@
                                     <segue destination="E7G-ph-PVK" kind="show" identifier="ToCreate" id="fmU-Qf-Psz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LuL-Sp-zAA">
+                                <rect key="frame" x="21" y="411" width="373" height="75"/>
+                                <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="373" id="2ht-yo-m8m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                <state key="normal" title="Search All Elections">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="SearchSegue:" destination="bCd-6h-5GA" eventType="touchUpInside" id="OjN-Dd-Nm2"/>
+                                    <segue destination="RIa-PV-Scm" kind="show" identifier="ToSearch" id="mWv-vj-ydG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="LuL-Sp-zAA" firstAttribute="trailing" secondItem="MLQ-dt-lkf" secondAttribute="trailing" id="1tg-nL-ive"/>
-                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="LuL-Sp-zAA" secondAttribute="bottom" constant="9" id="3sK-gL-LdN"/>
-                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="63" id="4qc-6r-OYQ"/>
+                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="LuL-Sp-zAA" secondAttribute="bottom" constant="-164" id="3sK-gL-LdN"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="153" id="4qc-6r-OYQ"/>
                             <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="HCU-B3-RJR" secondAttribute="trailing" constant="100" id="Bf7-Yy-43u"/>
                             <constraint firstItem="LuL-Sp-zAA" firstAttribute="trailing" secondItem="KLz-qH-CTe" secondAttribute="trailingMargin" id="Dqi-3x-8Pq"/>
-                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="leading" secondItem="x8W-FG-waP" secondAttribute="trailing" constant="15" id="He0-sF-WdV"/>
-                            <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="MLQ-dt-lkf" secondAttribute="leading" id="Ij9-2S-GCH"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="leading" secondItem="x8W-FG-waP" secondAttribute="trailing" constant="-179" id="He0-sF-WdV"/>
+                            <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="MLQ-dt-lkf" secondAttribute="leading" constant="-195" id="Ij9-2S-GCH"/>
                             <constraint firstItem="HCU-B3-RJR" firstAttribute="top" secondItem="gPl-oY-88B" secondAttribute="top" constant="50" id="UUf-vK-OkB"/>
                             <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="KLz-qH-CTe" secondAttribute="leadingMargin" id="bgc-Ku-Zan"/>
                             <constraint firstItem="x8W-FG-waP" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="64" id="bzS-xE-eOC"/>
                             <constraint firstItem="HCU-B3-RJR" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="88" id="mHV-RW-AOc"/>
-                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="x8W-FG-waP" secondAttribute="bottom" constant="8" id="t1s-Kw-tbY"/>
+                            <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="x8W-FG-waP" secondAttribute="bottom" constant="-75" id="t1s-Kw-tbY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gPl-oY-88B"/>
                     </view>
@@ -421,13 +422,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYm-dp-dDo">
-                                <rect key="frame" x="0.0" y="-47" width="418" height="44"/>
+                                <rect key="frame" x="0.0" y="-47" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Sign In" id="3yc-gJ-4QF"/>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New? Create an account here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkS-v7-DR5">
-                                <rect key="frame" x="50" y="586" width="318" height="23"/>
+                                <rect key="frame" x="50" y="586" width="314" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" red="0.16230213639999999" green="0.76352691650000004" blue="0.67902952429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -445,7 +446,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vv3-0D-o6Q">
-                                <rect key="frame" x="154" y="384" width="224" height="34"/>
+                                <rect key="frame" x="154" y="384" width="220" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="U7b-Ym-Hb0"/>
                                 </constraints>
@@ -458,7 +459,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jke-fL-m6L">
-                                <rect key="frame" x="120" y="521" width="178" height="35"/>
+                                <rect key="frame" x="120" y="521" width="174" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.54201233386993408" blue="0.548961341381073" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Sign In">
@@ -469,10 +470,10 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="aWm-S7-SBV">
-                                <rect key="frame" x="87" y="117" width="244" height="208"/>
+                                <rect key="frame" x="87" y="117" width="240" height="208"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBw-Vy-i9c">
-                                <rect key="frame" x="100" y="629" width="218" height="35"/>
+                                <rect key="frame" x="100" y="629" width="214" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.52218300104141235" blue="0.52872663736343384" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="i9W-Ju-etN"/>
@@ -794,7 +795,7 @@
             <objects>
                 <viewController id="mJI-Gn-t3T" customClass="PreviewElectionViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2dW-T0-7YP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GU8-XC-CWh">
@@ -836,7 +837,7 @@
             <objects>
                 <tableViewController id="QUD-jV-AJd" customClass="ElectionViewController" customModule="CreateElection" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QOL-E9-NnQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="kba-gJ-IW5">
@@ -872,7 +873,10 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzI-gg-f9l">
                                     <rect key="frame" x="120" y="74" width="174" height="30"/>
-                                    <state key="normal" title="Add Voting Option"/>
+                                    <color key="backgroundColor" name="Color"/>
+                                    <state key="normal" title="Add Voting Option">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <action selector="addItem:" destination="QUD-jV-AJd" eventType="touchUpInside" id="dh8-i3-1h5"/>
                                     </connections>
@@ -946,7 +950,7 @@
                                 <action selector="cancelElection:" destination="QUD-jV-AJd" id="Sv1-1a-gG5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Preview" springLoaded="YES" id="T6e-eV-SnE">
+                        <barButtonItem key="rightBarButtonItem" title="Preview Ballot" springLoaded="YES" id="T6e-eV-SnE">
                             <connections>
                                 <action selector="previewBallot:" destination="QUD-jV-AJd" id="ngi-8k-q13"/>
                             </connections>
@@ -1622,8 +1626,13 @@
     </scenes>
     <resources>
         <image name="Logo" width="244" height="208"/>
+        <namedColor name="Color">
+            <color red="0.050999999046325684" green="0.70999997854232788" blue="0.62599998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="TeM-eR-a0i"/>
+        <segue reference="wZ2-Kt-1G4"/>
         <segue reference="TTC-dM-iYo"/>
         <segue reference="Hzl-19-Sy0"/>
         <segue reference="oKy-mv-4ol"/>
