@@ -93,7 +93,7 @@ class CastVoteViewController: UIViewController {
             for choice in self.choices {
                 print(choice)
                 let optionButton = UIButton(frame: CGRect(x: 80, y: buttonY, width: 250, height: 60))
-                buttonY = buttonY + 100
+                buttonY = buttonY + 80
                 optionButton.layer.cornerRadius = 10
                 if self.isLight == false {
                     optionButton.backgroundColor = UIColor.systemGray
