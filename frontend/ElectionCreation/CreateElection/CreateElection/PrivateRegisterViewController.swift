@@ -51,15 +51,31 @@ class PrivateRegisterViewController: UIViewController {
                         
                     let temp = json["success"] as! Bool
                         if !temp {
-                            DispatchQueue.main.async {
-                                let alertController = UIAlertController(title: "Registration Error",
-                                message: "Invalid passcode.",
-                                preferredStyle: .alert)
-                                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-                                    self.present(alertController, animated: true, completion: nil)
-                                
-                                return
+                            
+                            let temp2 = json["error"] as! String
+                            
+                            if temp2 == "User cannot register for election because of email restrictions" {
+                                DispatchQueue.main.async {
+                                    let alertController = UIAlertController(title: "Registration Error",
+                                    message: "You are ineligible to register for this election.",
+                                    preferredStyle: .alert)
+                                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                                        self.present(alertController, animated: true, completion: nil)
+                                    
+                                    return
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    let alertController = UIAlertController(title: "Registration Error",
+                                    message: "Invalid passcode.",
+                                    preferredStyle: .alert)
+                                    alertController.addAction(UIAlertAction(title: "Retry", style: .default))
+                                        self.present(alertController, animated: true, completion: nil)
+                                    
+                                    return
+                                }
                             }
+                            
                         } else {
                             DispatchQueue.main.async {
                                 self.performSegue(withIdentifier: "PrivateRegSuccess", sender: (Any).self)
