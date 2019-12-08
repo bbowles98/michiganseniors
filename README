@@ -6,8 +6,9 @@ Instructions to build and run:
 File Structure For eLect Skeletal: 
 michiganseniors
 |
-|--corda (under development)
-|	voteApp - all files required to run to our cordapp on backend server
+|--corda
+|	|--voteApp - All relevant files to cordapp running on server http://206.81.10.10:10050/votes
+|	
 |
 |--django_project
 |	django_project- URL's, URL definitions
