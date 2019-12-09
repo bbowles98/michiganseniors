@@ -56,14 +56,15 @@ class DeleteElectViewController: UIViewController {
                        let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
                        print(json.debugDescription)
                        print(json)
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "JustForwarded", sender: (Any).self)
+                        }
                    }
                   catch let error as NSError {
                    print(error)
                   }
                }
                task.resume()
-        
-        performSegue(withIdentifier: "JustForwarded", sender: (Any).self)
     }
 
     
