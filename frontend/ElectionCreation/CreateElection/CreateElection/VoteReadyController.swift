@@ -86,7 +86,7 @@ class VoteReadyViewController: UIViewController {
                 }
                 DispatchQueue.main.async {
                     self.ViewResultButton.isHidden = !self.canViewResults
-                    self.registrationButton.isHidden = self.isRegistered
+                    self.registrationButton.isHidden = self.isRegistered || self.canViewResults
                     self.voteButton.isHidden = ((self.canViewResults && self.isRegistered) || !self.isRegistered)
                     
                     print("can view register button:")
