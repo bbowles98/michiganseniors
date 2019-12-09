@@ -627,7 +627,6 @@ def send_vote_reminder():
 	for election in elections:
 
 		end_date_str = election.end_date.split(' ')[0].split('-')
-		print(end_date_str)
 
 		today = datetime.today()
 		if not (today.year == int(end_date_str[0]) and today.month == int(end_date_str[1]) and today.day == int(end_date_str[2])):
@@ -638,10 +637,12 @@ def send_vote_reminder():
 		registered_voters = RegisterLink.objects.filter(election=election)
 		for voter in registered_voters:
 
-			try:
-				sendMail(voter.participant.email, msg)
-			except:
-				continue
+			if not VoterToElection.objects.filter(election=election, voter=voter.participant):
+
+				try:
+					sendMail(voter.participant.email, msg)
+				except:
+					continue
 
 
 
