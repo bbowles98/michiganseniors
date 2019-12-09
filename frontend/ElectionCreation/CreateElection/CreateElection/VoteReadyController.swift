@@ -45,6 +45,9 @@ class VoteReadyViewController: UIViewController {
                     if (Int(elect) == Int(self.electionIDpassed)) {
                         self.isRegistered = true
                     }
+                    else {
+                        self.isRegistered = false
+                    }
                 }
             }
            catch let error as NSError {
