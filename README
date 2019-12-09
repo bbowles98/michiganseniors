@@ -1,8 +1,16 @@
-Instructions to build and run:
+#Instructions to build and run#:
+Requires: 
+-At least Xcode version 11.2.1
+
+1. Clone the repo
+2. Go to michiganseniors/frontend/ElectionCreation/CreateElection/
+3. Open CreateElection.xcodeproj/ (double clicking this .xcodeproj file will open it in Xcode)
+4. Set the simulator device to iPhone 11
+5. Press the play button once the application builds
 
 
 
-////////////////////////////////////////////////
+####################################
 File Structure For eLect Skeletal: 
 michiganseniors
 |
@@ -20,8 +28,8 @@ michiganseniors
 |	searchAndBallot
 |	searchForElections
 |	signIn
-/////////////////////////////////////////////////
 
+####################################
 API Guide for elect
 
 The digital ocean server is located at 204.48.30.178.
