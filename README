@@ -1,14 +1,31 @@
 #Instructions to build and run#:
-Requires: 
--At least Xcode version 11.2.1
+Frontend
+	Requires: 
+	-At least Xcode version 11.2.1
 
-1. Clone the repo
-2. Go to michiganseniors/frontend/ElectionCreation/CreateElection/
-3. Open CreateElection.xcodeproj/ (double clicking this .xcodeproj file will open it in Xcode)
-4. Set the simulator device to iPhone 11
-5. Press the play button once the application builds
+	1. Clone the repo
+	2. Go to michiganseniors/frontend/ElectionCreation/CreateElection/
+	3. Open CreateElection.xcodeproj/ (double clicking this .xcodeproj file will open it in Xcode)
+	4. Set the simulator device to iPhone 11
+	5. Press the play button once the application builds
+	
+Cordapp #Thanks to corda team for great documentation/examples/templates#
+	
+	Requires: 
+	-"Java 8 JVK - We require at least version 8u171, but do not currently support Java 9 or higher."
+		from https://docs.corda.net/quickstart-index.html
+	
+	
+	---Node Network---
+	1. michiganseniors/corda/voteapp/ :		./gradlew clean deployNodes
+	2. michiganseniors/corda/voteapp/build/nodes:	./runnodes
+	3. Congrats! You're running a simulated network of nodes running our cordapp
 
-
+	---HTTP Server---
+	Values for this server are hardcoded for the Digital Ocean droplet it runs on. Thus, you cannot run it locally. 
+	However, these WOULD be the steps: 
+	1. voteapp/:		./gradlew runtemplateserver
+	2. Congrats! You're running an http server to reach our nodes on our simulated network! Woohoo!
 
 ####################################
 File Structure For eLect Skeletal: 

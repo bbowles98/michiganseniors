@@ -80,6 +80,45 @@ class ElectManageViewController: UIViewController {
     {
         if segue.destination is DeleteElectViewController
         {
+            
+            let getURL = "http://204.48.30.178/elections/"
+            
+            
+            // Get the data to load the ballot
+            var request = URLRequest(url:
+                URL(string: getURL)!)
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+             
+             print("election creation token")
+             request.addValue("JWT " + token, forHTTPHeaderField: "Authorization")
+             request.httpMethod = "GET"
+            
+            
+            let task = URLSession.shared.dataTask(with: request)
+            { data, response, error in
+                guard let _ = data, error == nil else {
+                    print("NETWORKING ERROR")
+                    return}
+                if let httpStatus = response as? HTTPURLResponse,
+                    httpStatus.statusCode != 200 {
+                    print("HTTP STATUS: \(httpStatus.statusCode)")
+                    return}
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                    //print(json.debugDescription)
+                    //print(json)
+                    elections = json["election"] as! [Dictionary<String, Any>]
+                    //print(elections)
+                }
+               catch let error as NSError {
+                print(error)
+               }
+            }
+            task.resume()
+            
+            
             let vc = segue.destination as? DeleteElectViewController
             
             vc!.selectedElect = selectedElect
@@ -93,6 +132,7 @@ class ElectManageViewController: UIViewController {
                 print(results[selectedElect]["name"]) */
             }
             else {
+                //viewDidLoad()
                 let election = elections[selectedElect]
                 vc!.electionName = election["name"] as! String
                 vc!.hostName = election["creator"] as! String
@@ -102,7 +142,7 @@ class ElectManageViewController: UIViewController {
                 print(elections[selectedElect]["name"]) */
             }
         }
-        viewDidLoad()
+        //viewDidLoad()
     }
 }
 
