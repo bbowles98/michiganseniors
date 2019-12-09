@@ -22,8 +22,9 @@ Cordapp #Thanks to corda team for great documentation/examples/templates#
 	3. Congrats! You're running a simulated network of nodes running our cordapp
 
 	---HTTP Server---
-	Note: network must be running in order for server to run
-	1. michiganseniors/corda/voteapp/:		./gradlew runtemplateserver
+	Values for this server are hardcoded for the Digital Ocean droplet it runs on. Thus, you cannot run it locally. 
+	However, these WOULD be the steps: 
+	1. voteapp/:		./gradlew runtemplateserver
 	2. Congrats! You're running an http server to reach our nodes on our simulated network! Woohoo!
 
 ####################################
