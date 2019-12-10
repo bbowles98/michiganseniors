@@ -379,6 +379,8 @@
                                 <color key="backgroundColor" red="1" green="0.52218300100000004" blue="0.52872663740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="373" id="2ht-yo-m8m"/>
+                                    <constraint firstAttribute="height" constant="75" id="Igj-mF-ahT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="373" id="ezU-Jk-Xty"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                 <state key="normal" title="Search All Elections">
@@ -395,10 +397,13 @@
                             <constraint firstItem="LuL-Sp-zAA" firstAttribute="trailing" secondItem="MLQ-dt-lkf" secondAttribute="trailing" id="1tg-nL-ive"/>
                             <constraint firstItem="MLQ-dt-lkf" firstAttribute="top" secondItem="LuL-Sp-zAA" secondAttribute="bottom" constant="-164" id="3sK-gL-LdN"/>
                             <constraint firstItem="LuL-Sp-zAA" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="153" id="4qc-6r-OYQ"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="leading" secondItem="gPl-oY-88B" secondAttribute="leading" constant="21" id="72s-Xo-OX8"/>
                             <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="HCU-B3-RJR" secondAttribute="trailing" constant="100" id="Bf7-Yy-43u"/>
                             <constraint firstItem="LuL-Sp-zAA" firstAttribute="trailing" secondItem="KLz-qH-CTe" secondAttribute="trailingMargin" id="Dqi-3x-8Pq"/>
+                            <constraint firstItem="LuL-Sp-zAA" firstAttribute="top" secondItem="MLQ-dt-lkf" secondAttribute="bottom" constant="14" id="GAM-GP-mlL"/>
                             <constraint firstItem="LuL-Sp-zAA" firstAttribute="leading" secondItem="x8W-FG-waP" secondAttribute="trailing" constant="-179" id="He0-sF-WdV"/>
                             <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="MLQ-dt-lkf" secondAttribute="leading" constant="-195" id="Ij9-2S-GCH"/>
+                            <constraint firstItem="gPl-oY-88B" firstAttribute="trailing" secondItem="LuL-Sp-zAA" secondAttribute="trailing" constant="20" id="TxK-H8-2E1"/>
                             <constraint firstItem="HCU-B3-RJR" firstAttribute="top" secondItem="gPl-oY-88B" secondAttribute="top" constant="50" id="UUf-vK-OkB"/>
                             <constraint firstItem="x8W-FG-waP" firstAttribute="leading" secondItem="KLz-qH-CTe" secondAttribute="leadingMargin" id="bgc-Ku-Zan"/>
                             <constraint firstItem="x8W-FG-waP" firstAttribute="top" secondItem="HCU-B3-RJR" secondAttribute="bottom" constant="64" id="bzS-xE-eOC"/>
@@ -1637,7 +1642,7 @@
         <segue reference="hsz-bu-zKK"/>
         <segue reference="6ib-JY-s6f"/>
         <segue reference="SyY-dO-uvk"/>
-        <segue reference="dWF-I1-MOo"/>
+        <segue reference="fmU-Qf-Psz"/>
         <segue reference="ZQP-6k-uH7"/>
         <segue reference="a96-Pf-i1R"/>
     </inferredMetricsTieBreakers>
