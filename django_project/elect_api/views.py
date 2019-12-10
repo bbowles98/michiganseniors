@@ -620,4 +620,29 @@ def isElectionLive(election):
 	return True
 
 
+def send_vote_reminder():
+
+	elections = Election.objects.all()
+
+	for election in elections:
+
+		end_date_str = election.end_date.split(' ')[0].split('-')
+
+		today = datetime.today()
+		if not (today.year == int(end_date_str[0]) and today.month == int(end_date_str[1]) and today.day == int(end_date_str[2])):
+			continue
+
+		msg = "Subject: Election " + election.name + " Ending Soon!\n\nMake sure to login to eLect today to cast your vote before the election closes."
+
+		registered_voters = RegisterLink.objects.filter(election=election)
+		for voter in registered_voters:
+
+			if not VoterToElection.objects.filter(election=election, voter=voter.participant):
+
+				try:
+					sendMail(voter.participant.email, msg)
+				except:
+					continue
+
+
 
